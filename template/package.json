@@ -1,0 +1,42 @@
+{
+  "name": "vue-loader-boilerplate",
+  "description": "A boilerplate for vue projects",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot --no-info --config build/webpack.dev.conf.js",
+    "build": "webpack --progress --hide-modules --config build/webpack.prod.conf.js",
+    "test": "karma start build/karma.conf.js --single-run"
+  },
+  "dependencies": {
+    "vue": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-plugin-transform-runtime": "^6.0.0",
+    "babel-preset-es2015": "^6.0.0",
+    "babel-preset-stage-2": "^6.0.0",
+    "babel-runtime": "^5.8.0",
+    "css-loader": "^0.23.0",
+    "eslint": "^1.10.3",
+    "eslint-loader": "^1.1.1",
+    "file-loader": "^0.8.4",
+    "function-bind": "^1.0.2",
+    "inject-loader": "^2.0.1",
+    "jasmine-core": "^2.4.1",
+    "json-loader": "^0.5.4",
+    "karma": "^0.13.15",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-spec-reporter": "0.0.23",
+    "karma-webpack": "^1.7.0",
+    "phantomjs": "^1.9.19",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
+    "vue-hot-reload-api": "^1.2.0",
+    "vue-html-loader": "^1.0.0",
+    "vue-loader": "^7.3.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0"
+  }
+}
