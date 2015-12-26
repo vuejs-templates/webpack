@@ -22,7 +22,7 @@ npm run dev
 
 - `npm run build`: Production ready build with minification and CSS extraction.
 
-- `npm run test`: Unit tests in PhantomJS with Karma + karma-webpack, supporting all webpack loaders and ES2015.
+- `npm test`: Unit tests in PhantomJS with Karma + karma-webpack, supporting all webpack loaders, [mock injection](http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html) and ES2015.
 
 ### Customizations
 
