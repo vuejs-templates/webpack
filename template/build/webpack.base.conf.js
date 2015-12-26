@@ -3,7 +3,7 @@ var path = require('path')
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, '../static'),
+    path: path.resolve(__dirname, '../dist/static'),
     publicPath: '/static/',
     filename: 'build.js'
   },
