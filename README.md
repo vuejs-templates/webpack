@@ -24,6 +24,8 @@ npm run dev
 
 - `npm test`: Unit tests in PhantomJS with Karma + karma-jasmine + karma-webpack, supporting all webpack loaders, [mock injection](http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html) and ES2015.
 
+For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
 ### Customizations
 
 You will likely need to do some tuning to suit your own needs:
