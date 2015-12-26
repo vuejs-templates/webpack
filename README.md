@@ -1,6 +1,16 @@
 # vue-webpack-boilerplate
 
-> WIP
+> A full-featured Webpack setup with linting, testing & css extraction.
+
+### Usage
+
+``` bash
+$ npm install -g vue-cli
+$ vue init webpack my-project
+$ cd my-project
+$ npm install
+$ npm run dev
+```
 
 ### What's Included
 
