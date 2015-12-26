@@ -16,7 +16,11 @@
     "objectLiteralShorthandProperties": true,
     "restParams": true,
     "spread": true,
-    "templateStrings": true
+    "forOf": true,
+    "generators": true,
+    "templateStrings": true,
+    "superInFunctions": true,
+    "experimentalObjectRestSpread": true
   },
 
   "rules": {
