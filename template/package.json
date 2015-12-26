@@ -1,9 +1,12 @@
 {
-  "name": "vue-loader-boilerplate",
-  "description": "A boilerplate for vue projects",
+  "name": "{{ name }}",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
+  {{#private}}
   "private": true,
+  {{/private}}
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --no-info --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --hot --config build/webpack.dev.conf.js",
     "build": "webpack --progress --hide-modules --config build/webpack.prod.conf.js",
     "test": "karma start build/karma.conf.js --single-run"
   },

@@ -3,15 +3,14 @@ var path = require('path')
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, '../static'),
+    publicPath: '/static/',
     filename: 'build.js'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
     alias: {
-      'src': path.resolve(__dirname, '../src'),
-      'static': path.resolve(__dirname, '../static')
+      'src': path.resolve(__dirname, '../src')
     }
   },
   module: {
@@ -43,5 +42,9 @@ module.exports = {
     loaders: {
       js: 'babel!eslint'
     }
+  },
+  devServer: {
+    historyApiFallback: true,
+    noInfo: true
   }
 }
