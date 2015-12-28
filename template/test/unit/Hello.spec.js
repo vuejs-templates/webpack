@@ -12,3 +12,6 @@ describe('Hello.vue', () => {
     expect(vm.$el.querySelector('.hello h1').textContent).toBe('Hello World!')
   })
 })
+
+// also see example testing a component with mocks at
+// https://github.com/vuejs/vue-loader-example/blob/master/test/unit/a.spec.js#L24-L49

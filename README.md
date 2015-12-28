@@ -1,6 +1,6 @@
 # vue-webpack-boilerplate
 
-> A full-featured Webpack setup with linting, testing & css extraction.
+> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 
 ### Usage
 
