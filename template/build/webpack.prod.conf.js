@@ -2,6 +2,8 @@ var webpack = require('webpack')
 var config = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
+config.devtool = 'source-map'
+
 config.vue.loaders = {
   js: 'babel!eslint',
   // http://vuejs.github.io/vue-loader/configurations/extract-css.html
