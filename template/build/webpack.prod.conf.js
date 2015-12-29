@@ -5,10 +5,10 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 config.vue.loaders = {
   js: 'babel!eslint',
   // http://vuejs.github.io/vue-loader/configurations/extract-css.html
-  css: ExtractTextPlugin.extract('css'),
-  less: ExtractTextPlugin.extract('css!less'),
-  sass: ExtractTextPlugin.extract('css!sass'),
-  stylus: ExtractTextPlugin.extract('css!stylus')
+  css: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+  less: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader'),
+  sass: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
+  stylus: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader')
 }
 
 // http://vuejs.github.io/vue-loader/workflow/production.html
