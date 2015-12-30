@@ -22,7 +22,7 @@
     "babel-runtime": "^5.8.0",
     "css-loader": "^0.23.0",
     "eslint": "^1.10.3",
-    "eslint-loader": "^1.1.1",
+    "eslint-loader": "github:yyx990803/eslint-loader",
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.4",
     "function-bind": "^1.0.2",
@@ -39,7 +39,7 @@
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
-    "vue-loader": "^7.3.0",
+    "vue-loader": "^7.5.0",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.0"
   }
