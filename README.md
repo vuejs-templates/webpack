@@ -16,11 +16,22 @@ $ npm run dev
 
 ### What's Included
 
-- `npm run dev`: Webpack + `vue-loader` with proper config for hot-reload, source maps, and lint-on-save with ESLint.
+- `npm run dev`: first-in-class development experience.
+  - Webpack + `vue-loader` for single file Vue components.
+  - State preserving hot-reload
+  - Lint-on-save with ESLint
+  - Source maps
 
-- `npm run build`: Production ready build with HTML/CSS/JS minification and CSS extracted into a single file.
+- `npm run build`: Production ready build.
+  - JavaScript minified with [UglifyJS](https://github.com/mishoo/UglifyJS2).
+  - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
+  - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
+  - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
 
-- `npm test`: Unit tests in PhantomJS with Karma + karma-jasmine + karma-webpack, supporting all webpack loaders, [mock injection](http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html) and ES2015.
+- `npm test`: Unit tests run in PhantomJS with Karma + karma-jasmine + karma-webpack.
+  - Supports ES2015 in test files.
+  - Supports all webpack loaders.
+  - Easy [mock injection](http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html).
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
