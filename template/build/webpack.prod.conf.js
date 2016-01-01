@@ -1,6 +1,10 @@
 var webpack = require('webpack')
 var config = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+
+config.output.filename = '[name].[chunkhash].js'
+config.output.chunkFilename = '[id].[chunkhash].js'
 
 config.devtool = 'source-map'
 
@@ -13,9 +17,8 @@ config.vue.loaders = {
   stylus: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader')
 }
 
-// http://vuejs.github.io/vue-loader/workflow/production.html
 config.plugins = (config.plugins || []).concat([
-  new ExtractTextPlugin('style.css'),
+  // http://vuejs.github.io/vue-loader/workflow/production.html
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: '"production"'
@@ -26,7 +29,17 @@ config.plugins = (config.plugins || []).concat([
       warnings: false
     }
   }),
-  new webpack.optimize.OccurenceOrderPlugin()
+  new webpack.optimize.OccurenceOrderPlugin(),
+  // extract css into its own file
+  new ExtractTextPlugin('[name].[contenthash].css'),
+  // https://github.com/ampedandwired/html-webpack-plugin
+  // generate dist index.html with correct asset hash for caching.
+  // you can customize output by editing /build/index.template.html
+  new HtmlWebpackPlugin({
+    filename: '../index.html',
+    template: 'build/index.template.html',
+    inject: true
+  })
 ])
 
 module.exports = config

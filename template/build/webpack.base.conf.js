@@ -1,11 +1,13 @@
 var path = require('path')
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    app: './src/main.js'
+  },
   output: {
     path: path.resolve(__dirname, '../dist/static'),
     publicPath: '/static/',
-    filename: 'build.js'
+    filename: '[name].js'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],

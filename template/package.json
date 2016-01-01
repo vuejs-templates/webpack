@@ -7,7 +7,7 @@
   {{/private}}
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --config build/webpack.dev.conf.js",
-    "build": "webpack --progress --hide-modules --config build/webpack.prod.conf.js",
+    "build": "rimraf dist && webpack --progress --hide-modules --config build/webpack.prod.conf.js",
     "test": "karma start build/karma.conf.js --single-run"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.4",
     "function-bind": "^1.0.2",
+    "html-webpack-plugin": "^1.7.0",
     "inject-loader": "^2.0.1",
     "jasmine-core": "^2.4.1",
     "json-loader": "^0.5.4",
@@ -35,6 +36,7 @@
     "karma-spec-reporter": "0.0.23",
     "karma-webpack": "^1.7.0",
     "phantomjs": "^1.9.19",
+    "rimraf": "^2.5.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.2.0",
