@@ -44,5 +44,8 @@ module.exports = {
     loaders: {
       js: 'babel!eslint'
     }
+  },
+  eslint: {
+    formatter: require('eslint-friendly-formatter')
   }
 }
