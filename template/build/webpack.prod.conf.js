@@ -32,13 +32,12 @@ config.plugins = (config.plugins || []).concat([
   new webpack.optimize.OccurenceOrderPlugin(),
   // extract css into its own file
   new ExtractTextPlugin('[name].[contenthash].css'),
-  // https://github.com/ampedandwired/html-webpack-plugin
   // generate dist index.html with correct asset hash for caching.
   // you can customize output by editing /build/index.template.html
+  // see https://github.com/ampedandwired/html-webpack-plugin
   new HtmlWebpackPlugin({
     filename: '../index.html',
-    template: 'build/index.template.html',
-    inject: true
+    template: 'build/index.template.html'
   })
 ])
 
