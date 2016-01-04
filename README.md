@@ -49,11 +49,9 @@ You will likely need to do some tuning to suit your own needs:
   npm install less-loader --save-dev
   ```
 
-- In `build/webpack.base.conf.js`:
+- Working with an existing backend server:
 
-  - Adjust `output.path` if you want the built file to be generated at a different location.
-
-  - Add `devServer.proxy` field if you want to work with an existing backend server. See [docs for webpack dev server proxy](https://webpack.github.io/docs/webpack-dev-server.html#proxy).
+  - In `build/webpack.base.conf.js`, add `devServer.proxy` field. See [docs for webpack dev server proxy](https://webpack.github.io/docs/webpack-dev-server.html#proxy).
 
 - For unit testing:
 
