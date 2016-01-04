@@ -44,9 +44,5 @@ module.exports = {
     loaders: {
       js: 'babel!eslint'
     }
-  },
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true
   }
 }
