@@ -8,7 +8,8 @@
     "description": {
       "type": "string",
       "required": true,
-      "label": "Project description"
+      "label": "Project description",
+      "default": "A Vue.js project"
     },
     "author": {
       "type": "string",
