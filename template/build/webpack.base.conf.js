@@ -15,6 +15,9 @@ module.exports = {
       'src': path.resolve(__dirname, '../src')
     }
   },
+  resolveLoader: {
+    root: path.join(__dirname, 'node_modules'),
+  },
   module: {
     loaders: [
       {
