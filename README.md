@@ -52,7 +52,7 @@ You will likely need to do some tuning to suit your own needs:
 
 - Working with an existing backend server:
 
-  - The dev server is simply an [Express](http://expressjs.com/) server with [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) and [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) pre-configured. You can add your own routing rules to `build/dev-server.js` to proxy certain requests to an existing backend server. Or, if you are using Express yourself, you can simply copy the middleware configuration.
+  - The dev server is simply an [Express](http://expressjs.com/) server with [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) and [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) pre-configured. You can add your own routing rules to `build/dev-server.js` to proxy certain requests to an existing backend server. Or, if you are using Express yourself, you can simply copy the middleware configuration, but **make sure to add them only in development mode!**
 
 - For unit testing:
 
