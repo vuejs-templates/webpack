@@ -6,12 +6,12 @@
   "private": true,
   {{/private}}
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --config build/webpack.dev.conf.js",
+    "dev": "node build/dev-server.js",
     "build": "rimraf dist && webpack --progress --hide-modules --config build/webpack.prod.conf.js",
     "test": "karma start build/karma.conf.js --single-run"
   },
   "dependencies": {
-    "vue": "^1.0.0"
+    "vue": "^1.0.15"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -24,6 +24,8 @@
     "eslint": "^1.10.3",
     "eslint-friendly-formatter": "^1.2.2",
     "eslint-loader": "^1.2.0",
+    "eventsource-polyfill": "^0.9.6",
+    "express": "^4.13.3",
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.4",
     "function-bind": "^1.0.2",
@@ -44,6 +46,7 @@
     "vue-loader": "^8.0.0",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.12.0"
+    "webpack-dev-middleware": "^1.4.0",
+    "webpack-hot-middleware": "^2.6.0"
   }
 }
