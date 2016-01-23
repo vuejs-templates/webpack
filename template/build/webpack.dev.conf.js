@@ -7,7 +7,7 @@ config.devtool = 'eval-source-map'
 
 // add hot-reload related code to entry chunks
 var polyfill = 'eventsource-polyfill'
-var hotClient = 'webpack-hot-middleware/client?quiet=true'
+var hotClient = 'webpack-hot-middleware/client?noInfo=true&reload=true'
 Object.keys(config.entry).forEach(function (name, i) {
   var extras = i === 0 ? [polyfill, hotClient] : [hotClient]
   config.entry[name] = extras.concat(config.entry[name])
