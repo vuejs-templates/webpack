@@ -5,12 +5,13 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 // eval-source-map is faster for development
 config.devtool = 'eval-source-map'
 
-// add hot-reload related code to entry chunk
-config.entry.app = [
-  'eventsource-polyfill',
-  'webpack-hot-middleware/client?quiet=true',
-  config.entry.app
-]
+// add hot-reload related code to entry chunks
+var polyfill = 'eventsource-polyfill'
+var hotClient = 'webpack-hot-middleware/client?quiet=true'
+Object.keys(config.entry).forEach(function (name, i) {
+  var extras = i === 0 ? [polyfill, hotClient] : [hotClient]
+  config.entry[name] = extras.concat(config.entry[name])
+})
 
 // necessary for the html plugin to work properly
 // when serving the html from in-memory
