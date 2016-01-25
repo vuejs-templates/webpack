@@ -1,4 +1,8 @@
-{
+var production = process.env.NODE_ENV === 'production'
+
+module.exports = {
+  "root": true,
+
   "env": {
     "browser": true,
     "node": true
@@ -65,7 +69,7 @@
     "no-constant-condition": 0,
     "no-continue": 0,
     "no-control-regex": 2,
-    "no-debugger": 2,
+    "no-debugger": production ? 2 : 0,
     "no-delete-var": 2,
     "no-div-regex": 0,
     "no-dupe-args": 2,
