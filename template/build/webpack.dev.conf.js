@@ -6,11 +6,13 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 config.devtool = 'eval-source-map'
 
 // add hot-reload related code to entry chunks
-var polyfill = 'eventsource-polyfill'
-var hotClient = 'webpack-hot-middleware/client?noInfo=true&reload=true'
-Object.keys(config.entry).forEach(function (name, i) {
-  var extras = i === 0 ? [polyfill, hotClient] : [hotClient]
-  config.entry[name] = extras.concat(config.entry[name])
+// var polyfill = 'eventsource-polyfill'
+var devServer = 'webpack/hot/dev-server'
+var hotClient = 'webpack-hot-middleware/client'
+Object.keys(config.entry).forEach(function(name, i) {
+    // var extras = i === 0 ? [polyfill, hotClient] : [hotClient]
+    var extras = [devServer, hotClient]
+    config.entry[name] = extras.concat(config.entry[name])
 })
 
 // necessary for the html plugin to work properly
@@ -18,15 +20,15 @@ Object.keys(config.entry).forEach(function (name, i) {
 config.output.publicPath = '/'
 
 config.plugins = (config.plugins || []).concat([
-  // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
-  new webpack.optimize.OccurenceOrderPlugin(),
-  new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin(),
-  // https://github.com/ampedandwired/html-webpack-plugin
-  new HtmlWebpackPlugin({
-    filename: 'index.html',
-    template: 'src/index.html'
-  })
+    // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    // https://github.com/ampedandwired/html-webpack-plugin
+    new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: 'src/index.html'
+    })
 ])
 
 module.exports = config
