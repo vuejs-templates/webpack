@@ -5,6 +5,7 @@ var webpack = require('webpack')
 var browserSync = require('browser-sync')
 var webpackDevMiddleware = require('webpack-dev-middleware')
 var webpackHotMiddleware = require('webpack-hot-middleware')
+var path = require('path')
 
 /**
  * Require ./webpack.dev.config.js and make a bundler from it
@@ -17,7 +18,7 @@ var bundler = webpack(webpackConfig)
  */
 browserSync({
     server: {
-        baseDir: '../src'
+        baseDir: webpackConfig.resolve.alias.src
     },
     middleware: [
         webpackDevMiddleware(bundler, {
@@ -42,6 +43,6 @@ browserSync({
     // no need to watch '*.js' here, webpack will take care of it for us,
     // including full page reloads if HMR won't work
     files: [
-        '../src/*.html'
+        path.join(webpackConfig.resolve.alias.src, '*.html')
     ]
 })
