@@ -1,3 +1,5 @@
+var path = require('path')
+
 /**
  * Require Browsersync along with webpack and middleware for it
  */
@@ -5,7 +7,6 @@ var webpack = require('webpack')
 var browserSync = require('browser-sync')
 var webpackDevMiddleware = require('webpack-dev-middleware')
 var webpackHotMiddleware = require('webpack-hot-middleware')
-var path = require('path')
 
 /**
  * Require ./webpack.dev.config.js and make a bundler from it
