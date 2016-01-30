@@ -10,8 +10,11 @@ app.use(require('connect-history-api-fallback')())
 
 // serve webpack bundle output
 app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
-  publicPath: config.output.publicPath
+  publicPath: config.output.publicPath,
+  stats: {
+    colors: true,
+    chunks: false
+  }
 }))
 
 // enable hot-reload and state-preserving
