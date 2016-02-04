@@ -7,7 +7,7 @@
     },
     "description": {
       "type": "string",
-      "required": true,
+      "required": false,
       "label": "Project description",
       "default": "A Vue.js project"
     },
