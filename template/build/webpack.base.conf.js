@@ -19,14 +19,26 @@ module.exports = {
     root: path.join(__dirname, 'node_modules')
   },
   module: {
-    loaders: [
+    preLoaders: [
       {
         test: /\.vue$/,
-        loader: 'vue!eslint'
+        loader: 'eslint',
+        exclude: /node_modules/
       },
       {
         test: /\.js$/,
-        loader: 'babel!eslint',
+        loader: 'eslint',
+        exclude: /node_modules/
+      }
+    ],
+    loaders: [
+      {
+        test: /\.vue$/,
+        loader: 'vue'
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel',
         exclude: /node_modules/
       },
       {
