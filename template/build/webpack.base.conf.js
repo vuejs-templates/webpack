@@ -22,7 +22,7 @@ module.exports = {
     loaders: [
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue!eslint'
       },
       {
         test: /\.js$/,
@@ -42,11 +42,6 @@ module.exports = {
         }
       }
     ]
-  },
-  vue: {
-    loaders: {
-      js: 'babel!eslint'
-    }
   },
   eslint: {
     formatter: require('eslint-friendly-formatter')

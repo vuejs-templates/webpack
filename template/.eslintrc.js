@@ -8,6 +8,10 @@ module.exports = {
     'node': true
   },
 
+  'plugins': [
+    'html'
+  ],
+
   'ecmaFeatures': {
     'arrowFunctions': true,
     'destructuring': true,

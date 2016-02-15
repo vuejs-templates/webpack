@@ -21,9 +21,8 @@ function generateExtractLoaders (loaders) {
   }).join('!')
 }
 
+// http://vuejs.github.io/vue-loader/configurations/extract-css.html
 config.vue.loaders = {
-  js: 'babel!eslint',
-  // http://vuejs.github.io/vue-loader/configurations/extract-css.html
   css: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css'])),
   less: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'less'])),
   sass: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'sass'])),
