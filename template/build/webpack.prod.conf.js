@@ -22,12 +22,18 @@ function generateExtractLoaders (loaders) {
 }
 
 // http://vuejs.github.io/vue-loader/configurations/extract-css.html
-config.vue.loaders = {
+var cssExtractLoaders = {
   css: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css'])),
   less: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'less'])),
   sass: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'sass'])),
   stylus: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'stylus']))
 }
+
+config.vue = config.vue || {}
+config.vue.loaders = config.vue.loaders || {}
+Object.keys(cssExtractLoaders).forEach(function (key) {
+  config.vue.loaders[key] = cssExtractLoaders[key]
+})
 
 config.plugins = (config.plugins || []).concat([
   // http://vuejs.github.io/vue-loader/workflow/production.html
