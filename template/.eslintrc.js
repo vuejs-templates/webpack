@@ -8,6 +8,8 @@ module.exports = {
   ],
   // add your custom rules here
   'rules': {
+    // allow paren-less arrow functions as needed
+    'arrow-parens': [2, 'as-needed'],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
