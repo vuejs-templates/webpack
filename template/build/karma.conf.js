@@ -1,5 +1,6 @@
 var webpackConf = require('./webpack.base.conf')
 delete webpackConf.entry
+webpackConf.devtool = 'inline-source-map'
 
 module.exports = function (config) {
   config.set({
@@ -8,7 +9,7 @@ module.exports = function (config) {
     reporters: ['spec'],
     files: ['../test/unit/index.js'],
     preprocessors: {
-      '../test/unit/index.js': ['webpack']
+      '../test/unit/index.js': ['webpack', 'sourcemap']
     },
     webpack: webpackConf,
     webpackMiddleware: {
