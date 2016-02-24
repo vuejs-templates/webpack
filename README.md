@@ -36,9 +36,10 @@ $ npm run dev
 │   └── assets                # static assets
 │       └── ...
 └── test
-    └── unit                  # unit tests
-        ├── index.js          # unit test entry file
-        └── ...
+│   └── unit                  # unit tests
+│       ├── index.js          # unit test entry file
+│       └── ...
+└── dist                      # built static files
 ```
 
 ### What's Included
@@ -55,6 +56,7 @@ $ npm run dev
   - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
   - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
   - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
+  - **To serve built files, run an HTTP server inside `/dist`**.
 
 - `npm test`: Unit tests run in PhantomJS with Karma + karma-jasmine + karma-webpack.
   - Supports ES2015 in test files.
