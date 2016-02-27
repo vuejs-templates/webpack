@@ -18,29 +18,30 @@ $ npm run dev
 
 ``` bash
 .
-├── package.json              # build scripts and dependencies
-├── .babelrc                  # babel configuration
-├── .eslintrc.js              # eslint configuration
 ├── build
 │   ├── dev-server.js         # development server script
 │   ├── karma.conf.js         # unit testing config
 │   ├── webpack.base.conf.js  # shared base webpack config
 │   ├── webpack.dev.conf.js   # development webpack config
-│   └── webpack.prod.conf.js  # production webpack config
+│   ├── webpack.prod.conf.js  # production webpack config
+│   └── ...
 ├── src
-│   ├── index.html            # main html file
 │   ├── main.js               # app entry file
 │   ├── App.vue               # main app component
 │   ├── components            # ui components
 │   │   └── ...
 │   └── assets                # module assets (processed by webpack)
 │       └── ...
-└── test
+├── static                    # pure static assets (directly copied)
+├── dist                      # built files ready for deploy
+├── test
 │   └── unit                  # unit tests
 │       ├── index.js          # unit test entry file
 │       └── ...
-├── static                    # pure static assets (directly copied)
-└── dist                      # built files ready for deploy
+├── .babelrc                  # babel config
+├── .eslintrc.js              # eslint config
+├── index.html                # main html file
+└── package.json              # build scripts and dependencies
 ```
 
 ### What's Included
