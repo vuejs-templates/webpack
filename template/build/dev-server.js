@@ -29,6 +29,8 @@ app.use(devMiddleware)
 // enable hot-reload and state-preserving
 // compilation error display
 app.use(hotMiddleware)
+// serve pure static assets
+app.use('/static', express.static('./static'))
 
 app.listen(8080, function (err) {
   if (err) {

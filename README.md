@@ -33,13 +33,14 @@ $ npm run dev
 │   ├── App.vue               # main app component
 │   ├── components            # ui components
 │   │   └── ...
-│   └── assets                # static assets
+│   └── assets                # module assets (processed by webpack)
 │       └── ...
 └── test
 │   └── unit                  # unit tests
 │       ├── index.js          # unit test entry file
 │       └── ...
-└── dist                      # built static files
+├── static                    # pure static assets (directly copied)
+└── dist                      # built files ready for deploy
 ```
 
 ### What's Included
@@ -64,6 +65,14 @@ $ npm run dev
   - Easy [mock injection](http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html).
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+### Difference between `src/assets/` and `static/`
+
+- Files inside `src/assets/` should be referenced via relative paths inside Vue component templates and styles. They will be processed by `url-loader` and `file-loader` before copied into `/static`.
+
+- Files inside `static/` are copied directly; they can be reference anywhere via root-relative paths that start with `/static/`.
+
+In general you should prefer `src/assets/` as it allows you to leverage loader features such as file naming with hashes and conditional base-64 inline-ing.
 
 ### Customizations
 
