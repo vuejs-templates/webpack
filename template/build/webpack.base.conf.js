@@ -11,12 +11,13 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
+    fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       'src': path.resolve(__dirname, '../src')
     }
   },
   resolveLoader: {
-    root: path.join(__dirname, 'node_modules')
+    fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
     preLoaders: [
