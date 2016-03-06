@@ -13,7 +13,7 @@ config.output.chunkFilename = '[id].[chunkhash].js'
 // disabling this can speed up the build.
 var SOURCE_MAP = true
 
-config.devtool = SOURCE_MAP ? 'source-map' : false
+config.devtool = SOURCE_MAP ? '#source-map' : false
 
 config.vue = config.vue || {}
 config.vue.loaders = config.vue.loaders || {}

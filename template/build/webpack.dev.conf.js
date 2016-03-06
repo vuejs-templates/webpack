@@ -4,7 +4,7 @@ var cssLoaders = require('./css-loaders')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // eval-source-map is faster for development
-config.devtool = 'eval-source-map'
+config.devtool = '#eval-source-map'
 
 config.vue = config.vue || {}
 config.vue.loaders = config.vue.loaders || {}
