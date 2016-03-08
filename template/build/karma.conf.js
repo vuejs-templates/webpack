@@ -1,6 +1,6 @@
 var webpackConf = require('./webpack.base.conf')
 delete webpackConf.entry
-webpackConf.devtool = 'inline-source-map'
+webpackConf.devtool = '#inline-source-map'
 
 module.exports = function (config) {
   config.set({
