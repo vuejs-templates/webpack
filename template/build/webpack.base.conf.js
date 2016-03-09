@@ -1,4 +1,5 @@
 var path = require('path')
+var includeRegex = new RegExp(path.resolve(__dirname, '../'))
 
 module.exports = {
   entry: {
@@ -24,11 +25,13 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'eslint',
+        include: includeRegex,
         exclude: /node_modules/
       },
       {
         test: /\.js$/,
         loader: 'eslint',
+        include: includeRegex,
         exclude: /node_modules/
       }
     ],
@@ -40,6 +43,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
+        include: includeRegex,
         exclude: /node_modules/
       },
       {
