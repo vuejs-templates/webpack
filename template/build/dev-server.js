@@ -32,7 +32,7 @@ app.use(hotMiddleware)
 // serve pure static assets
 app.use('/static', express.static('./static'))
 
-app.listen(8080, function (err) {
+module.exports = app.listen(8080, function (err) {
   if (err) {
     console.log(err)
     return
