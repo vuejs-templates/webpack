@@ -20,7 +20,6 @@ $ npm run dev
 .
 ├── build
 │   ├── dev-server.js         # development server script
-│   ├── karma.conf.js         # unit testing config
 │   ├── webpack.base.conf.js  # shared base webpack config
 │   ├── webpack.dev.conf.js   # development webpack config
 │   ├── webpack.prod.conf.js  # production webpack config
@@ -36,7 +35,8 @@ $ npm run dev
 ├── dist                      # built files ready for deploy
 ├── test
 │   └── unit                  # unit tests
-│       ├── index.js          # unit test entry file
+│       └── ...
+│   └── e2e                   # e2e tests
 │       └── ...
 ├── .babelrc                  # babel config
 ├── .eslintrc.js              # eslint config
@@ -60,12 +60,14 @@ $ npm run dev
   - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
   - **To serve built files, run an HTTP server inside `/dist`**.
 
-- `npm test`: Unit tests run in PhantomJS with Karma + karma-jasmine + karma-webpack.
+- `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Jasmine](http://jasmine.github.io/) + [karma-webpack](https://github.com/webpack/karma-webpack).
   - Supports ES2015 in test files.
   - Supports all webpack loaders.
   - Easy [mock injection](http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html).
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/) with Selenium and chromedriver dependencies automatically handled for you.
+
+For a better understanding of how things work, consult the docs for respective projects listed. In particular, [Webpack](http://webpack.github.io/) and [vue-loader](http://vuejs.github.io/vue-loader).
 
 ### Difference between `src/assets/` and `static/`
 
@@ -95,9 +97,13 @@ You will likely need to do some tuning to suit your own needs:
 
 - For unit testing:
 
-  - You can run the tests in multiple real browsers by installing more [karma launchers](http://karma-runner.github.io/0.13/config/browsers.html) and adjusting the `browsers` field in `build/karma.conf.js`.
+  - You can run the tests in multiple real browsers by installing more [karma launchers](http://karma-runner.github.io/0.13/config/browsers.html) and adjusting the `browsers` field in `test/unit/karma.conf.js`.
 
   - You can also swap out Jasmine for other testing frameworks, e.g. use Mocha with [karma-mocha](https://github.com/karma-runner/karma-mocha).
+
+- For e2e testing:
+
+  - To configure which browsers to run the tests in, edit "test_settings" in `test/e2e/nightwatch.conf.json` and the `--env` flag in `test/e2e/runner.js`. If you wish to configure remote testing on services like SauceLabs, you will need a separate config file. Consult [Nightwatch's docs](http://nightwatchjs.org/guide#selenium-settings) for more details.
 
 ### Fork It And Make Your Own
 
