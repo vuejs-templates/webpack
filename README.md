@@ -2,6 +2,10 @@
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 
+### Before You Start...
+
+This boilerplate is targeted towards large, serious projects and contains a lot of moving pieces. If you just want to try out `vue-loader` or whip out a quick prototype, use the [webpack-simple](https://github.com/vuejs-templates/webpack-simple) template instead.
+
 ### Usage
 
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
