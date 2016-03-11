@@ -25,6 +25,7 @@
     "chromedriver": "^2.21.2",
     "connect-history-api-fallback": "^1.1.0",
     "cross-env": "^1.0.7",
+    "cross-spawn": "^2.1.5",
     "css-loader": "^0.23.0",
     "eslint": "^2.0.0",
     "eslint-config-standard": "^5.1.0",

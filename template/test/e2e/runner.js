@@ -7,7 +7,8 @@ var server = require('../../build/dev-server.js')
 //    2. add it to the --env flag below
 // For more information on Nightwatch's config file, see
 // http://nightwatchjs.org/guide#settings-file
-var runner = require('child_process').spawn(
+var spawn = require('cross-spawn')
+var runner = spawn(
   './node_modules/.bin/nightwatch',
   [
     '--config', 'test/e2e/nightwatch.conf.json',
