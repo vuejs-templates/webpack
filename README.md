@@ -69,7 +69,11 @@ $ npm run dev
   - Supports all webpack loaders.
   - Easy [mock injection](http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html).
 
-- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/) with Selenium and chromedriver dependencies automatically handled for you.
+- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
+  - Run tests in multiple browsers in parallel.
+  - Works with one command out of the box:
+    - Selenium and chromedriver dependencies automatically handled.
+    - Automatically spawns the Selenium server.
 
 For a better understanding of how things work, consult the docs for respective projects listed. In particular, [Webpack](http://webpack.github.io/) and [vue-loader](http://vuejs.github.io/vue-loader).
 
