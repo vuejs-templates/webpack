@@ -101,7 +101,7 @@ You will likely need to do some tuning to suit your own needs:
 
 - Working with an existing backend server:
 
-  - Edit `proxyTable` in `build/dev-server.js`.
+  - Edit `proxyTable` in [`build/dev-server.js`](https://github.com/vuejs-templates/webpack/blob/master/template/build/dev-server.js#L9-L13).
 
 - For unit testing:
 
