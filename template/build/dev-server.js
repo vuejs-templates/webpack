@@ -1,9 +1,16 @@
 var express = require('express')
 var webpack = require('webpack')
 var config = require('./webpack.dev.conf')
+var proxyMiddleware = require('http-proxy-middleware')
 
 var app = express()
 var compiler = webpack(config)
+
+// Define HTTP proxies to your custom API backend
+// https://github.com/chimurai/http-proxy-middleware
+var proxyTable = {
+  // '/api/**/*': 'http://localhost:3000'
+}
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath,
@@ -31,6 +38,15 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 // serve pure static assets
 app.use('/static', express.static('./static'))
+
+// proxy api requests
+Object.keys(proxyTable).forEach(function (context) {
+  var options = proxyTable[context]
+  if (typeof options === 'string') {
+    options = { target: options }
+  }
+  app.use(proxyMiddleware(context, options))
+})
 
 module.exports = app.listen(8080, function (err) {
   if (err) {

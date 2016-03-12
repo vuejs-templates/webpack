@@ -40,6 +40,7 @@
     "file-loader": "^0.8.4",
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
+    "http-proxy-middleware": "^0.11.0",
     "inject-loader": "^2.0.1",
     "isparta-loader": "^2.0.0",
     "jasmine-core": "^2.4.1",
