@@ -5,6 +5,12 @@
       "required": true,
       "label": "Project name"
     },
+    "version": {
+      "type": "string",
+      "required": true,
+      "label": "Project version",
+      "default": "0.1.0"
+    },
     "description": {
       "type": "string",
       "required": false,
