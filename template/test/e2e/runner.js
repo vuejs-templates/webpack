@@ -11,7 +11,7 @@ var spawn = require('cross-spawn')
 var runner = spawn(
   './node_modules/.bin/nightwatch',
   [
-    '--config', 'test/e2e/nightwatch.conf.json',
+    '--config', 'test/e2e/nightwatch.conf.js',
     '--env', 'chrome,firefox'
   ],
   {

@@ -1,4 +1,5 @@
-{
+// http://nightwatchjs.org/guide#settings-file
+module.exports = {
   "src_folders": ["test/e2e/specs"],
   "output_folder": "test/e2e/reports",
   "custom_assertions_path": ["test/e2e/custom-assertions"],
@@ -9,7 +10,7 @@
     "host": "127.0.0.1",
     "port": 4444,
     "cli_args": {
-      "webdriver.chrome.driver": "node_modules/.bin/chromedriver"
+      "webdriver.chrome.driver": require('chromedriver').path
     }
   },
 
