@@ -1,5 +1,6 @@
 {
   "name": "{{ name }}",
+  "version": "{{ version }}",
   "description": "{{ description }}",
   "author": "{{ author }}",
   {{#private}}
