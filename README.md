@@ -107,13 +107,13 @@ For a better understanding of how things work, consult the docs for respective p
 
   You can edit `proxyTable` in [`build/dev-server.js`](https://github.com/vuejs-templates/webpack/blob/master/template/build/dev-server.js#L9-L13) to proxy certain requests to your backend server.
 
-- #### How do I run unit tests in other browsers?
+- #### How do I run unit tests in more browsers?
 
-  You can run the tests in multiple real browsers by installing more [karma launchers](http://karma-runner.github.io/0.13/config/browsers.html) and adjusting the `browsers` field in `test/unit/karma.conf.js`.
+  You can run the tests in multiple real browsers by installing more [karma launchers](http://karma-runner.github.io/0.13/config/browsers.html) and adjusting the `browsers` field in [`test/unit/karma.conf.js`](https://github.com/vuejs-templates/webpack/blob/master/template/test/unit/karma.conf.js#L46).
 
-- #### How do I run e2e tests in other browsers?
+- #### How do I run e2e tests in more browsers?
 
-  To configure which browsers to run the tests in, add an entry under "test_settings" in `test/e2e/nightwatch.conf.js` , and also the `--env` flag in `test/e2e/runner.js`. If you wish to configure remote testing on services like SauceLabs, you can either make the nightwatch config conditional based on environment variables, or use a separate config file altogether. Consult [Nightwatch's docs](http://nightwatchjs.org/guide#selenium-settings) for more details.
+  To configure which browsers to run the tests in, add an entry under "test_settings" in [`test/e2e/nightwatch.conf.js`](https://github.com/vuejs-templates/webpack/blob/master/template/test/e2e/nightwatch.conf.js#L17-L39) , and also the `--env` flag in [`test/e2e/runner.js`](https://github.com/vuejs-templates/webpack/blob/master/template/test/e2e/runner.js#L15). If you wish to configure remote testing on services like SauceLabs, you can either make the nightwatch config conditional based on environment variables, or use a separate config file altogether. Consult [Nightwatch's docs](http://nightwatchjs.org/guide#selenium-settings) for more details.
 
 ### Fork It And Make Your Own
 
