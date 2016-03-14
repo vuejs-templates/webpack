@@ -77,41 +77,43 @@ $ npm run dev
 
 For a better understanding of how things work, consult the docs for respective projects listed. In particular, [Webpack](http://webpack.github.io/) and [vue-loader](http://vuejs.github.io/vue-loader).
 
-### Difference between `src/assets/` and `static/`
+### Common Questions
 
-- Files inside `src/assets/` should be referenced via relative paths inside Vue component templates and styles. They will be processed by `url-loader` and `file-loader` before copied into `/static`.
+#### What's the difference between `src/assets/` and `static/`?
 
-- Files inside `static/` are copied directly; they can be reference anywhere via root-relative paths that start with `/static/`.
+- Files inside `src/assets/` should be referenced via relative paths inside Vue component templates and styles. This allows them to be processed by webpack using `url-loader` and `file-loader` before copied into `/static`. This allows you to leverage features such as file naming with hashes for better caching and conditional base-64 inline-ing. You can even add [image-optimizing loaders](https://github.com/tcoopman/image-webpack-loader) to automatically optimize these images during build.
 
-In general you should prefer `src/assets/` as it allows you to leverage loader features such as file naming with hashes and conditional base-64 inline-ing.
+- Files inside `static/` are copied directly without modification; they can be reference anywhere via root-relative paths that start with `/static/`. This is an escape hatch when you want certain assets to completely bypass webpack.
 
-### Customizations
+#### How do I configure the linting rules?
 
-You will likely need to do some tuning to suit your own needs:
+The project uses [Standard](https://github.com/feross/standard) code style via ESLint. You can override the rules in `.eslintrc.js`, for example allowing semicolons by adding `"semi": [2, "always"]`.
 
-- Install additional libraries that you need, e.g. `vue-router`, `vue-resource`, `vuex`, etc...
+Alternatively you can use a different config altogether, for example [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb). Install it and change the `"extends"` field in `.eslintrc.js`.
 
-- Use your preferred `.eslintrc` config.
+#### How do I use a CSS pre-processor inside `*.vue` files?
 
-- Add your preferred CSS pre-processor, for example:
+First, install the corresponding loader, e.g.:
 
-  ``` bash
-  npm install less-loader --save-dev
-  ```
+``` bash
+npm install less-loader --save-dev
+```
 
-- Working with an existing backend server:
+Then in your `*.vue` files, use `<style lang="less">`. The CSS extraction has been pre-configured to work with most popular pre-processors.
 
-  - Edit `proxyTable` in [`build/dev-server.js`](https://github.com/vuejs-templates/webpack/blob/master/template/build/dev-server.js#L9-L13).
+Note that `lang="sass"` assumes SASS's indented syntax; Use `lang="scss"` if you want the CSS-superset syntax.
 
-- For unit testing:
+#### How do I work with an existing backend server?
 
-  - You can run the tests in multiple real browsers by installing more [karma launchers](http://karma-runner.github.io/0.13/config/browsers.html) and adjusting the `browsers` field in `test/unit/karma.conf.js`.
+You can edit `proxyTable` in [`build/dev-server.js`](https://github.com/vuejs-templates/webpack/blob/master/template/build/dev-server.js#L9-L13) to proxy certain requests to your backend server.
 
-  - You can also swap out Jasmine for other testing frameworks, e.g. use Mocha with [karma-mocha](https://github.com/karma-runner/karma-mocha).
+#### How do I run unit tests in other browsers?
 
-- For e2e testing:
+You can run the tests in multiple real browsers by installing more [karma launchers](http://karma-runner.github.io/0.13/config/browsers.html) and adjusting the `browsers` field in `test/unit/karma.conf.js`.
 
-  - To configure which browsers to run the tests in, edit "test_settings" in `test/e2e/nightwatch.conf.json` and the `--env` flag in `test/e2e/runner.js`. If you wish to configure remote testing on services like SauceLabs, you will need a separate config file. Consult [Nightwatch's docs](http://nightwatchjs.org/guide#selenium-settings) for more details.
+#### How do I run e2e tests in other browsers?
+
+To configure which browsers to run the tests in, add an entry under "test_settings" in `test/e2e/nightwatch.conf.js` , and also the `--env` flag in `test/e2e/runner.js`. If you wish to configure remote testing on services like SauceLabs, you can either make the nightwatch config conditional based on environment variables, or use a separate config file altogether. Consult [Nightwatch's docs](http://nightwatchjs.org/guide#selenium-settings) for more details.
 
 ### Fork It And Make Your Own
 
