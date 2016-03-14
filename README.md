@@ -6,7 +6,7 @@
 
 This boilerplate is targeted towards large, serious projects and contains a lot of moving pieces. If you just want to try out `vue-loader` or whip out a quick prototype, use the [webpack-simple](https://github.com/vuejs-templates/webpack-simple) template instead.
 
-### Usage
+## Usage
 
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
@@ -18,7 +18,7 @@ $ npm install
 $ npm run dev
 ```
 
-### Folder Structure
+## Folder Structure
 
 ``` bash
 .
@@ -48,7 +48,7 @@ $ npm run dev
 └── package.json              # build scripts and dependencies
 ```
 
-### What's Included
+## What's Included
 
 - `npm run dev`: first-in-class development experience.
   - Webpack + `vue-loader` for single file Vue components.
@@ -77,43 +77,43 @@ $ npm run dev
 
 For a better understanding of how things work, consult the docs for respective projects listed. In particular, [Webpack](http://webpack.github.io/) and [vue-loader](http://vuejs.github.io/vue-loader).
 
-### Common Questions
+## Common Questions
 
-#### What's the difference between `src/assets/` and `static/`?
+- #### What's the difference between `src/assets/` and `static/`?
 
-- Files inside `src/assets/` should be referenced via relative paths inside Vue component templates and styles. This allows them to be processed by webpack using `url-loader` and `file-loader` before copied into `/static`. This allows you to leverage features such as file naming with hashes for better caching and conditional base-64 inline-ing. You can even add [image-optimizing loaders](https://github.com/tcoopman/image-webpack-loader) to automatically optimize these images during build.
+  Files inside `src/assets/` should be referenced via relative paths inside Vue component templates and styles. This allows them to be processed by webpack using `url-loader` and `file-loader` before copied into `/static`. This allows you to leverage features such as file naming with hashes for better caching and conditional base-64 inline-ing. You can even add [image-optimizing loaders](https://github.com/tcoopman/image-webpack-loader) to automatically optimize these images during build.
 
-- Files inside `static/` are copied directly without modification; they can be reference anywhere via root-relative paths that start with `/static/`. This is an escape hatch when you want certain assets to completely bypass webpack.
+  Files inside `static/` are copied directly without modification; they can be reference anywhere via root-relative paths that start with `/static/`. This is an escape hatch when you want certain assets to completely bypass webpack.
 
-#### How do I configure the linting rules?
+- #### How do I configure the linting rules?
 
-The project uses [Standard](https://github.com/feross/standard) code style via ESLint. You can override the rules in `.eslintrc.js`, for example allowing semicolons by adding `"semi": [2, "always"]`.
+  The project uses [Standard](https://github.com/feross/standard) code style via ESLint. You can override the rules in `.eslintrc.js`, for example allowing semicolons by adding `"semi": [2, "always"]`.
 
-Alternatively you can use a different config altogether, for example [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb). Install it and change the `"extends"` field in `.eslintrc.js`.
+  Alternatively you can use a different config altogether, for example [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb). Install it and change the `"extends"` field in `.eslintrc.js`.
 
-#### How do I use a CSS pre-processor inside `*.vue` files?
+- #### How do I use a CSS pre-processor inside `*.vue` files?
 
-First, install the corresponding loader, e.g.:
+  First, install the corresponding loader, e.g.:
 
-``` bash
-npm install less-loader --save-dev
-```
+  ``` bash
+  npm install less-loader --save-dev
+  ```
 
-Then in your `*.vue` files, use `<style lang="less">`. The CSS extraction has been pre-configured to work with most popular pre-processors.
+  Then in your `*.vue` files, use `<style lang="less">`. The CSS extraction has been pre-configured to work with most popular pre-processors.
 
-Note that `lang="sass"` assumes SASS's indented syntax; Use `lang="scss"` if you want the CSS-superset syntax.
+  Note that `lang="sass"` assumes SASS's indented syntax; Use `lang="scss"` if you want the CSS-superset syntax.
 
-#### How do I work with an existing backend server?
+- #### How do I work with an existing backend server?
 
-You can edit `proxyTable` in [`build/dev-server.js`](https://github.com/vuejs-templates/webpack/blob/master/template/build/dev-server.js#L9-L13) to proxy certain requests to your backend server.
+  You can edit `proxyTable` in [`build/dev-server.js`](https://github.com/vuejs-templates/webpack/blob/master/template/build/dev-server.js#L9-L13) to proxy certain requests to your backend server.
 
-#### How do I run unit tests in other browsers?
+- #### How do I run unit tests in other browsers?
 
-You can run the tests in multiple real browsers by installing more [karma launchers](http://karma-runner.github.io/0.13/config/browsers.html) and adjusting the `browsers` field in `test/unit/karma.conf.js`.
+  You can run the tests in multiple real browsers by installing more [karma launchers](http://karma-runner.github.io/0.13/config/browsers.html) and adjusting the `browsers` field in `test/unit/karma.conf.js`.
 
-#### How do I run e2e tests in other browsers?
+- #### How do I run e2e tests in other browsers?
 
-To configure which browsers to run the tests in, add an entry under "test_settings" in `test/e2e/nightwatch.conf.js` , and also the `--env` flag in `test/e2e/runner.js`. If you wish to configure remote testing on services like SauceLabs, you can either make the nightwatch config conditional based on environment variables, or use a separate config file altogether. Consult [Nightwatch's docs](http://nightwatchjs.org/guide#selenium-settings) for more details.
+  To configure which browsers to run the tests in, add an entry under "test_settings" in `test/e2e/nightwatch.conf.js` , and also the `--env` flag in `test/e2e/runner.js`. If you wish to configure remote testing on services like SauceLabs, you can either make the nightwatch config conditional based on environment variables, or use a separate config file altogether. Consult [Nightwatch's docs](http://nightwatchjs.org/guide#selenium-settings) for more details.
 
 ### Fork It And Make Your Own
 
