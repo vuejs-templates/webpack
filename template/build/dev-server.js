@@ -9,7 +9,7 @@ var compiler = webpack(config)
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = {
-  // '/api/**/*': 'http://localhost:3000'
+  // '/api': 'http://localhost:3000'
 }
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -29,16 +29,6 @@ compiler.plugin('compilation', function (compilation) {
   })
 })
 
-// handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')())
-// serve webpack bundle output
-app.use(devMiddleware)
-// enable hot-reload and state-preserving
-// compilation error display
-app.use(hotMiddleware)
-// serve pure static assets
-app.use('/static', express.static('./static'))
-
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]
@@ -47,6 +37,19 @@ Object.keys(proxyTable).forEach(function (context) {
   }
   app.use(proxyMiddleware(context, options))
 })
+
+// handle fallback for HTML5 history API
+app.use(require('connect-history-api-fallback')())
+
+// serve webpack bundle output
+app.use(devMiddleware)
+
+// enable hot-reload and state-preserving
+// compilation error display
+app.use(hotMiddleware)
+
+// serve pure static assets
+app.use('/static', express.static('./static'))
 
 module.exports = app.listen(8080, function (err) {
   if (err) {
