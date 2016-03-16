@@ -7,6 +7,10 @@ var path = require('path')
 var merge = require('webpack-merge')
 var baseConfig = require('../../build/webpack.base.conf')
 var projectRoot = path.resolve(__dirname, '../../')
+var cssLoaders = require('../../build/css-loaders')({
+  sourceMap: false,
+  extract: false
+})
 
 var webpackConfig = merge(baseConfig, {
   // use inline sourcemap for karma-sourcemap-loader
@@ -17,6 +21,9 @@ var webpackConfig = merge(baseConfig, {
     }
   }
 })
+
+// merge css loaders with vue loaders
+webpackConfig.vue.loaders = merge(webpackConfig.vue.loaders, cssLoaders)
 
 // no need for app entry during tests
 delete webpackConfig.entry
