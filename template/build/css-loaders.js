@@ -1,6 +1,7 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = function (options) {
+  options = options || {}
   // generate loader string to be used with extract text plugin
   function generateLoaders (loaders) {
     var sourceLoader = loaders.map(function (loader) {

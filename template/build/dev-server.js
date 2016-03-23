@@ -62,5 +62,5 @@ module.exports = app.listen(8080, function (err) {
     console.log(err)
     return
   }
-  console.log('Listening at http://localhost:8080')
+  console.log('Listening at http://localhost:8080\n')
 })
