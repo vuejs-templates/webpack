@@ -109,9 +109,9 @@ For a better understanding of how things work, consult the docs for respective p
 
   Note that `lang="sass"` assumes SASS's indented syntax; Use `lang="scss"` if you want the CSS-superset syntax.
 
-- #### How do I work with an existing backend server?
+- #### How do I work with an existing backend server during development?
 
-  You can edit `proxyTable` in [`build/dev-server.js`](https://github.com/vuejs-templates/webpack/blob/master/template/build/dev-server.js#L9-L13) to proxy certain requests to your backend server.
+  You can edit `proxyTable` in [`build/dev-server.js`](https://github.com/vuejs-templates/webpack/blob/master/template/build/dev-server.js#L11) to proxy certain requests to your backend server.
 
 - #### How do I deploy built assets with my backend framework?
 
@@ -119,7 +119,7 @@ For a better understanding of how things work, consult the docs for respective p
 
   - Edit [`output.publicPath`](https://github.com/vuejs-templates/webpack/blob/master/template/build/webpack.base.conf.js#L11) to be the URL path where your backend framework serves static assets, e.g. `/public/`.
 
-  - After the build, copy the contents of `dist/index.html` into the appropriate server-side template, and copy everything in `dist/static` to the public/static directory of your backend framework. You can automate this by adding custom scripts in `build/build.js`.
+  - After running `npm run build`, copy the contents of `dist/index.html` into the appropriate server-side template, and copy everything in `dist/static` to the public/static directory of your backend framework. You can automate this by adding custom scripts in `build/build.js`.
 
 - #### How do I run unit tests in more browsers?
 
