@@ -62,7 +62,7 @@ $ npm run dev
   - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
   - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
   - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
-  - **To serve built files, run an HTTP server inside `/dist`**.
+  - Also see [deployment notes](#how-do-i-deploy-built-assets-with-my-backend-framework).
 
 - `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Jasmine](http://jasmine.github.io/) + [karma-webpack](https://github.com/webpack/karma-webpack).
   - Supports ES2015 in test files.
@@ -112,6 +112,14 @@ For a better understanding of how things work, consult the docs for respective p
 - #### How do I work with an existing backend server?
 
   You can edit `proxyTable` in [`build/dev-server.js`](https://github.com/vuejs-templates/webpack/blob/master/template/build/dev-server.js#L9-L13) to proxy certain requests to your backend server.
+
+- #### How do I deploy built assets with my backend framework?
+
+  Your backend framework may come with a convention for where static assets should live, and the default generated file structure may need to be adjusted. Here's what you need to do:
+
+  - Edit [`output.publicPath`](https://github.com/vuejs-templates/webpack/blob/master/template/build/webpack.base.conf.js#L11) to be the URL path where your backend framework serves static assets, e.g. `/public/`.
+
+  - After the build, copy the contents of `dist/index.html` into the appropriate server-side template, and copy everything in `dist/static` to the public/static directory of your backend framework. You can automate this by adding custom scripts in `build/build.js`.
 
 - #### How do I run unit tests in more browsers?
 
