@@ -93,13 +93,19 @@ For a better understanding of how things work, consult the docs for respective p
 
 - #### How do I use a CSS pre-processor inside `*.vue` files?
 
-  First, install the corresponding loader, e.g.:
+  First, install the corresponding loader (and their peer dependencies), e.g. to use LESS:
 
   ``` bash
-  npm install less-loader --save-dev
+  npm install less-loader less --save-dev
   ```
 
   Then in your `*.vue` files, use `<style lang="less">`. The CSS extraction has been pre-configured to work with most popular pre-processors.
+
+  For SASS:
+
+  ``` bash
+  npm install sass-loader node-sass --save-dev
+  ```
 
   Note that `lang="sass"` assumes SASS's indented syntax; Use `lang="scss"` if you want the CSS-superset syntax.
 
