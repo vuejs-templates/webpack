@@ -8,7 +8,7 @@ This boilerplate is targeted towards large, serious projects and contains a lot 
 
 ## Usage
 
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
+This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It is recommended to use npm 3+ for a more efficient dependency tree.**
 
 ``` bash
 $ npm install -g vue-cli
