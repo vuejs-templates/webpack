@@ -3,6 +3,9 @@ var webpack = require('webpack')
 var config = require('./webpack.dev.conf')
 var proxyMiddleware = require('http-proxy-middleware')
 
+// default port where dev server listens for incoming traffic
+var port = process.env.PORT || 8080
+
 var app = express()
 var compiler = webpack(config)
 
@@ -57,10 +60,10 @@ app.use(hotMiddleware)
 // serve pure static assets
 app.use('/static', express.static('./static'))
 
-module.exports = app.listen(8080, function (err) {
+module.exports = app.listen(port, function (err) {
   if (err) {
     console.log(err)
     return
   }
-  console.log('Listening at http://localhost:8080\n')
+  console.log('Listening at http://localhost:' + port + '\n')
 })
