@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "vue": "^1.0.18",
+    "vue-resource": "^0.7.0",
     "babel-runtime": "^5.8.0"
   },
   "devDependencies": {
