@@ -11,3 +11,9 @@ new Vue({
   el: 'body',
   components: { App }
 })
+
+
+// Api
+import api from './api'
+
+console.log('Api is not defined', api)
