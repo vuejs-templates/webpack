@@ -7,9 +7,8 @@ module.exports = {
     app: './src/main.js'
   },
   output: {
-    path: path.resolve(__dirname, '../dist/static'),
-    publicPath: './static/',
-    filename: '[name].js'
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '/'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],

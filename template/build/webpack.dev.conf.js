@@ -11,11 +11,6 @@ Object.keys(baseConfig.entry).forEach(function (name) {
 module.exports = merge(baseConfig, {
   // eval-source-map is faster for development
   devtool: '#eval-source-map',
-  output: {
-    // necessary for the html plugin to work properly
-    // when serving the html from in-memory
-    publicPath: '/'
-  },
   plugins: [
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.optimize.OccurenceOrderPlugin(),
