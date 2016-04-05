@@ -2,12 +2,14 @@ var path = require('path')
 var cssLoaders = require('./css-loaders')
 var projectRoot = path.resolve(__dirname, '../')
 
+var outputPath = projectRoot + '/dist'
+
 module.exports = {
   entry: {
     app: './src/main.js'
   },
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: outputPath,
     publicPath: '/'
   },
   resolve: {
