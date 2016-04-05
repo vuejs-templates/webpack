@@ -11,7 +11,7 @@ spinner.start()
 
 rm('-rf', conf.output.path)
 mkdir(conf.output.path)
-cp('-R', 'static', conf.output.path)
+cp('-R', 'static/', conf.output.path)
 
 webpack(conf, function (err, stats) {
   spinner.stop()
