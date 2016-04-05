@@ -1,4 +1,5 @@
 var path = require('path')
+var config = require('../config')
 var cssLoaders = require('./css-loaders')
 var projectRoot = path.resolve(__dirname, '../')
 
@@ -7,8 +8,8 @@ module.exports = {
     app: './src/main.js'
   },
   output: {
-    path: path.resolve(__dirname, '../dist/static'),
-    publicPath: './static/',
+    path: config.build.assetsRoot,
+    publicPath: config.build.assetsPublicPath,
     filename: '[name].js'
   },
   resolve: {
@@ -56,11 +57,11 @@ module.exports = {
         loader: 'vue-html'
       },
       {
-        test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url',
         query: {
           limit: 10000,
-          name: '[name].[ext]?[hash:7]'
+          name: path.join(config.build.assetsPrefix, '[name].[ext]?[hash:7]')
         }
       }
     ]
