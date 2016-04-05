@@ -2,14 +2,17 @@ var path = require('path')
 var cssLoaders = require('./css-loaders')
 var projectRoot = path.resolve(__dirname, '../')
 
+var outputPath = projectRoot + '/dist'
+var staticPath = projectRoot + '/static/'
+
 module.exports = {
+  staticPath: staticPath,
   entry: {
     app: './src/main.js'
   },
   output: {
-    path: path.resolve(__dirname, '../dist/static'),
-    publicPath: './static/',
-    filename: '[name].js'
+    path: outputPath,
+    publicPath: '/'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],

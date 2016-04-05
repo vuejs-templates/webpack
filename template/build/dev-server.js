@@ -58,7 +58,7 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 // serve pure static assets
-app.use('/static', express.static('./static'))
+app.use('/', express.static(config.staticPath))
 
 module.exports = app.listen(port, function (err) {
   if (err) {

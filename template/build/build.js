@@ -9,9 +9,9 @@ var conf = require('./webpack.prod.conf')
 var spinner = ora('building for production...')
 spinner.start()
 
-rm('-rf', 'dist')
-mkdir('dist')
-cp('-R', 'static', conf.output.path)
+rm('-rf', conf.output.path)
+mkdir(conf.output.path)
+cp('-R', conf.staticPath, conf.output.path)
 
 webpack(conf, function (err, stats) {
   spinner.stop()
