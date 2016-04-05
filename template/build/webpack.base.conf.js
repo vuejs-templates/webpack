@@ -3,8 +3,10 @@ var cssLoaders = require('./css-loaders')
 var projectRoot = path.resolve(__dirname, '../')
 
 var outputPath = projectRoot + '/dist'
+var staticPath = projectRoot + '/static/'
 
 module.exports = {
+  staticPath: staticPath,
   entry: {
     app: './src/main.js'
   },
