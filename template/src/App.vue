@@ -3,14 +3,16 @@
     <img class="logo" src="./assets/logo.png">
     <hello></hello>
     <p>
-      Welcome to your Vue.js app. To get started, take a look at the
-      <a href="https://github.com/vuejs-templates/webpack#folder-structure" target="_blank">README</a>
-      of this template. If you have any issues with the setup, please file an issue at this template's repository.
+      Welcome to your Vue.js app!
     </p>
     <p>
-      For advanced configurations, checkout the docs for
+      To get a better understanding of how this boilerplate works, check out
+      <a href="http://vuejs-templates.github.io/webpack" target="_blank">its documentation</a>.
+      It is also recommended to go through the docs for
       <a href="http://webpack.github.io/" target="_blank">Webpack</a> and
       <a href="http://vuejs.github.io/vue-loader/" target="_blank">vue-loader</a>.
+      If you have any issues with the setup, please file an issue at this boilerplate's
+      <a href="https://github.com/vuejs-templates/webpack" target="_blank">repository</a>.
     </p>
     <p>
       You may also want to checkout
@@ -43,10 +45,16 @@ body {
 }
 
 #app {
+  color: #2c3e50;
   margin-top: -100px;
   max-width: 600px;
-  font-family: Helvetica, sans-serif;
+  font-family: Source Sans Pro, Helvetica, sans-serif;
   text-align: center;
+}
+
+#app a {
+  color: #42b983;
+  text-decoration: none;
 }
 
 .logo {

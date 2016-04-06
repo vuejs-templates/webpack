@@ -22,6 +22,7 @@ var webpackConfig = merge(baseConfig, {
 delete webpackConfig.entry
 
 // make sure isparta loader is applied before eslint
+webpackConfig.module.preLoaders = webpackConfig.module.preLoaders || []
 webpackConfig.module.preLoaders.unshift({
   test: /\.js$/,
   loader: 'isparta',

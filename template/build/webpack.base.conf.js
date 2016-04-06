@@ -61,7 +61,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: path.join(config.build.assetsPrefix, '[name].[ext]?[hash:7]')
+          name: path.join(config.build.assetsSubDirectory, '[name].[ext]?[hash:7]')
         }
       }
     ]
