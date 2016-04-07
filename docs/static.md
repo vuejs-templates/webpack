@@ -4,11 +4,21 @@ You will notice in the project structure we have two directories for static asse
 
 ### Webpacked Assets
 
-To answer this question, we first need to understand how Webpack deals with static assets. In `*.vue` components, all your templates and CSS are parsed by `vue-html-loader` and `css-loader` to look for relative asset URLs. For example, in `<img src="./logo.png">` and `background: url(./logo.png)`, `"./logo.png"` is a relative asset path and will be **resolved by Webpack as a module dependency**.
+To answer this question, we first need to understand how Webpack deals with static assets. In `*.vue` components, all your templates and CSS are parsed by `vue-html-loader` and `css-loader` to look for asset URLs. For example, in `<img src="./logo.png">` and `background: url(./logo.png)`, `"./logo.png"` is a relative asset path and will be **resolved by Webpack as a module dependency**.
 
-Because `logo.png` is not JavaScript, we need to use `url-loader` and `file-loader` to process it. This boilerplate has already configured these loaders for you, so you basically get features such as filename fingerprinting and conditional bas64 inlining for free, while being able to use relative paths everywhere.
+Because `logo.png` is not JavaScript, when treated as a module dependency, we need to use `url-loader` and `file-loader` to process it. This boilerplate has already configured these loaders for you, so you basically get features such as filename fingerprinting and conditional bas64 inlining for free, while being able to use relative/module paths without worrying about deployment.
 
-Because these assets may be inlined/copied/renamed during build, they are essentially part of your source code. This is why it is recommended to place Webpack-processed static assets inside `/src`, along side other source files. In fact, you don't even have to put them all in `/src/assets`: you can organize them based on the module/component using them. For example, you can put each component in its own directory, with its static assets right next to it.
+Since these assets may be inlined/copied/renamed during build, they are essentially part of your source code. This is why it is recommended to place Webpack-processed static assets inside `/src`, along side other source files. In fact, you don't even have to put them all in `/src/assets`: you can organize them based on the module/component using them. For example, you can put each component in its own directory, with its static assets right next to it.
+
+### Asset Resolving Rules
+
+- **Relative URLs**, e.g. `./assets/logo.png` will be interpreted as a module dependency. They will be replaced with a auto-generated URL based on your Webpack output configuration.
+
+- **Non-prefixed URLs**, e.g. `assets/logo.png` will be treated the same as the relative URLs and translated into `./assets/logo.png`.
+
+- **URLs prefixed with `~`** are treated as a module request, similar to `require('some-module/image.png')`. You need to use this prefix if you want to leverage Webpack's module resolving configurations. For example if you have a resolve alias for `assets`, you need to use `<img src="~assets/logo.png">` to ensure that alias is respected.
+
+- **Root-relative URLs**, e.g. `/assets/logo.png` are not processed at all.
 
 ### "Real" Static Assets
 
