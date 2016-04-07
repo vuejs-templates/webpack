@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Unit Testing | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.2">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./e2e.html" />
+    
+    
+    <link rel="prev" href="./proxy.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="7"
+        data-chapter-title="Unit Testing"
+        data-filepath="unit.md"
+        data-basepath="."
+        data-revision="Thu Apr 07 2016 16:04:38 GMT-0400 (EDT)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="structure.html">
+            
+                
+                    <a href="./structure.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Project Structure
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="commands.html">
+            
+                
+                    <a href="./commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Build Commands
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="linter.html">
+            
+                
+                    <a href="./linter.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Linter Configuration
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="static.html">
+            
+                
+                    <a href="./static.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Handling Static Assets
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="backend.html">
+            
+                
+                    <a href="./backend.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Integrate with Backend Framework
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="proxy.html">
+            
+                
+                    <a href="./proxy.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        API Proxying During Development
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="7" data-path="unit.html">
+            
+                
+                    <a href="./unit.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Unit Testing
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="e2e.html">
+            
+                
+                    <a href="./e2e.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        End-to-end Testing
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="prerender.html">
+            
+                
+                    <a href="./prerender.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Prerendering for SEO
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Introduction</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="unit-testing">Unit Testing</h1>
+<p>An overview of the tools used by this boilerplate for unit testing:</p>
+<ul>
+<li><a href="http://karma-runner.github.io/0.13/index.html" target="_blank">Karma</a>: the test runner that launches browsers, runs the tests and reports the results to us.</li>
+<li><a href="https://github.com/webpack/karma-webpack" target="_blank">karma-webpack</a>: the plugin for Karma that bundles our tests using Webpack.</li>
+<li><a href="https://mochajs.org/" target="_blank">Mocha</a>: the test framework that we write test specs with.</li>
+<li><a href="http://chaijs.com/" target="_blank">Chai</a>: test assertion library that provides better assertion syntax.</li>
+<li><a href="http://sinonjs.org/" target="_blank">Sinon</a>: test utility library that provides spies, stubs and mocks.</li>
+</ul>
+<p>Chai and Sinon are integrated using <a href="https://github.com/kmees/karma-sinon-chai" target="_blank">karma-sinon-chai</a>, so all Chai interfaces (<code>should</code>, <code>expect</code>, <code>assert</code>) and <code>sinon</code> are globally available in test files.</p>
+<p>And the files:</p>
+<ul>
+<li><p><code>index.js</code></p>
+<p>This the entry file used by <code>karma-webpack</code> to bundle all the test code and source code (for coverage purposes). You can ignore it for the most part.</p>
+</li>
+<li><p><code>specs/</code></p>
+<p>This directory is where you write your actual tests. You can use full ES2015 and all supported Webpack loaders in your tests.</p>
+</li>
+<li><p><code>karma.conf.js</code></p>
+<p>This is the Karma configuration file. See <a href="http://karma-runner.github.io/0.13/index.html" target="_blank">Karma docs</a> for more details.</p>
+</li>
+</ul>
+<h2 id="running-tests-in-more-browsers">Running Tests in More Browsers</h2>
+<p>You can run the tests in multiple real browsers by installing more <a href="http://karma-runner.github.io/0.13/config/browsers.html" target="_blank">karma launchers</a> and adjusting the <code>browsers</code> field in <code>test/unit/karma.conf.js</code>.</p>
+<h2 id="mocking-dependencies">Mocking Dependencies</h2>
+<p>This boilerplate comes with <a href="https://github.com/plasticine/inject-loader" target="_blank">inject-laoder</a> installed by default. For usage with <code>*.vue</code> components, see <a href="http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html" target="_blank">vue-loader docs on testing with mocks</a>.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./proxy.html" class="navigation navigation-prev " aria-label="Previous page: API Proxying During Development"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./e2e.html" class="navigation navigation-next " aria-label="Next page: End-to-end Testing"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

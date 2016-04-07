@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Linter Configuration | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.2">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./static.html" />
+    
+    
+    <link rel="prev" href="./commands.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="3"
+        data-chapter-title="Linter Configuration"
+        data-filepath="linter.md"
+        data-basepath="."
+        data-revision="Thu Apr 07 2016 16:04:38 GMT-0400 (EDT)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="structure.html">
+            
+                
+                    <a href="./structure.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Project Structure
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="commands.html">
+            
+                
+                    <a href="./commands.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Build Commands
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="3" data-path="linter.html">
+            
+                
+                    <a href="./linter.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Linter Configuration
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="static.html">
+            
+                
+                    <a href="./static.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Handling Static Assets
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="backend.html">
+            
+                
+                    <a href="./backend.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Integrate with Backend Framework
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="proxy.html">
+            
+                
+                    <a href="./proxy.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        API Proxying During Development
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="unit.html">
+            
+                
+                    <a href="./unit.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Unit Testing
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="e2e.html">
+            
+                
+                    <a href="./e2e.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        End-to-end Testing
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="prerender.html">
+            
+                
+                    <a href="./prerender.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Prerendering for SEO
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Introduction</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="linter-configuration">Linter Configuration</h1>
+<p>This boilerplate uses <a href="http://eslint.org/" target="_blank">ESLint</a> as the linter, and uses the <a href="https://github.com/feross/standard/blob/master/RULES.md" target="_blank">Standard</a> preset with some small customizations.</p>
+<p>If you are not happy with the default linting rules, you have several options:</p>
+<ol>
+<li><p>Overwrite individual rules in <code>.eslintrc.js</code>. For example, you can add the following rule to enforce semicolons instead of omitting them:</p>
+<pre><code class="lang-js"><span class="hljs-string">&quot;semi&quot;</span>: [<span class="hljs-number">2</span>, <span class="hljs-string">&quot;always&quot;</span>]
+</code></pre>
+</li>
+<li><p>Remove the <code>extends: &apos;standard&apos;</code> line in <code>.eslintrc.js</code> and use a completely custom eslint config. See <a href="http://eslint.org/docs/user-guide/configuring" target="_blank">ESLint documentation</a> for more details.</p>
+</li>
+<li><p>Use a different ESLint preset, for example <a href="https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb" target="_blank">eslint-config-airbnb</a>.</p>
+</li>
+<li><p>Disable linting altogether: comment out the <code>module.preLoaders</code> block in <code>build/webpack.base.conf.js</code>.</p>
+<p>You will also need to disable linting if you are using a compile-to-JavaScript language, e.g. CoffeeScript.</p>
+</li>
+</ol>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./commands.html" class="navigation navigation-prev " aria-label="Previous page: Build Commands"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./static.html" class="navigation navigation-next " aria-label="Next page: Handling Static Assets"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
