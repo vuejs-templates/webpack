@@ -48,20 +48,12 @@
     "e2e": {
       "type": "confirm",
       "label": "Setup e2e tests with Nightwatch?"
-    },
-    "preprocessors": {
-      "type": "checkbox",
-      "label": "Pre-proccessors",
-      "choices": [
-        "less",
-        "sass",
-        "stylus",
-        "jade"
-      ]
     }
   },
   "filters": {
-    ".eslintrc.js": "lint"
+    ".eslintrc.js": "lint",
+    "test/unit/**/*": "unit",
+    "test/e2e/**/*": "e2e"
   },
   "completeMessage": "To get started:\n\n  cd {{name}}\n  npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 }
