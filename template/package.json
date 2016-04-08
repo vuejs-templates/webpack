@@ -1,11 +1,9 @@
 {
   "name": "{{ name }}",
-  "version": "{{ version }}",
+  "version": "1.0.0",
   "description": "{{ description }}",
   "author": "{{ author }}",
-  {{#private}}
   "private": true,
-  {{/private}}
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
