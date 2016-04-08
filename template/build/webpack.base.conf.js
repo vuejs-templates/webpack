@@ -25,6 +25,7 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
+    {{#lint}}
     preLoaders: [
       {
         test: /\.vue$/,
@@ -39,6 +40,7 @@ module.exports = {
         exclude: /node_modules/
       }
     ],
+    {{/lint}}
     loaders: [
       {
         test: /\.vue$/,
@@ -68,10 +70,12 @@ module.exports = {
       }
     ]
   },
-  vue: {
-    loaders: cssLoaders()
-  },
+  {{#lint}}
   eslint: {
     formatter: require('eslint-friendly-formatter')
+  },
+  {{/lint}}
+  vue: {
+    loaders: cssLoaders()
   }
 }
