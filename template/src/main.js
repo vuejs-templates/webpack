@@ -4,5 +4,5 @@ import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 /* eslint-disable no-new */
 new Vue({
   el: 'body',
-  components: { App }
+  components: { App }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
