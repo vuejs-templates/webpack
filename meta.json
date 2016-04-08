@@ -24,9 +24,21 @@
       "type": "list",
       "label": "Pick an ESLint preset",
       "choices": [
-        "standard (https://github.com/feross/standard)",
-        "airbnb (https://github.com/airbnb/javascript)",
-        "none"
+        {
+          "name": "Standard (https://github.com/feross/standard)",
+          "value": "standard",
+          "short": "Standard"
+        },
+        {
+          "name": "AirBNB (https://github.com/airbnb/javascript)",
+          "value": "airbnb",
+          "short": "AirBNB"
+        },
+        {
+          "name": "none (configure it yourself)",
+          "value": "none",
+          "short": "none"
+        }
       ]
     },
     "unit": {

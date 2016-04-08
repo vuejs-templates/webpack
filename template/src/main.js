@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import App from './App'
+import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 /* eslint-disable no-new */
 new Vue({
   el: 'body',
   components: { App }
-})
+}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
