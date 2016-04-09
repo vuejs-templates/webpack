@@ -1,28 +1,28 @@
 {
-  "schema": {
+  "prompts": {
     "name": {
       "type": "string",
       "required": true,
-      "label": "Project name"
+      "message": "Project name"
     },
     "description": {
       "type": "string",
       "required": false,
-      "label": "Project description",
+      "message": "Project description",
       "default": "A Vue.js project"
     },
     "author": {
       "type": "string",
-      "label": "Author"
+      "message": "Author"
     },
     "lint": {
       "type": "confirm",
-      "label": "Use ESLint to lint your code?"
+      "message": "Use ESLint to lint your code?"
     },
     "lintConfig": {
       "when": "lint",
       "type": "list",
-      "label": "Pick an ESLint preset",
+      "message": "Pick an ESLint preset",
       "choices": [
         {
           "name": "Standard (https://github.com/feross/standard)",
@@ -43,11 +43,11 @@
     },
     "unit": {
       "type": "confirm",
-      "label": "Setup unit tests with Karma + Mocha?"
+      "message": "Setup unit tests with Karma + Mocha?"
     },
     "e2e": {
       "type": "confirm",
-      "label": "Setup e2e tests with Nightwatch?"
+      "message": "Setup e2e tests with Nightwatch?"
     }
   },
   "filters": {
