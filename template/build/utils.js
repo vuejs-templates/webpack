@@ -1,6 +1,11 @@
+var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-module.exports = function (options) {
+exports.assetsPath = function (path) {
+  return config.build.assetsSubDirectory.replace(/(^\/)|(\/$)/g, '') + '/' + path
+}
+
+exports.cssLoaders = function (options) {
   options = options || {}
   // generate loader string to be used with extract text plugin
   function generateLoaders (loaders) {
