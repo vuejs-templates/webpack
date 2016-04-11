@@ -1,8 +1,9 @@
+var path = require('path')
 var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-exports.assetsPath = function (path) {
-  return config.build.assetsSubDirectory.replace(/(^\/)|(\/$)/g, '') + '/' + path
+exports.assetsPath = function (_path) {
+  return path.posix.join(config.build.assetsSubDirectory, _path)
 }
 
 exports.cssLoaders = function (options) {
