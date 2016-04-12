@@ -1,4 +1,5 @@
 var path = require('path')
+var url = require('url')
 var express = require('express')
 var webpack = require('webpack')
 var config = require('../config')
@@ -53,7 +54,7 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 // serve pure static assets
-var staticPath = path.join(config.build.assetsPublicPath, config.build.assetsSubDirectory)
+var staticPath = url.resolve(config.build.assetsPublicPath, config.build.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
 module.exports = app.listen(port, function (err) {
