@@ -1,4 +1,4 @@
-/* global env, rm, mkdir, cp */
+/* eslint-env shelljs */
 
 // https://github.com/shelljs/shelljs
 require('shelljs/global')
