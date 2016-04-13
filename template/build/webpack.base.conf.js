@@ -1,6 +1,7 @@
 var path = require('path')
 var config = require('../config')
 var cssLoaders = require('./css-loaders')
+var cssLoadersVue = require('./css-loaders-vue')
 var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
@@ -66,10 +67,10 @@ module.exports = {
           name: path.join(config.build.assetsSubDirectory, '[name].[hash:7].[ext]')
         }
       }
-    ]
+    ].concat(cssLoaders())
   },
   vue: {
-    loaders: cssLoaders()
+    loaders: cssLoadersVue()
   },
   eslint: {
     formatter: require('eslint-friendly-formatter')

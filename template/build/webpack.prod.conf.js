@@ -3,7 +3,7 @@ var config = require('../config')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
-var cssLoaders = require('./css-loaders')
+var cssLoadersVue = require('./css-loaders-vue')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -15,7 +15,7 @@ module.exports = merge(baseWebpackConfig, {
     chunkFilename: path.join(config.build.assetsSubDirectory, '[id].[chunkhash].js')
   },
   vue: {
-    loaders: cssLoaders({
+    loaders: cssLoadersVue({
       sourceMap: config.build.productionSourceMap,
       extract: true
     })
