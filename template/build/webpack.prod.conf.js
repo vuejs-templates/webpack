@@ -1,4 +1,3 @@
-var path = require('path')
 var config = require('../config')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
@@ -8,6 +7,9 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge(baseWebpackConfig, {
+  module: {
+    loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
+  },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
