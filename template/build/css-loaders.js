@@ -34,17 +34,3 @@ module.exports = function (options) {
     styl: generateLoaders(['css', 'stylus'])
   }
 }
-
-// Generate loaders for standalone style files (outside of .vue)
-exports.styleLoaders = function (options) {
-  var output = []
-  var loaders = exports.cssLoaders(options)
-  for (var extension in loaders) {
-    var loader = loaders[extension]
-    output.push({
-      test: new RegExp('\\.' + extension + '$'),
-      loader: loader
-    })
-  }
-  return output
-}
