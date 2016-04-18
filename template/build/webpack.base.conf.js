@@ -2,6 +2,7 @@ var path = require('path')
 var config = require('../config')
 var cssLoaders = require('./css-loaders')
 var projectRoot = path.resolve(__dirname, '../')
+var autoprefixer = require('autoprefixer')
 
 module.exports = {
   entry: {
@@ -70,6 +71,9 @@ module.exports = {
   },
   vue: {
     loaders: cssLoaders()
+  },
+  postcss: function() {
+    return [autoprefixer]
   },
   eslint: {
     formatter: require('eslint-friendly-formatter')
