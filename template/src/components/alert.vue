@@ -1,4 +1,5 @@
 <template>
+    {% raw %}
     <div class="box"
          v-show="alertShow"
          transition="scale">
@@ -16,6 +17,7 @@
             </div>
         </div>
     </div>
+    {% endraw %}
 </template>
 
 <script type="text/ecmascript-6">

@@ -1,4 +1,5 @@
 <template>
+    {% raw %}
     <div>
         <backdrop :backdrop-show="popupShow"></backdrop>
         <alert @click="ifHidePopup"
@@ -8,6 +9,7 @@
             <div slot="content">{{{popupSettings.content}}}</div>
         </alert>
     </div>
+    {% endraw %}
 </template>
 
 <script type="text/ecmascript-6">
