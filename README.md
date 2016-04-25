@@ -2,9 +2,17 @@
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 
-### Usage
+## Version Notice
 
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
+If you are using `vue-cli@1.x`, it will be pulling the `master` branch of this template by default. If you are using `vue-cli@2.x`, it will be pulling the `dist` branch instead, which provides more configurable options thanks to new features in `vue-cli@2.x`. It is recommended to upgrade `vue-cli` as soon as you can.
+
+## Documentation
+
+Common topics are discussed in the [docs](http://vuejs-templates.github.io/webpack). Make sure to read it!
+
+## Usage
+
+This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It is recommended to use npm 3+ for a more efficient dependency tree.**
 
 ``` bash
 $ npm install -g vue-cli
@@ -14,7 +22,7 @@ $ npm install
 $ npm run dev
 ```
 
-### What's Included
+## What's Included
 
 - `npm run dev`: first-in-class development experience.
   - Webpack + `vue-loader` for single file Vue components.
@@ -29,36 +37,16 @@ $ npm run dev
   - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
   - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
 
-- `npm test`: Unit tests run in PhantomJS with Karma + karma-jasmine + karma-webpack.
+- `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Mocha](http://mochajs.org/) + [karma-webpack](https://github.com/webpack/karma-webpack).
   - Supports ES2015 in test files.
   - Supports all webpack loaders.
-  - Easy [mock injection](http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html).
+  - Easy mock injection.
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-### Customizations
-
-You will likely need to do some tuning to suit your own needs:
-
-- Install additional libraries that you need, e.g. `vue-router`, `vue-resource`, `vuex`, etc...
-
-- Use your preferred `.eslintrc` config.
-
-- Add your preferred CSS pre-processor, for example:
-
-  ``` bash
-  npm install less-loader --save-dev
-  ```
-
-- Working with an existing backend server:
-
-  - The dev server is simply an [Express](http://expressjs.com/) server with [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) and [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) pre-configured. You can add your own routing rules to `build/dev-server.js` to proxy certain requests to an existing backend server. Or, if you are using Express yourself, you can simply copy the middleware configuration, but **make sure to add them only in development mode!**
-
-- For unit testing:
-
-  - You can run the tests in multiple real browsers by installing more [karma launchers](http://karma-runner.github.io/0.13/config/browsers.html) and adjusting the `browsers` field in `build/karma.conf.js`.
-
-  - You can also swap out Jasmine for other testing frameworks, e.g. use Mocha with [karma-mocha](https://github.com/karma-runner/karma-mocha).
+- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
+  - Run tests in multiple browsers in parallel.
+  - Works with one command out of the box:
+    - Selenium and chromedriver dependencies automatically handled.
+    - Automatically spawns the Selenium server.
 
 ### Fork It And Make Your Own
 
