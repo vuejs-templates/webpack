@@ -14,6 +14,12 @@ The template is forked from official vuejs-templates/webpack repo.
     * vue-validator
     * vuex
 * Add some basic component and utils that we can use.
+    * popup
+    * button
+    * loading bar
+    * loading more icon
+    * ele
+    * group
 * Add the function to change the path of different mode.
 * More.
 
@@ -26,6 +32,12 @@ The template is forked from official vuejs-templates/webpack repo.
     * vue-validator
     * vuex
 * 增加了可能使用到的基础组件和工具函数.
+    * 弹窗
+    * 按钮
+    * 载入进度条
+    * 加载更多动画
+    * 行
+    * 组
 * 增加了可以改变生产和开发的文件路径.
 * 其它细节.
 
