@@ -40,16 +40,17 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import btn from '../components/btn'
-    import row from '../components/row'
-    import ele from '../components/ele'
-    import group from '../components/group'
-    import more from '../components/more'
+    import btn from '../../components/btn'
+    import row from '../../components/row'
+    import ele from '../../components/ele'
+    import group from '../../components/group'
+    import more from '../../components/more'
     import utils from '../../tools/utils'
     import {
         validRules,
-        validators
-    } from '../tools/formcheck'
+        validators,
+        toValidate
+    } from '../../tools/formcheck'
 
     export default{
         props: [],
@@ -68,9 +69,11 @@
             btn,
             row,
             ele,
-            group
+            group,
+            more
         },
         methods: {
+            toValidate,
             onSubmit (e) {
                 // 手动验证
                 this.toValidate(() => {

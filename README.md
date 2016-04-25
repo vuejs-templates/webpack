@@ -1,10 +1,14 @@
-# vue-webpack-boilerplate
+# hq5544 的 vue-webpack 模版
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 
-## Version Notice
+> 具有 热重载, eslint, 单元测试, css 剥离, 等 Webpack 全部特性.
+
+## Node 版本注意事项
 
 If you are using `vue-cli@1.x`, it will be pulling the `master` branch of this template by default. If you are using `vue-cli@2.x`, it will be pulling the `dist` branch instead, which provides more configurable options thanks to new features in `vue-cli@2.x`. It is recommended to upgrade `vue-cli` as soon as you can.
+
+如果你正在使用 `vue-cli@1.x`,
 
 ## Documentation
 

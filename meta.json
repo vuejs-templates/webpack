@@ -25,5 +25,10 @@
       "type": "boolean",
       "default": true
     }
+  },
+  "filters": {
+    "text": "{{text}}",
+    "title": "{{title}}",
+    "popupSettings.content": "{{{popupSettings.content}}}"
   }
 }
