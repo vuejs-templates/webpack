@@ -1,57 +1,54 @@
-# vue-webpack-boilerplate
+# hq5544 的 vue-webpack 模版
 
-> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
+The template is forked from official vuejs-templates/webpack repo.
 
-## Version Notice
+这是一个基于官方 vuejs-templates/webpack 模版更改的项目.
 
-If you are using `vue-cli@1.x`, it will be pulling the `master` branch of this template by default. If you are using `vue-cli@2.x`, it will be pulling the `dist` branch instead, which provides more configurable options thanks to new features in `vue-cli@2.x`. It is recommended to upgrade `vue-cli` as soon as you can.
+##  增加内容
 
-## Documentation
+* Add more vue plugins.
+    * eslint-config-airbnb
+    * fastclick
+    * vue-resource
+    * vue-router
+    * vue-validator
+    * vuex
+* Add some basic component and utils that we can use.
+    * popup
+    * button
+    * loading bar
+    * loading more icon
+    * ele
+    * group
+* Add the function to change the path of different mode.
+* More.
 
-Common topics are discussed in the [docs](http://vuejs-templates.github.io/webpack). Make sure to read it!
 
-## Usage
+* 增加了更多的 vue 插件
+    * eslint-config-airbnb
+    * fastclick
+    * vue-resource
+    * vue-router
+    * vue-validator
+    * vuex
+* 增加了可能使用到的基础组件和工具函数.
+    * 弹窗
+    * 按钮
+    * 载入进度条
+    * 加载更多动画
+    * 行
+    * 组
+* 增加了可以改变生产和开发的文件路径.
+* 其它细节.
 
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It is recommended to use npm 3+ for a more efficient dependency tree.**
+##  如何使用
+
+这是一个 [vue-cli](https://github.com/vuejs/vue-cli) 模版.
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
-$ cd my-project
+$ vue init hq5544/vue-webpack your-project-name
+$ cd your-project-name
 $ npm install
 $ npm run dev
-```
-
-## What's Included
-
-- `npm run dev`: first-in-class development experience.
-  - Webpack + `vue-loader` for single file Vue components.
-  - State preserving hot-reload
-  - State preserving compilation error overlay
-  - Lint-on-save with ESLint
-  - Source maps
-
-- `npm run build`: Production ready build.
-  - JavaScript minified with [UglifyJS](https://github.com/mishoo/UglifyJS2).
-  - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
-  - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
-  - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
-
-- `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Mocha](http://mochajs.org/) + [karma-webpack](https://github.com/webpack/karma-webpack).
-  - Supports ES2015 in test files.
-  - Supports all webpack loaders.
-  - Easy mock injection.
-
-- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
-  - Run tests in multiple browsers in parallel.
-  - Works with one command out of the box:
-    - Selenium and chromedriver dependencies automatically handled.
-    - Automatically spawns the Selenium server.
-
-### Fork It And Make Your Own
-
-You can fork this repo to create your own boilerplate, and use it with `vue-cli`:
-
-``` bash
-vue init username/repo my-project
 ```
