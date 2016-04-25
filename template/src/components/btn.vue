@@ -1,8 +1,10 @@
 <template>
+    {{{{raw-helper}}}}
     <button :style="{width:btnWidth}"
             :class="{alert:alert,disabled:!allow,warning:warning,next:next}"
             @click.stop.prevent="btnFunc()">{{text}}
     </button>
+    {{{{/raw-helper}}}}
 </template>
 
 <script type="text/ecmascript-6">
