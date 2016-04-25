@@ -1,15 +1,13 @@
 <template>
-    {{{{raw-helper}}}}
     <div>
         <backdrop :backdrop-show="popupShow"></backdrop>
         <alert @click="ifHidePopup"
                :alert-show="popupShow"
                :btn-list="btnList"
                :title="title">
-            <div slot="content">{{{popupSettings.content}}}</div>
+            <div slot="content">\{{{popupSettings.content}}}</div>
         </alert>
     </div>
-    {{{{/raw-helper}}}}
 </template>
 
 <script type="text/ecmascript-6">

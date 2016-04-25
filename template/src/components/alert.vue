@@ -1,23 +1,21 @@
 <template>
-    {{{{raw-helper}}}}
     <div class="box"
          v-show="alertShow"
          transition="scale">
         <div class="popup"
              @click.stop="">
-            <div class="title">{{title}}</div>
+            <div class="title">\{{title}}</div>
             <div class="content">
                 <slot name="content"></slot>
             </div>
             <div class="btn-group"
                  v-if="btnList.length">
                 <button v-for="btn in alertBtnList"
-                        @click="btn.fn">{{btn.text}}
+                        @click="btn.fn">\{{btn.text}}
                 </button>
             </div>
         </div>
     </div>
-    {{{{/raw-helper}}}}
 </template>
 
 <script type="text/ecmascript-6">
