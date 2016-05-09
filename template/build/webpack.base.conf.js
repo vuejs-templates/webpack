@@ -1,7 +1,8 @@
-var path = require('path')
-var config = require('../config')
-var utils = require('./utils')
-var projectRoot = path.resolve(__dirname, '../')
+"use strict";
+const path = require('path')
+const config = require('../config')
+const utils = require('./utils')
+const projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
   entry: {
