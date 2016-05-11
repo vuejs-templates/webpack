@@ -28,6 +28,9 @@
     "babel-preset-stage-2": "^6.0.0",
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.23.0",
+    "css-mqpacker": "^4.0.1",
+    "postcss-loader": "^0.8.2",
+    "autoprefixer": "^6.3.6",
     {{#lint}}
     "eslint": "^2.0.0",
     "eslint-friendly-formatter": "^1.2.2",

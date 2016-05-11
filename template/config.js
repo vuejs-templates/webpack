@@ -7,7 +7,8 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, 'dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    productionSourceMap: true
+    productionSourceMap: true,
+    browsers: ['last 2 versions', 'ie 9-11']
   },
   dev: {
     port: 8080,

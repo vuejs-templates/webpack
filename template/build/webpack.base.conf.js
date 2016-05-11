@@ -2,6 +2,7 @@ var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
+var autoprefixer = require('autoprefixer')
 
 module.exports = {
   entry: {
@@ -84,6 +85,13 @@ module.exports = {
   },
   {{/lint}}
   vue: {
-    loaders: utils.cssLoaders()
+    loaders: utils.cssLoaders(),
+    autoprefixer: false
+  },
+  postcss: function () {
+      return [
+        autoprefixer({browsers: config.build.browsers}),
+        require("css-mqpacker")(),
+      ];
   }
 }
