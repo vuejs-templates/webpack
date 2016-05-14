@@ -51,6 +51,22 @@ module.exports = merge(baseWebpackConfig, {
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       }
+    }),
+
+    // split vendor js into its own file
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: path.join(
+        config.build.assetsSubDirectory,
+        '[name].[chunkhash].js'
+      ),
+      minChunks: function (module, count) {
+        // any required modules inside node_modules are extracted to vendor
+        return (
+          module.resource &&
+          module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0
+        )
+      }
     })
   ]
 })
