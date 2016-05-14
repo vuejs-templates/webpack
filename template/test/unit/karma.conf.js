@@ -7,6 +7,7 @@ var path = require('path')
 var merge = require('webpack-merge')
 var baseConfig = require('../../build/webpack.base.conf')
 var utils = require('../../build/utils')
+var webpack = require('webpack')
 var projectRoot = path.resolve(__dirname, '../../')
 
 var webpackConfig = merge(baseConfig, {
@@ -19,7 +20,12 @@ var webpackConfig = merge(baseConfig, {
     loaders: {
       js: 'isparta'
     }
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': require('../../config/test.env')
+    })
+  ]
 })
 
 // no need for app entry during tests
