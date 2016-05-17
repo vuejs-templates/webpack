@@ -66,7 +66,7 @@ module.exports = merge(baseWebpackConfig, {
         return (
           module.resource &&
           module.resource.indexOf(
-            path.posix.join(__dirname, '../node_modules')
+            path.join(__dirname, '../node_modules')
           ) === 0
         )
       }
