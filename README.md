@@ -22,6 +22,10 @@ You might want to use ```sudo``` if you encounter permissions error
 $ vue init NdagiStanley/vue-django my-project
 $ cd my-project
 $ npm install
+```
+To develop
+
+```bash
 $ npm run dev
 ```
 
