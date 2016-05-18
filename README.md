@@ -1,6 +1,6 @@
-# vue-webpack-boilerplate
+# vue-django-webpack-boilerplate
 
-> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
+> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction integrated into a django application
 
 ## Version Notice
 
@@ -16,11 +16,44 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
+```
+You might want to use ```sudo``` if you encounter permissions error
+```bash
+$ vue init NdagiStanley/vue-django my-project
 $ cd my-project
 $ npm install
 $ npm run dev
 ```
+
+To deploy your django project
+
+```bash
+$ npm run build
+```
+
+Edit the values `href` and `src` attributes of the bundled `css` and `js` (respectively) in **index.html** in the _templates_ folder like this:
+
+(Pretty-fied HTML)
+```html
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>Vue Django</title>
+    <link href={% static 'app.369373ee5bfac83b1712b5ac3ebad93a.css' %} rel=stylesheet>
+</head>
+
+<body>
+    <app></app>
+    <script type=text/javascript src={% static 'app.2b5e8c77e6df2615ff26.js' %}></script>
+</body>
+
+</html>
+
+```
+
 
 ## What's Included
 
@@ -48,9 +81,13 @@ $ npm run dev
     - Selenium and chromedriver dependencies automatically handled.
     - Automatically spawns the Selenium server.
 
-### Fork It And Make Your Own
+### Contributions
 
-You can fork this repo to create your own boilerplate, and use it with `vue-cli`:
+**NB**: This repo has been forked from vue-webpack-boilerplate to build help you start a Django application utilizing the awesomeness of `Vue JS` and `vue-cli`
+
+Feel free to contribute to this repo.
+
+To create your own boilerplate, fork this repo or [vue-webpack-boilerplate](https://github.com/vuejs-templates/webpack) and use it with `vue-cli`:
 
 ``` bash
 vue init username/repo my-project
