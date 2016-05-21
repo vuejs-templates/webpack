@@ -8,13 +8,14 @@
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     {{#unit}}
-    "unit": "karma start test/unit/karma.conf.js --single-run",
+    "unit": "karma start test/unit/config/karma.conf.js --single-run",
     {{/unit}}
     {{#e2e}}
-    "e2e": "node test/e2e/runner.js",
+    "e2e": "node test/e2e/config/runner.js",
     {{/e2e}}
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{#lint}},
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"{{/lint}}
+    "lint": "eslint --ext .js,.vue .",
+    "predev": "npm run lint -- --fix"{{/lint}}
   },
   "dependencies": {
     "vue": "^1.0.21",
