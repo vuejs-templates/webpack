@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'testing'
 var server = require('../../build/dev-server.js')
 
 // 2. run the nightwatch test suite against it
-// to run in additional browsers either:
+// to run in additional browsers:
 //    1. add an entry in test/e2e/nightwatch.conf.json under "test_settings"
 //    2. add it to the --env flag below
 // or override the environment flag, for example: `npm run e2e -- --env chrome,firefox`
