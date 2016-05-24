@@ -2,8 +2,10 @@
 
 ``` bash
 .
-├── config.js                   # main project config
 ├── build/                      # webpack config files
+│   └── ...
+├── config/                     
+│   ├── index.js                # main project config
 │   └── ...
 ├── src/
 │   ├── main.js                 # app entry file
@@ -24,18 +26,19 @@
 │   │   ├── runner.js           # test runner script
 │   │   └── nightwatch.conf.js  # test runner config file
 ├── .babelrc                    # babel config
+├── .editorconfig.js            # editor config
 ├── .eslintrc.js                # eslint config
 ├── index.html                  # index.html template
 └── package.json                # build scripts and dependencies
 ```
 
-### `config.js`
-
-This is the main configuration file that exposes some of the most common configuration options for the build setup. See [API Proxying During Development](proxy.md) and [Integrating with Backend Framework](backend.md) for more details.
-
 ### `build/`
 
 This directory holds the actual configurations for both the development server and the production webpack build. Normally you don't need to touch these files unless you want to customize Webpack loaders, in which case you should probably look at `build/webpack.base.conf.js`.
+
+### `config/index.js`
+
+This is the main configuration file that exposes some of the most common configuration options for the build setup. See [API Proxying During Development](proxy.md) and [Integrating with Backend Framework](backend.md) for more details.
 
 ### `src/`
 
