@@ -5,7 +5,7 @@ module.exports = {
   extends: 'standard',
   {{/if_eq}}
   {{#if_eq lintConfig "airbnb"}}
-  extends: 'airbnb/base',
+  extends: 'airbnb-base',
   {{/if_eq}}
   // required to lint *.vue files
   plugins: [
