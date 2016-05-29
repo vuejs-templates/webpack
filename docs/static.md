@@ -53,4 +53,4 @@ module.exports = {
 
 Any file placed in `static/` should be referenced using the absolute URL `/static/[filename]`. If you change `assetSubDirectory` to `assets`, then these URLs will need to be changed to `/assets/[filename]`.
 
-We will learn more about the config file in the [next section](backend.md).
+We will learn more about the config file in the section about [backend integration](backend.md).
