@@ -3,10 +3,11 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 var autoprefixer = require('autoprefixer')
-var postCSSPlugins = [
-  autoprefixer({browsers: config.build.browsers}),
-  require("css-mqpacker")()
-]
+var postCSSPlugins = function () {
+  return [
+    autoprefixer({browsers: config.build.browsers})
+  ]
+}
 
 module.exports = {
   entry: {
@@ -93,7 +94,5 @@ module.exports = {
     postcss: postCSSPlugins,
     autoprefixer: false
   },
-  postcss: function () {
-      return postCSSPlugins
-  }
+  postcss: postCSSPlugins
 }
