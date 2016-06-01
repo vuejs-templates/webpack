@@ -10,7 +10,10 @@ exports.cssLoaders = function (options) {
   options = options || {}
   // generate loader string to be used with extract text plugin
   function generateLoaders (loaders) {
-    var sourceLoader = loaders.map(function (loader) {
+    var sourceLoader = loaders.filter(function (loader) {
+      // Filter out 'postcss' loader if options.postcss is false
+      return loader != 'postcss' || options.postcss !== false
+    }).map(function (loader) {
       var extraParamChar
       if (/\?/.test(loader)) {
         loader = loader.replace(/\?/, '-loader?')
