@@ -1,7 +1,59 @@
+# Packages #
+############
+# Just to be safe that erroneous packages don't accidentally get committed
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS && IDE files #
+###################
 .DS_Store
-node_modules/
-dist/
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+.settings
+.settings/*
+.buildpath
+.idea
+.project
+/nbproject/private/
+*.iml
+sftp-config*
+*.sublime-*
+
+# Node specific #
+#################
+lib-cov
+*.seed
+*.log
+*.dat
+*.out
+*.pid
+*.gz
+pids
+logs
 npm-debug.log
-selenium-debug.log
-test/unit/coverage
-test/e2e/reports
+node_modules/
+
+# Coverage specific #
+#################
+/test/coverage
+
+# Public Specific #
+###################
+/public/*

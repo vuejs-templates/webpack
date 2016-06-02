@@ -1,24 +1,30 @@
 # vue-webpack-boilerplate
 
-> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
+> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction. Based on Sainsbury's coding standards.
 
 ## Documentation
 
-Common topics are discussed in the [docs](http://vuejs-templates.github.io/webpack). Make sure to read it!
+Make sure to read the docs! Once scaffolding is complete you can view the read me
 
 ## Usage
 
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It is recommended to use npm 3+ for a more efficient dependency tree.**
+This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It is recommended to use npm 4+ for a more efficient dependency tree.**
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
+$ vue init JSainsburyPLC/vue-webpack-template my-project
 $ cd my-project
 $ npm install
 $ npm run dev
 ```
 
 ## What's Included
+
+- `PULL_REQUEST_TEMPLATE.md`
+- Bithound config
+- codecov.io setup
+- `eslint`: conforming to Sainsbury's coding standards`
+- `.editorconfig`
 
 - `npm run dev`: first-in-class development experience.
   - Webpack + `vue-loader` for single file Vue components.
@@ -37,17 +43,3 @@ $ npm run dev
   - Supports ES2015 in test files.
   - Supports all webpack loaders.
   - Easy mock injection.
-
-- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
-  - Run tests in multiple browsers in parallel.
-  - Works with one command out of the box:
-    - Selenium and chromedriver dependencies automatically handled.
-    - Automatically spawns the Selenium server.
-
-### Fork It And Make Your Own
-
-You can fork this repo to create your own boilerplate, and use it with `vue-cli`:
-
-``` bash
-vue init username/repo my-project
-```
