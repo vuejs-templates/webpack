@@ -1,0 +1,18 @@
+{
+  "ignore": [
+    "**/node_modules/**"
+  ],
+  "test": [
+    "resources/**/*.spec.js"
+  ],
+  "packageJsonLocation": "package.json",
+  "critics": {
+    "lint": {
+      "engine": "eslint"
+    }
+  },
+  "dependencies": {
+    "unused-ignores": [
+    ]
+  }
+}
