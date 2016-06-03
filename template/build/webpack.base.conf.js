@@ -3,11 +3,6 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 var autoprefixer = require('autoprefixer')
-var postCSSPlugins = function () {
-  return [
-    autoprefixer({browsers: config.build.browsers})
-  ]
-}
 
 module.exports = {
   entry: {
@@ -90,9 +85,9 @@ module.exports = {
   },
   {{/lint}}
   vue: {
-    loaders: utils.cssLoaders({postcss: false}),
-    postcss: postCSSPlugins,
     autoprefixer: false
   },
-  postcss: postCSSPlugins
+  postcss: [
+    autoprefixer({ browsers: config.build.browsers })
+  ]
 }
