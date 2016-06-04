@@ -52,6 +52,7 @@
   },
   "filters": {
     ".eslintrc.js": "lint",
+    "build/webpack.test.conf.js": "unit",
     "test/unit/**/*": "unit",
     "test/e2e/**/*": "e2e"
   },
