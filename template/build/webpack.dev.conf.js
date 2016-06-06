@@ -29,6 +29,15 @@ module.exports = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'index.html',
       inject: true
+    }),
+    // Stylelint for all imports
+    // https://github.com/vieron/stylelint-webpack-plugin
+    new StyleLintPlugin({
+      configFile: path.resolve(__dirname, '../.stylelintrc.js'),
+      context: 'inherits from webpack',
+      files: '../src/**/*.@(?(s)?(a|c)ss|vue|html)',
+      failOnError: false,
+      extractStyleTagsFromHtml: true,
     })
   ]
 })

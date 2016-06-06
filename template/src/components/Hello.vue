@@ -12,10 +12,10 @@ export default {
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      msg: 'Hello World!'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-    }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      msg: 'Hello World!'{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
+    }{{#if_eq eslintConfig "airbnb"}};{{/if_eq}}
+  }{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
+}{{#if_eq eslintConfig "airbnb"}};{{/if_eq}}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

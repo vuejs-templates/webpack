@@ -15,12 +15,12 @@
       "type": "string",
       "message": "Author"
     },
-    "lint": {
+    "eslint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
     },
-    "lintConfig": {
-      "when": "lint",
+    "eslintConfig": {
+      "when": "eslint",
       "type": "list",
       "message": "Pick an ESLint preset",
       "choices": [
@@ -41,6 +41,27 @@
         }
       ]
     },
+    "stylelint": {
+      "type": "confirm",
+      "message": "Use stylelint to lint your code?"
+    },
+    "stylelintConfig": {
+      "when": "stylelint",
+      "type": "list",
+      "message": "Pick an stylelint preset",
+      "choices": [
+        {
+          "name": "Standard (https://github.com/stylelint/stylelint-config-standard)",
+          "value": "standard",
+          "short": "Standard"
+        },
+        {
+          "name": "none (configure it yourself)",
+          "value": "none",
+          "short": "none"
+        }
+      ]
+    },
     "unit": {
       "type": "confirm",
       "message": "Setup unit tests with Karma + Mocha?"
@@ -51,7 +72,8 @@
     }
   },
   "filters": {
-    ".eslintrc.js": "lint",
+    ".eslintrc.js": "eslint",
+    ".stylelintrc.js": "stylelint",
     "test/unit/**/*": "unit",
     "test/e2e/**/*": "e2e"
   },
