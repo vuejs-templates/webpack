@@ -1,8 +1,8 @@
 # Integrating with Backend Framework
 
-If you are building a purely-static app (one that is deployed separately from the backend API), then you probably don't even need to edit `config.js`. However, if you want to integrate this template with an existing backend framework, e.g. Rails/Django/Laravel, which comes with their own project structures, you can edit `config.js` to directly generate front-end assets into your backend project.
+If you are building a purely-static app (one that is deployed separately from the backend API), then you probably don't even need to edit `config/index.js`. However, if you want to integrate this template with an existing backend framework, e.g. Rails/Django/Laravel, which comes with their own project structures, you can edit `config/index.js` to directly generate front-end assets into your backend project.
 
-Let's take a look at the default `config.js`:
+Let's take a look at the default `config/index.js`:
 
 ``` js
 var path = require('path')
