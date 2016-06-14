@@ -1,5 +1,8 @@
 module.exports = {
   root: true,
+  parserOptions: {
+    sourceType: 'module'
+  },
   {{#if_eq lintConfig "standard"}}
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
