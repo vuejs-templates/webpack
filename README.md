@@ -2,6 +2,10 @@
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 
+## Version Notice
+
+If you are using `vue-cli@1.x`, it will be pulling the `master` branch of this template by default. If you are using `vue-cli@2.x`, it will be pulling the `dist` branch instead, which provides more configurable options thanks to new features in `vue-cli@2.x`. It is recommended to upgrade `vue-cli` as soon as you can.
+
 ## Documentation
 
 Common topics are discussed in the [docs](http://vuejs-templates.github.io/webpack). Make sure to read it!
