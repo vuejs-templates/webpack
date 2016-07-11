@@ -20,12 +20,11 @@ module.exports = {
     env: require('./dev.env'),
     port: 8080,
     proxyTable: {},
-    // Sourcemaps are deactived by default because
-    // relative paths are "buggy" with this option, according to the
-    // CSS-Loader README (https://github.com/webpack/css-loader#sourcemaps),
-    //
-    // In our experience, they generally work as expeted,
-    // justr but be aware of this issue when enabling this option.
+    // Sourcemaps off by default because relative paths are "buggy"
+    // with this option, according to the CSS-Loader README
+    // (https://github.com/webpack/css-loader#sourcemaps)
+    // In our experience, they generally work as expexted,
+    // just but be aware of this issue when enabling this option.
     // Repated issue in the templates repository:
     // https://github.com/vuejs-templates/webpack/issues/123
     developmentSourceMap: false,
