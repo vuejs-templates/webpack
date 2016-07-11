@@ -23,9 +23,9 @@ module.exports = {
     // Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
-    // In our experience, they generally work as expexted,
-    // just but be aware of this issue when enabling this option.
-    // Repated issue in the templates repository:
+    // In our experience, they generally work as expected,
+    // just be aware of this issue when enabling this option.
+    // Related issue in the template's repository:
     // https://github.com/vuejs-templates/webpack/issues/123
     developmentSourceMap: false,
   }
