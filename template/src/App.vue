@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-    <img class="logo" src="./assets/logo.png">
+    <img class="logo" src="./assets/vue.png">
+    <br>
+    <img class="logo" src="./assets/dj.png">
     <hello></hello>
     <p>
-      Welcome to your Vue.js app!
-    </p>
-    <p style="color:red">
-      It seems you are using an outdated version of vue-cli.<br>
-      Upgrade to vue-cli@2.x to get access to newer versions of this template.
+      Welcome to your Django - Vue.js app!
     </p>
   </div>
 </template>
