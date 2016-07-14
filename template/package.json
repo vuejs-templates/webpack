@@ -56,7 +56,7 @@
     "karma-coverage": "^0.5.5",
     "karma-mocha": "^0.2.2",
     "karma-phantomjs-launcher": "^1.0.0",
-    "karma-sinon-chai": "^1.2.0",
+    "karma-better-sinon-chai": "^0.1.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.24",
     "karma-webpack": "^1.7.0",

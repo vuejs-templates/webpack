@@ -8,7 +8,10 @@ An overview of the tools used by this boilerplate for unit testing:
 - [Chai](http://chaijs.com/): test assertion library that provides better assertion syntax.
 - [Sinon](http://sinonjs.org/): test utility library that provides spies, stubs and mocks.
 
-Chai and Sinon are integrated using [karma-sinon-chai](https://github.com/kmees/karma-sinon-chai), so all Chai interfaces (`should`, `expect`, `assert`) and `sinon` are globally available in test files.
+Chai and Sinon are integrated using 
+[karma-better-sinon-chai](https://github.com/davezuko/karma-better-sinon-chai),
+so all Chai interfaces (`should`, `expect`, `assert`) and `sinon` are globally
+available in test files.
 
 And the files:
 
