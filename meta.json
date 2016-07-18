@@ -30,9 +30,9 @@
           "short": "Standard"
         },
         {
-          "name": "AirBNB (https://github.com/airbnb/javascript)",
+          "name": "Airbnb (BETA) (https://github.com/airbnb/javascript)",
           "value": "airbnb",
-          "short": "AirBNB"
+          "short": "Airbnb (BETA)"
         },
         {
           "name": "none (configure it yourself)",
