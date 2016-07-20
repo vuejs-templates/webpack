@@ -23,13 +23,13 @@
 </template>
 
 <script>
-import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Hello from './components/Hello'{{#if_eq eslintConfig "airbnb"}};{{/if_eq}}
 
 export default {
   components: {
-    Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    Hello{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
+  }{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
+}{{#if_eq eslintConfig "airbnb"}};{{/if_eq}}
 </script>
 
 <style>
@@ -59,6 +59,6 @@ body {
 
 .logo {
   width: 100px;
-  height: 100px
+  height: 100px;
 }
 </style>
