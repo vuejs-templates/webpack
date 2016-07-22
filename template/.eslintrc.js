@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module'
   },
@@ -19,6 +20,8 @@ module.exports = {
     {{#if_eq lintConfig "standard"}}
     // allow paren-less arrow functions
     'arrow-parens': 0,
+    // allow async-await
+    'generator-star-spacing': 0,
     {{/if_eq}}
     {{#if_eq lintConfig "airbnb"}}
     'import/no-unresolved': 0,
