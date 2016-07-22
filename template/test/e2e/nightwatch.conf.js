@@ -1,4 +1,4 @@
-require('babel-core/register');
+require('babel-register')
 
 // http://nightwatchjs.org/guide#settings-file
 module.exports = {
