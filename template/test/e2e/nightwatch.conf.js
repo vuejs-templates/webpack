@@ -1,3 +1,5 @@
+require('babel-register')
+
 // http://nightwatchjs.org/guide#settings-file
 module.exports = {
   "src_folders": ["test/e2e/specs"],
