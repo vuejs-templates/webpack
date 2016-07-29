@@ -33,36 +33,36 @@
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.23.0",
     {{#lint}}
-    "eslint": "^2.10.2",
+    "eslint": "^3.0.1",
     "eslint-friendly-formatter": "^2.0.5",
     "eslint-loader": "^1.3.0",
     "eslint-plugin-html": "^1.3.0",
     {{#if_eq lintConfig "standard"}}
-    "eslint-config-standard": "^5.1.0",
-    "eslint-plugin-promise": "^1.0.8",
+    "eslint-config-standard": "^5.3.1",
+    "eslint-plugin-promise": "^1.3.2",
     "eslint-plugin-standard": "^1.3.2",
     {{/if_eq}}
     {{#if_eq lintConfig "airbnb"}}
-    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-config-airbnb-base": "^4.0.0",
     "eslint-plugin-import": "^1.8.1",
     {{/if_eq}}
     {{/lint}}
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.8.4",
+    "file-loader": "^0.9.0",
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
-    "http-proxy-middleware": "^0.12.0",
+    "http-proxy-middleware": "^0.17.0",
     "json-loader": "^0.5.4",
     {{#unit}}
-    "karma": "^0.13.15",
-    "karma-coverage": "^0.5.5",
-    "karma-mocha": "^0.2.2",
+    "karma": "^1.1.1",
+    "karma-coverage": "^1.1.0",
+    "karma-mocha": "^1.1.1",
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-sinon-chai": "^1.2.0",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-spec-reporter": "0.0.24",
+    "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.7.0",
     "lolex": "^1.4.0",
     "mocha": "^2.4.5",
@@ -75,12 +75,12 @@
     {{/unit}}
     {{#e2e}}
     "chromedriver": "^2.21.2",
-    "cross-spawn": "^2.1.5",
-    "nightwatch": "^0.8.18",
-    "selenium-server": "2.53.0",
+    "cross-spawn": "^4.0.0",
+    "nightwatch": "^0.9.5",
+    "selenium-server": "2.53.1",
     {{/e2e}}
     "ora": "^0.2.0",
-    "shelljs": "^0.6.0",
+    "shelljs": "^0.7.0",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
@@ -89,6 +89,6 @@
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
-    "webpack-merge": "^0.8.3"
+    "webpack-merge": "^0.14.0"
   }
 }
