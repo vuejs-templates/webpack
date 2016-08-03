@@ -1,55 +1,59 @@
-var path = require('path')
-var config = require('../config')
-var utils = require('./utils')
-var projectRoot = path.resolve(__dirname, '../')
+const path       = require('path')
+const utils      = require('./utils')
+const getEntries = require('./entry')
+
+let feRoot         = path.resolve(__dirname, '../');
+let feSrcRoot      = path.resolve(feRoot, './src/');
+let nodeModulePath = path.resolve(feRoot, './node_modules/')
 
 module.exports = {
-  entry: {
-    app: './src/main.js'
-  },
-  output: {
-    path: config.build.assetsRoot,
-    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
-    filename: '[name].js'
-  },
-  resolve: {
+  entry        : getEntries(path.resolve(feSrcRoot, './entry/')),
+  resolve      : {
+    /*root: [
+     path.resolve(__dirname, '../src')
+     ],*/
     extensions: ['', '.js', '.vue'],
-    fallback: [path.join(__dirname, '../node_modules')],
-    alias: {
-      'src': path.resolve(__dirname, '../src'),
-      'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components')
+    fallback  : [nodeModulePath],
+    alias     : {
+      'src'       : feSrcRoot,
+      'assets'    : path.resolve(feSrcRoot, './assets/'),
+      'js'        : path.resolve(feSrcRoot, './js/'),
+      'css'       : path.resolve(feSrcRoot, './css/'),
+      'images'    : path.resolve(feSrcRoot, './images/'),
+      'sprites'   : path.resolve(feSrcRoot, './sprites/'),
+      'components': path.resolve(feSrcRoot, './components/'),
+      'entry'     : path.resolve(feSrcRoot, './entry/'),
+      'view'      : path.resolve(feSrcRoot, './view/'),
+      'pages'     : path.resolve(feSrcRoot, './pages/')
     }
   },
   resolveLoader: {
-    fallback: [path.join(__dirname, '../node_modules')]
+    fallback: [nodeModulePath]
   },
-  module: {
-    {{#lint}}
-    preLoaders: [
-      {
-        test: /\.vue$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
-      },
-      {
-        test: /\.js$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
-      }
-    ],
-    {{/lint}}
+  module       : {
+    /*preLoaders: [
+     {
+     test: /\.vue$/,
+     loader: 'eslint',
+     include: feSrcRoot,
+     exclude: /node_modules/
+     },
+     {
+     test: /\.js$/,
+     loader: 'eslint',
+     include: feSrcRoot,
+     exclude: /node_modules/
+     }
+     ],*/
     loaders: [
       {
         test: /\.vue$/,
         loader: 'vue'
       },
       {
-        test: /\.js$/,
-        loader: 'babel',
-        include: projectRoot,
+        test   : /\.js$/,
+        loader : 'babel',
+        include: feSrcRoot,
         exclude: /node_modules/
       },
       {
@@ -59,31 +63,30 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'vue-html'
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-        }
       }
+      /*,
+       {
+       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+       loader: 'url',
+       query: {
+       limit: 10000,
+       name: utils.assetsPath('img/[name].[hash:7].[ext]')
+       }
+       },
+       {
+       test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+       loader: 'url',
+       query: {
+       limit: 10000,
+       name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+       }
+       }*/
     ]
   },
-  {{#lint}}
-  eslint: {
+  eslint       : {
     formatter: require('eslint-friendly-formatter')
   },
-  {{/lint}}
-  vue: {
+  vue          : {
     loaders: utils.cssLoaders()
   }
 }

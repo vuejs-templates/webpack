@@ -4,7 +4,7 @@ var webpack = require('webpack')
 var config = require('../config')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = process.env.NODE_ENV === 'testing'
-  ? require('./webpack.prod.conf')
+  ? require('./webpack.test.conf')
   : require('./webpack.dev.conf')
 
 // default port where dev server listens for incoming traffic
@@ -53,8 +53,13 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 // serve pure static assets
-var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
-app.use(staticPath, express.static('./static'))
+var staticPath
+if (process.env.NODE_ENV === 'testing') {
+  staticPath = config.test.assetsRoot
+} else {
+  staticPath = config.dev.assetsRoot
+}
+app.use(staticPath, express.static('./'))
 
 module.exports = app.listen(port, function (err) {
   if (err) {

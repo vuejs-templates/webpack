@@ -15,18 +15,18 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 
 module.exports = merge(baseWebpackConfig, {
   module : {
-    loaders: utils.styleLoaders({sourceMap: config.dev.cssSourceMap})
+    loaders: utils.styleLoaders({sourceMap: config.test.cssSourceMap})
   },
   // eval-source-map is faster for development
   devtool: '#eval-source-map',
   output : {
-    path    : config.dev.assetsJSRoot,
-    //publicPath: config.dev.assetsPublicPath,
+    path    : config.test.assetsJSRoot,
+    //publicPath: config.test.assetsPublicPath,
     filename: '[name].js'
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env
+      'process.env': config.test.env
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -40,8 +40,9 @@ module.exports = merge(baseWebpackConfig, {
       manifest: require('../dll/vendors_manifest.json'),
     }),
     new htmlHashPlugin(Object.assign({
-      outputPath: config.dev.viewRoot,
-      viewPath  : path.resolve(__dirname, '../src/view')
+      outputPath: config.test.viewRoot,
+      viewPath  : path.resolve(__dirname, '../src/view'),
+      index     : ['index.ejs']
     }, mapping.templateMapping))
     // https://github.com/ampedandwired/html-webpack-plugin
     /*new HtmlWebpackPlugin({
