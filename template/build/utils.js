@@ -9,11 +9,9 @@ exports.assetsPath = function (_path) {
 exports.cssLoaders = function (options) {
   options = options || {}
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loaders) {
-    var sourceLoader = loaders.filter(function (loader) {
-      // Filter out 'postcss' loader if options.postcss is false
-      return loader != 'postcss' || options.postcss !== false
-    }).map(function (loader) {
+  function generateLoaders () {
+    var loaders = ['css', 'postcss'].concat(Array.from(arguments))
+    var sourceLoader = loaders.map(function (loader) {
       var extraParamChar
       if (/\?/.test(loader)) {
         loader = loader.replace(/\?/, '-loader?')
@@ -34,13 +32,13 @@ exports.cssLoaders = function (options) {
 
   // http://vuejs.github.io/vue-loader/configurations/extract-css.html
   return {
-    css: generateLoaders(['css', 'postcss']),
-    postcss: generateLoaders(['css', 'postcss']),
-    less: generateLoaders(['css', 'postcss', 'less']),
-    sass: generateLoaders(['css', 'postcss', 'sass?indentedSyntax']),
-    scss: generateLoaders(['css', 'postcss', 'sass']),
-    stylus: generateLoaders(['css', 'postcss', 'stylus']),
-    styl: generateLoaders(['css', 'postcss', 'stylus'])
+    css: generateLoaders(),
+    postcss: generateLoaders(),
+    less: generateLoaders('less'),
+    sass: generateLoaders('sass?indentedSyntax'),
+    scss: generateLoaders('sass'),
+    stylus: generateLoaders('stylus'),
+    styl: generateLoaders('stylus')
   }
 }
 
