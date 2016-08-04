@@ -29,6 +29,7 @@ To develop
 $ npm run dev
 ```
 
+## Deploy
 To deploy your django project
 
 ```bash
@@ -57,6 +58,17 @@ Edit the values `href` and `src` attributes of the bundled `css` and `js` (respe
 </html>
 
 ```
+
+
+`$ pip install -r requirements.txt`
+
+`$ python manage.py collectstatic --noinput`
+
+`$ python manage.py migrate`
+
+`$ python manage.py runserver`
+
+Then get to [localhost:8000](http://localhost:8000/). You should have a page exactly like [this](http://i.imgur.com/sY3IpBE.png?1):![](http://i.imgur.com/sY3IpBE.png?1)
 
 
 ## What's Included
