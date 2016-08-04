@@ -9,9 +9,9 @@ const mapping           = require('../mapping')
 //import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 // add hot-reload related code to entry chunks
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
+/*Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
-})
+ })*/
 
 module.exports = merge(baseWebpackConfig, {
   module : {
@@ -19,6 +19,8 @@ module.exports = merge(baseWebpackConfig, {
   },
   // eval-source-map is faster for development
   devtool: '#eval-source-map',
+  watch  : true,
+  debug  : true,
   output : {
     path    : config.test.assetsJSRoot,
     //publicPath: config.test.assetsPublicPath,

@@ -1,6 +1,6 @@
 // https://github.com/shelljs/shelljs
 require('shelljs/global')
-env.NODE_ENV = 'production'
+//env.NODE_ENV = 'production'
 
 const path          = require('path')
 const config        = require('../config')
@@ -16,12 +16,12 @@ console.log(
   `
 )
 
-let spinner = ora('building for production...')
+const spinner = ora('building for production...')
 spinner.start()
 
-let assetsPath    = path.resolve(config.build.assetsRoot)
-let assetsJSPath  = path.resolve(config.build.assetsJSRoot)
-let assetsCSSPath = path.resolve(assetsPath, './css')
+const assetsPath    = path.resolve(config.build.assetsRoot)
+const assetsJSPath  = path.resolve(config.build.assetsJSRoot)
+const assetsCSSPath = path.resolve(assetsPath, './css')
 rm('-rf', assetsJSPath)
 rm('-rf', assetsCSSPath)
 mkdir('-p', assetsJSPath)

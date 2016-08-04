@@ -9,9 +9,9 @@ const mapping           = require('../mapping')
 //import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 // add hot-reload related code to entry chunks
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
+/*Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
-})
+ })*/
 
 module.exports = merge(baseWebpackConfig, {
   module : {
@@ -19,6 +19,8 @@ module.exports = merge(baseWebpackConfig, {
   },
   // eval-source-map is faster for development
   devtool: '#eval-source-map',
+  watch  : true,
+  debug  : true,
   output : {
     path    : config.dev.assetsJSRoot,
     //publicPath: config.dev.assetsPublicPath,
@@ -39,10 +41,10 @@ module.exports = merge(baseWebpackConfig, {
       context : __dirname,
       manifest: require('../dll/vendors_manifest.json'),
     }),
-    new htmlHashPlugin(Object.assign({
-      outputPath: config.dev.viewRoot,
-      viewPath  : path.resolve(__dirname, '../src/view')
-    }, mapping.templateMapping))
+    /*new htmlHashPlugin(Object.assign({
+     outputPath: config.dev.viewRoot,
+     viewPath: path.resolve(__dirname, '../src/view')
+     }, mapping.templateMapping))*/
     // https://github.com/ampedandwired/html-webpack-plugin
     /*new HtmlWebpackPlugin({
      filename: 'index.html',
