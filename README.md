@@ -1,6 +1,12 @@
 # vue-webpack-boilerplate
 
-> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
+> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction -- with my standards
+
+## What's different
+
+* Use double-quotes instead of single-quotes.  [See why](http://stackoverflow.com/questions/242813/when-to-use-double-or-single-quotes-in-javascript/18041188#18041188)
+* Use tabs instead of spaces.  [See why](http://stackoverflow.com/questions/9231688/is-the-tab-character-bad-in-source-code/14078305#14078305)
+* Complete all the semicolons.  [See why](http://stackoverflow.com/a/444082/1429980)
 
 ## Documentation
 
