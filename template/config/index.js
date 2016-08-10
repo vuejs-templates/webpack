@@ -21,7 +21,7 @@ module.exports = {
     productionGzip          : false,
     productionGzipExtensions: ['js', 'css']
   },
-  dev: {
+  dev  : {
     env               : {
       NODE_ENV: '"development"'
     },
@@ -30,7 +30,7 @@ module.exports = {
     assetsJSRoot      : path.resolve(__dirname, '../static/js/'),
     assetsSubDirectory: 'static',
     assetsPublicPath  : '/',
-    viewRoot          : path.resolve(__dirname, '../view/'),
+    viewRoot          : path.resolve(__dirname, '../static/view/'),
     proxyTable        : {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

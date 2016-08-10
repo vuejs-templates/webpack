@@ -49,6 +49,18 @@ const spritesArray = [];
 
 gulp.task('sprites', spritesArray)
 
+gulp.task('img', () = > {
+  gulp.src(path.resolve(spritesArray, '../img/')
+  .pipe(buffer())
+  .pipe(imagemin({
+    optimizationLevel: 7,  // 类型：Number  默认：3  取值范围：0-7（优化等级）
+    use              : [pngquant()]      // 使用pngquant深度压缩png图片的imagemin插件
+  }))
+  .pipe(gulp.dest(devImgPath))
+  .pipe(gulp.dest(testImgPath))
+  .pipe(gulp.dest(prodImgPath))
+})
+
 /*
  * scss:single 不依赖图片的合并
  * */

@@ -4,13 +4,15 @@ const webpack           = require('webpack')
 const merge             = require('webpack-merge')
 const utils             = require('./utils')
 const baseWebpackConfig = require('./webpack.base.conf')
-const htmlHashPlugin    = require('./html-hash-plugin')
+const htmlHashPlugin    = require('../plugin/html-hash-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const BrowserSyncPlugin = require('../plugin/browser-sync-webpack-plugin')
 const mapping           = require('../mapping')
 //import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 // add hot-reload related code to entry chunks
 /*Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
+ baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
  })*/
 
 module.exports = merge(baseWebpackConfig, {
@@ -31,9 +33,9 @@ module.exports = merge(baseWebpackConfig, {
       'process.env': config.test.env
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    //new webpack.optimize.OccurenceOrderPlugin(),
+    //new webpack.HotModuleReplacementPlugin(),
+    //new webpack.NoErrorsPlugin(),
     /**
      * 在这里引入 manifest 文件
      */
@@ -45,12 +47,10 @@ module.exports = merge(baseWebpackConfig, {
       outputPath: config.test.viewRoot,
       viewPath  : path.resolve(__dirname, '../src/view'),
       index     : ['index.ejs']
-    }, mapping.templateMapping))
-    // https://github.com/ampedandwired/html-webpack-plugin
-    /*new HtmlWebpackPlugin({
-     filename: 'index.html',
-     template: 'index.html',
-     inject  : true
-     })*/
+    }, mapping.templateMapping)),
+    new ExtractTextPlugin('../css/[name].css'),
+    new BrowserSyncPlugin({
+      serveStatic: [config.test.assetsRoot, config.test.viewRoot]
+    })
   ]
 });

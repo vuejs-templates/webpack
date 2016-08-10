@@ -12,7 +12,7 @@ const mapping           = require('../mapping')
  ? require('../config/test.env')
  : config.build.env*/
 
-let webpackConfig = merge(baseWebpackConfig, {
+const webpackConfig = merge(baseWebpackConfig, {
   module: {
     loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
   },
@@ -98,7 +98,7 @@ let webpackConfig = merge(baseWebpackConfig, {
 })
 
 if (config.build.productionGzip) {
-  let CompressionWebpackPlugin = require('compression-webpack-plugin')
+  const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
   webpackConfig.plugins.push(
     new CompressionWebpackPlugin({
