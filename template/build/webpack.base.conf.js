@@ -2,12 +2,13 @@ const path       = require('path')
 const utils      = require('./utils')
 const getEntries = require('./entry')
 
-let feRoot         = path.resolve(__dirname, '../');
-let feSrcRoot      = path.resolve(feRoot, './src/');
-let nodeModulePath = path.resolve(feRoot, './node_modules/')
+const fePath         = path.resolve(__dirname, '../')
+const feSrcPath      = path.resolve(fePath, './src/')
+const feAssetsPath   = path.resolve(feSrcPath, './assets')
+const nodeModulePath = path.resolve(fePath, './node_modules/')
 
 module.exports = {
-  entry        : getEntries(path.resolve(feSrcRoot, './entry/')),
+  entry        : getEntries(path.resolve(feSrcPath, './entry/')),
   resolve      : {
     /*root: [
      path.resolve(__dirname, '../src')
@@ -15,16 +16,16 @@ module.exports = {
     extensions: ['', '.js', '.vue'],
     fallback  : [nodeModulePath],
     alias     : {
-      'src'       : feSrcRoot,
-      'assets'    : path.resolve(feSrcRoot, './assets/'),
-      'js'        : path.resolve(feSrcRoot, './js/'),
-      'css'       : path.resolve(feSrcRoot, './css/'),
-      'images'    : path.resolve(feSrcRoot, './images/'),
-      'sprites'   : path.resolve(feSrcRoot, './sprites/'),
-      'components': path.resolve(feSrcRoot, './components/'),
-      'entry'     : path.resolve(feSrcRoot, './entry/'),
-      'view'      : path.resolve(feSrcRoot, './view/'),
-      'pages'     : path.resolve(feSrcRoot, './pages/')
+      'src'       : feSrcPath,
+      'assets'    : feAssetsPath,
+      'lib'       : path.resolve(feSrcPath, './lib/'),
+      'css'       : path.resolve(feAssetsPath, './css/'),
+      'images'    : path.resolve(feAssetsPath, './images/'),
+      'sprites'   : path.resolve(feAssetsPath, './sprites/'),
+      'components': path.resolve(feSrcPath, './components/'),
+      'entry'     : path.resolve(feSrcPath, './entry/'),
+      'view'      : path.resolve(feSrcPath, './view/'),
+      'pages'     : path.resolve(feSrcPath, './pages/')
     }
   },
   resolveLoader: {
@@ -35,13 +36,13 @@ module.exports = {
      {
      test: /\.vue$/,
      loader: 'eslint',
-     include: feSrcRoot,
+     include: feSrcPath,
      exclude: /node_modules/
      },
      {
      test: /\.js$/,
      loader: 'eslint',
-     include: feSrcRoot,
+     include: feSrcPath,
      exclude: /node_modules/
      }
      ],*/
@@ -53,7 +54,7 @@ module.exports = {
       {
         test   : /\.js$/,
         loader : 'babel',
-        include: feSrcRoot,
+        include: feSrcPath,
         exclude: /node_modules/
       },
       {

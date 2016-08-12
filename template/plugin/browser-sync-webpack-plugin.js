@@ -25,7 +25,14 @@ function BrowserSyncPlugin(browserSyncOptions) {
   const defaultPluginOptions = {
     name       : 'bs-webpack-plugin',
     serveStatic: ['./static/', './static/view/', './dll/'],
-    proxy      : 'localhost:1234'
+    proxy      : {
+      target  : 'localhost:1234',
+      proxyRes: [
+        function (proxyRes) {
+          proxyRes.headers['Content-Type'] = proxyRes.headers['content-type']
+        }
+      ]
+    }
   };
 
   this.browserSyncOptions = Object.assign({}, defaultPluginOptions, browserSyncOptions);
