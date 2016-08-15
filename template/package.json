@@ -15,7 +15,7 @@
     "e2e": "node test/e2e/runner.js",
     {{/e2e}}
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{#lint}},
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"{{/lint}}
+    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"{{/lint}},
     "doc": "node build/doc.js"
   },
   "dependencies": {
