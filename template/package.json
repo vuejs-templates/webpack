@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
+    "theme": "node build/theme.js",
     {{#unit}}
     "unit": "karma start test/unit/karma.conf.js --single-run",
     {{/unit}}
@@ -15,10 +16,12 @@
     {{/e2e}}
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{#lint}},
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"{{/lint}}
+    "doc": "node build/doc.js"
   },
   "dependencies": {
     "vue": "^1.0.21",
     "babel-runtime": "^6.0.0"
+    "vuex": "^0.6.3"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -30,6 +33,7 @@
     "babel-preset-es2015": "^6.0.0",
     "babel-preset-stage-2": "^6.0.0",
     "babel-register": "^6.0.0",
+    "bh-vue": "^1.2.5",
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.23.0",
     {{#lint}}
@@ -47,6 +51,7 @@
     "eslint-plugin-import": "^1.8.1",
     {{/if_eq}}
     {{/lint}}
+    "eslint-plugin-vue": "^0.1.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -64,6 +69,8 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.24",
     "karma-webpack": "^1.7.0",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
     "lolex": "^1.4.0",
     "mocha": "^2.4.5",
     "chai": "^3.5.0",
@@ -85,6 +92,7 @@
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
     "vue-loader": "^8.3.0",
+    "vue-router": "^0.7.13",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",

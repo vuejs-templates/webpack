@@ -17,8 +17,15 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       'src': path.resolve(__dirname, '../src'),
-      'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components')
+      'router': path.resolve(__dirname, '../src/router'),
+      'pages': path.resolve(__dirname, '../src/pages'),
+      'components': path.resolve(__dirname, '../node_modules/bh-vue'),
+      'filters': path.resolve(__dirname, '../src/filters'),
+      'directives': path.resolve(__dirname, '../src/directives'),
+      'config': path.resolve(__dirname, '../src/config'),
+      'vx': path.resolve(__dirname, '../src/vuex'),
+      'res': path.resolve(__dirname, '../static/resources'),
+      'img': path.resolve(__dirname, '../static/resources/img')
     }
   },
   resolveLoader: {
@@ -27,18 +34,18 @@ module.exports = {
   module: {
     {{#lint}}
     preLoaders: [
-      {
-        test: /\.vue$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
-      },
-      {
-        test: /\.js$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
-      }
+      // {
+      //   test: /\.vue$/,
+      //   loader: 'eslint',
+      //   include: projectRoot,
+      //   exclude: /node_modules/
+      // },
+      // {
+      //   test: /\.js$/,
+      //   loader: 'eslint',
+      //   include: projectRoot,
+      //   exclude: /node_modules/
+      // }
     ],
     {{/lint}}
     loaders: [
@@ -65,7 +72,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('resources/imgs/[name].[hash:7].[ext]')
         }
       },
       {

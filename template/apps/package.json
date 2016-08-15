@@ -1,0 +1,10 @@
+{
+  "name": "widgets",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "pack": "webpack --config ./build/webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
