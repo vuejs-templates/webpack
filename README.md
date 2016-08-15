@@ -2,6 +2,11 @@
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 
+安装方式
+```
+vue init lkiarest/webpack#dist my-project
+```
+
 ## Documentation
 
 Common topics are discussed in the [docs](http://vuejs-templates.github.io/webpack). Make sure to read it!
@@ -12,7 +17,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
+$ vue init lkiarest/webpack#dist my-project
 $ cd my-project
 $ npm install
 $ npm run dev
