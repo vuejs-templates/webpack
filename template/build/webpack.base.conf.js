@@ -19,11 +19,13 @@ module.exports = {
       'src': path.resolve(__dirname, '../src'),
       'router': path.resolve(__dirname, '../src/router'),
       'pages': path.resolve(__dirname, '../src/pages'),
-      'components': path.resolve(__dirname, '../node_modules/bh-vue'),
+      'components': path.resolve(__dirname, '../src/components'),
+      'bh-vue': path.resolve(__dirname, '../node_modules/bh-vue'),
       'filters': path.resolve(__dirname, '../src/filters'),
       'directives': path.resolve(__dirname, '../src/directives'),
       'config': path.resolve(__dirname, '../src/config'),
       'vx': path.resolve(__dirname, '../src/vuex'),
+      'apps': path.resolve(__dirname, '../apps'),
       'res': path.resolve(__dirname, '../static/resources'),
       'img': path.resolve(__dirname, '../static/resources/img')
     }

@@ -3,7 +3,7 @@ import routes from 'config/routes';
 import router from 'src/router';
 
 var resetWinSize = () => {
-    BH_UTILS.setContentMinHeight($('main'), 'noHeader', 44);
+    BH_UTILS.setContentMinHeight($('main > article'), 'noHeader', 44);
     $('body').niceScroll();
 };
 
@@ -21,7 +21,5 @@ router.init(routes, {
         resetWinSize();
     }
 });
-
-window.__vue_router = router;
 
 router.start(App, '#app');

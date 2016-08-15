@@ -3,16 +3,16 @@ var path = require('path');
 module.exports = {
     // 'devtool': 'source-map',
     'entry': {
-        'hello': './hello/entry.js'
+        'hello': './apps/hello/entry.js'
     },
     'output': {
-        'path': '../static/apps/',
+        'path': './static/apps/',
         'filename': '[name].js',
         'publicPath': ''
     },
     'resolve': {
         'extensions': ['', '.js', '.vue'],
-        alias: {
+        'alias': {
             'bh-vue': path.resolve(__dirname, '../../node_modules/bh-vue')
         }
     },

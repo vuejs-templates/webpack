@@ -4,7 +4,7 @@ import {
 
 // initial state
 const state = {
-    'all': {}
+    'all': []
 };
 
 // mutations

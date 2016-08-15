@@ -1,15 +1,10 @@
 <template>
-    <div>
-        <component :is='app' :context-path='path' @widget-active='widgetActive'></component>
-    </div>
+    <section>
+        <component :is='app' :context-path='path'></component>
+    </section>
 </template>
 
 <script>
-    import Vue from 'vue';
-    import router from 'src/router';
-
-    var _ = Vue.util;
-
     var _cachedApp = [];
 
     var _loadScript = (url, callback) => {
@@ -58,26 +53,6 @@
                 path: '',
                 app: null
             };
-        },
-        methods: {
-            widgetActive (routes) {
-                console.log(this.$router);
-                var matched = this.$router._currentTransition.to.matched;
-
-                var len = matched.length;
-                var segments = [];
-                for (var i = 0; i < len; i++) {
-                    segments.push({
-                        path: matched[i].handler.path,
-                        handler: matched[i].handler
-                    });
-                }
-
-                for (var path in routes) {
-                    var handler = routes[path];
-                    router.addSubRouter(path, handler, _.extend([], segments));
-                }
-            }
         },
         route: {
             activate (transition) {

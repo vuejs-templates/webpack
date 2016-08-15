@@ -1,12 +1,13 @@
 {
-  "name": "{{ name }}",
+  "name": "wae",
   "version": "1.0.0",
-  "description": "{{ description }}",
-  "author": "{{ author }}",
+  "description": "WeCloud App Engine",
+  "author": "qintianxiang <txqin@wisedu.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
+    "apps": "webpack --config apps/build/webpack.config.js",
     "theme": "node build/theme.js",
     {{#unit}}
     "unit": "karma start test/unit/karma.conf.js --single-run",
