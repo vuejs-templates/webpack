@@ -19,8 +19,8 @@
 </template>
 
 <script>
-require('directives/bhValidator');
-require('directives/bhToolTip');
+// require('directives/bhValidator');
+// require('directives/bhToolTip');
 require('filters/dateFilter');
 
 import BhHeader from 'components/bh-header/bhHeader';
