@@ -1,6 +1,19 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
+// function to relay all headers back and forth.
+function relayRequestHeaders(proxyReq, req) {
+  Object.keys(req.headers).forEach(function (key) {
+    proxyReq.setHeader(key, req.headers[key]);
+  });
+}
+
+function relayResponseHeaders(proxyRes, req, res) {
+  Object.keys(proxyRes.headers).forEach(function (key) {
+    res.append(key, proxyRes.headers[key]);
+  });
+}
+
 module.exports = {
   build: {
     env: require('./prod.env'),
@@ -21,7 +34,17 @@ module.exports = {
     port: 8080,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      // '/path-should-be-forward': {
+      //    onProxyReq: relayRequestHeaders,
+      //    onProxyRes: relayResponseHeaders,
+      //    target: 'http://target.server.url',
+      //    changeOrigin: true,
+      //    pathRewrite: {
+      //      '^/path-should-be-forward': '/rewrited-path'
+      //    }
+      // }
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
