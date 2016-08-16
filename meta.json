@@ -1,9 +1,5 @@
 {
   "prompts": {
-    "appName": {
-      "type": "string",
-      "message": "app name"
-    },
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
