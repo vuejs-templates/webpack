@@ -6,8 +6,8 @@
         <div></div>
         <bh-button>这是一个按钮组件</bh-button>
         <div class='bh-pt-16'>
-            <a v-link='contextPath + "/a"'>A页面</a>
-            <a v-link='contextPath + "/b"'>B页面</a>
+            <a v-link='routeLink("/a")'>A页面</a>
+            <a v-link='routeLink("/b")'>B页面</a>
         </div>
         <hr class='bh-v-8'>
         <router-view></router-view>
@@ -21,7 +21,6 @@
     var B = require('./b');
 
     export default {
-        props: ['contextPath'],
         data () {
             return {
                 title: 'APP ONE',
@@ -36,19 +35,8 @@
                 }
             };
         },
-        activate (done) {
-            this.$dispatch('widget-active', this.routes);
-            done();
-        },
-        route: {
-            activate: function (transition) {
-                // console.log('hello activate!', transition);
-                this.contextPath = transition.to.path;
-                this.$dispatch('widget-active', this.routes);
-                transition.next();
-            }
-        },
-        components: {BhButton}
+        components: {BhButton},
+        mixins: [require('../core/base')]
     };
 </script>
 

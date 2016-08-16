@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
     // 'devtool': 'source-map',
     'entry': {
-        'hello': './apps/hello/entry.js'
+        'hello': './apps/build/entry.js'
     },
     'output': {
         'path': './static/apps/',
