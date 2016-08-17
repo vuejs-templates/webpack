@@ -38,6 +38,12 @@ module.exports = {
         loader: 'eslint',
         include: projectRoot,
         exclude: /node_modules/
+      },
+      {
+        test: /\.html$/,
+        loader: 'htmlhint',
+        include: projectRoot,
+        exclude: /node_modules/
       }
     ],
     {{/lint}}
