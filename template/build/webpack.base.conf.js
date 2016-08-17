@@ -1,12 +1,11 @@
+/* eslint-disable */
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
-  entry: {
-    app: './src/main.js'
-  },
+  entry: config.entry,
   output: {
     path: config.build.assetsRoot,
     publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
@@ -17,14 +16,12 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       'src': path.resolve(__dirname, '../src'),
+      'App': path.resolve(__dirname, '../src/App'),
+      'sysconf': path.resolve(__dirname, '../src/config/sysconfig'),
       'router': path.resolve(__dirname, '../src/router'),
-      'pages': path.resolve(__dirname, '../src/pages'),
       'components': path.resolve(__dirname, '../src/components'),
       'bh-vue': path.resolve(__dirname, '../node_modules/bh-vue'),
       'filters': path.resolve(__dirname, '../src/filters'),
-      'directives': path.resolve(__dirname, '../src/directives'),
-      'config': path.resolve(__dirname, '../src/config'),
-      'vx': path.resolve(__dirname, '../src/vuex'),
       'apps': path.resolve(__dirname, '../apps'),
       'res': path.resolve(__dirname, '../static/resources'),
       'img': path.resolve(__dirname, '../static/resources/img')
@@ -34,7 +31,6 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
-    {{#lint}}
     preLoaders: [
       // {
       //   test: /\.vue$/,
@@ -49,7 +45,6 @@ module.exports = {
       //   exclude: /node_modules/
       // }
     ],
-    {{/lint}}
     loaders: [
       {
         test: /\.vue$/,
@@ -87,11 +82,9 @@ module.exports = {
       }
     ]
   },
-  {{#lint}}
   eslint: {
     formatter: require('eslint-friendly-formatter')
   },
-  {{/lint}}
   vue: {
     loaders: utils.cssLoaders()
   }

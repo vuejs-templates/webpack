@@ -1,13 +1,25 @@
-import App from './App';
-import routes from 'config/routes';
-import router from 'src/router';
+import Vue from 'vue';
+import App from 'App';
+import router from 'router';
+import routes from './config/routes';
+
+const title = 'Hello';
 
 var resetWinSize = () => {
-    BH_UTILS.setContentMinHeight($('main > article'), 'noHeader', 44);
+    BH_UTILS.setContentMinHeight($('main'), 'noHeader', 44);
     $('body').niceScroll();
 };
 
 $(window).resize(resetWinSize);
+
+new Vue({
+    el: document.documentElement,
+    data () {
+        return {
+            winTitle: title
+        };
+    }
+});
 
 router.init(routes, {
     beforeEach (transition) {

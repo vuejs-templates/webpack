@@ -1,22 +1,22 @@
 <template>
 <article bh-layout-role='single'>
-    <h2>表格控件</h2>
+    <h2>{{title}}</h2>
     <section>
-<bh-search class='bh-mb-24' style='width:60%' placeholder='请输入学号/姓名/拼音/所属部门' @search='search'></bh-search>
-<div>
-    <div class='bh-col-md-12 bh-mb-16'>
-        <div class='bh-pull-left'>
-            <bh-button type='primary' @click='add'>新增</bh-button>
-            <bh-button type='default' @click='add'>删除</bh-button>
-            <bh-button type='default' @click='add'>导出</bh-button>
-            <bh-button type='default' @click='add'>导入</bh-button>
+        <bh-search class='bh-mb-24' style='width:60%' placeholder='请输入学号/姓名/拼音/所属部门' @search='search'></bh-search>
+        <div>
+            <div class='bh-col-md-12 bh-mb-16'>
+                <div class='bh-pull-left'>
+                    <bh-button type='primary' @click='add'>新增</bh-button>
+                    <bh-button type='default' @click='add'>删除</bh-button>
+                    <bh-button type='default' @click='add'>导出</bh-button>
+                    <bh-button type='default' @click='add'>导入</bh-button>
+                </div>
+            </div>
+            <div>
+                <emap-datatable v-ref:studentTable :options='options' @edit='edit' @del='del'></emap-datatable>
+            </div>
         </div>
-    </div>
-    <div>
-        <emap-datatable v-ref:studentTable :options='options' @edit='edit' @del='del'></emap-datatable>
-    </div>
-</div>
-</section>
+    </section>
 </article>
 </template>
 
@@ -29,6 +29,7 @@ import emapDatatable from 'bh-vue/emap-datatable/emapDatatable.vue';
 export default {
     data () {
         return {
+            title: 'Hello',
             widgets: Array,
             pager: {
                 'pagenum': 0,

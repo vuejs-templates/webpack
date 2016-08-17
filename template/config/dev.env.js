@@ -1,3 +1,4 @@
+/* eslint-disable */
 var merge = require('webpack-merge')
 var prodEnv = require('./prod.env')
 

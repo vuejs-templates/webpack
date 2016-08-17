@@ -35,6 +35,7 @@
     "babel-preset-stage-2": "^6.0.0",
     "babel-register": "^6.0.0",
     "bh-vue": "^1.2.5",
+    "connect": "^3.4.1",
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.23.0",
     {{#lint}}
@@ -88,6 +89,7 @@
     "selenium-server": "2.53.0",
     {{/e2e}}
     "ora": "^0.2.0",
+    "serve-static": "^1.11.1",
     "shelljs": "^0.6.0",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.2.0",
