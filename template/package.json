@@ -53,7 +53,9 @@
     "file-loader": "^0.8.4",
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
+    {{#lint}}
     "htmlhint-loader": "^0.1.0",
+    {{/lint}}
     "http-proxy-middleware": "^0.12.0",
     "json-loader": "^0.5.4",
     {{#unit}}

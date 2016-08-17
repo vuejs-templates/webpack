@@ -29,7 +29,7 @@ module.exports = {
     preLoaders: [
       {
         test: /\.vue$/,
-        loader: 'eslint',
+        loader: 'htmlhint!eslint',
         include: projectRoot,
         exclude: /node_modules/
       },

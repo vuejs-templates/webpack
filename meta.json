@@ -17,7 +17,7 @@
     },
     "lint": {
       "type": "confirm",
-      "message": "Use ESLint to lint your code?"
+      "message": "Use ESLint and HTMLHint to lint your code?"
     },
     "lintConfig": {
       "when": "lint",
