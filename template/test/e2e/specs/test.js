@@ -7,7 +7,7 @@ module.exports = {
     .url('http://localhost:8080')
       .waitForElementVisible('#app', 5000)
       .assert.elementPresent('.logo')
-      .assert.containsText('h1', 'Hello World!')
+      .assert.containsText('h1', 'Hello Vue!')
       .assert.elementCount('p', 3)
       .end()
   }
