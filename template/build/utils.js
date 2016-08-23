@@ -1,10 +1,6 @@
-var path = require('path')
-var config = require('../config')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-
-exports.assetsPath = function (_path) {
-  return path.posix.join(config.build.assetsSubDirectory, _path)
-}
+const path              = require('path')
+const config            = require('../config')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 exports.cssLoaders = function (options) {
   options = options || {}
@@ -31,13 +27,13 @@ exports.cssLoaders = function (options) {
 
   // http://vuejs.github.io/vue-loader/configurations/extract-css.html
   return {
-    css: generateLoaders(['css']),
-    postcss: generateLoaders(['css']),
-    less: generateLoaders(['css', 'less']),
-    sass: generateLoaders(['css', 'sass?indentedSyntax']),
-    scss: generateLoaders(['css', 'sass']),
-    stylus: generateLoaders(['css', 'stylus']),
-    styl: generateLoaders(['css', 'stylus'])
+    //css: generateLoaders(['css']),
+    //postcss: generateLoaders(['css']),
+    //less: generateLoaders(['css', 'less']),
+    //sass: generateLoaders(['css', 'sass?indentedSyntax']),
+    scss: generateLoaders(['css', 'sass?outputStyle=compressed']),
+    //stylus: generateLoaders(['css', 'stylus']),
+    //styl: generateLoaders(['css', 'stylus'])
   }
 }
 

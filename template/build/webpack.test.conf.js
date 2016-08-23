@@ -46,11 +46,19 @@ module.exports = merge(baseWebpackConfig, {
     new htmlHashPlugin(Object.assign({
       outputPath: config.test.viewRoot,
       viewPath  : path.resolve(__dirname, '../src/view'),
-      index     : ['index.ejs']
+      index     : ['index.html']
     }, mapping.templateMapping)),
     new ExtractTextPlugin('../css/[name].css'),
     new BrowserSyncPlugin({
-      serveStatic: [config.test.assetsRoot, config.test.viewRoot]
+      serveStatic: [config.test.assetsRoot, config.test.viewRoot],
+      proxy      : {
+        target  : mapping.testProxyTarget || 'localhost:5200',
+        proxyRes: [
+          function (proxyRes) {
+            proxyRes.headers['Content-Type'] = proxyRes.headers['content-type']
+          }
+        ]
+      }
     })
   ]
 });

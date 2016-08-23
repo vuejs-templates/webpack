@@ -5,9 +5,9 @@
   "author": "{{ author }}",
   "private": true,
   "scripts": {
-    "dev": "export NODE_ENV=development && node build/dev-server.js",
-    "test": "export NODE_ENV=testing && node build/dev-server.js",
-    "build": "export NODE_ENV=production && node build/build.js",
+    "dev": "export NODE_ENV=development&&node build/buildDev.js",
+    "test": "export NODE_ENV=testing&&node build/buildDev.js",
+    "build": "export NODE_ENV=production&&node build/build.js",
     "dll": "node build/buildDll.js",
     {{#unit}}
     "unit": "karma start test/unit/karma.conf.js --single-run",

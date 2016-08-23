@@ -49,6 +49,17 @@ module.exports = merge(baseWebpackConfig, {
       viewPath  : path.resolve(__dirname, '../src/view')
     }, mapping.templateMapping)),
     //
-    new BrowserSyncPlugin()
+    new BrowserSyncPlugin({
+      serveStatic: [config.dev.assetsRoot, config.dev.viewRoot, path.resolve(config.dev.assetsRoot, '../dll/')],
+      proxy      : {
+        target  : mapping.devProxyTarget || 'localhost:1234',
+        proxyRes: [
+          function (proxyRes) {
+            console.log(proxyRes)
+            proxyRes.headers['Content-Type'] = proxyRes.headers['content-type']
+          }
+        ]
+      }
+    })
   ]
 });
