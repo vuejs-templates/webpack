@@ -17,7 +17,7 @@
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
   },
   "dependencies": {
-    "vue": "^2.0.0-rc.2",
+    "vue": "^2.0.0-rc.3",
     "babel-runtime": "^6.0.0"
   },
   "devDependencies": {
@@ -84,8 +84,7 @@
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
-    "vue-loader": "^9.3.2",
-    "vue-style-loader": "^1.0.0",
+    "vue-loader": "^9.4.0",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
