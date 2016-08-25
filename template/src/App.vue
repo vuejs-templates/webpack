@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img class="logo" :src="logo">
+    <img class="logo" src="./assets/logo.png">
     <hello></hello>
     <p>
       Welcome to your Vue.js app!
@@ -26,11 +26,6 @@
 import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default {
-  data () {
-    return {
-      logo: require('./assets/logo.png')
-    }
-  },
   components: {
     Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
