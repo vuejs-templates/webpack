@@ -68,8 +68,17 @@ Edit the values `href` and `src` attributes of the bundled `css` and `js` (respe
 
 `$ python manage.py runserver`
 
-Then get to [localhost:8000](http://localhost:8000/). You should have a page exactly like [this](http://i.imgur.com/sY3IpBE.png?1):![](http://i.imgur.com/sY3IpBE.png?1)
+Then get to [localhost:8000](http://localhost:8000/). You should have a page exactly like the image below.
+![](http://i.imgur.com/sY3IpBE.png?1)
 
+> Docker
+
+You can run a docker container for it simply by running the following command. Ensure that **docker** is running.
+```bash
+docker run -p 8000:8000 stanmd/vue-django python manage.py runserver 0.0.0.0:8000
+```
+
+Then get to [localhost:8000](http://localhost:8000/). You should have a page exactly like the image above
 
 ## What's Included
 

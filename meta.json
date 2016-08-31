@@ -15,7 +15,7 @@
       "type": "string",
       "required": false,
       "label": "Project description",
-      "default": "A Vue.js project"
+      "default": "A Django - Vue.js project"
     },
     "author": {
       "type": "string",
