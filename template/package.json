@@ -80,7 +80,7 @@
     "selenium-server": "2.53.0",
     {{/e2e}}
     "ora": "^0.2.0",
-    "shelljs": "^0.6.0",
+    "shelljs": "^0.7.0",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
