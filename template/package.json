@@ -32,6 +32,7 @@
     "babel-register": "^6.0.0",
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.23.0",
+
     {{#lint}}
     "eslint": "^2.10.2",
     "eslint-friendly-formatter": "^2.0.5",
@@ -67,6 +68,8 @@
     "lolex": "^1.4.0",
     "mocha": "^2.4.5",
     "chai": "^3.5.0",
+    "sass-loader": "^4.0.1",
+    "node-sass": "^3.9.0",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",
     "inject-loader": "^2.0.1",
