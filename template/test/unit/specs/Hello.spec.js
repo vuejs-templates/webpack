@@ -8,5 +8,5 @@ describe('Hello.vue', () => {
       components: { Hello }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }).$mount(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     expect(vm.$el.querySelector('.hello h1').textContent).to.contain('Hello World!'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  })
-})
+  }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
