@@ -25,7 +25,7 @@
           "short": "tuntime"
         },
         {
-          "name": "Standalone: heavier, because it includes the template parser to allow template in .html files",
+          "name": "Standalone: heavier, because it includes the template parser to allow templates in .html files",
           "value": "standalone",
           "short": "standalone"
         }
