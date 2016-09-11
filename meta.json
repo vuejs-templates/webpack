@@ -17,7 +17,7 @@
     },
     "build": {
       "type": "list",
-      "Message"
+      "Message": "Vue comes in two build versions, which do you want to use?",
       "choices": [
         {
           "name": "Runtime-only: lighter, but no support for templates defined in .html files (.vue files are fine)",
