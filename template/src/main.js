@@ -1,4 +1,4 @@
-{{if_eq build "standalone"}}
+{{#if_eq build "standalone"}}
 // the following line loads the standalone build instead of Runtime-only
 // thanks to an alias defined in /config/webpack.base.conf.js
 // So you don't have to do import Vue from 'vue/dist/vue'
