@@ -15,6 +15,22 @@
       "type": "string",
       "message": "Author"
     },
+    "build": {
+      "type": "list",
+      "message": "Vue comes in two build versions, which do you want to use?",
+      "choices": [
+        {
+          "name": "Runtime-only: lighter, but no support for templates defined in .html files (.vue files are fine)",
+          "value": "runtime",
+          "short": "tuntime"
+        },
+        {
+          "name": "Standalone: heavier, because it includes the template parser to allow templates in .html files",
+          "value": "standalone",
+          "short": "standalone"
+        }
+      ]
+    },
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
