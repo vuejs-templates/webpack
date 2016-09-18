@@ -17,10 +17,13 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"{{/lint}}
   },
   "dependencies": {
+
     "vue": "^1.0.21",
     "babel-runtime": "^6.0.0"
   },
   "devDependencies": {
+    "webpack-svgstore-plugin": "^2.2.2",
+    "lodash": "^4.13.1",
     "babel-core": "^6.0.0",
     {{#lint}}
     "babel-eslint": "^6.1.2",

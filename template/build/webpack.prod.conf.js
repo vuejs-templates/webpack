@@ -1,4 +1,5 @@
 var path = require('path')
+var fs=require('fs')
 var config = require('../config')
 var utils = require('./utils')
 var webpack = require('webpack')
@@ -6,10 +7,12 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var SvgStore = require('webpack-svgstore-plugin');
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
 
+var _=require('lodash')
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
     loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
@@ -31,6 +34,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': env
     }),
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
@@ -42,22 +46,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: process.env.NODE_ENV === 'testing'
-        ? 'index.html'
-        : config.build.index,
-      template: 'index.html',
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-        // more options:
-        // https://github.com/kangax/html-minifier#options-quick-reference
-      },
-      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
-    }),
+    ].concat(generateHtml(config.htmls)).concat([
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -78,7 +67,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       name: 'manifest',
       chunks: ['vendor']
     })
-  ]
+  ])
 })
 
 if (config.build.productionGzip) {
@@ -99,4 +88,50 @@ if (config.build.productionGzip) {
   )
 }
 
+var hasSvgFolder=fs.existsSync(path.join(config.alias.assets, './svg'))
+if(hasSvgFolder){
+  webpackConfig.plugins.push(new SvgStore(
+    [
+      path.join(config.alias.assets, 'svg', '**/*.svg')
+    ],
+    //path.join(config.build.assetsRoot,config.build.assetsSubDirectory,'svg'),
+    'static/svg',
+    {
+      name: 'sprite.svg',
+      prefix:'',
+      baseUrl:'./',
+      chunk:'app',
+      svgoOptions: {
+        plugins: [
+          { removeTitle: true }
+        ]
+      }
+    }
+  ))
+}
+
+
+function generateHtml(htmlCfgs){
+  var htmls=[],temp
+  _.each(htmlCfgs,function(v){
+    temp=_.assign({},{
+      inject: true,
+      /* minify: {
+       removeComments: true,
+       collapseWhitespace: true,
+       removeAttributeQuotes: true
+       // more options:
+       // https://github.com/kangax/html-minifier#options-quick-reference
+       },*/
+      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency'
+    },v,{
+      fileName:process.env.NODE_ENV === 'testing'   ? v.filename  :path.join(config.build.assetsRoot,v.filename),
+    });
+    htmls.push(new HtmlWebpackPlugin(temp))
+  });
+  return htmls;
+
+
+}
 module.exports = webpackConfig
