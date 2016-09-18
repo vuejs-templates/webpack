@@ -1,4 +1,5 @@
 var config = require('../config')
+var fs=require('fs')
 var path = require('path')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
