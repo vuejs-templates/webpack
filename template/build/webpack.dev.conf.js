@@ -12,7 +12,7 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
 })
 
-module.exports = merge(baseWebpackConfig, {
+var webpackConfig= merge(baseWebpackConfig, {
   module: {
     loaders: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
   },
@@ -22,23 +22,6 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': config.dev.env
     }),
-    new SvgStore(
-      [
-        path.join(config.alias.assets, 'svg', '**/*.svg')
-      ],
-      //path.join(config.build.assetsRoot,config.build.assetsSubDirectory,'svg'),
-      utils.assetsPath('svg'),
-      {
-        name: 'sprite.svg',
-        prefix:'',
-        chunk:'app',
-        svgoOptions: {
-          plugins: [
-            { removeTitle: true }
-          ]
-        }
-      }
-    ),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
@@ -47,7 +30,27 @@ module.exports = merge(baseWebpackConfig, {
   ].concat(generateHtml(config.htmls))
 })
 
-
+var hasSvgFolder=fs.existsSync(path.join(config.alias.assets, './svg'))
+if(hasSvgFolder){
+  webpackConfig.plugins.push(new SvgStore(
+    [
+      path.join(config.alias.assets, 'svg', '**/*.svg')
+    ],
+    //path.join(config.build.assetsRoot,config.build.assetsSubDirectory,'svg'),
+    'static/svg',
+    {
+      name: 'sprite.svg',
+      prefix:'',
+      baseUrl:'./',
+      chunk:'app',
+      svgoOptions: {
+        plugins: [
+          { removeTitle: true }
+        ]
+      }
+    }
+  ))
+}
 function generateHtml(htmlCfgs){
   var htmls=[]
   _.each(htmlCfgs,function(v){
@@ -55,3 +58,4 @@ function generateHtml(htmlCfgs){
   })
   return htmls;
 }
+module.exports = webpackConfig
