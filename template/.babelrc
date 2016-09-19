@@ -1,5 +1,13 @@
 {
-  "presets": ["es2015", "stage-2"],
-  "plugins": ["transform-runtime"],
+  "env": {
+    "development": {
+      "presets": ["stage-2"],
+      "plugins": ["transform-es2015-modules-commonjs", "transform-runtime"]
+    },
+    "production": {
+      "presets": ["es2015", "stage-2"],
+      "plugins": ["transform-runtime"]
+    }
+  },
   "comments": false
 }
