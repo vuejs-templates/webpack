@@ -22,7 +22,7 @@
         {
           "name": "Runtime-only: lighter, but no support for templates defined in .html files (.vue files are fine)",
           "value": "runtime",
-          "short": "tuntime"
+          "short": "runtime"
         },
         {
           "name": "Standalone: heavier, because it includes the template parser to allow templates in .html files",
