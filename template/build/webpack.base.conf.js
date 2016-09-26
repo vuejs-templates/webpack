@@ -16,9 +16,11 @@ module.exports = {
     extensions: ['', '.js', '.vue'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
-      {{#if_eq build "standalone"}}
-      // nessessary to make "import Vue from 'vue'" load the standalone version.
+      {{#if_eq build "standalone"}}∞
       'vue': 'vue/dist/vue',
+      {{/if_eq}}
+      {{#if_eq build "runtime"}}∞
+      'vue': 'vue/dist/vue.common.js',
       {{/if_eq}}
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
