@@ -16,10 +16,10 @@ module.exports = {
     extensions: ['', '.js', '.vue'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
-      {{#if_eq build "standalone"}}∞
+      {{#if_eq build "standalone"}}
       'vue': 'vue/dist/vue',
       {{/if_eq}}
-      {{#if_eq build "runtime"}}∞
+      {{#if_eq build "runtime"}}
       'vue': 'vue/dist/vue.common.js',
       {{/if_eq}}
       'src': path.resolve(__dirname, '../src'),
