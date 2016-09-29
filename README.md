@@ -15,7 +15,6 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-# the master branch now is working with vue 2
 $ vue init webpack my-project
 $ cd my-project
 $ npm install
