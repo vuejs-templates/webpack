@@ -68,6 +68,7 @@
   },
   "filters": {
     ".eslintrc.js": "lint",
+    ".eslintignore": "lint",
     "test/unit/**/*": "unit",
     "test/e2e/**/*": "e2e"
   },

@@ -13,12 +13,16 @@ npm run dev
 
 # build for production with minification
 npm run build
+{{#unit}}
 
 # run unit tests
 npm run unit
+{{/unit}}
+{{#e2e}}
 
 # run e2e tests
 npm run e2e
+{{/e2e}}
 
 # run all tests
 npm test
