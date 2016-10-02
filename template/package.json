@@ -6,14 +6,10 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
-    {{#unit}}
-    "unit": "karma start test/unit/karma.conf.js --single-run",
-    {{/unit}}
-    {{#e2e}}
-    "e2e": "node test/e2e/runner.js",
-    {{/e2e}}
-    "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{#lint}},
+    "build": "node build/build.js"{{#unit}},
+    "unit": "karma start test/unit/karma.conf.js --single-run"{{/unit}}{{#e2e}},
+    "e2e": "node test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
+    "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#lint}},
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
   },
   "dependencies": {
