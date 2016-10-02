@@ -1,4 +1,13 @@
-{
+module.exports = {
+  "helpers": {
+    "if_or": function (v1, v2, options) {
+      if (v1 || v2) {
+        return options.fn(this);
+      }
+
+      return options.inverse(this);
+    }
+  },
   "prompts": {
     "name": {
       "type": "string",
@@ -69,8 +78,9 @@
   "filters": {
     ".eslintrc.js": "lint",
     ".eslintignore": "lint",
+    "config/test.env.js": "unit || e2e",
     "test/unit/**/*": "unit",
     "test/e2e/**/*": "e2e"
   },
   "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
-}
+};
