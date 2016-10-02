@@ -79,6 +79,7 @@
     "nightwatch": "^0.9.8",
     "selenium-server": "2.53.1",
     {{/e2e}}
+    "opn": "^4.0.2",
     "ora": "^0.3.0",
     "shelljs": "^0.7.4",
     "url-loader": "^0.5.7",
