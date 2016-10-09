@@ -1,6 +1,6 @@
 var path = require('path')
 var config = require('../config')
-var cssLoaders = require('./css-loaders')
+var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
@@ -9,13 +9,19 @@ module.exports = {
   },
   output: {
     path: config.build.assetsRoot,
-    publicPath: config.build.assetsPublicPath,
+    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
     filename: '[name].js'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
+      {{#if_eq build "standalone"}}
+      'vue': 'vue/dist/vue',
+      {{/if_eq}}
+      {{#if_eq build "runtime"}}
+      'vue': 'vue/dist/vue.common.js',
+      {{/if_eq}}
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components')
@@ -25,6 +31,7 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
+    {{#lint}}
     preLoaders: [
       {
         test: /\.vue$/,
@@ -39,6 +46,7 @@ module.exports = {
         exclude: /node_modules/
       }
     ],
+    {{/lint}}
     loaders: [
       {
         test: /\.vue$/,
@@ -55,23 +63,34 @@ module.exports = {
         loader: 'json'
       },
       {
-        test: /\.html$/,
-        loader: 'vue-html'
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url',
         query: {
           limit: 10000,
-          name: path.join(config.build.assetsSubDirectory, '[name].[hash:7].[ext]')
+          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url',
+        query: {
+          limit: 10000,
+          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
     ]
   },
-  vue: {
-    loaders: cssLoaders()
-  },
+  {{#lint}}
   eslint: {
     formatter: require('eslint-friendly-formatter')
+  },
+  {{/lint}}
+  vue: {
+    loaders: utils.cssLoaders(),
+    postcss: [
+      require('autoprefixer')({
+        browsers: ['last 2 versions']
+      })
+    ]
   }
 }

@@ -20,6 +20,20 @@ Since these assets may be inlined/copied/renamed during build, they are essentia
 
 - **Root-relative URLs**, e.g. `/assets/logo.png` are not processed at all.
 
+### Getting Asset Paths in JavaScript
+
+In order for Webpack to return the correct asset paths, you need to use `require('./relative/path/to/file.jpg')`, which will get processed by `file-loader` and returns the resolved URL. For example:
+
+``` js
+computed: {
+  background () {
+    return require('./bgs/' + this.id + '.jpg')
+  }
+}
+```
+
+**Note the above example will include every image under `./bgs/` in the final build.** This is because Webpack cannot guess which of them will be used at runtime, so it includes them all.
+
 ### "Real" Static Assets
 
 In comparison, files in `static/` are not processed by Webpack at all: they are directly copied to their final destination as-is, with the same filename. You must reference these files using absolute paths, which is determined by joining `build.assetsPublicPath` and `build.assetsSubDirectory` in `config.js`.
@@ -39,4 +53,4 @@ module.exports = {
 
 Any file placed in `static/` should be referenced using the absolute URL `/static/[filename]`. If you change `assetSubDirectory` to `assets`, then these URLs will need to be changed to `/assets/[filename]`.
 
-We will learn more about the config file in the [next section](backend.md).
+We will learn more about the config file in the section about [backend integration](backend.md).

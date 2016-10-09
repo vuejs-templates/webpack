@@ -30,4 +30,4 @@ You can run the tests in multiple real browsers by installing more [karma launch
 
 ## Mocking Dependencies
 
-This boilerplate comes with [inject-laoder](https://github.com/plasticine/inject-loader) installed by default. For usage with `*.vue` components, see [vue-loader docs on testing with mocks](http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html).
+This boilerplate comes with [inject-loader](https://github.com/plasticine/inject-loader) installed by default. For usage with `*.vue` components, see [vue-loader docs on testing with mocks](http://vue-loader.vuejs.org/en/workflow/testing-with-mocks.html).
