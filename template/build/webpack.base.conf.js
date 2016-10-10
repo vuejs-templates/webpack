@@ -3,6 +3,13 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 
+var env = process.env.NODE_ENV
+
+var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
+var cssSourceMapProd = (env === 'production')
+
+var useCssSourcemap = cssSourceMapDev || cssSourceMapProd
+
 module.exports = {
   entry: {
     app: './src/main.js'
@@ -86,7 +93,7 @@ module.exports = {
   },
   {{/lint}}
   vue: {
-    loaders: utils.cssLoaders(),
+    loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
     postcss: [
       require('autoprefixer')({
         browsers: ['last 2 versions']

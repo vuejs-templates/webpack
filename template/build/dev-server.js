@@ -8,6 +8,8 @@ var webpackConfig = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
   : {{/if_or}}require('./webpack.dev.conf')
 
+if (!process.env.NODE_ENV) process.env.NODE_ENV = 'development'
+
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // Define HTTP proxies to your custom API backend
