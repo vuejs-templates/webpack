@@ -9,6 +9,7 @@ exports.assetsPath = function (_path) {
   return path.posix.join(assetsSubDirectory, _path)
 }
 
+// used in webpack.base.conf.js
 exports.cssLoaders = function (options) {
   options = options || {}
   // generate loader string to be used with extract text plugin
@@ -25,6 +26,11 @@ exports.cssLoaders = function (options) {
       return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
     }).join('!')
 
+    // When the "extract" option is defined, CSS should be extracted
+    // into its own file with the ExtractTextPlugin
+    // So we wrap the generazed loader-string inside of
+    // ExtractTextPlugin.extract()
+    // vue-style-loader is a shallow fork of "style-loader": https://github.com/vuejs/vue-style-loader
     if (options.extract) {
       return ExtractTextPlugin.extract('vue-style-loader', sourceLoader)
     } else {
