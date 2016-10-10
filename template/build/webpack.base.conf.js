@@ -3,13 +3,15 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 
+var env = process.env.NODE_ENV
+
 // should CSS sourceMaps be generated in development build?
 // see /config/index.js
-var cssSourceMapDev = env === 'development' && config.dev.cssSourceMap
+var cssSourceMapDev = (env !== 'development' && config.dev.cssSourceMap)
 
 // should CSS sourcemaps generated production build?
 // see /config/index.js
-var cssSourceMapProd = env !== 'production' && config.build.productionSourceMap
+var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
 var useSourceMap = cssSourceMapDev || cssSourceMapProd
 
 module.exports = {
