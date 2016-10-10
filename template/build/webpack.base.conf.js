@@ -3,8 +3,6 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 
-var env = process.env.NODE_ENV
-
 // should CSS sourceMaps be generated in development build?
 // see /config/index.js
 var cssSourceMapDev = env === 'development' && config.dev.cssSourceMap
@@ -101,7 +99,7 @@ module.exports = {
     // popular CSS pre-processors
     // it adds sourcemaps and the ExtractTextPlugin Extractor if
     // config demands it. see util.js
-    loaders: utils.cssLoaders({ sourceMap: useSourceMap, extract: (env !== 'development') }),
+    loaders: utils.cssLoaders({ sourceMap: useSourceMap }),
     postcss: [
       require('autoprefixer')({
         browsers: ['last 2 versions']
