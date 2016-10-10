@@ -17,7 +17,6 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       {{#if_eq build "standalone"}}
-      // TODO: shouldn't this be 'vue$' ?
       'vue$': 'vue/dist/vue',
       {{/if_eq}}
       'src': path.resolve(__dirname, '../src'),
