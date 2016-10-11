@@ -40,6 +40,10 @@ module.exports = {
         }
       ]
     },
+    "router": {
+      "type": "confirm",
+      "message": "Use vue-router to add routing logic?"
+    },
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
@@ -76,6 +80,7 @@ module.exports = {
     }
   },
   "filters": {
+    "src/router.js": "router",
     ".eslintrc.js": "lint",
     ".eslintignore": "lint",
     "config/test.env.js": "unit || e2e",

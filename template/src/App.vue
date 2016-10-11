@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <img class="logo" src="./assets/logo.png">
+    {{#if router}}
+    <router-view></router-view>
+    {{else}}
     <hello></hello>
+    {{/if}}
     <p>
       Welcome to your Vue.js app!
     </p>
@@ -9,6 +13,9 @@
       To get a better understanding of how this boilerplate works, check out
       <a href="http://vuejs-templates.github.io/webpack" target="_blank">its documentation</a>.
       It is also recommended to go through the docs for
+      {{#router}}
+      <a href="https://github.com/vuejs/vue-router" target="_blank">vue-router</a>,
+      {{/router}}
       <a href="http://webpack.github.io/" target="_blank">Webpack</a> and
       <a href="http://vuejs.github.io/vue-loader/" target="_blank">vue-loader</a>.
       If you have any issues with the setup, please file an issue at this boilerplate's
@@ -16,20 +23,26 @@
     </p>
     <p>
       You may also want to checkout
+      {{#unless router}}
       <a href="https://github.com/vuejs/vue-router/" target="_blank">vue-router</a> for routing and
+      {{/unless}}
       <a href="https://github.com/vuejs/vuex/" target="_blank">vuex</a> for state management.
     </p>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{#if router}}
+export default {}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{else}}
+import { Hello } from './components'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default {
   components: {
     Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{/if}}
 </script>
 
 <style>
