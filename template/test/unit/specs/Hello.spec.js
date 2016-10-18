@@ -7,6 +7,7 @@ describe('Hello.vue', () => {
       el: document.createElement('div'),
       render: (h) => h(Hello){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-    expect(vm.$el.querySelector('.hello h1').textContent).to.equal('Hello Vue!'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    expect(vm.$el.querySelector('.hello h1').textContent)
+      .to.equal('Welcome to Your Vue.js App'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
