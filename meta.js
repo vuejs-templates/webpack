@@ -26,17 +26,17 @@ module.exports = {
     },
     "build": {
       "type": "list",
-      "message": "Vue comes in two build versions, which do you want to use?",
+      "message": "Vue build",
       "choices": [
         {
-          "name": "Runtime-only: lighter, but no support for templates defined in .html files (.vue files are fine)",
-          "value": "runtime",
-          "short": "runtime"
-        },
-        {
-          "name": "Standalone: heavier, because it includes the template parser to allow templates in .html files",
+          "name": "Runtime + Compiler: recommended for most users",
           "value": "standalone",
           "short": "standalone"
+        },
+        {
+          "name": "Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere",
+          "value": "runtime",
+          "short": "runtime"
         }
       ]
     },
