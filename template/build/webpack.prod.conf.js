@@ -6,6 +6,7 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var WebpackMd5Hash = require('webpack-md5-hash');
 var env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : {{/if_or}}config.build.env
@@ -77,7 +78,10 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    })
+    }),
+    // optimise the chunkhash
+    // prevent js hash from being updated whenever css files are updated
+    new WebpackMd5Hash()
   ]
 })
 
