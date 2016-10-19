@@ -4,7 +4,7 @@
 
 安装方式
 ```
-vue init lkiarest/webpack#dist my-project
+vue init lkiarest/webpack#app my-project
 ```
 
 ## Documentation
@@ -17,7 +17,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init lkiarest/webpack#dist my-project
+$ vue init lkiarest/webpack#app my-project
 $ cd my-project
 $ npm install
 $ npm run dev
