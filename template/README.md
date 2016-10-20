@@ -1,21 +1,21 @@
 # {{ name }}
 
 > {{ description }}
+æ”¯æŒä¸¤ç§æ–¹å¼è®¿é—®appsä¸­å¼€å‘çš„åº”ç”¨:
 
-Ö§³ÖÁ½ÖÖ·½Ê½·ÃÎÊappsÖÐ¿ª·¢µÄÓ¦ÓÃ:
-
-1. ´ò°üapp£¬Ê¹ÓÃpluginÒýÈëÔ¶³Ìjs
+1. æ‰“åŒ…appç‹¬ç«‹å‘å¸ƒï¼Œå¯ä¾›è¿œç¨‹è®¿é—®
 
     ```
     npm run apps
-    // ·ÃÎÊ http://localhost:3000/#!/apps/hello
+    ./startup.bat #å¯åŠ¨http server
+    // è®¿é—® http://localhost:3000/hello/index.html
     ```
 
-1. Ö±½ÓÊ¹ÓÃvueÒýÈëµÄ·½Ê½·ÃÎÊ (·½±ã¿ª·¢)
+1. ç›´æŽ¥ä½¿ç”¨vueå¼•å…¥çš„æ–¹å¼è®¿é—® (æ–¹ä¾¿å¼€å‘)
 
     ```
-    // ÐèÒªÔÚÂ·ÓÉÖÐÔö¼ÓÅäÖÃ
-    // ·ÃÎÊ http://localhost:3000/#!/hello
+    // éœ€è¦åœ¨è·¯ç”±ä¸­å¢žåŠ é…ç½®
+    // è®¿é—® http://localhost:3000/#!/hello
     '/hello': {
         component: (resolve) => {
             require(['apps/hello/hello'], resolve);

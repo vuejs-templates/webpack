@@ -1,16 +1,14 @@
 /* eslint-disable */
 // see http://vuejs-templates.github.io/webpack for documentation.
-var path = require('path')
+var path = require('path');
+var fs = require('fs');
 
-module.exports = {
-  // 可以在此处指定多个入口文件
-  entry: {
-    'hello/index': './apps/hello/main.js'
-  },
-  build: {
+var appDir = path.resolve(__dirname, '../apps');
+var apps = fs.readdirSync(appDir);
+
+var buildConf = {
     'env': require('./prod.env'),
     // 指定build打包发布路径
-    'hello/index': path.resolve(__dirname, '../dist/hello/index.html'),
     'assetsRoot': path.resolve(__dirname, '../dist'),
     'assetsSubDirectory': '',
     'assetsPublicPath': '/',
@@ -21,7 +19,19 @@ module.exports = {
     // npm install --save-dev compression-webpack-plugin
     'productionGzip': false,
     'productionGzipExtensions': ['js', 'css']
-  },
+};
+
+var entries = {};
+var dists = {};
+apps.forEach(app => {
+    entries[`${app}/index`] = `./apps/${app}/main.js`;
+    buildConf[`${app}/index`] = path.resolve(__dirname, `../dist/${app}/index.html`);
+});
+
+module.exports = {
+  // 可以在此处指定多个入口文件
+  entry: entries,
+  build: buildConf,
   dev: {
     'env': require('./dev.env'),
     'port': 3000,

@@ -53,7 +53,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        include: projectRoot,
+        // include: projectRoot,
         exclude: /node_modules/
       },
       {

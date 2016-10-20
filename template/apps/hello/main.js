@@ -1,7 +1,10 @@
 import Vue from 'vue';
 import App from 'App';
+import Vuex from 'vuex';
 import router from 'router';
 import routes from './config/routes';
+
+Vue.use(Vuex);
 
 const title = 'Hello';
 
