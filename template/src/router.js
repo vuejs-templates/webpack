@@ -1,8 +1,3 @@
-// import Vue from 'vue';
-// var VueRouter = require('vue-router');
-// Vue.use(VueRouter);
-// window.Vue = Vue;
-
 var router = new VueRouter();
 
 var _routes = null;

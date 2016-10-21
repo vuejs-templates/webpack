@@ -1,16 +1,8 @@
-// import Vue from 'vue';
-import App from 'App';
 import router from 'router';
-import routes from './config/routes';
+import routes from './routes';
+import Home from './pages/home/home';
 
 const title = 'Hello';
-
-var resetWinSize = () => {
-    BH_UTILS.setContentMinHeight($('main'), 'noHeader', 44);
-    $('body').niceScroll();
-};
-
-$(window).resize(resetWinSize);
 
 new Vue({
     el: document.documentElement,
@@ -21,17 +13,6 @@ new Vue({
     }
 });
 
-router.init(routes, {
-    beforeEach (transition) {
-        $.bhPaperPileDialog.hide();
-        $('.jqx-window').each(function () {
-            $(this).jqxWindow('destroy');
-        });
-        transition.next();
-    },
-    afterEach (transition) {
-        resetWinSize();
-    }
-});
+router.init(routes);
 
-router.start(App, '#app');
+router.start(Home, '#app');

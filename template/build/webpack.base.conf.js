@@ -23,14 +23,15 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       'src': path.resolve(__dirname, '../src'),
-      'App': path.resolve(__dirname, '../src/App'),
-      'sysconf': path.resolve(__dirname, '../src/config/sysconfig'),
       'router': path.resolve(__dirname, '../src/router'),
       'components': path.resolve(__dirname, '../src/components'),
+      'apps': path.resolve(__dirname, '../apps'),
+      {{#wisedu}}
+      'App': path.resolve(__dirname, '../src/App'),
+      'sysconf': path.resolve(__dirname, '../src/config/sysconfig'),
       'bh-vue': path.resolve(__dirname, '../node_modules/bh-vue'),
       'utils': path.resolve(__dirname, '../node_modules/bh-vue/utils'),
-      'filters': path.resolve(__dirname, '../src/filters'),
-      'apps': path.resolve(__dirname, '../apps'),
+      {{/wisedu}}
       'res': path.resolve(__dirname, '../static/resources'),
       'img': path.resolve(__dirname, '../static/resources/img')
     }
@@ -62,7 +63,6 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         include: babelDir
-        // exclude: /node_modules/
       },
       {
         test: /\.json$/,
