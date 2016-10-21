@@ -4,6 +4,13 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 
+var babelDir = [
+    path.resolve(__dirname, '../src'),
+    path.resolve(__dirname, '../apps'),
+    /bh-vue/,
+    /wec-vue/
+];
+
 module.exports = {
   entry: config.entry,
   output: {
@@ -21,6 +28,7 @@ module.exports = {
       'router': path.resolve(__dirname, '../src/router'),
       'components': path.resolve(__dirname, '../src/components'),
       'bh-vue': path.resolve(__dirname, '../node_modules/bh-vue'),
+      'utils': path.resolve(__dirname, '../node_modules/bh-vue/utils'),
       'filters': path.resolve(__dirname, '../src/filters'),
       'apps': path.resolve(__dirname, '../apps'),
       'res': path.resolve(__dirname, '../static/resources'),
@@ -53,8 +61,8 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        // include: projectRoot,
-        exclude: /node_modules/
+        include: babelDir
+        // exclude: /node_modules/
       },
       {
         test: /\.json$/,

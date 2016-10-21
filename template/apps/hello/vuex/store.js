@@ -1,5 +1,3 @@
-import Vuex from 'vuex';
-
 const state = {
     catagories: []
 };

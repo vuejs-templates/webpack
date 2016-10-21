@@ -1,4 +1,5 @@
 /* eslint-disable */
+var path = require('path');
 var config = require('../config')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
@@ -21,7 +22,7 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
   plugins.push(new HtmlWebpackPlugin({
     filename: name + '.html',
-    template: 'index.html',
+    template: path.resolve(__dirname, '../apps', name, '..', 'index.html'),
     chunks: [name],
     inject: true
   }));

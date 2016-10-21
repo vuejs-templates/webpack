@@ -6,7 +6,7 @@
 1. 打包app独立发布，可供远程访问
 
     ```
-    npm run apps
+    npm run build
     ./startup.bat #启动http server
     // 访问 http://localhost:3000/hello/index.html
     ```
