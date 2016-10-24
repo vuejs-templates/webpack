@@ -60,7 +60,7 @@ Contains e2e test related files. See [End-to-end Testing](e2e.md) for more detai
 
 ### `index.html`
 
-This is the **template** `index.html` for our single page application. During development and builds, Webpack will generate assets, and the URLs for those generated assets will automatically injected into this template to render the final HTML.
+This is the **template** `index.html` for our single page application. During development and builds, Webpack will generate assets, and the URLs for those generated assets will be automatically injected into this template to render the final HTML.
 
 ### `package.json`
 
