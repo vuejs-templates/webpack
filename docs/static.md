@@ -12,7 +12,7 @@ Since these assets may be inlined/copied/renamed during build, they are essentia
 
 ### Asset Resolving Rules
 
-- **Relative URLs**, e.g. `./assets/logo.png` will be interpreted as a module dependency. They will be replaced with a auto-generated URL based on your Webpack output configuration.
+- **Relative URLs**, e.g. `./assets/logo.png` will be interpreted as a module dependency. They will be replaced with an auto-generated URL based on your Webpack output configuration.
 
 - **Non-prefixed URLs**, e.g. `assets/logo.png` will be treated the same as the relative URLs and translated into `./assets/logo.png`.
 

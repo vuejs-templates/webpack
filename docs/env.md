@@ -44,7 +44,7 @@ As we can see, `test.env` inherits the `dev.env` and the `dev.env` inherits the 
 
 ### Usage
 
-It is simple to use the environment variables to your code. For example:
+It is simple to use the environment variables in your code. For example:
 
 ```js
 Vue.config.debug = process.env.DEBUG_MODE

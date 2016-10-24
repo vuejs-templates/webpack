@@ -14,7 +14,7 @@ And the files:
 
 - `index.js`
 
-  This the entry file used by `karma-webpack` to bundle all the test code and source code (for coverage purposes). You can ignore it for the most part.
+  This is the entry file used by `karma-webpack` to bundle all the test code and source code (for coverage purposes). You can ignore it for the most part.
 
 - `specs/`
 
