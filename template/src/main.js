@@ -3,16 +3,31 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 {{/if_eq}}
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Router from 'vue-router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import store from './store'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Home from './pages/Home'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
+Vue.use(Router){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
+const router = new Router({
+  mode: 'history',
+  scrollBehavior: () => {{ y: 0 }},
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  ]{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 /* eslint-disable no-new */
-new Vue({
+const app = new Vue({
   el: '#app',
-  {{#if_eq build "runtime"}}
-  render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  {{/if_eq}}
-  {{#if_eq build "standalone"}}
-  template: '<App/>',
-  components: { App }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  {{/if_eq}}
+  router,
+  store,
+  ...App{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
+export { app, router }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
