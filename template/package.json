@@ -13,7 +13,7 @@
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
   },
   "dependencies": {
-    "vue": "^2.0.5",
+    "vue": "*",
     "lodash": "*"
   },
   "devDependencies": {
@@ -70,7 +70,7 @@
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0",
     "inject-loader": "*",
-    "isparta-loader": "^2.0.0",
+    "babel-plugin-istanbul": "^2.0.3",
     "phantomjs-prebuilt": "^2.1.3",
     {{/unit}}
     {{#e2e}}
