@@ -16,18 +16,32 @@
       <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    </ul>{{#vuex}}
+    <h1>Counter: \{{ counter }}</h1>
+    <h2>
+      <button @click="increment">Increment</button>
+    </h2>{{/vuex}}
   </div>
 </template>
 
 <script>
+{{#vuex}}import { mapActions, mapGetters } from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
+{{/vuex}}
 export default {
-  name: 'hello',
+  name: 'hello'{{#if_eq vuex false}},
   data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
     return {
       msg: 'Welcome to Your Vue.js App'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  }{{/if_eq}}{{#vuex}},
+  computed: mapGetters([
+    'counter',
+    'msg'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  ]),
+  methods: mapActions([
+    'increment'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  ]){{/vuex}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 

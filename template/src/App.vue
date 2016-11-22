@@ -1,18 +1,18 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <hello></hello>
+    {{#vueRouter}}<router-view></router-view>{{/vueRouter}}{{#if_eq vueRouter false}}<hello></hello>{{/if_eq}}
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{#if_eq vueRouter false}}import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-export default {
-  name: 'app',
+{{/if_eq}}export default {
+  name: 'app'{{#if_eq vueRouter false}},
   components: {
     Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  }{{/if_eq}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
