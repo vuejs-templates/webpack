@@ -6,6 +6,7 @@ var express = require('express')
 var webpack = require('webpack')
 var opn = require('opn')
 var proxyMiddleware = require('http-proxy-middleware')
+var detectPort = require('detect-port')
 var webpackConfig = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
   : {{/if_or}}require('./webpack.dev.conf')
@@ -59,16 +60,27 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
-module.exports = app.listen(port, function (err) {
+module.exports = detectPort(port, function (err, _port) {
+
   if (err) {
     console.log(err)
-    return
   }
-  var uri = 'http://localhost:' + port
-  console.log('Listening at ' + uri + '\n')
 
-  // when env is testing, don't need open it
-  if (process.env.NODE_ENV !== 'testing') {
-    opn(uri)
+  if (port != _port) {
+    console.log(`port: ${port} was occupied, try port: ${_port}`);
   }
-})
+
+  app.listen(_port, function (err) {
+    if (err) {
+      console.log(err)
+      return
+    }
+    var uri = 'http://localhost:' + _port
+    console.log('Listening at ' + uri + '\n')
+
+    // when env is testing, don't need open it
+    if (process.env.NODE_ENV !== 'testing') {
+      opn(uri)
+    }
+  });
+});
