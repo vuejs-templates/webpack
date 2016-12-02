@@ -60,6 +60,15 @@ module.exports = function (config) {
     preprocessors: {
       './index.js': ['webpack', 'sourcemap']
     },
+    plugins: [
+      'karma-coverage',
+      'karma-mocha',
+      'karma-phantomjs-launcher',
+      'karma-sinon-chai',
+      'karma-sourcemap-loader',
+      'karma-spec-reporter',
+      'karma-webpack',
+    ],
     webpack: webpackConfig,
     webpackMiddleware: {
       noInfo: true{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
