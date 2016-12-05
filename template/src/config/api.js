@@ -1,6 +1,6 @@
 let dataServer = '';
 
-let metaDir = './meta-info/';
+let metaDir = '../meta-info/';
 
 let metaPath = (path) => {
     return metaDir + path;
@@ -11,7 +11,9 @@ let dataPath = (path) => {
 };
 
 export default {
-    'SCHOOL_DETAIL_UPDATE_JSON': metaPath('school_detail_update.json'),
-    'FEEDBACK_LIST_JSON': metaPath('/feedback_list.json'),
+    'USER_LIST_META': metaPath('user_list.json'),
+    'USER_INFO_META': metaPath('user_view.json'),
+    'SCHOOL_DETAIL_UPDATE_META': metaPath('school_detail_update.json'),
+    'FEEDBACK_LIST_META': metaPath('feedback_list.json'),
     'UPDATE_INFO': dataPath('info/update')
 };

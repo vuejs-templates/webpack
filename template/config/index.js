@@ -2,6 +2,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path');
 var fs = require('fs');
+var proxyTable = require('./proxy'); // 支持代理
 
 var appDir = path.resolve(__dirname, '../apps');
 var apps = fs.readdirSync(appDir);
@@ -15,7 +16,7 @@ var buildConf = {
     // 指定build打包发布路径
     'assetsRoot': path.resolve(__dirname, '../dist'),
     'assetsSubDirectory': '',
-    'assetsPublicPath': '/',
+    'assetsPublicPath': '',
     'productionSourceMap': true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -48,7 +49,7 @@ module.exports = {
     'port': 3000,
     'assetsSubDirectory': '',
     'assetsPublicPath': '/',
-    'proxyTable': {},
+    'proxyTable': proxyTable,
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

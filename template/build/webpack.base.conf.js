@@ -25,16 +25,21 @@ module.exports = {
       'src': path.resolve(__dirname, '../src'),
       'router': path.resolve(__dirname, '../src/router'),
       'components': path.resolve(__dirname, '../src/components'),
-      'apps': path.resolve(__dirname, '../apps'),
       'conf': path.resolve(__dirname, '../src/config'),
+      'api': path.resolve(__dirname, '../src/config/api'),
       {{#wisedu}}
       'App': path.resolve(__dirname, '../src/App'),
       'sysconf': path.resolve(__dirname, '../src/config/sysconfig'),
       'bh-vue': path.resolve(__dirname, '../node_modules/bh-vue'),
-      'utils': path.resolve(__dirname, '../node_modules/bh-vue/utils'),
+      'wec-vue': path.resolve(__dirname, '../node_modules/wec-vue'),
+      'bh-util': path.resolve(__dirname, '../node_modules/bh-vue/utils'),
       {{/wisedu}}
+      'apps': path.resolve(__dirname, '../apps'),
+      'services': path.resolve(__dirname, '../src/services'),
+      'vuex': path.resolve(__dirname, '../src/vuex'),
       'res': path.resolve(__dirname, '../static/resources'),
-      'img': path.resolve(__dirname, '../static/resources/img')
+      'img': path.resolve(__dirname, '../static/resources/img'),
+      'static': path.resolve(__dirname, '../static')
     }
   },
   resolveLoader: {

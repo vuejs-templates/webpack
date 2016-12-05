@@ -7,9 +7,6 @@
                 <div class='bh-col-md-12 bh-mb-16'>
                     <div class='bh-pull-left'>
                         <bh-button type='primary' @click='add'>新增</bh-button>
-                        <bh-button type='default' @click='add'>删除</bh-button>
-                        <bh-button type='default' @click='add'>导出</bh-button>
-                        <bh-button type='default' @click='add'>导入</bh-button>
                     </div>
                 </div>
                 <div>
@@ -22,16 +19,16 @@
 
 <script>
     import {BhSearch, BhButton, EmapDatatable} from 'bh-vue';
-    import store from '../../vuex/store';
     import Add from '../add/add';
+    import api from 'api';
 
     export default {
         data () {
             return {
                 title: 'Hello',
                 options: {
-                    'pagePath': 'http://res.wisedu.com/WeCloud/emap-meta/cmp/appManage_getAppHistoryList.json',
-                    'action': 'appManage_getAppHistoryList',
+                    'pagePath': api.USER_LIST_META,
+                    'action': 'user_list',
                     'checkable': true,
                     'pageable': true,
                     'sortable': true,
@@ -84,8 +81,7 @@
             BhButton,
             EmapDatatable,
             Add
-        },
-        store: store
+        }
     };
 </script>
 

@@ -1,5 +1,3 @@
-// import Vue from 'vue';
-// import Vuex from 'vuex';
 import menus from './modules/menus';
 
 Vue.use(Vuex);

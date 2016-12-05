@@ -22,8 +22,6 @@
     "babel-runtime": "^6.0.0"
   },
   "devDependencies": {
-    "vue": "^1.0.21",
-    "vuex": "^0.6.3",
     "babel-core": "^6.0.0",
     {{#lint}}
     "babel-eslint": "^6.1.2",
@@ -35,6 +33,7 @@
     "babel-register": "^6.0.0",
     {{#wisedu}}
     "bh-vue": "^1.2.6",
+    "wec-vue": "^0.1.6",
     {{/wisedu}}
     "connect": "^3.4.1",
     "connect-history-api-fallback": "^1.1.0",

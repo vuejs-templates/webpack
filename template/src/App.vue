@@ -17,7 +17,7 @@
 
 <script>
 import router from 'src/router';
-
+import store from 'vuex/store';
 import {BhHeader, BhFooter, BhNav} from 'bh-vue';
 
 var _ = Vue.util;
@@ -59,6 +59,7 @@ export default {
     ready () {
         console.log('setContentMinHeight');
     },
-    components: {BhHeader, BhFooter, BhNav}
+    components: {BhHeader, BhFooter, BhNav},
+    store: store
 };
 </script>

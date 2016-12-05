@@ -1,16 +1,21 @@
 import {
-    MENU_LIST
+    MENU_LIST,
+    CATAGORY_LIST
 } from '../mutation-types';
 
 // initial state
 const state = {
-    'all': []
+    'all': [],
+    'cats': []
 };
 
 // mutations
 const mutations = {
     [MENU_LIST] (state, menus) {
         state.all = menus;
+    },
+    [CATAGORY_LIST] (state, cats) {
+        state.cats = cats;
     }
 };
 

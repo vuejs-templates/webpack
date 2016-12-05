@@ -16,8 +16,8 @@
     import {BhStepWizard} from 'bh-vue';
     import Info from './info';
 
-    import {getCatagories} from '../../vuex/actions';
-    import {catagories} from '../../vuex/getters';
+    import {getCatagories} from 'vuex/actions';
+    import {catagories} from 'vuex/getters';
 
     export default {
         data () {
@@ -32,9 +32,6 @@
                 // TODO: save info
                 this.$refs.add.next();
             }
-        },
-        ready () {
-            this.getCatagories();
         },
         activate (done) {
             this.getCatagories();

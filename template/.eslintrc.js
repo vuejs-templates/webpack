@@ -26,6 +26,7 @@ module.exports = {
     "BH_UTILS": true,
     "moment": true,
     "Vue": true,
+    "Vuex": true,
     "VueRouter": true
   },
   // add your custom rules here

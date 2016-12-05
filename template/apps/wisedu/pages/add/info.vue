@@ -8,8 +8,8 @@
 </template>
 
 <script>
-    import Sys from 'sysconf';
     import {EmapForm} from 'bh-vue';
+    import api from 'api';
 
     var _render = (vm, catagory) => {
         console.log('render ' + catagory);
@@ -21,8 +21,8 @@
             return {
                 container: null,
                 options: {
-                    pagePath: Sys.contextPath + 'mock/emap/school.json',
-                    modelName: '编辑学校信息',
+                    pagePath: api.USER_INFO_META,
+                    modelName: 'user_view',
                     readonly: false,
                     inputWidth: 9
                     // model: 't'
