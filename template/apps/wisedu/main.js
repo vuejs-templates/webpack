@@ -1,6 +1,6 @@
 import App from 'App';
 import router from 'router';
-import routes from './config/routes';
+import routes from './routes';
 
 const title = 'wisedu';
 

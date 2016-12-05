@@ -21,9 +21,7 @@
 </template>
 
 <script>
-    import bhSearch from 'bh-vue/bh-search/bhSearch.vue';
-    import bhButton from 'bh-vue/bh-button/bhButton.vue';
-    import EmapDatatable from 'bh-vue/emap-datatable/emapDatatable';
+    import {BhSearch, BhButton, EmapDatatable} from 'bh-vue';
     import store from '../../vuex/store';
     import Add from '../add/add';
 
@@ -82,8 +80,8 @@
             del () {}
         },
         components: {
-            bhSearch,
-            bhButton,
+            BhSearch,
+            BhButton,
             EmapDatatable,
             Add
         },

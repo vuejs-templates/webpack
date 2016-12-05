@@ -8,8 +8,8 @@
 </template>
 
 <script>
-    import Sys from 'conf/sysconf';
-    import EmapForm from 'bh-vue/emap-form/emapForm.vue';
+    import Sys from 'sysconf';
+    import {EmapForm} from 'bh-vue';
 
     var _render = (vm, catagory) => {
         console.log('render ' + catagory);

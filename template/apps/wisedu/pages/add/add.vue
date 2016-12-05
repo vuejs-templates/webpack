@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import BhStepWizard from 'bh-vue/bh-step-wizard/bhStepWizard';
+    import {BhStepWizard} from 'bh-vue';
     import Info from './info';
 
     import {getCatagories} from '../../vuex/actions';

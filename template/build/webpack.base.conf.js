@@ -26,6 +26,7 @@ module.exports = {
       'router': path.resolve(__dirname, '../src/router'),
       'components': path.resolve(__dirname, '../src/components'),
       'apps': path.resolve(__dirname, '../apps'),
+      'conf': path.resolve(__dirname, '../src/config'),
       {{#wisedu}}
       'App': path.resolve(__dirname, '../src/App'),
       'sysconf': path.resolve(__dirname, '../src/config/sysconfig'),

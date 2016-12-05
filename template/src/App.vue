@@ -16,19 +16,9 @@
 </template>
 
 <script>
-// require('directives/bhValidator');
-// require('directives/bhToolTip');
-require('filters/dateFilter');
-
 import router from 'src/router';
 
-import BhHeader from 'bh-vue/bh-header/bhHeader';
-import BhFooter from 'bh-vue/bh-footer/bhFooter';
-import BhNav from 'bh-vue/bh-nav/bhNav';
-
-// import store from 'vx/store';
-// import {fetchMenus} from 'vx/action';
-// import {menuList} from 'vx/getters';
+import {BhHeader, BhFooter, BhNav} from 'bh-vue';
 
 var _ = Vue.util;
 
