@@ -18,15 +18,27 @@ var plugins = [
 ];
 
 // add hot-reload related code to entry chunks
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
-  plugins.push(new HtmlWebpackPlugin({
-    filename: name + '.html',
-    template: path.resolve(__dirname, '../apps', name, '..', 'index.html'),
-    chunks: [name],
-    inject: true
-  }));
-})
+var entryKeys = Object.keys(baseWebpackConfig.entry);
+if (entryKeys.length > 1) {
+    entryKeys.forEach(function (name) {
+      baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
+      plugins.push(new HtmlWebpackPlugin({
+        filename: name + '.html',
+        template: path.resolve(__dirname, '../apps', name, '..', 'index.html'),
+        chunks: [name],
+        inject: true
+      }));
+    })
+} else {
+    var name = entryKeys[0];
+    baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name]);
+    plugins.push(new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: path.resolve(__dirname, '../apps', name, 'index.html'),
+        chunks: [name],
+        inject: true
+    }));
+}
 
 module.exports = merge(baseWebpackConfig, {
   module: {

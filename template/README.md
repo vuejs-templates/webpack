@@ -1,51 +1,25 @@
 # {{ name }}
 
 > {{ description }}
-支持两种方式访问apps中开发的应用:
 
-1. 打包app独立发布，可供远程访问
+支持在一个项目中发布多个独立应用或单个应用
+
+1. apps目录下包含多个应用(hello1, hello2)
+
+    打包后会在dist中生成多个独立的app发布目录，使用app名称区分。
 
     ```
     npm run build
     ./startup.bat #启动http server
-    // 访问 http://localhost:3000/hello/index.html
+    // 访问 http://localhost:3000/hello1/index.html
+    // 访问 http://localhost:3000/hello2/index.html
     ```
 
-1. 直接使用vue引入的方式访问 (方便开发)
+1. apps目录下包含单个应用(hello1)
 
+    打包后会在dist中生成独立的发布目录，直接放在根目录下。
     ```
-    // 需要在路由中增加配置
-    // 访问 http://localhost:3000/#!/hello
-    '/hello': {
-        component: (resolve) => {
-            require(['apps/hello/hello'], resolve);
-        }
-    }
+    npm run build
+    ./startup.bat #启动http server
+    // 访问 http://localhost:3000/index.html
     ```
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:3000
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build 3rd party apps
-npm run apps
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

@@ -6,6 +6,10 @@ var fs = require('fs');
 var appDir = path.resolve(__dirname, '../apps');
 var apps = fs.readdirSync(appDir);
 
+if (apps.length === 0) {
+    throw 'no app defined in ./apps/';
+}
+
 var buildConf = {
     'env': require('./prod.env'),
     // 指定build打包发布路径
@@ -23,10 +27,17 @@ var buildConf = {
 
 var entries = {};
 var dists = {};
-apps.forEach(app => {
-    entries[`${app}/index`] = `./apps/${app}/main.js`;
-    buildConf[`${app}/index`] = path.resolve(__dirname, `../dist/${app}/index.html`);
-});
+
+if (apps.length > 1) {
+    apps.forEach(app => {
+        entries[`${app}/index`] = `./apps/${app}/main.js`;
+        buildConf[`${app}/index`] = path.resolve(__dirname, `../dist/${app}/index.html`);
+    });
+} else { // 若只有一个 app，则直接打包到根目录，不需要用子目录来区分
+    var app = apps[0];
+    entries[app] = `./apps/${app}/main.js`;
+    buildConf[app] = path.resolve(__dirname, `../dist/index.html`);
+}
 
 module.exports = {
   // 可以在此处指定多个入口文件

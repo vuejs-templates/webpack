@@ -13,12 +13,34 @@ var env = process.env.NODE_ENV === 'testing'
 
 var plugins = [];
 
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
+var entryKeys = Object.keys(baseWebpackConfig.entry);
+if (entryKeys.length > 1) {
+    entryKeys.forEach(function (name) {
+        plugins.push(new HtmlWebpackPlugin({
+          filename: process.env.NODE_ENV === 'testing'
+            ? 'index.html'
+            : config.build[name],
+          template: path.resolve(__dirname, '../apps', name, '..', 'index.html'),
+          inject: true,
+          chunks: [name, 'manifest', 'vendor'],
+          minify: {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeAttributeQuotes: true
+            // more options:
+            // https://github.com/kangax/html-minifier#options-quick-reference
+          },
+          // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+          chunksSortMode: 'dependency'
+        }));
+    });
+} else {
+    var name = entryKeys[0];
     plugins.push(new HtmlWebpackPlugin({
       filename: process.env.NODE_ENV === 'testing'
         ? 'index.html'
         : config.build[name],
-      template: path.resolve(__dirname, '../apps', name, '..', 'index.html'),
+      template: path.resolve(__dirname, '../apps', name, 'index.html'),
       inject: true,
       chunks: [name, 'manifest', 'vendor'],
       minify: {
@@ -31,7 +53,7 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }));
-});
+}
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
