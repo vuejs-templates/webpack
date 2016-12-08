@@ -6,9 +6,9 @@ var projectRoot = path.resolve(__dirname, '../')
 
 var babelDir = [
     path.resolve(__dirname, '../src'),
-    path.resolve(__dirname, '../apps')
-    /*/bh-vue/,
-    /wec-vue/*/
+    path.resolve(__dirname, '../apps'),
+    /bh-vue/
+    /*/wec-vue/*/
 ];
 
 module.exports = {
