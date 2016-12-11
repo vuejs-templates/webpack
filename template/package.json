@@ -30,6 +30,7 @@
     "html-webpack-plugin": "^2.24.1",
     "http-proxy-middleware": "^0.17.2",
     "json-loader": "^0.5.4",
+    "node-sass": "^4.0.0",
     "opn": "^4.0.2",
     "ora": "^0.3.0",
     "sass-loader": "^4.0.2",
