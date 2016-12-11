@@ -28,7 +28,7 @@ exports.cssLoaders = function (options) {
     // Extract CSS when that option is specified
     // (which is the case during production build)
     if (options.extract) {
-      return ExtractTextPlugin.extract('vue-style-loader', sourceLoader)
+      return ExtractTextPlugin.extract({ fallbackLoader: 'vue-style-loader', loader: sourceLoader })
     } else {
       return ['vue-style-loader', sourceLoader].join('!')
     }
@@ -36,13 +36,9 @@ exports.cssLoaders = function (options) {
 
   // http://vuejs.github.io/vue-loader/en/configurations/extract-css.html
   return {
-    css: generateLoaders(['css']),
-    postcss: generateLoaders(['css']),
-    less: generateLoaders(['css', 'less']),
-    sass: generateLoaders(['css', 'sass?indentedSyntax']),
-    scss: generateLoaders(['css', 'sass']),
-    stylus: generateLoaders(['css', 'stylus']),
-    styl: generateLoaders(['css', 'stylus'])
+    'css': generateLoaders(['css']),
+    'postcss': generateLoaders(['css']),
+    'scss': generateLoaders(['css', 'sass']),
   }
 }
 
