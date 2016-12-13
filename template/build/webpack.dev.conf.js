@@ -21,7 +21,7 @@ module.exports = merge(baseWebpackConfig, {
       'process.env': config.dev.env
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
