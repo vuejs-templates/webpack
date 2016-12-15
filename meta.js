@@ -40,6 +40,10 @@ module.exports = {
         }
       ]
     },
+    "router": {
+      "type": "confirm",
+      "message": "Install vue-router?"
+    },
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
@@ -80,7 +84,8 @@ module.exports = {
     ".eslintignore": "lint",
     "config/test.env.js": "unit || e2e",
     "test/unit/**/*": "unit",
-    "test/e2e/**/*": "e2e"
+    "test/e2e/**/*": "e2e",
+    "src/router/**/*": "router"
   },
   "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };
