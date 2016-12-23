@@ -48,7 +48,12 @@ module.exports = {
         loader: 'eslint',
         include: projectRoot,
         exclude: /node_modules/
-      }
+      },
+      {
+       test: /\.html/,
+       loader: 'htmlhint',
+       exclude: /node_modules/
+     }
     ],
     {{/lint}}
     loaders: [
@@ -88,6 +93,9 @@ module.exports = {
   eslint: {
     formatter: require('eslint-friendly-formatter')
   },
+  htmlhint: {
+    configFile: '../.htmlhintrc'
+  }
   {{/lint}}
   vue: {
     loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
