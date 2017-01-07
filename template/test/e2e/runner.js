@@ -14,7 +14,7 @@ if (opts.indexOf('--config') === -1) {
   opts = opts.concat(['--config', 'test/e2e/nightwatch.conf.js']){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 }
 if (opts.indexOf('--env') === -1) {
-  opts = opts.concat(['--env', 'chrome']){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  opts = opts.concat(['--env', 'chrome,firefox']){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 }
 
 var spawn = require('cross-spawn'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}

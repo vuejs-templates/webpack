@@ -75,6 +75,7 @@
     {{/unit}}
     {{#e2e}}
     "chromedriver": "^2.21.2",
+    "geckodriver": "^1.2.0",
     "cross-spawn": "^4.0.2",
     "nightwatch": "^0.9.8",
     "selenium-server": "2.53.1",
