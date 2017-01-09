@@ -8,7 +8,7 @@
 <script>
 import Vue = require("vue");
 
-import Hello = require("./components/Hello");
+import Hello = require("./components/hello");
 
 export default {
   name: "app",
