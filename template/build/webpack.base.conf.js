@@ -67,10 +67,10 @@ module.exports = {
     ]
   },
   vue: {
-    loaders: ...{
+    loaders: Object.assign(
       utils.cssLoaders({ sourceMap: useCssSourceMap }),
       {js: 'ts'}
-    },
+    ),
     postcss: [
       require('autoprefixer')({
         browsers: ['last 2 versions']
