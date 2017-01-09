@@ -9,7 +9,6 @@ All build commands are executed via [NPM Scripts](https://docs.npmjs.com/misc/sc
 - Webpack + `vue-loader` for single file Vue components.
 - State preserving hot-reload
 - State preserving compilation error overlay
-- Lint-on-save with ESLint
 - Source maps
 
 ### `npm run build`
