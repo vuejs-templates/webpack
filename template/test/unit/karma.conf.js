@@ -3,12 +3,12 @@
 // we are also using it with karma-webpack
 //   https://github.com/webpack/karma-webpack
 
-var path = require('path'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-var merge = require('webpack-merge'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-var baseConfig = require('../../build/webpack.base.conf'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-var utils = require('../../build/utils'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-var webpack = require('webpack'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-var projectRoot = path.resolve(__dirname, '../../'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+var path = require('path');
+var merge = require('webpack-merge');
+var baseConfig = require('../../build/webpack.test.conf');
+var utils = require('../../build/utils');
+var webpack = require('webpack');
+var projectRoot = path.resolve(__dirname, '../../');
 
 var webpackConfig = merge(baseConfig, {
   // use inline sourcemap for karma-sourcemap-loader
@@ -16,28 +16,15 @@ var webpackConfig = merge(baseConfig, {
     loaders: utils.styleLoaders()
   },
   devtool: '#inline-source-map',
-  vue: {
-    loaders: {
-      js: 'babel-loader'
-    }
-  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': require('../../config/test.env')
-    })
-  ]
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    }),
+  ],
+});
 
 // no need for app entry during tests
-delete webpackConfig.entry{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-
-// Use babel for test files too
-webpackConfig.module.loaders.some(function (loader, i) {
-  if (/^babel(-loader)?$/.test(loader.loader)) {
-    loader.include.push(path.resolve(projectRoot, 'test/unit')){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-    return true{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  }
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+delete webpackConfig.entry;
 
 module.exports = function (config) {
   config.set({
@@ -54,14 +41,14 @@ module.exports = function (config) {
     },
     webpack: webpackConfig,
     webpackMiddleware: {
-      noInfo: true{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      noInfo: true,
     },
     coverageReporter: {
       dir: './coverage',
       reporters: [
         { type: 'lcov', subdir: '.' },
-        { type: 'text-summary' }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-      ]
-    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+        { type: 'text-summary' },
+      ],
+    },
+  });
+};

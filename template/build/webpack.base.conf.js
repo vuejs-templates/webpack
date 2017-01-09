@@ -12,7 +12,7 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.ts'
   },
   output: {
     path: config.build.assetsRoot,
@@ -20,7 +20,7 @@ module.exports = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.js', '.vue', '.json'],
+    extensions: ['', '.js', '.ts', '.vue', '.json'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       {{#if_eq build "standalone"}}
@@ -35,38 +35,14 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
-    {{#lint}}
-    preLoaders: [
-      {
-        test: /\.vue$/,
-        loader: 'eslint',
-        include: [
-          path.join(projectRoot, 'src')
-        ],
-        exclude: /node_modules/
-      },
-      {
-        test: /\.js$/,
-        loader: 'eslint',
-        include: [
-          path.join(projectRoot, 'src')
-        ],
-        exclude: /node_modules/
-      }
-    ],
-    {{/lint}}
     loaders: [
       {
         test: /\.vue$/,
         loader: 'vue'
       },
       {
-        test: /\.js$/,
-        loader: 'babel',
-        include: [
-          path.join(projectRoot, 'src')
-        ],
-        exclude: /node_modules/
+        test: /\.ts$/,
+        loader: 'ts'
       },
       {
         test: /\.json$/,
@@ -90,17 +66,18 @@ module.exports = {
       }
     ]
   },
-  {{#lint}}
-  eslint: {
-    formatter: require('eslint-friendly-formatter')
-  },
-  {{/lint}}
   vue: {
-    loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
+    loaders: Object.assign(
+      utils.cssLoaders({ sourceMap: useCssSourceMap }),
+      {js: 'ts'}
+    ),
     postcss: [
       require('autoprefixer')({
         browsers: ['last 2 versions']
       })
     ]
+  },
+  ts: {
+    appendTsSuffixTo: [/\.vue$/]
   }
 }
