@@ -21,6 +21,12 @@
 </template>
 
 <script>
+import Vue = require("vue");
+
+interface Hello extends Vue {
+  msg: string;
+}
+
 export default {
   name: "hello",
   data () {
@@ -28,7 +34,7 @@ export default {
       msg: "Welcome to Your Vue.js App",
     };
   },
-};
+} as Vue.ComponentOptions<Hello>;
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

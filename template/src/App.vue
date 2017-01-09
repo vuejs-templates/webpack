@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import Vue = require("vue");
+
 import Hello = require("./components/Hello");
 
 export default {
@@ -13,7 +15,7 @@ export default {
   components: {
     Hello,
   },
-};
+} as Vue.ComponentOptions<Vue>;
 </script>
 
 <style>
