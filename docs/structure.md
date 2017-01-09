@@ -21,11 +21,10 @@
 │   │   ├── index.js            # test build entry file
 │   │   └── karma.conf.js       # test runner config file
 │   └── e2e/                    # e2e tests
-│   │   ├── specs/              # test spec files
-│   │   ├── custom-assertions/  # custom assertions for e2e tests
-│   │   ├── runner.js           # test runner script
-│   │   └── nightwatch.conf.js  # test runner config file
-├── .babelrc                    # babel config
+│       ├── specs/              # test spec files
+│       ├── custom-assertions/  # custom assertions for e2e tests
+│       ├── runner.js           # test runner script
+│       └── nightwatch.conf.js  # test runner config file
 ├── .editorconfig.js            # editor config
 ├── index.html                  # index.html template
 └── package.json                # build scripts and dependencies

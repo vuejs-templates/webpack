@@ -16,11 +16,6 @@ var webpackConfig = merge(baseConfig, {
     loaders: utils.styleLoaders()
   },
   devtool: '#inline-source-map',
-  vue: {
-    loaders: {
-      js: 'babel-loader'
-    }
-  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': require('../../config/test.env')
@@ -30,14 +25,6 @@ var webpackConfig = merge(baseConfig, {
 
 // no need for app entry during tests
 delete webpackConfig.entry;
-
-// Use babel for test files too
-webpackConfig.module.loaders.some(function (loader, i) {
-  if (/^babel(-loader)?$/.test(loader.loader)) {
-    loader.include.push(path.resolve(projectRoot, 'test/unit'));
-    return true;
-  }
-});
 
 module.exports = function (config) {
   config.set({
