@@ -48,6 +48,35 @@ exports.cssLoaders = function (options) {
   }
 }
 
+// return stringified loaders
+exports.vueCSSLoaders = function (options) {
+  var output = {}
+  var loaders = exports.cssLoaders(options)
+
+  for (var extension in loaders) {
+    if (typeof loaders[extension] === "string") {
+      output[extension] = loaders[extension]
+    } else {
+      loader = loaders[extension].map(function(l) {
+        var loaderName = l.loader;
+        var loaderOptions = l.options || {};
+
+        if (Object.keys(loaderOptions).lenght === 0) {
+          return loaderName;
+        }
+
+        return loaderName + '?' + Object.keys(loaderOptions).map(function(key) {
+          return key + '=' + loaderOptions[key]
+        }).join('&')
+      }).join('!')
+
+      output[extension] = loader
+    }
+  }
+
+  return output
+}
+
 // Generate loaders for standalone style files (outside of .vue)
 exports.styleLoaders = function (options) {
   var output = []

@@ -91,7 +91,7 @@ module.exports = {
       },
       {{/lint}}
       vue: {
-        loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
+        loaders: utils.vueCSSLoaders({ sourceMap: useCssSourceMap }),
         postcss: [
           require('autoprefixer')({
             browsers: ['last 2 versions']
