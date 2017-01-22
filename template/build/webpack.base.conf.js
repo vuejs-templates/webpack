@@ -32,7 +32,7 @@ module.exports = {
     }
   },
   module: {
-    loaders: [
+    rules: [
     {{#lint}}
       {
         test: /\.vue$/,
