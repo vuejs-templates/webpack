@@ -21,7 +21,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
-    plugins: [new webpack.LoaderOptionsPlugin({
+    new webpack.LoaderOptionsPlugin({
       vue: {
         loaders: utils.cssLoaders({
           sourceMap: config.build.productionSourceMap,
