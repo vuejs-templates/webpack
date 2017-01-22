@@ -20,13 +20,15 @@ var webpackConfig = merge(baseWebpackConfig, {
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
-  vue: {
-    loaders: utils.cssLoaders({
-      sourceMap: config.build.productionSourceMap,
-      extract: true
-    })
-  },
   plugins: [
+    plugins: [new webpack.LoaderOptionsPlugin({
+      vue: {
+        loaders: utils.cssLoaders({
+          sourceMap: config.build.productionSourceMap,
+          extract: true
+        })
+      }
+    },
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
