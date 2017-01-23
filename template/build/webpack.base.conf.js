@@ -50,8 +50,7 @@ module.exports = {
         loader: 'eslint',
         include: [
           path.join(projectRoot, 'src')
-        ],
-        exclude: /node_modules/
+        ]
       }
     ],
     {{/lint}}
