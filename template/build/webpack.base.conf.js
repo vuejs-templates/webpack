@@ -55,7 +55,15 @@ module.exports = {
     {{/lint}}
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
+          options: {
+          loaders: utils.vueCSSLoaders({ sourceMap: useCssSourceMap }),
+          postcss: [
+            require('autoprefixer')({
+              browsers: ['last 2 versions']
+            })
+          ]
+        }
       },
       {
         test: /\.js$/,
@@ -90,14 +98,6 @@ module.exports = {
         formatter: require('eslint-friendly-formatter')
       },
       {{/lint}}
-      vue: {
-        loaders: utils.vueCSSLoaders({ sourceMap: useCssSourceMap }),
-        postcss: [
-          require('autoprefixer')({
-            browsers: ['last 2 versions']
-          })
-        ]
-      }
     }
   })]
 }

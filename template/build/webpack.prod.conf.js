@@ -12,7 +12,16 @@ var env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
+    rules: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true }).concat([{
+      test: /\.vue$/,
+      loader: 'vue-loader',
+        options: {
+          loaders: utils.vueCSSLoaders({
+            sourceMap: config.build.productionSourceMap,
+            extract: true
+          })
+        }
+    }])
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
@@ -21,14 +30,6 @@ var webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      vue: {
-        loaders: utils.vueCSSLoaders({
-          sourceMap: config.build.productionSourceMap,
-          extract: true
-        })
-      }
-    }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
