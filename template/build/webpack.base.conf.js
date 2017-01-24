@@ -91,13 +91,16 @@ module.exports = {
       }
     ]
   },
-  plugins: [new webpack.LoaderOptionsPlugin({
-    options: {
-      {{#lint}}
-      eslint: {
-        formatter: require('eslint-friendly-formatter')
-      },
-      {{/lint}}
-    }
-  })]
+  plugins: [{{#lint}}
+    // this leaves here since eslint loader doesn't yet support webpack 2
+    // way to pass options.
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        eslint: {
+          formatter: require('eslint-friendly-formatter')
+        },
+
+      }
+    })
+  {{/lint}}]
 }
