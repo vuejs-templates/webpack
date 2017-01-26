@@ -6,7 +6,6 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrors = require('friendly-errors-webpack-plugin')
 
-var useCssSourceMap = (env === 'development' && config.dev.cssSourceMap)
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -19,7 +18,7 @@ module.exports = merge(baseWebpackConfig, {
         test: /\.vue$/,
         loader: 'vue-loader',
           options: {
-          loaders: utils.vueCSSLoaders({ sourceMap: useCssSourceMap }),
+          loaders: utils.vueCSSLoaders({ sourceMap: config.dev.cssSourceMap }),
           postcss: [
             require('autoprefixer')({
               browsers: ['last 2 versions']
