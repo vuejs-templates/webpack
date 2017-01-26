@@ -6,6 +6,8 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrors = require('friendly-errors-webpack-plugin')
 
+var useCssSourceMap = (env === 'development' && config.dev.cssSourceMap)
+
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
@@ -13,7 +15,18 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 
 module.exports = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
+    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap }).concat([{
+        test: /\.vue$/,
+        loader: 'vue-loader',
+          options: {
+          loaders: utils.vueCSSLoaders({ sourceMap: useCssSourceMap }),
+          postcss: [
+            require('autoprefixer')({
+              browsers: ['last 2 versions']
+            })
+          ]
+        }
+      }])
   },
   // eval-source-map is faster for development
   devtool: '#eval-source-map',
