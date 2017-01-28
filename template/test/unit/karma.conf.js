@@ -13,14 +13,17 @@ var projectRoot = path.resolve(__dirname, '../../'){{#if_eq lintConfig "airbnb"}
 var webpackConfig = merge(baseConfig, {
   // use inline sourcemap for karma-sourcemap-loader
   module: {
-    loaders: utils.styleLoaders()
+    rules: utils.styleLoaders().concat([{
+      test: /\.vue$/,
+      loader: 'vue-loader',
+      options: {
+        loaders: {
+          js: 'babel-loader',
+        },
+      },
+    }]),
   },
   devtool: '#inline-source-map',
-  vue: {
-    loaders: {
-      js: 'babel-loader'
-    }
-  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': require('../../config/test.env')
@@ -32,7 +35,7 @@ var webpackConfig = merge(baseConfig, {
 delete webpackConfig.entry{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 // Use babel for test files too
-webpackConfig.module.loaders.some(function (loader, i) {
+webpackConfig.module.rules.some(function (loader, i) {
   if (/^babel(-loader)?$/.test(loader.loader)) {
     loader.include.push(path.resolve(projectRoot, 'test/unit')){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     return true{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
