@@ -35,8 +35,9 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
-    {{#lint}}
+    {{#if_or lint htmlhint}}
     preLoaders: [
+      {{#lint}}
       {
         test: /\.vue$/,
         loader: 'eslint',
@@ -52,9 +53,15 @@ module.exports = {
           path.join(projectRoot, 'src')
         ],
         exclude: /node_modules/
+      }{{/lint}}{{#htmlhint}},
+      {
+        test: /\.(vue|html)$/,
+        loader: 'htmlhint',
+        exclude: /node_modules/
       }
+      {{/htmlhint}}
     ],
-    {{/lint}}
+    {{/if_or}}
     loaders: [
       {
         test: /\.vue$/,

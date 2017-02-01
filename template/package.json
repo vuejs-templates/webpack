@@ -52,6 +52,9 @@
     "friendly-errors-webpack-plugin": "^1.1.2",
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
+    {{#htmlhint}}
+    "htmlhint-loader": "^1.1.1",
+    {{/htmlhint}}
     "http-proxy-middleware": "^0.17.2",
     "json-loader": "^0.5.4",
     {{#unit}}

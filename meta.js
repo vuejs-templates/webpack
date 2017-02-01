@@ -44,6 +44,10 @@ module.exports = {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
     },
+    "htmlhint": {
+      "type": "confirm",
+      "message": "Use HTMLHint to lint your HTML?"
+    },
     "lintConfig": {
       "when": "lint",
       "type": "list",
