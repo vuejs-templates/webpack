@@ -6,6 +6,13 @@ module.exports = {
       }
 
       return options.inverse(this);
+    },
+    "if_and": function (v1, v2, options) {
+      if (v1 && v2) {
+        return options.fn(this);
+      }
+
+      return options.inverse(this);
     }
   },
   "prompts": {
@@ -43,6 +50,10 @@ module.exports = {
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
+    },
+    "htmlhint": {
+      "type": "confirm",
+      "message": "Use HTMLHint to lint your HTML?"
     },
     "lintConfig": {
       "when": "lint",
