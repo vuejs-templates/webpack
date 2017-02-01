@@ -53,7 +53,7 @@ module.exports = {
           path.join(projectRoot, 'src')
         ],
         exclude: /node_modules/
-      }{{/lint}}{{#htmlhint}},
+      }{{/lint}}{{#htmlhint}}{{#lint}},{{/lint}}
       {
         test: /\.(vue|html)$/,
         loader: 'htmlhint',
