@@ -6,6 +6,13 @@ module.exports = {
       }
 
       return options.inverse(this);
+    },
+    "if_not": function (v1, options) {
+      if (!v1) {
+        return options.fn(this);
+      }
+
+      return options.inverse(this);
     }
   },
   "prompts": {
