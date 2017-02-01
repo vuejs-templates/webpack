@@ -37,8 +37,7 @@ module.exports = {
   module: {
     {{#if_or lint htmlhint}}
     preLoaders: [
-      {{#lint}}
-      {
+      {{#lint}}{
         test: /\.vue$/,
         loader: 'eslint',
         include: [
