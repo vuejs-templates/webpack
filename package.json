@@ -6,5 +6,8 @@
   "scripts": {
     "docs": "cd docs && gitbook serve",
     "deploy-docs": "bash ./deploy-docs.sh"
+  },
+  "devDependencies": {
+    "vue-cli": "^2.8.1"
   }
 }
