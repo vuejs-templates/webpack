@@ -15,12 +15,10 @@ import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 {{/unless}}
 export default {
-  name: 'app',
-  {{#unless router}}
+  name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
   components: {
     Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  {{/unless}}
+  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
