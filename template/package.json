@@ -55,6 +55,7 @@
     "html-webpack-plugin": "^2.28.0",
     "http-proxy-middleware": "^0.17.3",
     "json-loader": "^0.5.4",
+    "webpack-bundle-analyzer": "^2.2.1",
     {{#unit}}
     "cross-env": "^3.1.4",
     "karma": "^1.4.1",
