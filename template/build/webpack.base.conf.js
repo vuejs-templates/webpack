@@ -42,7 +42,6 @@ module.exports = {
         loader: 'eslint-loader',
         enforce: "pre",
         include: [resolve('src'), resolve('test')],
-        exclude: /node_modules/,
         options: {
           formatter: eslintFriendlyFormatter
         }
@@ -56,8 +55,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')],
-        exclude: /node_modules/
+        include: [resolve('src'), resolve('test')]
       },
       {
         test: /\.json$/,
