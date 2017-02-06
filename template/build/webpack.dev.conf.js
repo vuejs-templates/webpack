@@ -1,6 +1,6 @@
 /* eslint-disable */
 var path = require('path');
-var config = require('../config')
+var config = require('./config')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
 var utils = require('./utils')
@@ -24,7 +24,7 @@ if (entryKeys.length > 1) {
       baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
       plugins.push(new HtmlWebpackPlugin({
         filename: name + '.html',
-        template: path.resolve(__dirname, '../apps', name, '..', 'index.html'),
+        template: path.resolve(__dirname, 'tmp', name, '..', 'index.html'),
         chunks: [name],
         inject: true
       }));
@@ -34,7 +34,7 @@ if (entryKeys.length > 1) {
     baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name]);
     plugins.push(new HtmlWebpackPlugin({
         filename: 'index.html',
-        template: path.resolve(__dirname, '../apps', name, 'index.html'),
+        template: path.resolve(__dirname, 'tmp', name, 'index.html'),
         chunks: [name],
         inject: true
     }));
@@ -45,6 +45,6 @@ module.exports = merge(baseWebpackConfig, {
     loaders: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
   },
   // eval-source-map is faster for development
-  devtool: '#eval-source-map',
+  // devtool: '#eval-source-map',
   plugins: plugins
 })

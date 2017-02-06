@@ -1,6 +1,6 @@
 /* eslint-disable */
 var path = require('path')
-var config = require('../config')
+var config = require('./config')
 var utils = require('./utils')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
@@ -20,7 +20,7 @@ if (entryKeys.length > 1) {
           filename: process.env.NODE_ENV === 'testing'
             ? 'index.html'
             : config.build[name],
-          template: path.resolve(__dirname, '../apps', name, '..', 'index.html'),
+          template: path.resolve(__dirname, 'tmp', name, '..', 'index.html'),
           inject: true,
           chunks: [name, 'manifest', 'vendor'],
           minify: {
@@ -40,7 +40,7 @@ if (entryKeys.length > 1) {
       filename: process.env.NODE_ENV === 'testing'
         ? 'index.html'
         : config.build[name],
-      template: path.resolve(__dirname, '../apps', name, 'index.html'),
+      template: path.resolve(__dirname, 'tmp', name, 'index.html'),
       inject: true,
       chunks: [name, 'manifest', 'vendor'],
       minify: {

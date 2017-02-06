@@ -4,7 +4,7 @@
 
 支持在一个项目中发布多个独立应用或单个应用
 
-1. apps目录下包含多个应用(hello1, hello2)
+1. src/pages 目录下包含多个应用(hello1, hello2)
 
     打包后会在dist中生成多个独立的app发布目录，使用app名称区分。
 
@@ -15,7 +15,7 @@
     // 访问 http://localhost:3000/hello2/index.html
     ```
 
-1. apps目录下包含单个应用(hello1)
+1. src/pages 目录下包含单个应用(hello1)
 
     打包后会在dist中生成独立的发布目录，直接放在根目录下。
     ```

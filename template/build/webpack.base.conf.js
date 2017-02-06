@@ -1,13 +1,13 @@
 /* eslint-disable */
 var path = require('path')
-var config = require('../config')
+var config = require('./config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 
 var babelDir = [
     path.resolve(__dirname, '../src'),
-    path.resolve(__dirname, '../apps'),
-    /bh-vue/
+    path.resolve(__dirname, 'tmp'),
+    /*/bh-vue/*/
     /*/wec-vue/*/
 ];
 
@@ -23,17 +23,11 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       'src': path.resolve(__dirname, '../src'),
-      'router': path.resolve(__dirname, '../src/router'),
+      'core': path.resolve(__dirname, '../src/core'),
+      'router': path.resolve(__dirname, '../src/core/router'),
       'components': path.resolve(__dirname, '../src/components'),
       'conf': path.resolve(__dirname, '../src/config'),
       'api': path.resolve(__dirname, '../src/config/api'),
-      {{#wisedu}}
-      'App': path.resolve(__dirname, '../src/App'),
-      'sysconf': path.resolve(__dirname, '../src/config/sysconfig'),
-      'bh-vue': path.resolve(__dirname, '../node_modules/bh-vue'),
-      'wec-vue': path.resolve(__dirname, '../node_modules/wec-vue'),
-      'bh-util': path.resolve(__dirname, '../node_modules/bh-vue/utils'),
-      {{/wisedu}}
       'apps': path.resolve(__dirname, '../apps'),
       'services': path.resolve(__dirname, '../src/services'),
       'vuex': path.resolve(__dirname, '../src/vuex'),
@@ -96,10 +90,14 @@ module.exports = {
       }
     ]
   },
+  babel: {
+      // presets: ['es2015'],
+      plugins: ['transform-runtime']
+  },
   eslint: {
     formatter: require('eslint-friendly-formatter')
-  },
-  vue: {
-    loaders: utils.cssLoaders()
   }
+  // vue: {
+  //   loaders: utils.cssLoaders()
+  // }
 }
