@@ -64,8 +64,8 @@ if (apps.length > 1) {
         var jsContent = tmpIndexJs.replace(/\[PAGE_NAME\]/g, app);
         fs.writeFileSync(path.resolve(tmpAppDir, 'index.html'), htmlContent, 'utf-8');
         fs.writeFileSync(path.resolve(tmpAppDir, 'index.js'), jsContent, 'utf-8');
-        entries[`${app}/index`] = `./build/tmp/${app}/index.js`;
-        buildConf[`${app}/index`] = path.resolve(__dirname, `../../dist/${app}/index.html`);
+        entries[app] = `./build/tmp/${app}/index.js`;
+        buildConf[app] = `./${app}/index.html`;
     });
 } else { // 若只有一个 app，则直接打包到根目录，不需要用子目录来区分
     var app = apps[0];

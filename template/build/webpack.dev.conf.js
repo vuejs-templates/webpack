@@ -23,8 +23,8 @@ if (entryKeys.length > 1) {
     entryKeys.forEach(function (name) {
       baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
       plugins.push(new HtmlWebpackPlugin({
-        filename: name + '.html',
-        template: path.resolve(__dirname, 'tmp', name, '..', 'index.html'),
+        filename: name + '/index.html',
+        template: path.resolve(__dirname, 'tmp', name, 'index.html'),
         chunks: [name],
         inject: true
       }));
