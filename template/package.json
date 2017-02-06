@@ -31,10 +31,6 @@
     "babel-preset-es2015": "^6.0.0",
     "babel-preset-stage-2": "^6.0.0",
     "babel-register": "^6.0.0",
-    {{#wisedu}}
-    "bh-vue": "^1.2.6",
-    "wec-vue": "^0.1.6",
-    {{/wisedu}}
     "connect": "^3.4.1",
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.23.0",
@@ -98,6 +94,9 @@
     "vue-loader": "^8.3.0",
     "vue-router": "^0.7.13",
     "vue-style-loader": "^1.0.0",
+    {{#bhvue}}
+    "bh-vue": "^1.6.0",
+    {{/bhvue}},
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",

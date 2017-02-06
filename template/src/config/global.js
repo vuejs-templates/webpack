@@ -5,10 +5,13 @@ module.exports = {
     proxy: { // DEV 模式下访问后端 api 时防止跨域使用的代理
         "/wec-smmp-app": "http://wecloud.wisedu.com/wec-smmp-app"
     },
-    alias: { // 自定义webpack依赖的别名，默认已支持 src/pages/config
+    alias: { // 自定义webpack依赖的别名，默认已支持 src/pages/config/node_modules
         'components': 'src/components',
         'api': 'src/config/api',
         'services': 'src/services',
+        {{#bhvue}}
+        'bh-vue': 'node_modules/bh-vue/dist',
+        {{/bhvue}}
         'vuex': 'src/vuex',
         'statics': 'src/statics',
         'res': 'src/statics/resources',

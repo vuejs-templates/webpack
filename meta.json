@@ -26,6 +26,10 @@
         }
       ]
     },
+    "bhvue": {
+      "type": "confirm",
+      "message": "Add bh-vue UI lib support ?"
+    },
     "unit": {
       "type": "confirm",
       "message": "Setup unit tests with Karma + Mocha?"
@@ -33,21 +37,13 @@
     "e2e": {
       "type": "confirm",
       "message": "Setup e2e tests with Nightwatch?"
-    },
-    "wisedu": {
-      "type": "confirm",
-      "message": "Add demo code of wisedu?"
     }
   },
   "filters": {
     ".eslintrc.js": "lint",
     "test/unit/**/*": "unit",
     "test/e2e/**/*": "e2e",
-    "src/App.vue": "wisedu",
-    "src/config/**/*": "wisedu",
-    "src/vuex/**/*": "wisedu",
-    "static/resources/**/*": "wisedu",
-    "apps/wisedu/**/*": "wisedu"
+    "src/pages/bh-sample": "bhvue"
   },
   "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 }

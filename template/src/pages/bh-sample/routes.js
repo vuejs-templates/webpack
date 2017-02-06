@@ -3,9 +3,9 @@
  */
 export default {
     '/': {
-        title: '世界',
+        title: 'BhVue',
         component: (resolve) => {
-            require(['./world'], resolve);
+            require(['./bhSample'], resolve);
         }
     }
 }

@@ -83,6 +83,11 @@ mkdir(tmpDir); // 删除并重新创建临时目录
 var tmpIndexHtml = fs.readFileSync(templateHtml, 'utf-8');
 var tmpIndexJs = fs.readFileSync(templateJs, 'utf-8');
 
+// 将短横线连接词转换为驼峰
+var toCamel = function(word) {
+    return word && word.replace(/-(\w)/g, function(a) {return a.charAt(1).toUpperCase();});
+};
+
 // 从routes文件中解析出 title
 var getTitle = function(routesContent) {
     var m = routesContent.match(/title: \'(.*?)\',/);
@@ -102,7 +107,8 @@ if (apps.length > 1) {
         var htmlContent = tmpIndexHtml.replace('[WIN_TITLE]', title || app)
             .replace('[CSS_LIBS]', vendors.css) // 插入自定义 css
             .replace('[JS_LIBS]', vendors.js); // 插入自定义 js
-        var jsContent = tmpIndexJs.replace(/\[PAGE_NAME\]/g, app);
+        var entryName = toCamel(app);
+        var jsContent = tmpIndexJs.replace(/\[PAGE_NAME\]/g, app).replace(/\[ENTRY_NAME\]/g, entryName);
         fs.writeFileSync(path.resolve(tmpAppDir, 'index.html'), htmlContent, 'utf-8');
         fs.writeFileSync(path.resolve(tmpAppDir, 'index.js'), jsContent, 'utf-8');
         entries[app] = `./build/tmp/${app}/index.js`;
@@ -117,7 +123,8 @@ if (apps.length > 1) {
     var htmlContent = tmpIndexHtml.replace('[WIN_TITLE]', title || app)
         .replace('[CSS_LIBS]', vendors.css) // 插入自定义 css
         .replace('[JS_LIBS]', vendors.js); // 插入自定义 js
-    var jsContent = tmpIndexJs.replace(/\[PAGE_NAME\]/g, app);
+    var entryName = toCamel(app);
+    var jsContent = tmpIndexJs.replace(/\[PAGE_NAME\]/g, app).replace(/\[ENTRY_NAME\]/g, entryName);
     fs.writeFileSync(path.resolve(tmpAppDir, 'index.html'), htmlContent, 'utf-8');
     fs.writeFileSync(path.resolve(tmpAppDir, 'index.js'), jsContent, 'utf-8');
     entries[app] = `./build/tmp/${app}/index.js`;
