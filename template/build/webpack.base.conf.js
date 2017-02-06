@@ -2,7 +2,9 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+{{#lint}}
 var eslintFriendlyFormatter = require('eslint-friendly-formatter')
+{{/lint}}
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
