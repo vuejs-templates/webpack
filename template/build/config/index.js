@@ -19,6 +19,47 @@ var templateHtml = path.resolve(__dirname, '../template', 'index.tpl');
 var templateJs = path.resolve(__dirname, '../template', 'index.js');
 var tmpDir = path.resolve(__dirname, '../tmp');
 
+var hasElement = function(arr) { // 判断数组是否不为空
+    return arr && arr.length > 0;
+}
+
+var getVendors = function(pageName) { // 读取页面需要额外加载的第三方库(js/css)
+    var jslist = [], csslist = [];
+
+    // 先加载全局lib
+    if (hasElement(globalConf.jslibs)) {
+        jslist = globalConf.jslibs.map(item => `<script src="${item}"></script>`);
+    }
+
+    if (hasElement(globalConf.csslibs)) {
+        csslist = globalConf.csslibs.map(item => `<link rel="stylesheet" href="${item}">`);
+    }
+
+    // 然后加载页面范围的lib
+    var confPath = path.resolve(__dirname, `../../src/pages/${pageName}/config.json`);
+    if (fs.existsSync(confPath)) {
+        var pageConf = fs.readFileSync(confPath, 'utf-8');
+        try {
+            pageConf = JSON.parse(pageConf);
+
+            if (hasElement(pageConf.jslibs)) {
+                jslist = jslist.concat(pageConf.jslibs.map(item => `<script src="${item}"></script>`));
+            }
+
+            if (hasElement(pageConf.csslibs)) {
+                csslist = csslist.concat(pageConf.csslibs.map(item => `<link rel="stylesheet" href="${item}">`));
+            }
+        } catch (e) {
+            console.error('page config file is invalid:', e);
+        }
+    }
+
+    return {
+        js: jslist.join('\n'),
+        css: csslist.join('\n')
+    };
+};
+
 var buildConf = {
     'env': require('./prod.env'),
     // 指定build打包发布路径
@@ -33,7 +74,6 @@ var buildConf = {
     'productionGzip': false,
     'productionGzipExtensions': ['js', 'css']
 };
-
 
 // 创建临时入口文件供打包使用
 rm('-rf', tmpDir);
@@ -57,10 +97,11 @@ if (apps.length > 1) {
     apps.forEach(app => {
         var title = getTitle(fs.readFileSync(path.resolve(appDir, app, 'routes.js'), 'utf-8'));
         var tmpAppDir = path.resolve(tmpDir, app);
+        var vendors = getVendors(app);
         mkdir(tmpAppDir);
         var htmlContent = tmpIndexHtml.replace('[WIN_TITLE]', title || app)
-            .replace('[CSS_LIBS]', '') // TODO: 插入自定义 css
-            .replace('[JS_LIBS]', ''); // TODO: 插入自定义 js
+            .replace('[CSS_LIBS]', vendors.css) // 插入自定义 css
+            .replace('[JS_LIBS]', vendors.js); // 插入自定义 js
         var jsContent = tmpIndexJs.replace(/\[PAGE_NAME\]/g, app);
         fs.writeFileSync(path.resolve(tmpAppDir, 'index.html'), htmlContent, 'utf-8');
         fs.writeFileSync(path.resolve(tmpAppDir, 'index.js'), jsContent, 'utf-8');
@@ -71,10 +112,11 @@ if (apps.length > 1) {
     var app = apps[0];
     var title = getTitle(fs.readFileSync(path.resolve(appDir, app, 'routes.js'), 'utf-8'));
     var tmpAppDir = path.resolve(tmpDir, app);
+    var vendors = getVendors(app);
     mkdir(tmpAppDir);
     var htmlContent = tmpIndexHtml.replace('[WIN_TITLE]', title || app)
-        .replace('[CSS_LIBS]', '') // TODO: 插入自定义 css
-        .replace('[JS_LIBS]', ''); // TODO: 插入自定义 js
+        .replace('[CSS_LIBS]', vendors.css) // 插入自定义 css
+        .replace('[JS_LIBS]', vendors.js); // 插入自定义 js
     var jsContent = tmpIndexJs.replace(/\[PAGE_NAME\]/g, app);
     fs.writeFileSync(path.resolve(tmpAppDir, 'index.html'), htmlContent, 'utf-8');
     fs.writeFileSync(path.resolve(tmpAppDir, 'index.js'), jsContent, 'utf-8');

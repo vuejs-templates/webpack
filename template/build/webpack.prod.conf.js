@@ -128,6 +128,4 @@ if (config.build.productionGzip) {
   )
 }
 
-console.log(webpackConfig);
-
 module.exports = webpackConfig

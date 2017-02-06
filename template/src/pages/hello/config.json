@@ -1,0 +1,4 @@
+{
+    "csslibs": ["http://me/test.css"],
+    "jslibs": ["http://me/test.js"]
+}
