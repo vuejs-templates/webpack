@@ -35,8 +35,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       }
     }),
     new OptimizeCssAssetsPlugin({
-       assetNameRegExp: /\.css$/,
-       cssProcessorOptions: { discardComments: { removeAll: true } }
+       assetNameRegExp: /\.css$/
     }),
     // extract css into its own file
     new ExtractTextPlugin(utils.assetsPath('css/[name].[contenthash].css')),
