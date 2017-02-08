@@ -34,9 +34,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         warnings: false
       }
     }),
-    new OptimizeCssAssetsPlugin({
-       assetNameRegExp: /\.css$/
-    }),
+    new OptimizeCssAssetsPlugin(),
     // extract css into its own file
     new ExtractTextPlugin(utils.assetsPath('css/[name].[contenthash].css')),
     // generate dist index.html with correct asset hash for caching.
