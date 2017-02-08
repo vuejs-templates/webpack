@@ -18,7 +18,7 @@ And the files:
 
 - `specs/`
 
-  This directory is where you write your actual tests. You can use full ES2015 and all supported Webpack loaders in your tests.
+  This directory is where you write your actual tests. You can use full ES2015+ and all supported Webpack loaders in your tests.
 
 - `karma.conf.js`
 
