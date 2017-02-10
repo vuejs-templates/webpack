@@ -1,3 +1,7 @@
+/**
+ * vue路由辅助类，
+ * 支持在运行时动态加入子级路由（基于 vue1.0 / vue-router1.0）
+ */
 var router = new VueRouter();
 
 var _routes = null;

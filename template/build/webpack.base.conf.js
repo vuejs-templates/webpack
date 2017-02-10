@@ -24,7 +24,8 @@ var alias = assign({
     'pages': path.resolve(__dirname, '../src/pages'),
     'core': path.resolve(__dirname, '../src/core'),
     'router': path.resolve(__dirname, '../src/core/router'),
-    'conf': path.resolve(__dirname, '../src/config')
+    'conf': path.resolve(__dirname, '../src/config'),
+    'node_modules': path.resolve(__dirname, '../node_modules')
 }, globalConf.alias);
 
 var loaders = [
@@ -50,7 +51,7 @@ var loaders = [
     loader: 'url',
     query: {
       limit: 10000,
-      name: utils.assetsPath('resources/imgs/[name].[hash:7].[ext]')
+      name: utils.assetsPath('statics/imgs/hash/[name].[hash:7].[ext]')
     }
   },
   {
@@ -58,7 +59,7 @@ var loaders = [
     loader: 'url',
     query: {
       limit: 10000,
-      name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+      name: utils.assetsPath('statics/fonts/[name].[hash:7].[ext]')
     }
   }
 ]
@@ -71,7 +72,7 @@ module.exports = {
   entry: config.entry,
   output: {
     path: config.build.assetsRoot,
-    publicPath: process.env.NODE_ENV === 'production' ? '..' : config.dev.assetsPublicPath,
+    publicPath: process.env.NODE_ENV === 'production' ? '../' : config.dev.assetsPublicPath,
     filename: '[name]/[name].js'
   },
   resolve: {
