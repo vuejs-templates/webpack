@@ -14,7 +14,9 @@ npm run dev
 
  - LESS
  - Spritesmith
+ - GSAP
  - grunt-ssh-deploy-release
+ - GitLab CI
 
 
 ## Structure

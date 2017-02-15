@@ -1,6 +1,4 @@
-# vue-webpack
-
-> A Vue.js project
+# {{name}}
 
 ## Build Setup
 

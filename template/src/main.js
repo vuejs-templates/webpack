@@ -1,6 +1,8 @@
-import Vue from 'vue'
-import App from 'app/App'
-import router from 'router/routes.js'
+import Vue from 'vue';
+import App from 'app/App';
+import router from 'router/routes.js';
+import {TweenLite} from "gsap";
+
 
 /* eslint-disable no-new */
 new Vue({
@@ -8,4 +10,4 @@ new Vue({
     router,
     template: '<App/>',
     components: {App}
-})
+});

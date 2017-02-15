@@ -11,11 +11,11 @@
      - production
     environment:
       name: review/$CI_BUILD_REF_SLUG
-      url: http://lamp.lahautesociete.int/test/vue-webpack/$CI_BUILD_REF_SLUG/www/
+      url: http://preprod.lahautesociete.com/path/to/$CI_BUILD_REF_SLUG/www/
       on_stop: stop_review
     script:
      - yarn
-     - npm run build -- --assetsPublicPath="/test/vue-webpack/$CI_BUILD_REF_SLUG/www/"
+     - npm run build -- --assetsPublicPath="/path/to/$CI_BUILD_REF_SLUG/www/"
      - cd build
      - grunt ssh-deploy-release:review --branch="$CI_BUILD_REF_SLUG"
 
