@@ -3,6 +3,9 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
+var path = require('path');
+var SpritesmithPlugin = require('webpack-spritesmith')
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -25,27 +28,16 @@ module.exports = {
       resolve('node_modules')
     ],
     alias: {
-      {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.common.js',
-      {{/if_eq}}
       'src': resolve('src'),
       'assets': resolve('src/assets'),
-      'components': resolve('src/components')
+      'components': resolve('src/app/components'),
+      'pages': resolve('src/app/pages'),
+      'router': resolve('src/app/router'),
     }
   },
   module: {
     rules: [
-      {{#lint}}
-      {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: "pre",
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
-      {{/lint}}
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -60,7 +52,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         query: {
-          limit: 10000,
+          limit: 100,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
       },
@@ -73,5 +65,37 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new SpritesmithPlugin({
+      src: {
+        cwd: path.resolve(__dirname, '../src/sprites/images'),
+        glob: '*.png'
+      },
+      target: {
+        image: path.resolve(__dirname, '../src/sprites/generated/sprite.png'),
+        css: [
+          [path.resolve(__dirname, '../src/sprites/generated/sprite.less'), {format: 'customSmTemplate'}],
+          [path.resolve(__dirname, '../src/sprites/generated/sprite-texturepacker-like.less'), {format: 'texturepacker-like'}]
+        ]
+      },
+      /*retina: "@2x",*/
+      apiOptions: {
+        cssImageRef: "./sprite.png",
+        /*generateSpriteName: function (arg1, arg2, arg3) {
+         //console.log(this);
+         return "tutu" + arg1;
+         },*/
+      },
+      spritesmithOptions: {
+        algorithm: 'binary-tree',
+        padding: 2
+      },
+      customTemplates: {
+        'customSmTemplate': path.resolve(__dirname, '../src/sprites/templates/custom-sm.template.handlebars'),
+        'customSmTemplate_retina': path.resolve(__dirname, '../src/sprites/templates/custom-sm_retina.template.handlebars'),
+        'texturepacker-like': path.resolve(__dirname, '../src/sprites/templates/texturepacker-like.template.handlebars')
+      }
+    })
+  ]
 }

@@ -1,11 +1,7 @@
+.idea
 .DS_Store
 node_modules/
 dist/
 npm-debug.log
-{{#unit}}
-test/unit/coverage
-{{/unit}}
-{{#e2e}}
-test/e2e/reports
-selenium-debug.log
-{{/e2e}}
+
+src/sprites/generated/
