@@ -10,9 +10,8 @@ var path = require('path')
 var express = require('express')
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
-var webpackConfig = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
-  ? require('./webpack.prod.conf')
-  : {{/if_or}}require('./webpack.dev.conf')
+var webpackConfig = require('./webpack.dev.conf')
+var routers = require('../mock/router');
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
@@ -63,6 +62,9 @@ app.use(hotMiddleware)
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
+
+//模拟数据
+routers(app);
 
 var uri = 'http://localhost:' + port
 
