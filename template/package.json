@@ -73,6 +73,7 @@
     "inject-loader": "^2.0.1",
     "babel-plugin-istanbul": "^3.1.2",
     "phantomjs-prebuilt": "^2.1.14",
+    "vue-test": "^1.0.0",
     {{/unit}}
     {{#e2e}}
     "chromedriver": "^2.27.2",
