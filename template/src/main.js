@@ -9,7 +9,6 @@ import VueRouter from "vue-router";
 import router from "./router/routerInstance";
 {{/router}}
 import base from "assets/js/common";
-import axios from "axios";
 
 {{#router}}
 Vue.use(VueRouter);
