@@ -1,0 +1,472 @@
+//----------------------------
+//
+//  mixins.less v0.1.6
+//  http://mixinsless.com/
+//  Reuse snippets & Cross-browser private properties snippets.
+//----------------------------
+
+// Border radius with the same argument
+// -------------------------
+.rounded(@radius: 3px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+// Border radius with different arguments
+// -------------------------
+.border-radius(@topleft: 0, @topright: 0, @bottomright: 0, @bottomleft: 0) {
+  -webkit-border-top-left-radius: @topleft;
+  -webkit-border-top-right-radius: @topright;
+  -webkit-border-bottom-right-radius: @bottomright;
+  -webkit-border-bottom-left-radius: @bottomleft;
+  -moz-border-radius-topleft: @topleft;
+  -moz-border-radius-topright: @topright;
+  -moz-border-radius-bottomright: @bottomright;
+  -moz-border-radius-bottomleft: @bottomleft;
+  border-top-left-radius: @topleft;
+  border-top-right-radius: @topright;
+  border-bottom-right-radius: @bottomright;
+  border-bottom-left-radius: @bottomleft;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+// Background size
+// -------------------------
+.background-size(@size) {
+  -webkit-background-size: @size;
+  -moz-background-size: @size;
+  -o-background-size: @size;
+  background-size: @size;
+}
+
+// Opacity
+// -------------------------
+.opacity(@opacity) {
+  opacity: @opacity;
+  @opacityIE: @opacity * 100;
+  filter: ~"alpha(opacity=@{opacityIE})";
+}
+
+.flex(@align) {
+  display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box; /* Firefox 17- */
+  display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex; /* Firefox 18+ */
+  display: -ms-flexbox; /* IE 10 */
+  display: flex;
+  align-items: @align;
+  box-align: @align;
+}
+
+.flexItem(@flex) {
+  -webkit-flex: @flex;
+  -moz-flex: @flex;
+  -ms-flex:@flex;
+  flex: @flex;
+  -moz-box-flex:@flex;
+  -webkit-box-flex: @flex;
+  -ms-box-flex:@flex;
+  box-flex: @flex;
+}
+
+// Appearance
+// -------------------------
+.appearance(@appearance:none) {
+  -webkit-appearance: @appearance;
+  appearance: @appearance;
+}
+
+// Gradient
+// -------------------------
+.gradient(@start: #000000, @stop: #FFFFFF) {
+  background: (@start + @stop)/2;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, @start), color-stop(1, @stop));
+  background: -moz-linear-gradient(center top, @start 0%, @stop 100%);
+}
+
+// Box shadow
+// -------------------------
+.drop-shadow(@horizontal: 0, @vertical: 1px, @blur: 2px, @alpha: 0.1) {
+  -webkit-box-shadow: @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+}
+
+// Box shadow inset
+// -------------------------
+.inner-shadow(@horizontal: 0, @vertical: 1px, @blur: 2px, @alpha: 0.4) {
+  -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+}
+
+// Box inner border
+// -------------------------
+.inner-border(@width: 1px, @color: #000) {
+  -webkit-box-shadow: inset 0 0 0 @width @color;
+  -moz-box-shadow: inset 0 0 0 @width @color;
+  box-shadow: inset 0 0 0 @width @color;
+}
+
+// Box shadow default
+// -------------------------
+.box-shadow(@arguments) {
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+// Animation
+// -------------------------
+.animation(@animation) {
+  -webkit-animation: @animation;
+  -moz-animation: @animation;
+  animation: @animation;
+}
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+
+.transition-delay(@transition-delay) {
+  -webkit-transition-delay: @transition-delay;
+  -moz-transition-delay: @transition-delay;
+  -o-transition-delay: @transition-delay;
+  transition-delay: @transition-delay;
+}
+
+.transition-duration(@transition-duration) {
+  -webkit-transition-duration: @transition-duration;
+  -moz-transition-duration: @transition-duration;
+  -o-transition-duration: @transition-duration;
+  transition-duration: @transition-duration;
+}
+
+// Transform
+// -------------------------
+.transform(@arguments) {
+  -webkit-transform: @arguments;
+  -moz-transform: @arguments;
+  transform: @arguments;
+}
+
+// Transform rotation
+// -------------------------
+.rotation(@deg:5deg) {
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+
+// Transform scale
+// -------------------------
+.scale(@ratio:1.5) {
+  -webkit-transform: scale(@ratio);
+  -moz-transform: scale(@ratio);
+  transform: scale(@ratio);
+}
+
+// Translate
+// -------------------------
+.translate(@x:0, @y:0) {
+  -moz-transform: translate(@x, @y);
+  -webkit-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+  transform: translate(@x, @y);
+}
+
+// Translate3d
+// -------------------------
+.translate3d(@x, @y, @z) {
+  -webkit-transform: translate3d(@x, @y, @z);
+  -moz-transform: translate3d(@x, @y, @z);
+  -o-transform: translate3d(@x, @y, @z);
+  transform: translate3d(@x, @y, @z);
+}
+
+// Background clipping
+// -------------------------
+.background-clip(@clip) {
+  -webkit-background-clip: @clip;
+  -moz-background-clip: @clip;
+  background-clip: @clip;
+}
+
+// CSS columns
+// -------------------------
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEEEEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+  -moz-column-width: @colwidth;
+  -moz-column-count: @colcount;
+  -moz-column-gap: @colgap;
+  -moz-column-rule-color: @columnRuleColor;
+  -moz-column-rule-style: @columnRuleStyle;
+  -moz-column-rule-width: @columnRuleWidth;
+  -webkit-column-width: @colwidth;
+  -webkit-column-count: @colcount;
+  -webkit-column-gap: @colgap;
+  -webkit-column-rule-color: @columnRuleColor;
+  -webkit-column-rule-style: @columnRuleStyle;
+  -webkit-column-rule-width: @columnRuleWidth;
+  column-width: @colwidth;
+  column-count: @colcount;
+  column-gap: @colgap;
+  column-rule-color: @columnRuleColor;
+  column-rule-style: @columnRuleStyle;
+  column-rule-width: @columnRuleWidth;
+}
+
+// Import font
+// -------------------------
+.font-face(@fontFamily, @fileName, @style, @weight) {
+  @font-face {
+    font-family: @fontFamily;
+    font-style: @style;
+    font-weight: @weight;
+    src: url('@{fileName}.eot');
+    src: local('@fontFamily'), url('@{fileName}.eot?#iefix') format('embedded-opentype'), url('@{fileName}.woff') format('woff'), url('@{fileName}.ttf') format('truetype'), url('@{fileName}.svg#@{fontFamily}') format('svg'), url("@{fileName}.otf") format('opentype');
+  }
+}
+
+// Clearfix
+// -------------------------
+.clearfix() {
+  zoom: 1;
+  &:before {
+    content: '';
+    display: block;
+  }
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// CSS image replacement
+// -------------------------
+// Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+.hide-text() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+// Force line breaks
+// -------------------------
+.word-break() {
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+// No wrap
+// -------------------------
+.no-wrap() {
+  word-break: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+}
+
+// Text overflow with(...)
+// -------------------------
+// Requires inline-block or block for proper styling
+.text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.line-overflow(@line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+// Creates a wrapper for a series of columns
+// -------------------------
+.lay-row() {
+  // Negative margin the row out to align the content of columns
+  margin-left: (@grid-gutter-width / -2);
+  margin-right: (@grid-gutter-width / -2);
+  // Then clear the floated columns
+  .clearfix();
+}
+
+// Generate the columns
+// -------------------------
+.lay-column(@columns) {
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+    // Calculate width based on number of columns available
+    width: percentage(@columns / @grid-columns);
+  }
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Set inner padding as gutters instead of margin
+  padding-left: (@grid-gutter-width / 2);
+  padding-right: (@grid-gutter-width / 2);
+}
+
+// Generate the column offsets
+// -------------------------
+.lay-column-offset(@columns) {
+  @media (min-width: @grid-float-breakpoint) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+
+// Alpha background
+// -------------------------
+.alpha-background(@rgb:#000,@alpha:.5) {
+  @rgba-color: fade(@rgb,@alpha*100);
+  @argb-color: argb(@rgba-color);
+  background-color: @rgba-color;
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{argb-color}', endColorstr='@{argb-color}', GradientType=0)";
+  zoom: 1;
+  :root & {
+    filter: none;
+  }
+}
+
+// Controls the selection model of an element.
+// -------------------------
+.user-select(@arguments:none) {
+  -webkit-user-select: @arguments;
+  -moz-user-select: @arguments;
+  -ms-user-select: @arguments;
+  user-select: @arguments;
+}
+
+// Flexbox display
+// -------------------------
+// flex or inline-flex
+.flex-display(@display: flex) {
+  display: ~"-webkit-@{display}";
+  display: ~"-moz-@{display}";
+  display: @display;
+}
+
+// Triangle
+// -------------------------
+.triangle(@direction: down, @size: 10px, @color: #000) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.triangle(@direction: down, @size: 10px, @color: #000) when (@direction = down) {
+  border-color: @color transparent transparent transparent;
+  border-style: solid dashed dashed dashed;
+  border-width: @size @size 0 @size;
+}
+
+.triangle(@direction: down, @size: 10px, @color: #000) when (@direction = left) {
+  border-color: transparent @color transparent transparent;
+  border-style: dashed solid dashed dashed;
+  border-width: @size @size @size 0;
+}
+
+.triangle(@direction: down, @size: 10px, @color: #000) when (@direction = up) {
+  border-color: transparent transparent @color transparent;
+  border-style: dashed dashed solid dashed;
+  border-width: 0 @size @size @size;
+}
+
+.triangle(@direction: down, @size: 10px, @color: #000) when (@direction = right) {
+  border-color: transparent transparent transparent @color;
+  border-style: dashed dashed dashed solid;
+  border-width: @size 0 @size @size;
+}
+
+// Arrow
+// -------------------------
+.arrow(@direction: down, @size: 10px, @color: #000, @borderColor: #c00) {
+  position: absolute;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    font-size: 0;
+  }
+}
+
+.arrow(@direction: down, @size: 10px, @color: #fff, @borderColor: #ccc) when (@direction = down) {
+  border-color: @borderColor transparent transparent transparent;
+  border-style: solid dashed dashed dashed;
+  border-width: @size @size 0 @size;
+  &:after {
+    left: -@size;
+    top: -(@size+1);
+    border-color: @color transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+    border-width: @size @size 0 @size;
+  }
+}
+
+.arrow(@direction: down, @size: 10px, @color: #fff, @borderColor: #ccc) when (@direction = left) {
+  border-color: transparent @borderColor transparent transparent;
+  border-style: dashed solid dashed dashed;
+  border-width: @size @size @size 0;
+  &:after {
+    left: 1px;
+    top: -@size;
+    border-color: transparent @color transparent transparent;
+    border-style: dashed solid dashed dashed;
+    border-width: @size @size @size 0;
+  }
+}
+
+.arrow(@direction: down, @size: 10px, @color: #fff, @borderColor: #ccc) when (@direction = up) {
+  border-color: transparent transparent @borderColor transparent;
+  border-style: dashed dashed solid dashed;
+  border-width: 0 @size @size @size;
+  &:after {
+    left: -@size;
+    top: 1px;
+    border-color: transparent transparent @color transparent;
+    border-style: dashed dashed solid dashed;
+    border-width: 0 @size @size @size;
+  }
+}
+
+.arrow(@direction: down, @size: 10px, @color: #fff, @borderColor: #ccc) when (@direction = right) {
+  border-color: transparent transparent transparent @borderColor;
+  border-style: dashed dashed dashed solid;
+  border-width: @size 0 @size @size;
+  &:after {
+    left: -(@size+1);
+    top: -@size;
+    border-color: transparent transparent transparent @color;
+    border-style: dashed dashed dashed solid;
+    border-width: @size 0 @size @size;
+  }
+}
+
+// fix background-image with `./img/xxx.png` in REM support option.
+.rem-bg() {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
