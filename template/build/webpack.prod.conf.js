@@ -6,8 +6,13 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var ImageminPlugin = require('imagemin-webpack-plugin').default;
 var env = config.build.env;
-
+var vConsolePlugin = require('vconsole-webpack-plugin');
+// 接收运行参数
+const argv = require('yargs')
+    .describe('debug', 'debug 环境') // use 'webpack --debug'
+    .argv;
 var webpackConfig = merge(baseWebpackConfig, {
     module: {
         rules: utils.styleLoaders({
@@ -22,6 +27,12 @@ var webpackConfig = merge(baseWebpackConfig, {
         chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
     plugins: [
+        new ImageminPlugin({
+            disable: process.env.NODE_ENV !== 'production', // Disable during development
+            pngquant: {
+                quality: '95-100'
+            }
+        }),
         // http://vuejs.github.io/vue-loader/en/workflow/production.html
         new webpack.DefinePlugin({
             'process.env': env
@@ -71,10 +82,10 @@ var webpackConfig = merge(baseWebpackConfig, {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'manifest',
             chunks: ['vendor']
-        })
+        }),
+        new vConsolePlugin({enable: !!argv.debug})
     ]
 });
-
 if (config.build.productionGzip) {
     var CompressionWebpackPlugin = require('compression-webpack-plugin')
     webpackConfig.plugins.push(
@@ -91,10 +102,8 @@ if (config.build.productionGzip) {
         })
     )
 }
-
 if (config.build.bundleAnalyzerReport) {
     var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
     webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
-
 module.exports = webpackConfig

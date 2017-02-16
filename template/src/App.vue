@@ -1,5 +1,6 @@
 <template>
     <div id="wrapper" v-if="isShow">
+        <h1>hello,world</h1>
         {{#router}}
         <router-view></router-view>
         {{/router}}

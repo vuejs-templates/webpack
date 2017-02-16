@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
+    "test": "node build/build.js --debug",
     "build": "node build/build.js"
   },
   "dependencies": {
@@ -70,11 +71,13 @@
     "axios": "^0.15.3",
     "babel-polyfill": "^6.20.0",
     "fastclick": "^1.0.6",
+    "imagemin-webpack-plugin": "^1.4.4",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "vconsole-webpack-plugin": "^1.1.0",
     "postcss-plugin-px2rem": "^0.6.0",
-    "express-http-proxy": "^0.11.0"
+    "express-http-proxy": "^0.11.0",
+    "yargs": "^6.5.0"
   },
   "engines": {
     "node": ">= 4.0.0",
