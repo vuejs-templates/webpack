@@ -4,6 +4,11 @@ var path = require('path');
 var fs = require('fs');
 require('shelljs/global');
 
+// 创建临时入口文件供打包使用
+var tmpDir = path.resolve(__dirname, '../tmp');
+rm('-rf', tmpDir);
+mkdir(tmpDir); // 删除并重新创建临时目录
+
 var globalConf = require('../../src/config/global'); // 全局参数
 var proxyTable = globalConf.proxy || {}; // 代理设置
 
@@ -13,11 +18,14 @@ if (apps.length === 0) {
     throw 'no app defined in ./apps/';
 }
 
+// 创建多语言文件
+var localeTool = require('./localeTool');
+localeTool.make();
+
 var entries = {};
 var dists = {};
 var templateHtml = path.resolve(__dirname, '../template', 'index.tpl');
 var templateJs = path.resolve(__dirname, '../template', 'index.js');
-var tmpDir = path.resolve(__dirname, '../tmp');
 
 var hasElement = function(arr) { // 判断数组是否不为空
     return arr && arr.length > 0;
@@ -75,10 +83,6 @@ var buildConf = {
     'productionGzipExtensions': ['js', 'css']
 };
 
-// 创建临时入口文件供打包使用
-rm('-rf', tmpDir);
-mkdir(tmpDir); // 删除并重新创建临时目录
-
 // 读取模板文件
 var tmpIndexHtml = fs.readFileSync(templateHtml, 'utf-8');
 var tmpIndexJs = fs.readFileSync(templateJs, 'utf-8');
@@ -98,35 +102,45 @@ var getTitle = function(routesContent) {
     }
 };
 
+var getPageConf = function(confFile) {
+    try {
+        var content = fs.readFileSync(confFile, 'utf-8');
+        return JSON.parse(content);
+    } catch (e) {
+        return {"lang": "cn"};
+    }
+};
+
+var prepareEntryFiles = function(app) {
+    var title = getTitle(fs.readFileSync(path.resolve(appDir, app, 'routes.js'), 'utf-8'));
+    var pageConfig = getPageConf(path.resolve(appDir, app, 'config.json'));
+    var pageLang = pageConfig.lang;
+
+    var tmpAppDir = path.resolve(tmpDir, app);
+    var vendors = getVendors(app);
+    mkdir(tmpAppDir);
+
+    var htmlContent = tmpIndexHtml.replace('[WIN_TITLE]', title || app)
+        .replace('[CSS_LIBS]', vendors.css) // 插入自定义 css
+        .replace('[JS_LIBS]', vendors.js); // 插入自定义 js
+    var entryName = toCamel(app);
+    var jsContent = tmpIndexJs.replace(/\[PAGE_NAME\]/g, app)
+        .replace(/\[ENTRY_NAME\]/g, entryName)
+        .replace('[LANG_NAME]', pageLang);
+
+    fs.writeFileSync(path.resolve(tmpAppDir, 'index.html'), htmlContent, 'utf-8');
+    fs.writeFileSync(path.resolve(tmpAppDir, 'index.js'), jsContent, 'utf-8');
+};
+
 if (apps.length > 1) {
     apps.forEach(app => {
-        var title = getTitle(fs.readFileSync(path.resolve(appDir, app, 'routes.js'), 'utf-8'));
-        var tmpAppDir = path.resolve(tmpDir, app);
-        var vendors = getVendors(app);
-        mkdir(tmpAppDir);
-        var htmlContent = tmpIndexHtml.replace('[WIN_TITLE]', title || app)
-            .replace('[CSS_LIBS]', vendors.css) // 插入自定义 css
-            .replace('[JS_LIBS]', vendors.js); // 插入自定义 js
-        var entryName = toCamel(app);
-        var jsContent = tmpIndexJs.replace(/\[PAGE_NAME\]/g, app).replace(/\[ENTRY_NAME\]/g, entryName);
-        fs.writeFileSync(path.resolve(tmpAppDir, 'index.html'), htmlContent, 'utf-8');
-        fs.writeFileSync(path.resolve(tmpAppDir, 'index.js'), jsContent, 'utf-8');
+        prepareEntryFiles(app);
         entries[app] = `./build/tmp/${app}/index.js`;
         buildConf[app] = `./${app}/index.html`;
     });
 } else { // 若只有一个 app，则直接打包到根目录，不需要用子目录来区分
     var app = apps[0];
-    var title = getTitle(fs.readFileSync(path.resolve(appDir, app, 'routes.js'), 'utf-8'));
-    var tmpAppDir = path.resolve(tmpDir, app);
-    var vendors = getVendors(app);
-    mkdir(tmpAppDir);
-    var htmlContent = tmpIndexHtml.replace('[WIN_TITLE]', title || app)
-        .replace('[CSS_LIBS]', vendors.css) // 插入自定义 css
-        .replace('[JS_LIBS]', vendors.js); // 插入自定义 js
-    var entryName = toCamel(app);
-    var jsContent = tmpIndexJs.replace(/\[PAGE_NAME\]/g, app).replace(/\[ENTRY_NAME\]/g, entryName);
-    fs.writeFileSync(path.resolve(tmpAppDir, 'index.html'), htmlContent, 'utf-8');
-    fs.writeFileSync(path.resolve(tmpAppDir, 'index.js'), jsContent, 'utf-8');
+    prepareEntryFiles(app);
     entries[app] = `./build/tmp/${app}/index.js`;
     buildConf[app] = path.resolve(__dirname, `../../dist/index.html`);
 }

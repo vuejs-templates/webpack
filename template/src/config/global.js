@@ -17,11 +17,14 @@ module.exports = {
         'res': 'src/statics/resources',
         'img': 'src/statics/resources/img'
     },
-    babelDir: [/bh-vue/], // 指定允许使用babel-loader编译的文件目录或路径匹配，默认已支持src
+    babelDir: [{{#bhvue}}/bh-vue/{{/bhvue}}], // 指定允许使用babel-loader编译的文件目录或路径匹配，默认已支持src
     loaders: [], // 增加其他文件类型的loader，默认已支持 vue
     csslibs: [], // 在index.html中需要引入的 css lib
     jslibs: [ // 在 index.html 中需要引入的 js lib， vue 和 router 必须引入
-        'http://res.wisedu.com/bower_components/vue/dist/vue.min.js',
-        'http://res.wisedu.com/bower_components/vue-router/dist/vue-router.min.js'
+        '//cdn.bootcss.com/vue/1.0.28/vue.min.js',
+	{{#i18n}}
+        '//cdn.bootcss.com/vue-i18n/4.10.0/vue-i18n.min.js',
+	{{/i18n}}
+        '//cdn.bootcss.com/vue-router/0.7.13/vue-router.min.js'
     ]
 }

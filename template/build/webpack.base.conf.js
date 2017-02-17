@@ -12,7 +12,8 @@ var hasElement = function(arr) { // 判断数组是否不为空
 
 var babelDir = [
     path.resolve(__dirname, '../src'),
-    path.resolve(__dirname, 'tmp')
+    path.resolve(__dirname, './tmp'),
+    path.resolve(__dirname, './template')
 ];
 
 if (hasElement(globalConf.babelDir)) {
@@ -23,8 +24,8 @@ var alias = assign({
     'src': path.resolve(__dirname, '../src'),
     'pages': path.resolve(__dirname, '../src/pages'),
     'core': path.resolve(__dirname, '../src/core'),
-    'router': path.resolve(__dirname, '../src/core/router'),
     'conf': path.resolve(__dirname, '../src/config'),
+    'router': path.resolve(__dirname, './template/router'),
     'node_modules': path.resolve(__dirname, '../node_modules')
 }, globalConf.alias);
 

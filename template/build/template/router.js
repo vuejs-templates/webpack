@@ -1,6 +1,6 @@
 /**
- * vueÂ·ÓÉ¸¨ÖúÀà£¬
- * Ö§³ÖÔÚÔËÐÐÊ±¶¯Ì¬¼ÓÈë×Ó¼¶Â·ÓÉ£¨»ùÓÚ vue1.0 / vue-router1.0£©
+ * vueè·¯ç”±è¾…åŠ©ç±»ï¼Œ
+ * æ”¯æŒåœ¨è¿è¡Œæ—¶åŠ¨æ€åŠ å…¥å­çº§è·¯ç”±ï¼ˆåŸºäºŽ vue1.0 / vue-router1.0ï¼‰
  */
 var router = new VueRouter();
 
@@ -32,7 +32,7 @@ var _start = (comp, selector) => {
     router.start(comp, selector);
 };
 
-export default {
+module.exports = {
     init: _init,
     start: _start,
     getRoutes: _getRoutes,

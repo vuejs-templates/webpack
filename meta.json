@@ -26,6 +26,10 @@
         }
       ]
     },
+    "i18n": {
+      "type": "confirm",
+      "message": "Support multi-language with vue-i18n?"
+    },
     "bhvue": {
       "type": "confirm",
       "message": "Add bh-vue UI lib support ?"
@@ -43,7 +47,8 @@
     ".eslintrc.js": "lint",
     "test/unit/**/*": "unit",
     "test/e2e/**/*": "e2e",
-    "src/pages/bh-sample": "bhvue"
+    "src/pages/bh-sample": "bhvue",
+    "src/config/i18n": "i18n"
   },
   "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 }
