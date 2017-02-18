@@ -41,10 +41,27 @@
             </div>
         </div>
 	{{/i18n}}
+	{{#vuex}}
+        <h3>经典vuex测试</h3>
+        <hr>
+        <div class='caselist'>
+            <div class='case'>
+                计数：\{{getCount}}
+            </div>
+            <div class='case'>
+                <button @click='incrementCounter'>加加</button>
+                <button @click='decrementCounter'>减减</button>
+            </div>
+        </div>
+	{{/vuex}}
     </div>
 </template>
 
 <script>
+    {{#vuex}}
+    import store from 'vuex/store';
+    import {getCount, incrementCounter, decrementCounter} from 'vuex/counter.action';
+    {{/vuex}}
     import Btn from 'components/button';
 
     export default {
@@ -66,7 +83,15 @@
                 Vue.config.lang = Vue.config.lang === 'en' ? 'cn' : 'en';
             }
 	    {{/i18n}}
+            
         },
+	{{#vuex}}
+        vuex: {
+            actions: {incrementCounter, decrementCounter},
+            getters: {getCount}
+        },
+        store,
+	{{/vuex}}
         created () {
             console.log('created');
             console.warn('按vue的说法，第一个入口组件无法使用 activate 做阻塞性处理，需要使用其他方式解决！');

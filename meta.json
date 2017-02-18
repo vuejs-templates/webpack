@@ -30,6 +30,10 @@
       "type": "confirm",
       "message": "Support multi-language with vue-i18n?"
     },
+    "vuex": {
+      "type": "confirm",
+      "message": "Use Vuex for state management?"
+    },
     "unit": {
       "type": "confirm",
       "message": "Setup unit tests with Karma + Mocha?"
@@ -43,7 +47,8 @@
     ".eslintrc.js": "lint",
     "test/unit/**/*": "unit",
     "test/e2e/**/*": "e2e",
-    "src/config/i18n": "i18n"
+    "src/config/i18n": "i18n",
+    "src/vuex": "vuex"
   },
   "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 }
