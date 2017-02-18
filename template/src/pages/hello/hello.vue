@@ -34,10 +34,10 @@
         <hr>
         <div class='caselist'>
             <div class='case'>
-                {{$t('title')}}
+                \{{$t('title')}}
             </div>
             <div class='case'>
-                <button @click='toggleLang'>{{$t('switchLang')}}</button>
+                <button @click='toggleLang'>\{{$t('switchLang')}}</button>
             </div>
         </div>
 	{{/i18n}}
