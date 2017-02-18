@@ -83,7 +83,6 @@
                 Vue.config.lang = Vue.config.lang === 'en' ? 'cn' : 'en';
             }
 	    {{/i18n}}
-            
         },
 	{{#vuex}}
         vuex: {
