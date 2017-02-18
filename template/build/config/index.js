@@ -1,5 +1,6 @@
 /* eslint-disable */
 // see http://vuejs-templates.github.io/webpack for documentation.
+require('babel-register');
 var path = require('path');
 var fs = require('fs');
 require('shelljs/global');
