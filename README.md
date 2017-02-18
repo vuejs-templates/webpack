@@ -9,6 +9,13 @@ vue init lkiarest/webpack#app my-project
 
 ## Documentation
 
+> 支持多语言(optionall)
+
+1. 将多语言文件(cn.json , en.json ...) 放在src/config/i18n 目录下，编译工具会自动使用 vue-i18n 将多语言注入到app中。
+1. 页面中只要按照 vue-i8n 的[文档](https://github.com/kazupon/vue-i18n) 书写即可
+
+> 支持 Vuex (optionall)
+
 > 支持在一个项目中发布多个独立应用或单个应用
 
 1. src/pages 目录下包含多个应用(hello1, hello2)
