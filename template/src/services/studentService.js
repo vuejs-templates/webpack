@@ -1,10 +1,9 @@
 /**
  * @module service 示例
- * http用法请参考 http://res.wisedu.com/FS/vue-doc/module-utils_http.html
+ * axios 用法请参考 https://github.com/mzabriskie/axios
  */
-import {postJson, handler} from 'bh-vue/utils/http';
-import {api} from 'conf/api';
+import api from 'api';
 
-export const updateInfo = (info) => {
-    return postJson(api.UPDATE_INFO, info, handler.CODE);
+export const getInfo = (info) => {
+    return axios.post(api.USER_INFO, info);
 };

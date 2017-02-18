@@ -53,7 +53,13 @@
                 <button @click='decrementCounter'>减减</button>
             </div>
         </div>
-	{{/vuex}}
+        <h3>axios测试</h3>
+        <hr>
+        <div class='caselist'>
+            <div class='case'>
+                <button @click='sendReq'>发送请求</button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -63,6 +69,7 @@
     import {getCount, incrementCounter, decrementCounter} from 'vuex/counter.action';
     {{/vuex}}
     import Btn from 'components/button';
+    import {getInfo} from 'services/studentService';
 
     export default {
         data: () => ({
@@ -81,8 +88,16 @@
 	    {{#i18n}}
             toggleLang () {
                 Vue.config.lang = Vue.config.lang === 'en' ? 'cn' : 'en';
-            }
+            },
 	    {{/i18n}}
+            sendReq () {
+                getInfo({id: 1}).then(data => {
+                    alert(JSON.stringify(data));
+                }, (data) => {
+                    alert(data.message);
+                    console.error(data);
+                })
+            }
         },
 	{{#vuex}}
         vuex: {

@@ -25,6 +25,7 @@ module.exports = {
 	{{#vuex}}
         '//cdn.bootcss.com/vuex/1.0.1/vuex.min.js',
 	{{/vuex}}
-        '//cdn.bootcss.com/vue-router/0.7.13/vue-router.min.js'
+        '//cdn.bootcss.com/vue-router/0.7.13/vue-router.min.js',
+        '//cdn.bootcss.com/axios/0.15.3/axios.min.js'
     ]
 }
