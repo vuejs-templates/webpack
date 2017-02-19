@@ -86,7 +86,7 @@
     "ora": "^1.1.0",
     "shelljs": "^0.7.6",
     "url-loader": "^0.5.7",
-    "vue-loader": "^10.3.0",
+    "vue-loader": "^11.0.0",
     "vue-style-loader": "^2.0.0",
     "vue-template-compiler": "^2.1.10",
     "webpack": "^2.2.1",
