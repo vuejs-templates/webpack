@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "test": "node build/build.js --debug",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "zip": "node build/zip.js"
   },
   "dependencies": {
     "vue": "^2.1.10"{{#router}},
@@ -77,7 +78,8 @@
     "vconsole-webpack-plugin": "^1.1.0",
     "postcss-plugin-px2rem": "^0.6.0",
     "express-http-proxy": "^0.11.0",
-    "yargs": "^6.5.0"
+    "yargs": "^6.5.0",
+    "zip-local": "^0.3.4"
   },
   "engines": {
     "node": ">= 4.0.0",
