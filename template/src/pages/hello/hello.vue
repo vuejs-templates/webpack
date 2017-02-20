@@ -61,6 +61,7 @@
             </div>
         </div>
     </div>
+    {{/vuex}}
 </template>
 
 <script>
