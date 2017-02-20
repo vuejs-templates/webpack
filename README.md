@@ -48,7 +48,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init lkiarest/webpack#app my-project
+$ vue init lkiarest/webpack my-project
 $ cd my-project
 $ npm install
 $ npm run dev # dev mode
