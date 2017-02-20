@@ -11,34 +11,36 @@ exports.assetsPath = function (_path) {
 
 exports.cssLoaders = function (options) {
   options = options || {}
-  var isProduction = process.env.NODE_ENV === 'production'
-  var cssLoader = 'css' + (isProduction ? '?minimize' : '')
+
+  var cssLoader = {
+    loader: 'css-loader',
+    options: {
+      minimize: process.env.NODE_ENV === 'production',
+      sourceMap: options.sourceMap
+    }
+  }
 
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader) {
     var loaders = [cssLoader]
-    if (loader) loaders.push(loader)
-    var sourceLoader = loaders.map(function (loader) {
-      var extraParamChar
-      if (/\?/.test(loader)) {
-        loader = loader.replace(/\?/, '-loader?')
-        extraParamChar = '&'
-      } else {
-        loader = loader + '-loader'
-        extraParamChar = '?'
-      }
-      return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
-    })
+    if (loader) {
+      loaders.push({
+        loader: loader + '-loader',
+        options: {
+          sourceMap: options.sourceMap
+        }
+      })
+    }
 
     // Extract CSS when that option is specified
     // (which is the case during production build)
     if (options.extract) {
       return ExtractTextPlugin.extract({
-        use: sourceLoader,
+        use: loaders,
         fallback: 'vue-style-loader'
       })
     } else {
-      return ['vue-style-loader'].concat(sourceLoader)
+      return ['vue-style-loader'].concat(loaders)
     }
   }
 
@@ -62,7 +64,7 @@ exports.styleLoaders = function (options) {
     var loader = loaders[extension]
     output.push({
       test: new RegExp('\\.' + extension + '$'),
-      loader: loader
+      use: loader
     })
   }
   return output
