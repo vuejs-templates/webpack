@@ -1,12 +1,17 @@
 # vue-webpack-boilerplate
 
-> webpack + vue 启动模板
+> webpack + vue + vuex + vue-router + axios 多页/单页启动模板
 
 仅提供模板工程，不做任何多余的事情(The Single Responsibility Principle)
 
-### 安装方式
-```
-vue init lkiarest/webpack my-project
+### 安装方式（基于vue-cli）
+``` bash
+$ npm install -g vue-cli
+$ vue init lkiarest/webpack my-project
+$ cd my-project
+$ npm install
+$ npm run dev # dev mode
+$ npm run build # publish mode
 ```
 
 ### 多语言(optional)
@@ -43,16 +48,3 @@ vue init lkiarest/webpack my-project
     ./startup.bat #启动http server
     // 访问 http://localhost:3000/index.html
     ```
-
-## Usage
-
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It is recommended to use npm 3+ for a more efficient dependency tree.**
-
-``` bash
-$ npm install -g vue-cli
-$ vue init lkiarest/webpack my-project
-$ cd my-project
-$ npm install
-$ npm run dev # dev mode
-$ npm run build # publish mode
-```
