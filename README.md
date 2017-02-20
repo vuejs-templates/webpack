@@ -4,7 +4,7 @@
 
 安装方式
 ```
-vue init lkiarest/webpack#app my-project
+vue init lkiarest/webpack my-project
 ```
 
 ## Version Notice

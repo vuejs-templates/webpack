@@ -1,6 +1,6 @@
 # {{ name }}
 
-基于自定义 (webpack-vue 模板)[https://github.com/lkiarest/webpack/tree/app] 创建
+基于自定义 (webpack-vue 模板)[https://github.com/lkiarest/webpack] 创建
 
 仅提供模板工程，不做任何多余的事情(The Single Responsibility Principle)
 
