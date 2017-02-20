@@ -1,29 +1,54 @@
 {
-  "schema": {
-    "name": {
-      "type": "string",
-      "required": true,
-      "label": "Project name"
+  "prompts": {
+    "lint": {
+      "type": "confirm",
+      "message": "Use ESLint to lint your code?"
     },
-    "version": {
-      "type": "string",
-      "required": true,
-      "label": "Project version",
-      "default": "0.1.0"
+    "lintConfig": {
+      "when": "lint",
+      "type": "list",
+      "message": "Pick an ESLint preset",
+      "choices": [
+        {
+          "name": "Standard (https://github.com/feross/standard)",
+          "value": "standard",
+          "short": "Standard"
+        },
+        {
+          "name": "AirBNB (https://github.com/airbnb/javascript)",
+          "value": "airbnb",
+          "short": "AirBNB"
+        },
+        {
+          "name": "none (configure it yourself)",
+          "value": "none",
+          "short": "none"
+        }
+      ]
     },
-    "description": {
-      "type": "string",
-      "required": false,
-      "label": "Project description",
-      "default": "A Vue.js project"
+    "i18n": {
+      "type": "confirm",
+      "message": "Support multi-language with vue-i18n?"
     },
-    "author": {
-      "type": "string",
-      "label": "Author"
+    "vuex": {
+      "type": "confirm",
+      "message": "Use Vuex for state management?"
     },
-    "private": {
-      "type": "boolean",
-      "default": true
+    "unit": {
+      "type": "confirm",
+      "message": "Setup unit tests with Karma + Mocha?"
+    },
+    "e2e": {
+      "type": "confirm",
+      "message": "Setup e2e tests with Nightwatch?"
     }
-  }
+  },
+  "filters": {
+    ".eslintrc.js": "lint",
+    "test/unit/**/*": "unit",
+    "test/e2e/**/*": "e2e",
+    "src/config/i18n": "i18n",
+    "src/vuex": "vuex"
+  },
+  "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 }

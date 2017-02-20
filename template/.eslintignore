@@ -1,0 +1,5 @@
+[
+    'build/*.js',
+    'config/*.js',
+    'node_nodules/*.js'
+]

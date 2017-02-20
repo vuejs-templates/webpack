@@ -1,0 +1,5 @@
+{
+    {{#i18n}}"lang": "cn",{{/i18n}}
+    "csslibs": ["//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"],
+    "jslibs": ["//cdn.bootcss.com/jquery/3.1.1/jquery.js"]
+}

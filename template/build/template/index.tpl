@@ -2,10 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{{ name }}</title>
+    <title>[WIN_TITLE]</title>
+    [CSS_LIBS]
   </head>
   <body>
-    <app></app>
+    <div id="app"></div>
+    [JS_LIBS]
     <!-- built files will be auto injected -->
   </body>
 </html>

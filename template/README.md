@@ -1,27 +1,40 @@
 # {{ name }}
 
-> {{ description }}
+基于自定义 (webpack-vue 模板)[https://github.com/lkiarest/webpack/tree/app] 创建
 
-## Build Setup
+仅提供模板工程，不做任何多余的事情(The Single Responsibility Principle)
 
-``` bash
-# install dependencies
-npm install
+### 多语言
 
-# serve with hot reload at localhost:8080
-npm run dev
+1. 将多语言文件(cn.json , en.json ...) 放在src/config/i18n 目录下，编译工具会使用 vue-i18n 将多语言注入到app中。
+1. 页面按照 vue-i8n 的[文档](https://github.com/kazupon/vue-i18n) 书写即可
 
-# build for production with minification
-npm run build
+### Vuex (optional)
 
-# run unit tests
-npm run unit
+### 可在一个项目中发布多个独立应用或单个应用
 
-# run e2e tests
-npm run e2e
+1. src/pages 目录下包含多个应用(hello1, hello2)
 
-# run all tests
-npm test
-```
+    打包后会在dist中生成多个独立的app发布目录，使用app名称区分。
 
-For detailed explanation on how things work, checkout the [guide](https://github.com/vuejs-templates/webpack#vue-webpack-boilerplate) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+    ```
+    // 开发模式
+    npm run dev
+    // 发布模式
+    npm run build
+    ./startup.bat #启动http server
+    // 访问 http://localhost:3000/hello1/index.html
+    // 访问 http://localhost:3000/hello2/index.html
+    ```
+
+1. src/pages 目录下包含单个应用(hello1)
+
+    打包后会在dist中生成独立的发布目录，直接放在根目录下。
+    ```
+    // 开发模式
+    npm run dev
+    // 发布模式
+    npm run build
+    ./startup.bat #启动http server
+    // 访问 http://localhost:3000/index.html
+    ```

@@ -10,10 +10,6 @@ If you are not happy with the default linting rules, you have several options:
   "semi": [2, "always"]
   ```
 
-2. Remove the `extends: 'standard'` line in `.eslintrc.js` and use a completely custom eslint config. See [ESLint documentation](http://eslint.org/docs/user-guide/configuring) for more details.
+2. Pick a different ESLint preset when generating the project, for example [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb).
 
-3. Use a different ESLint preset, for example [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb).
-
-4. Disable linting altogether: comment out the `module.preLoaders` block in `build/webpack.base.conf.js`.
-
-  You will also need to disable linting if you are using a compile-to-JavaScript language, e.g. CoffeeScript.
+3. Pick "none" for ESLint preset when generating the project and define your own rules. See [ESLint documentation](http://eslint.org/docs/rules/) for more details.
