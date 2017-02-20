@@ -21,14 +21,14 @@ exports.cssLoaders = function (options) {
   }
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader) {
+  function generateLoaders (loader, loaderOptions) {
     var loaders = [cssLoader]
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
-        options: {
+        options: Object.assign({}, loaderOptions, {
           sourceMap: options.sourceMap
-        }
+        })
       })
     }
 
@@ -49,7 +49,7 @@ exports.cssLoaders = function (options) {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass?indentedSyntax'),
+    sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
