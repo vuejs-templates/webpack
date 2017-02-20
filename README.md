@@ -2,16 +2,10 @@
 
 > webpack + vue 启动模板
 
-安装方式
+### 安装方式
 ```
 vue init lkiarest/webpack my-project
 ```
-
-## Version Notice
-
-If you are using `vue-cli@1.x`, it will be pulling the `master` branch of this template by default. If you are using `vue-cli@2.x`, it will be pulling the `dist` branch instead, which provides more configurable options thanks to new features in `vue-cli@2.x`. It is recommended to upgrade `vue-cli` as soon as you can.
-
-## Documentation
 
 ### 多语言(optional)
 
