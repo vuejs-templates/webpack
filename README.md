@@ -2,6 +2,8 @@
 
 > webpack + vue 启动模板
 
+仅提供模板工程，不做任何多余的事情(The Single Responsibility Principle)
+
 ### 安装方式
 ```
 vue init lkiarest/webpack my-project
