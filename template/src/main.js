@@ -3,6 +3,8 @@ import Vue from "vue";
 import App from "./App";
 import fastclick from "fastclick";
 import throttle from "./util/throttle";
+import appInterFace from "./util/appInterFace"
+import axios from "axios";
 
 {{#router}}
 import VueRouter from "vue-router";
@@ -21,16 +23,15 @@ window.addEventListener('scroll', throttle(()=>{
 
 }, 200));
 
-if (base.getAppMethod("getHeaderInfo")) {
-    var headStr = base.getAppMethod("getHeaderInfo");
+if (appInterFace.getHeaderInfo()) {
+    var headStr = appInterFace.getHeaderInfo();
     var params = JSON.parse(headStr);
     try {
-        params.GameAbbreviations = requestHeader.GameAbbreviations;
         for (var k in params) {
             axios.defaults.headers[k] = params[k];
         }
     } catch (e) {
-        console.log()
+        console.log(e)
     }
 }
 Vue.config.errorHandler = function (err, vm) {

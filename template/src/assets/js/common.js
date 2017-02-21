@@ -3,13 +3,11 @@
  * @author  stylehuan
  * @create  2016-12-05 11:38
  */
-import mockHeaders from "../../../mock/headers";
 var base = {
     isTest: false,
     isLocal: false,
     isPre: false,
-    debug: false,
-    isIos: !!navigator.appVersion.match(/(iphone|ipad|ipod)/gi)
+    debug: false
 };
 if (location.port) {
     if (location.port == "8080") {
@@ -32,20 +30,4 @@ _log.log = _log.log || empty;
 if (!base.debug) {
     _log.log = empty;
 }
-base.getAppMethod = function (method, ...params) {
-    console.log("--调用app接口---:" + method, "params:" + params);
-    if (method == "getHeaderInfo") {
-        return mockHeaders;
-    }
-    try {
-        if (params.length) {
-            return HtmlInterface[method](params);
-        } else {
-            return HtmlInterface[method]();
-        }
-    } catch (err) {
-        console.log("--------------err------:" + err);
-        return null;
-    }
-};
 export default base;

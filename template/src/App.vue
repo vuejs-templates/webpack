@@ -10,8 +10,8 @@
 <script>
     import Vue from 'vue'
     import base from "assets/js/common"
-    import {eventBus, SYSTEM_Msg} from "./events/systemEvent"
-
+    import {eventBus, MSG} from "./events/systemEvent"
+    import appInterFace from "./util/appInterFace"
     export default {
         name: 'app',
         data(){
@@ -21,13 +21,9 @@
         },
         created(){
             if (!base.isLocal) {
-                try {
-                    if (!HtmlInterface.isNetConnect()) {
-                        this.isShow = false;
-                        base.callClientError();
-                    }
-                } catch (e) {
-                    console.log(e)
+                if (!appInterFace.isNetConnect()) {
+                    this.isShow = false;
+                    appInterFace.isWebHasError();
                 }
             }
         },
@@ -35,7 +31,7 @@
             eventBus.on(SYSTEM_Msg.CONNECTERROT, ()=> {
                 console.log('connectError' + "报错信息");
                 this.isShow = false;
-                base.callClientError();
+                appInterFace.isWebHasError();
             });
         }
     }
