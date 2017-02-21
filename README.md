@@ -1,6 +1,6 @@
 # vue-webpack-boilerplate
 
-> webpack + vue + vuex + vue-router + axios 多页/单页启动模板
+> webpack + vue2 + vuex2 + vue-router2 + axios 多页/单页启动模板
 
 仅提供模板工程，不做任何多余的事情(The Single Responsibility Principle)
 
