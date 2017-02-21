@@ -7,7 +7,7 @@
 ### 安装方式（基于vue-cli）
 ``` bash
 $ npm install -g vue-cli
-$ vue init lkiarest/webpack my-project
+$ vue init lkiarest/webpack#app2 my-project
 $ cd my-project
 $ npm install
 $ npm run dev # dev mode
