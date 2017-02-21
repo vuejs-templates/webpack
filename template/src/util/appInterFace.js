@@ -15,6 +15,7 @@ var _coreBridge = function (method) {
             console.log(e);
         }
     }
+    /*带参数的*/
     for (var i = 0; i < len - 1; i++) {
         paramsArray[i] = arguments[i + 1];
     }
