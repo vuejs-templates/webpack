@@ -4,25 +4,22 @@
  * @create  2017-02-09 13:19
  */
 import Vue from 'vue'
-
-var _instance = ()=> {
-    return new Vue();
-};
-
-export const SYSTEM_Msg = {
-    ROUTER_BEFORE: "ROUTER_BEFORE",
-    ROUTER_AFTER: "ROUTER_AFTER",
-    CONNECTERROT: "CONNECTERROT"
-};
-
-export let eventBus = {
+import eventBus from "./eventBus"
+import eventMsg from "./eventMsg"
+let noop = function () {
+}
+export const MSG = eventMsg;
+export let SystemEvent = {
     on(events, callback){
-        _instance.$on(events, callback);
+        callback = callback || noop;
+        eventBus.$on(events, function (data) {
+            callback.call(null, data);
+        });
     },
     emit(events, args){
-        _instance.$emit(events, args);
+        eventBus.$emit(events, args);
     },
     off(events){
-        _instance.$off(events);
+        eventBus.$off(events);
     }
 };

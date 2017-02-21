@@ -4,7 +4,6 @@
  * @create  2016-12-05 11:38
  */
 import mockHeaders from "../../../mock/headers";
-
 var base = {
     isTest: false,
     isLocal: false,
@@ -12,7 +11,6 @@ var base = {
     debug: false,
     isIos: !!navigator.appVersion.match(/(iphone|ipad|ipod)/gi)
 };
-
 if (location.port) {
     if (location.port == "8080") {
         base.isLocal = true;
@@ -24,17 +22,21 @@ if (location.port) {
         }
     }
 }
-if (base.isLocal || base.isTest || url.getLocationParam("debug")) {
+if (base.isLocal || base.isTest || base.isPre || url.getLocationParam("debug")) {
     base.debug = true;
 }
-
+var empty = function () {
+};
+var _log = window.console = window.console || {};
+_log.log = _log.log || empty;
+if (!base.debug) {
+    _log.log = empty;
+}
 base.getAppMethod = function (method, ...params) {
     console.log("--调用app接口---:" + method, "params:" + params);
-
     if (method == "getHeaderInfo") {
         return mockHeaders;
     }
-
     try {
         if (params.length) {
             return HtmlInterface[method](params);
