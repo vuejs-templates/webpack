@@ -6,7 +6,9 @@
     [CSS_LIBS]
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+        <router-view></router-view>
+    </div>
     [JS_LIBS]
     <!-- built files will be auto injected -->
   </body>

@@ -1,6 +1,6 @@
 import router from 'router';
 import routes from 'src/pages/[PAGE_NAME]/routes';
-import index from 'src/pages/[PAGE_NAME]/[ENTRY_NAME]';
+// import index from 'src/pages/[PAGE_NAME]/[ENTRY_NAME]';
 
 {{#i18n}}
 // 多语言支持
@@ -12,6 +12,9 @@ Object.keys(langs).forEach(function (lang) {
 });
 {{/i18n}}
 
-router.init(routes);
+// 启用 vue 开发者工具
+if (process.env.NODE_ENV === 'development') {
+    Vue.config.devtools = true;
+}
 
-router.start(index, '#app');
+router(routes, '#app');

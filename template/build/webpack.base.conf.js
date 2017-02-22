@@ -6,6 +6,10 @@ var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 var globalConf = require('../src/config/global')
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 var hasElement = function(arr) { // 判断数组是否不为空
     return arr && arr.length > 0;
 }
@@ -32,24 +36,24 @@ var alias = assign({
 var loaders = [
   {
     test: /\.vue$/,
-    loader: 'vue'
+    loader: 'vue-loader'
   },
   {
     test: /\.js$/,
-    loader: 'babel',
+    loader: 'babel-loader',
     include: babelDir
   },
   {
     test: /\.json$/,
-    loader: 'json'
+    loader: 'json-loader'
   },
   {
     test: /\.html$/,
-    loader: 'vue-html'
+    loader: 'vue-html-loader'
   },
   {
     test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-    loader: 'url',
+    loader: 'url-loader',
     query: {
       limit: 10000,
       name: utils.assetsPath('statics/imgs/hash/[name].[hash:7].[ext]')
@@ -57,7 +61,7 @@ var loaders = [
   },
   {
     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-    loader: 'url',
+    loader: 'url-loader',
     query: {
       limit: 10000,
       name: utils.assetsPath('statics/fonts/[name].[hash:7].[ext]')
@@ -77,24 +81,15 @@ module.exports = {
     filename: '[name]/[name].js'
   },
   resolve: {
-    extensions: ['', '.js', '.vue'],
-    fallback: [path.join(__dirname, '../node_modules')],
+    extensions: ['.js', '.vue', '.json'],
+    modules: [resolve('src'), resolve('node_modules')],
     alias: alias
   },
-  resolveLoader: {
-    fallback: [path.join(__dirname, '../node_modules')]
-  },
   module: {
-    loaders: loaders
+    rules: loaders
   },
-  babel: {
-      presets: ['es2015'],
-      plugins: ['transform-runtime']
-  },
-  eslint: {
-    formatter: require('eslint-friendly-formatter')
-  },
-  vue: {
-    loaders: utils.cssLoaders()
+  externals: {
+    'vue': 'Vue',
+    'vue-router': 'VueRouter'
   }
 }

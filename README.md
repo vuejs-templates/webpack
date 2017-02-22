@@ -16,8 +16,8 @@ $ npm run build # publish mode
 
 ### 多语言(optional)
 
-1. 将多语言文件(cn.json , en.json ...) 放在src/config/i18n 目录下，编译工具会自动使用 vue-i18n 将多语言注入到app中。
-1. 页面中只要按照 vue-i8n 的[文档](https://github.com/kazupon/vue-i18n) 书写即可
+1. 将多语言文件(cn.json , en.json ...) 放在src/config/i18n 目录下，编译工具会使用 vue-i18n 将多语言注入到app中。
+1. 页面按照 vue-i8n 的[文档](https://github.com/kazupon/vue-i18n) 书写即可
 
 ### Vuex (optional)
 

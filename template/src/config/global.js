@@ -19,13 +19,12 @@ module.exports = {
     csslibs: [], // 在index.html中需要引入的 css lib
     jslibs: [ // 在 index.html 中需要引入的 js lib， vue 和 router 必须引入，其余可选
         '//cdn.bootcss.com/vue/2.1.10/vue.min.js',
-	{{#i18n}}
-        '//cdn.bootcss.com/vue-i18n/5.0.0/vue-i18n.min.js',
-	{{/i18n}}
-	{{#vuex}}
-        '//cdn.bootcss.com/vuex/2.1.2/vuex.min.js',
-	{{/vuex}}
+        //'https://unpkg.com/vue@2.1.10/dist/vue.js',
         '//cdn.bootcss.com/vue-router/2.2.1/vue-router.min.js',
+        // 'https://unpkg.com/vue-router/dist/vue-router.js',
+        '//cdn.bootcss.com/vue-i18n/5.0.0/vue-i18n.min.js',
+        // 'https://unpkg.com/vue-i18n@5.0.1/dist/vue-i18n.js',
+        '//cdn.bootcss.com/vuex/2.1.2/vuex.min.js',
         '//cdn.bootcss.com/axios/0.15.3/axios.min.js'
     ]
 }

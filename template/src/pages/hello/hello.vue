@@ -4,7 +4,7 @@
         <hr>
         <div class='caselist'>
             <div class='case'>
-                <btn @click='say'>背景(background-image)是否正常</btn>
+                <btn @click.native='say'>背景(background-image)是否正常</btn>
             </div>
             <div class='case'>
                 <p>测试 img 标签</p>
@@ -12,8 +12,8 @@
             </div>
             <div class='case'>
                 <p>测试动态加载本地图片</p>
-                <btn @click='load'>加载本地图片</btn>
-                <btn @click='unload'>取消</btn>
+                <btn @click.native='load'>加载本地图片</btn>
+                <btn @click.native='unload'>取消</btn>
                 <div>
                     <img :src="imgUrl" alt='待加载...'>
                 </div>
@@ -46,13 +46,14 @@
         <hr>
         <div class='caselist'>
             <div class='case'>
-                计数：\{{getCount}}
+                计数：\{{count}}
             </div>
             <div class='case'>
-                <button @click='incrementCounter'>加加</button>
-                <button @click='decrementCounter'>减减</button>
+                <button @click='add'>加加</button>
+                <button @click='sub'>减减</button>
             </div>
         </div>
+	{{/vuex}}
         <h3>axios测试</h3>
         <hr>
         <div class='caselist'>
@@ -61,13 +62,11 @@
             </div>
         </div>
     </div>
-    {{/vuex}}
 </template>
 
 <script>
     {{#vuex}}
     import store from 'vuex/store';
-    import {getCount, incrementCounter, decrementCounter} from 'vuex/counter.action';
     {{/vuex}}
     import Btn from 'components/button';
     import {getInfo} from 'services/studentService';
@@ -76,7 +75,18 @@
         data: () => ({
             imgUrl: null
         }),
+        computed: Vuex.mapState({
+            count: state => state.count
+        }),
         methods: {
+	    {{#vuex}}
+            add () {
+                store.commit('increment', 10);
+            },
+            sub () {
+                store.commit('decrement', 10);
+            },
+	    {{/vuex}}
             load () {
                 this.imgUrl = '../statics/imgs/sysUpdate.png';
             },
@@ -101,15 +111,11 @@
             }
         },
 	{{#vuex}}
-        vuex: {
-            actions: {incrementCounter, decrementCounter},
-            getters: {getCount}
-        },
         store,
 	{{/vuex}}
-        created () {
-            console.log('created');
-            console.warn('按vue的说法，第一个入口组件无法使用 activate 做阻塞性处理，需要使用其他方式解决！');
+        beforeRouteEnter (to, from, next) {
+            console.log('好消息！第一个入口组件也可以使用 beforeRouteEnter 进行预处理。。');
+            next();
         },
         components: {Btn}
     };
