@@ -14,8 +14,8 @@
 
 假设你已经安装了 `vue-cli2.0`并按照项目规范来生成项目目录了。
 
-先看图吧
-
+看图来的快
+![image](https://github.com/ct-fed/ctyapp_h5build/assets/vue-cli.gif)
 
 
 ##命令
