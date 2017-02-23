@@ -470,3 +470,106 @@
   background-position: center;
   background-size: 100%;
 }
+
+
+
+.border-1px(@borderSize:1px, @color:#fff) {
+  position: relative;
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    &:before {
+      content: "";
+      pointer-events: none; /* 防止点击触发 */
+      box-sizing: border-box;
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      left: 0;
+      top: 0;
+      border: @borderSize solid @color;
+      -webkit-transform: scale(0.5);
+      -webkit-transform-origin: 0 0;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+    }
+  }
+}
+
+.border-left(@borderSize:1px,@color:#fff) {
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    &:before {
+      content: "";
+      pointer-events: none; /* 防止点击触发 */
+      box-sizing: border-box;
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      left: 0;
+      top: 0;
+      border-left: @borderSize solid @color;
+      -webkit-transform: scale(0.5);
+      -webkit-transform-origin: 0 0;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+    }
+  }
+}
+
+.border-right(@borderSize:1px,@color:#fff) {
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    &:before {
+      content: "";
+      pointer-events: none; /* 防止点击触发 */
+      box-sizing: border-box;
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      left: 0;
+      top: 0;
+      border-right: @borderSize solid @color;
+      -webkit-transform: scale(0.5);
+      -webkit-transform-origin: 0 0;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+    }
+  }
+}
+
+.border-top(@borderSize:1px,@color:#fff) {
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    &:before {
+      content: "";
+      pointer-events: none; /* 防止点击触发 */
+      box-sizing: border-box;
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      left: 0;
+      top: 0;
+      border-top: @borderSize solid @color;
+      -webkit-transform: scale(0.5);
+      -webkit-transform-origin: 0 0;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+    }
+  }
+}
+
+.border-bottom(@borderSize:1px,@color:#fff) {
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    &:before {
+      content: "";
+      pointer-events: none; /* 防止点击触发 */
+      box-sizing: border-box;
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      left: 0;
+      top: 0;
+      border-bottom: @borderSize solid @color;
+      -webkit-transform: scale(0.5);
+      -webkit-transform-origin: 0 0;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+    }
+  }
+}

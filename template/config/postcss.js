@@ -7,5 +7,6 @@
 
 //具体规则请查看https://github.com/ant-tool/postcss-plugin-px2rem
 module.exports = {
-    propBlackList: ['border']
+    // propBlackList: ['border'],
+    selectorBlackList: [".process_border"]
 }
