@@ -10,7 +10,7 @@
 <script>
     import Vue from 'vue'
     import base from "assets/js/common"
-    import {eventBus, MSG} from "./events/systemEvent"
+    import {SystemEvent, MSG} from "./events/systemEvent"
     import appInterFace from "./util/appInterFace"
     export default {
         name: 'app',
@@ -28,7 +28,7 @@
             }
         },
         mounted(){
-            eventBus.on(SYSTEM_Msg.CONNECTERROT, ()=> {
+            SystemEvent.on(MSG.CONNECTERROT, ()=> {
                 console.log('connectError' + "报错信息");
                 this.isShow = false;
                 appInterFace.isWebHasError();
