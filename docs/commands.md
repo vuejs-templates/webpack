@@ -26,7 +26,7 @@ All build commands are executed via [NPM Scripts](https://docs.npmjs.com/misc/sc
 
 > Run unit tests in PhantomJS with [Karma](https://karma-runner.github.io/). See [Unit Testing](unit.md) for more details.
 
-- Supports ES2015 in test files.
+- Supports ES2015+ in test files.
 - Supports all webpack loaders.
 - Easy [mock injection](http://vuejs.github.io/vue-loader/en/workflow/testing-with-mocks.html).
 

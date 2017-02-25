@@ -38,7 +38,7 @@ $ npm run dev
   - Use `npm run build --report`to build with bundle size analytics.
 
 - `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Mocha](http://mochajs.org/) + [karma-webpack](https://github.com/webpack/karma-webpack).
-  - Supports ES2015 in test files.
+  - Supports ES2015+ in test files.
   - Supports all webpack loaders.
   - Easy mock injection.
 
