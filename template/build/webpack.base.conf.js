@@ -20,9 +20,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
-    modules: [
-      resolve('node_modules')
-    ],
     alias: {
       {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.common.js',
