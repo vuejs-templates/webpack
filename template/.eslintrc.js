@@ -8,6 +8,8 @@ module.exports = {
   },
   env: {
     browser: true,
+    es6: true,
+    node: true
   },
   {{#if_eq lintConfig "eslint:recommended"}}
   // http://eslint.org/docs/rules/
