@@ -1,3 +1,6 @@
+import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
 // Polyfill fn.bind() for PhantomJS
 /* eslint-disable no-extend-native */
 Function.prototype.bind = require('function-bind'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
