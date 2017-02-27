@@ -20,20 +20,6 @@ exports.cssLoaders = function (options) {
     }
   }
 
-  // generate loader string and object to loader config object
-  function generateLoader (loader) {
-    if (typeof loader === 'string') {
-      return {
-        loader: loader + '-loader',
-        options: {
-          sourceMap: options.sourceMap
-        }
-      }
-    } else if (typeof loader === 'object' && loader.constructor === Object) {
-      return loader
-    }
-  }
-
   // generate loader string, object, array to be used with extract text plugin
   function generateLoaders (loader) {
     var loaders = [cssLoader]
@@ -46,7 +32,7 @@ exports.cssLoaders = function (options) {
       }
 
       loader.forEach(item => {
-        loaders.push(generateLoader(item))
+        loaders.push(handleLoader(item))
       })
     }
 
@@ -59,6 +45,20 @@ exports.cssLoaders = function (options) {
       })
     } else {
       return ['vue-style-loader'].concat(loaders)
+    }
+  }
+
+  // generate loader string and object to loader config object
+  function handleLoader (loader) {
+    if (typeof loader === 'string') {
+      return {
+        loader: loader + '-loader',
+        options: {
+          sourceMap: options.sourceMap
+        }
+      }
+    } else if (typeof loader === 'object' && loader.constructor === Object) {
+      return loader
     }
   }
 
