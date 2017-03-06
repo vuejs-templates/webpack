@@ -29,7 +29,10 @@ module.exports = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'index.html',
       inject: true
-    }),
+    }),{{#stylelint}}
+    new StylelintPlugin({
+      files: ['src/**/*.vue'],
+    }),{{/stylelint}}
     new FriendlyErrorsPlugin()
   ]
 })
