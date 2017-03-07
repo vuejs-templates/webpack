@@ -1,6 +1,9 @@
 <template>
   <div class="hello">
     <h1>\{{ msg }}</h1>
+    {{#store}}
+    <small>\{{ greeting }}</small>
+    {{/store}}
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -21,12 +24,28 @@
 </template>
 
 <script>
+{{#store}}
+import { mapGetters, mapActions } from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{/store}}
+
 export default {
   name: 'hello',
   data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
     return {
       msg: 'Welcome to Your Vue.js App'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  {{#store}}
+  },
+  computed: {
+    ...mapGetters([
+      'greeting'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    ]){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  },
+  methods: {
+    ...mapActions([
+      'setGreeting'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    ]){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  {{/store}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>

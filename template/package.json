@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "vue": "^2.2.1"{{#router}},
-    "vue-router": "^2.2.0"{{/router}}
+    "vue-router": "^2.2.0"{{/router}}{{#store}},
+    "vuex": "^2.1.2"{{/store}}
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -55,6 +56,9 @@
     "function-bind": "^1.1.0",
     "html-webpack-plugin": "^2.28.0",
     "http-proxy-middleware": "^0.17.3",
+    "lodash": "^4.17.4",
+    "node-sass": "^3.13.0",
+    "sass-loader": "^4.1.1",
     "webpack-bundle-analyzer": "^2.2.1",
     {{#unit}}
     "cross-env": "^3.1.4",
