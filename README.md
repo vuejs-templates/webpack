@@ -23,6 +23,9 @@ $ vue init NdagiStanley/vue-django my-project
 $ cd my-project
 $ npm install
 ```
+
+Secondly, have *Python* installed and preferably create a virtual environment for the project.
+
 To develop
 
 ```bash
@@ -32,44 +35,19 @@ $ npm run dev
 ## Deploy
 To deploy your django project
 
+`$ .deploy.sh`
+
+Then get to [localhost:8000](http://localhost:8000/). You should have a page exactly like the image below.
+![](http://i.imgur.com/sY3IpBE.png?1)
+
+> Docker
+
+You can run a docker container for it simply by running the following command. Ensure that **docker** is running.
 ```bash
-$ npm run build
+docker run -p 8000:8000 stanmd/vue-django python manage.py runserver 0.0.0.0:8000
 ```
 
-Edit the values `href` and `src` attributes of the bundled `css` and `js` (respectively) in **index.html** in the _templates_ folder like this:
-
-(Pretty-fied HTML)
-```html
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset=utf-8>
-    <title>Vue Django</title>
-    <link href={% static 'app.369373ee5bfac83b1712b5ac3ebad93a.css' %} rel=stylesheet>
-</head>
-
-<body>
-    <app></app>
-    <script type=text/javascript src={% static 'app.2b5e8c77e6df2615ff26.js' %}></script>
-</body>
-
-</html>
-
-```
-
-
-`$ pip install -r requirements.txt`
-
-`$ python manage.py collectstatic --noinput`
-
-`$ python manage.py migrate`
-
-`$ python manage.py runserver`
-
-Then get to [localhost:8000](http://localhost:8000/). You should have a page exactly like [this](http://i.imgur.com/sY3IpBE.png?1):![](http://i.imgur.com/sY3IpBE.png?1)
-
+Then get to [localhost:8000](http://localhost:8000/). You should have a page exactly like the image above
 
 ## What's Included
 
