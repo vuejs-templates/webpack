@@ -48,6 +48,26 @@ module.exports = {
       "type": "confirm",
       "message": "Install vue-router?"
     },
+    "vuex": {
+      "type": "confirm",
+      "message": "Install vuex?"
+    },
+    "vuex-i18n": {
+      "type": "confirm",
+      "message": "Install vuex-i18n?"
+    },
+    "axios": {
+      "type": "confirm",
+      "message": "Install axios?"
+    },
+    "iview": {
+      "type": "confirm",
+      "message": "Install ui library iview?"
+    },
+    "ramda": {
+      "type": "confirm",
+      "message": "Install ramda?"
+    },
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"

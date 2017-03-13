@@ -14,7 +14,12 @@
   },
   "dependencies": {
     "vue": "^2.2.2"{{#router}},
-    "vue-router": "^2.2.0"{{/router}}
+    "vue-router": "^2.3.0"{{/router}}{{#vuex}},
+    "vuex": "^2.2.1"{{/vuex}}{{#axios}},
+    "axios": "^0.15.3"{{/axios}}{{#ramda}},
+    "ramda": "^0.22.0"{{/ramda}}{{#iview}},
+    "iview": "^2.0.0-rc.2"{{/iview}}{{#vuex-i18n}},
+    "vuex-i18n": "^2.0.0-rc.2"{{/vuex-i18n}}
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -22,6 +27,9 @@
     {{#lint}}
     "babel-eslint": "^7.1.1",
     {{/lint}}
+    {{#pug}}
+    "pug": "^2.0.0-beta8",
+    {{/pug}}
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-env": "^1.2.1",
