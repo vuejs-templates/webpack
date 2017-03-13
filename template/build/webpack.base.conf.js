@@ -20,7 +20,7 @@ module.exports = {
   },
   {{#config}}
   externals: {
-    __config
+    __config: '__config'
   },
   {{/config}}
   resolve: {
