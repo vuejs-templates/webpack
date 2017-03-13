@@ -40,6 +40,10 @@ module.exports = {
         }
       ]
     },
+    "config": {
+      "type": "confirm",
+      "message": "Configuration document independence?"
+    },
     "router": {
       "type": "confirm",
       "message": "Install vue-router?"
