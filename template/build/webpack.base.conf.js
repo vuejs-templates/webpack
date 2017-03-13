@@ -22,7 +22,7 @@ module.exports = {
   externals: {
     __config
   },
-  {{#config}}
+  {{/config}}
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
