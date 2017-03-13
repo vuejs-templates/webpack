@@ -6,3 +6,4 @@ Vue.use(Router){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 export default new Router({
   routes{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+

@@ -11,7 +11,7 @@ const store = new Vuex.Store({
   state: {},
   modules: {
     {{#vuex-i18n}}
-      i18n: VuexI18n.store,
+    i18n: VuexI18n.store,
     {{/vuex-i18n}}
     ui{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
