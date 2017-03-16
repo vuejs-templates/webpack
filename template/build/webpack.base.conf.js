@@ -1,7 +1,7 @@
 var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
-var vueLoaderConfig = require('./vue-loader.conf')
+var vueTemplateLoaderConfig = require('./vue-template-loader.conf')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -19,7 +19,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.json'],
     alias: {
       {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
@@ -31,7 +31,7 @@ module.exports = {
     rules: [
       {{#lint}}
       {
-        test: /\.(js|vue)$/,
+        test: /\.js$/,
         loader: 'eslint-loader',
         enforce: "pre",
         include: [resolve('src'), resolve('test')],
@@ -41,9 +41,10 @@ module.exports = {
       },
       {{/lint}}
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
+        test: /\.html$/,
+        loader: 'vue-template-loader',
+        exclude: resolve('index.html'),
+        options: vueTemplateLoaderConfig
       },
       {
         test: /\.js$/,

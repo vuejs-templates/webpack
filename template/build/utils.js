@@ -37,10 +37,10 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return ExtractTextPlugin.extract({
         use: loaders,
-        fallback: 'vue-style-loader'
+        fallback: 'style-loader'
       })
     } else {
-      return ['vue-style-loader'].concat(loaders)
+      return ['style-loader'].concat(loaders)
     }
   }
 
@@ -63,6 +63,7 @@ exports.styleLoaders = function (options) {
   for (var extension in loaders) {
     var loader = loaders[extension]
     output.push({
+      enforce: 'post', // To support scoped css properly
       test: new RegExp('\\.' + extension + '$'),
       use: loader
     })
