@@ -2,11 +2,13 @@
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 
-> This template is Vue 2.0 compatible. For Vue 1.x use this command: `vue init webpack#1.0 my-project`
+> This template is Vue 2.0 compatible.
+
+> This is a fork of official webpack template, replacing .vue component files with standard .js components.
 
 ## Documentation
 
-- [For this template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
+- [For this template](http://toilal.github.io/vue-webpack-template): common questions specific to this template are answered and each part is described in greater detail
 - [For Vue 2.0](http://vuejs.org/guide/): general information about how to work with Vue, not specific to this template
 
 ## Usage
@@ -15,7 +17,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
+$ vue init Toilal/vue-webpack-template my-project
 $ cd my-project
 $ npm install
 $ npm run dev
@@ -26,7 +28,7 @@ If port 8080 is already in use on your machine you must change the port number i
 ## What's Included
 
 - `npm run dev`: first-in-class development experience.
-  - Webpack + `vue-loader` for single file Vue components.
+  - Webpack + `vue-template-loader` for Vue components.
   - State preserving hot-reload
   - State preserving compilation error overlay
   - Lint-on-save with ESLint

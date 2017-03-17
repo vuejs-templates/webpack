@@ -1,8 +1,6 @@
 # Introduction
 
-This boilerplate is targeted towards large, serious projects and assumes you are somewhat familiar with Webpack and `vue-loader`. Make sure to also read [`vue-loader`'s documentation](http://vuejs.github.io/vue-loader/index.html) for common workflow recipes.
-
-If you just want to try out `vue-loader` or whip out a quick prototype, use the [webpack-simple](https://github.com/vuejs-templates/webpack-simple) template instead.
+This boilerplate is targeted towards large, serious projects and assumes you are somewhat familiar with Webpack and `vue-template-loader`. Make sure to also read [`vue-template-loader`'s documentation](https://github.com/ktsn/vue-template-loader) for common workflow recipes.
 
 ## Quickstart
 
@@ -10,7 +8,7 @@ To use this template, scaffold a project with [vue-cli](https://github.com/vuejs
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
+$ vue init Toilal/vue-webpack-template my-project
 $ cd my-project
 $ npm install
 $ npm run dev
