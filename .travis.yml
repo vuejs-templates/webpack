@@ -10,6 +10,12 @@ install:
   - nvm install $NODE_VERSION
   - npm install
 
+# https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+
 script:
   - nvm use $NODE_VERSION
   - bash test.sh
