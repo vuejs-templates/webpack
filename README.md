@@ -1,10 +1,12 @@
-# vue-webpack-boilerplate [![Build Status](https://travis-ci.org/Toilal/vue-webpack-template.svg?branch=master)](https://travis-ci.org/Toilal/vue-webpack-template)
+# vue-webpack-template [![Build Status](https://travis-ci.org/Toilal/vue-webpack-template.svg?branch=master)](https://travis-ci.org/Toilal/vue-webpack-template)
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 
 > This template is Vue 2.0 compatible.
 
-> This is a fork of official webpack template, replacing .vue component files with standard .js components.
+> This is a fork of official webpack template. It adds a TypeScript option and replace .vue component files with 
+standard .js/.ts components using external .css and .html files. Developer still benefit of Hot Module Reload and 
+scoped CSS though.
 
 ## Documentation
 
@@ -28,7 +30,7 @@ If port 8080 is already in use on your machine you must change the port number i
 ## What's Included
 
 - `npm run dev`: first-in-class development experience.
-  - Webpack + `vue-template-loader` for Vue components.
+  - Webpack + `vue-template-loader` + `vue-hot-reload-loader` for Vue components.
   - State preserving hot-reload
   - State preserving compilation error overlay
   - Lint-on-save with ESLint

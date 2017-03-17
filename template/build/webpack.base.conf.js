@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.{{#if_eq compiler "typescript"}}ts{{else}}js{{/if_eq}}'
   },
   output: {
     path: config.build.assetsRoot,
@@ -19,7 +19,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.json'],
+    extensions: ['.js', {{#if_eq compiler "typescript"}}'.ts', {{/if_eq}}'.json'],
     alias: {
       {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
@@ -29,7 +29,7 @@ module.exports = {
   },
   module: {
     rules: [
-      {{#lint}}
+      {{#eslint}}
       {
         test: /\.js$/,
         loader: 'eslint-loader',
@@ -39,7 +39,15 @@ module.exports = {
           formatter: require('eslint-friendly-formatter')
         }
       },
-      {{/lint}}
+      {{/eslint}}
+      {{#tslint}}
+      {
+        test: /\.ts$/,
+        enforce: 'pre',
+        loader: 'tslint-loader',
+        include: [resolve('src'), resolve('test')]
+      },
+      {{/tslint}}
       {
         test: /\.html$/,
         loader: 'vue-template-loader',
@@ -51,6 +59,13 @@ module.exports = {
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
       },
+      {{#if_eq compiler "typescript"}}
+      {
+        test: /\.ts$/,
+        loader: 'awesome-typescript-loader',
+        include: [resolve('src'), resolve('test')]
+      },
+      {{/if_eq}}
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',

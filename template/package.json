@@ -9,19 +9,23 @@
     "build": "node build/build.js"{{#unit}},
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run"{{/unit}}{{#e2e}},
     "e2e": "node test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
-    "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#lint}},
-    "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
+    "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#eslint}},
+    "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/eslint}}
   },
   "dependencies": {
-    "vue": "^2.2.2"{{#router}},
+    "vue": "^2.2.2"{{#if_eq compiler "typescript"}},
+    "vue-class-component": "^5.0.0"{{/if_eq}}{{#router}},
     "vue-router": "^2.2.0"{{/router}}
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
+    {{#if_eq compiler "typescript"}}
+    "awesome-typescript-loader": "^3.1.2",
+    {{/if_eq}}
     "babel-core": "^6.22.1",
-    {{#lint}}
+    {{#eslint}}
     "babel-eslint": "^7.1.1",
-    {{/lint}}
+    {{/eslint}}
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-env": "^1.2.1",
@@ -31,22 +35,22 @@
     "connect-history-api-fallback": "^1.3.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
-    {{#lint}}
+    {{#eslint}}
     "eslint": "^3.14.1",
     "eslint-friendly-formatter": "^2.0.7",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-html": "^2.0.0",
-    {{#if_eq lintConfig "standard"}}
+    {{#if_eq eslintConfig "standard"}}
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
     {{/if_eq}}
-    {{#if_eq lintConfig "airbnb"}}
+    {{#if_eq eslintConfig "airbnb"}}
     "eslint-config-airbnb-base": "^11.0.1",
     "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-plugin-import": "^2.2.0",
     {{/if_eq}}
-    {{/lint}}
+    {{/eslint}}
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.1",
     "extract-text-webpack-plugin": "^2.0.0",
@@ -86,6 +90,11 @@
     "optimize-css-assets-webpack-plugin": "^1.3.0",
     "ora": "^1.1.0",
     "rimraf": "^2.6.0",
+    {{#if_eq compiler "typescript"}}
+    "tslint": "^4.5.1",
+    "tslint-loader": "^3.4.3",
+    "typescript": "^2.2.1",
+    {{/if_eq}}
     "url-loader": "^0.5.7",
     "vue-hot-reload-loader": "^0.1.2",
     "vue-template-loader": "^0.2.4",

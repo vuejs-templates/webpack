@@ -42,7 +42,8 @@ module.exports = merge(baseWebpackConfig, {
 if (config.dev.hotModuleReload) {
   module.exports.module.rules.push(
     {
-      test: /\.js$/,
+      test: {{#if_eq compiler "typescript"}}/\.(ts|js)$/{{else}}/\.js$/{{/if_eq}},
+      {{#if_eq compiler "typescript"}}enforce: 'post',{{/if_eq}}
       use: ['vue-hot-reload-loader'],
       include: [resolve('src'), resolve('test')]
     });

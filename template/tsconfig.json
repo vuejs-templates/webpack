@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "target": "es6",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "es6-promise",
+      "vue"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "awesomeTypescriptLoaderOptions": {
+      "useBabel": true,
+      "useCache": true
+    }
+  }
+}
