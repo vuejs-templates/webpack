@@ -1,4 +1,5 @@
 var path = require('path')
+var glob = require('glob')
 var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
@@ -44,25 +45,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin(),
-    // generate dist index.html with correct asset hash for caching.
-    // you can customize output by editing /index.html
-    // see https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
-        ? 'index.html'
-        : {{/if_or}}config.build.index,
-      template: 'index.html',
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-        // more options:
-        // https://github.com/kangax/html-minifier#options-quick-reference
-      },
-      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
-    }),
+    // modify for multi-page-tpl
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -115,6 +98,49 @@ if (config.build.productionGzip) {
 if (config.build.bundleAnalyzerReport) {
   var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
+}
+
+function getEntry (globPath) {
+  var _entries = {}
+  var basename, tmp, pathname
+  glob.sync(globPath).forEach(function (entry) {
+    basename = path.basename(entry, path.extname(entry))
+    tmp = entry.split('/').splice(-3)
+    pathname = tmp.splice(1, 1).toString() + '/' + basename
+    _entries[pathname] = entry
+  })
+  return _entries
+}
+
+var pages = getEntry('./src/module/**/*.html')
+for (var pathname in pages) {
+  // 配置生成的html文件，定义路径等
+  var conf = {
+    // generate dist index.html with correct asset hash for caching.
+    // you can customize output by editing /index.html
+    // see https://github.com/ampedandwired/html-webpack-plugin
+    filename: {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
+        ? 'index.html'
+        : {{/if_or}}config.build.view + '/' + pathname + '.html',
+    template: pages[pathname], // 模板路径
+    inject: true, // js插入位置
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true,
+      removeAttributeQuotes: true
+      // more options:
+      // https://github.com/kangax/html-minifier#options-quick-reference
+    },
+    chunksSortMode: 'dependency'
+  }
+  console.log(pathname)
+  if (pathname in module.exports.entry) {
+    var jspath = pathname.split('/').splice(-1).toString()
+    console.log(module.exports.entry)
+    conf.chunks = ['manifest', 'vendor', jspath]
+    conf.hash = true
+  }
+  module.exports.plugins.push(new HtmlWebpackPlugin(conf))
 }
 
 module.exports = webpackConfig

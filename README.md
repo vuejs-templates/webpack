@@ -4,6 +4,12 @@
 
 > This template is Vue 2.0 compatible. For Vue 1.x use this command: `vue init webpack#1.0 my-project`
 
+## multi-page-vue for Thinkphp
+
+- Have not enough for test, do not open test mode. If you want add a new page, please copy 'src/module/Index' to the new page module.
+
+- If you need vue-router and vuex, add your file in the child-page-module's manage. ex: I put router.js in src/module/Index/manage.
+
 ## Documentation
 
 - [For this template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
@@ -15,8 +21,10 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
-$ cd my-project
+# $ vue init webpack my-project
+# $ cd my-project
+$ vue init crossingmay/webpack Source
+$ cd Source
 $ npm install
 $ npm run dev
 ```
@@ -38,6 +46,8 @@ If port 8080 is already in use on your machine you must change the port number i
   - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
   - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
   - Use `npm run build --report`to build with bundle size analytics.
+
+>Dont use unit-test & e2e
 
 - `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Mocha](http://mochajs.org/) + [karma-webpack](https://github.com/webpack/karma-webpack).
   - Supports ES2015+ in test files.
