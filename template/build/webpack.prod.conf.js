@@ -134,13 +134,13 @@ for (var pathname in pages) {
     chunksSortMode: 'dependency'
   }
   console.log(pathname)
-  if (pathname in module.exports.entry) {
+  if (pathname in webpackConfig.entry) {
     var jspath = pathname.split('/').splice(-1).toString()
-    console.log(module.exports.entry)
+    console.log(webpackConfig.entry)
     conf.chunks = ['manifest', 'vendor', jspath]
     conf.hash = true
   }
-  module.exports.plugins.push(new HtmlWebpackPlugin(conf))
+  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
 }
 
 module.exports = webpackConfig
