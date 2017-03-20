@@ -10,7 +10,7 @@ var tmpDir = path.resolve(__dirname, '../tmp');
 rm('-rf', tmpDir);
 mkdir(tmpDir); // 删除并重新创建临时目录
 
-var globalConf = require('../../src/config/global'); // 全局参数
+var globalConf = require('../../build.config.js'); // 全局参数
 var proxyTable = globalConf.proxy || {}; // 代理设置
 
 var appDir = path.resolve(__dirname, '../../src/pages');
@@ -72,7 +72,7 @@ var getVendors = function(pageName) { // 读取页面需要额外加载的第三
 var buildConf = {
     'env': require('./prod.env'),
     // 指定build打包发布路径
-    'assetsRoot': path.resolve(__dirname, '../../dist'),
+    'assetsRoot': globalConf.distDir,
     'assetsSubDirectory': '',
     'assetsPublicPath': '',
     'productionSourceMap': true,
@@ -143,7 +143,7 @@ if (apps.length > 1) {
     var app = apps[0];
     prepareEntryFiles(app);
     entries[app] = `./build/tmp/${app}/index.js`;
-    buildConf[app] = path.resolve(__dirname, `../../dist/index.html`);
+    buildConf[app] = path.resolve(globalConf.distDir, 'index.html');
 }
 
 module.exports = {

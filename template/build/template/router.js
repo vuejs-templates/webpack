@@ -6,6 +6,14 @@ var router = null;
 var start = (routes, selector, callbacks) => {
     const router = new VueRouter({routes});
 
+    // 通过route的配置设置 title
+    router.afterEach(function(to, from) {
+        let title = to.meta && to.meta.title;
+        if (title) {
+            document.title = title;
+        }
+    });
+
     if (callbacks) {
         callbacks.beforeEach && router.beforeEach(callbacks.beforeEach);
         callbacks.afterEach && router.afterEach(callbacks.afterEach);

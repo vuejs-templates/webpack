@@ -4,7 +4,7 @@ var assign = require('object-assign')
 var config = require('./config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
-var globalConf = require('../src/config/global')
+var globalConf = require('../build.config')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -50,6 +50,10 @@ var loaders = [
   {
     test: /\.html$/,
     loader: 'vue-html-loader'
+  },
+  {
+    test: /\.css$/,
+    loader: 'style-loader!css-loader'
   },
   {
     test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
