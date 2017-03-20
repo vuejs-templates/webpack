@@ -34,7 +34,7 @@ export default {
   }{{#vuex}},
   computed: {
     ...mapGetters([
-      'subWelcomeMsg'
+      'subWelcomeMsg'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     ]){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{/vuex}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}

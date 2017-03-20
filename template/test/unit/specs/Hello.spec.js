@@ -1,7 +1,9 @@
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
 import Hello from '@/components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#vuex}}
 import Vuex from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
 Vue.use(Vuex){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/vuex}}
 describe('Hello.vue', () => {
@@ -10,10 +12,10 @@ describe('Hello.vue', () => {
   let store{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   beforeEach(() => {
     getters = {
-      subWelcomeMsg: () => 'Essential Links'
-    }
+      subWelcomeMsg: () => 'Essential Links'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     store = new Vuex.Store({
-      getters
+      getters{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   {{/vuex}}
