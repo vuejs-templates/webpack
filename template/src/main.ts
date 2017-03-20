@@ -20,7 +20,7 @@ new Vue({
   router,
   {{/router}}
   {{#if_eq build "runtime"}}
-  render: h => h(App)
+  render: (h) => h(App)
   {{/if_eq}}
   {{#if_eq build "standalone"}}
   template: "<App/>",
