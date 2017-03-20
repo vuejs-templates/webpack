@@ -11,7 +11,6 @@ import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import store from './store'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/vuex}}
 
-
 Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 /* eslint-disable no-new */

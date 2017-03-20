@@ -5,9 +5,12 @@ import mutations from './mutations'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import actions from './actions'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import getters from './getters'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
+
+
 Vue.use(Vuex){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default new Vuex.Store({
+  strict: process.env.NODE_ENV !== 'production',
   state,
   actions,
   mutations,
