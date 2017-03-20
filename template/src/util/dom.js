@@ -10,13 +10,13 @@ const ieVersion = isServer ? 0 : Number(document.documentMode);
 /* istanbul ignore next */
 const trim = function (string) {
     return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
-};
+}
 /* istanbul ignore next */
 const camelCase = function (name) {
     return name.replace(SPECIAL_CHARS_REGEXP, function (_, separator, letter, offset) {
         return offset ? letter.toUpperCase() : letter;
     }).replace(MOZ_HACK_REGEXP, 'Moz$1');
-};
+}
 
 export const getDOM = function (dom) {
     if (dom.nodeType === 3) {
@@ -80,7 +80,7 @@ export function hasClass(el, cls) {
     } else {
         return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
     }
-};
+}
 
 /* istanbul ignore next */
 export function addClass(el, cls) {
@@ -103,7 +103,7 @@ export function addClass(el, cls) {
     if (!el.classList) {
         el.className = curClass;
     }
-};
+}
 
 /* istanbul ignore next */
 export function removeClass(el, cls) {
@@ -126,7 +126,7 @@ export function removeClass(el, cls) {
     if (!el.classList) {
         el.className = trim(curClass);
     }
-};
+}
 
 /* istanbul ignore next */
 export const getStyle = ieVersion < 9 ? function (element, styleName) {
@@ -183,4 +183,4 @@ export function setStyle(element, styleName, value) {
             element.style[styleName] = value;
         }
     }
-};
+}

@@ -58,10 +58,10 @@ var countDown = {
             minute = parseInt((millisecond / 60) % 60),
             seconds = parseInt(millisecond % 60);
 
-        days = days < 100 ? "0" + days : days;
-        hours = hours < 10 ? "0" + hours : hours;
-        minute = minute < 10 ? "0" + minute : minute;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+        days = days < 100 ? '0' + days : days;
+        hours = hours < 10 ? '0' + hours : hours;
+        minute = minute < 10 ? '0' + minute : minute;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
 
         return {
             days: days,
@@ -80,9 +80,9 @@ var TimeDown = function (options) {
         doneFn = options.doneFn || function () {
             };
 
-    if (startDate == "undefined" || endDate == "undefined") return;
+    if (startDate == 'undefined' || endDate == 'undefined') return;
 
-    if (OBJECT.call(startDate) !== "[object Date]" || OBJECT.call(endDate) !== "[object Date]") return;
+    if (OBJECT.call(startDate) !== '[object Date]' || OBJECT.call(endDate) !== '[object Date]') return;
 
     startDate = +new Date(startDate);
     endDate = +new Date(endDate);

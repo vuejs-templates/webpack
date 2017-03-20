@@ -3,7 +3,7 @@
  * @author  stylehuan
  * @create  2017-02-09 13:50
  */
-export default (fn, timeout)=> {
+export default (fn, timeout) => {
     timeout = timeout || 20;
     var timeoutID;
     return function () {
