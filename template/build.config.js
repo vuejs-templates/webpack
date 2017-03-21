@@ -6,13 +6,13 @@
  */
 var path = require('path');
 
-const MIN_JS = true; // 是否使用压缩版本的 js 库
+const __DEBUG__ = process.env.NODE_ENV === 'development'; // 是否开发模式
 
 const _jsUrl = (base) => {
-    return base + (MIN_JS ? '.min.js' : '.js');
+    return base + (__DEBUG__ ? '.js' : '.min.js');
 };
 
-const FE_BOWER_BASE = 'http://res.wisedu.com/bower_components';
+const FE_BOWER_BASE = 'https://unpkg.com';
 
 module.exports = {
     proxy: { // DEV 模式下访问后端 api 时防止跨域使用的代理
@@ -34,13 +34,12 @@ module.exports = {
     csslibs: [ // 在index.html中需要引入的 css lib
     ],
     jslibs: [ // 在 index.html 中需要引入的 js lib， vue 和 router 必须引入，其余可选
-        _jsUrl(`${FE_BOWER_BASE}/bluebird/bluebird`),
-        _jsUrl(`${FE_BOWER_BASE}/vue2/vue`),
-        _jsUrl(`${FE_BOWER_BASE}/vue2/vue-router`),
-        _jsUrl(`${FE_BOWER_BASE}/vue2/vue-i18n`),
-        _jsUrl(`${FE_BOWER_BASE}/vue2/vuex`),
-        _jsUrl(`${FE_BOWER_BASE}/vue2/axios`),
-        `${FE_BOWER_BASE}/iscroll/iscroll.js`
+        `${FE_BOWER_BASE}/bluebird@3.5.0`, // Promise support
+        _jsUrl(`${FE_BOWER_BASE}/vue@2.2.4/dist/vue`),
+        _jsUrl(`${FE_BOWER_BASE}/vue-router@2.3.0/dist/vue-router`),
+        _jsUrl(`${FE_BOWER_BASE}/vue-i18n@5.0.3/dist/vue-i18n`),
+        _jsUrl(`${FE_BOWER_BASE}/vuex@2.2.1/dist/vuex`),
+        _jsUrl(`${FE_BOWER_BASE}/axios@0.15.3/dist/axios`)
     ],
     distDir: path.resolve(__dirname, 'dist') // 执行 build 时发布的路径，可以指定其他路径比如 '../webapp'
 }
