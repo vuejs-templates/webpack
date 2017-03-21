@@ -8,7 +8,6 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "types": [
-      "es6-promise",
       "vue"
     ],
     "typeRoots": [
