@@ -1,12 +1,12 @@
 /**
  * 页面内路由定义
  */
-import hello from './hello';
+const hello = resolve => require(['./hello'], resolve);
 
 export default [
     {
-        // title: '首页',
         path: '/',
-        component: hello
+        component: hello,
+        meta: {title: '首页'}
     }
 ]

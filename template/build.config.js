@@ -32,9 +32,6 @@ module.exports = {
     babelDir: [], // 指定允许使用babel-loader编译的文件目录或路径匹配，默认已支持src
     loaders: [], // 增加其他文件类型的loader，默认已支持 vue
     csslibs: [ // 在index.html中需要引入的 css lib
-        './statics/resources/style/cyan-arctic/amp.css',
-        './statics/resources/style/cyan-arctic/skin.css',
-        './statics/resources/font-awesome/iconfont.css'
     ],
     jslibs: [ // 在 index.html 中需要引入的 js lib， vue 和 router 必须引入，其余可选
         _jsUrl(`${FE_BOWER_BASE}/bluebird/bluebird`),
@@ -43,9 +40,7 @@ module.exports = {
         _jsUrl(`${FE_BOWER_BASE}/vue2/vue-i18n`),
         _jsUrl(`${FE_BOWER_BASE}/vue2/vuex`),
         _jsUrl(`${FE_BOWER_BASE}/vue2/axios`),
-        `${FE_BOWER_BASE}/iscroll/iscroll.js`,
-        './statics/resources/widget/webcomponents/compatibility.js',
-        './statics/resources/widget/webcomponents/webcomponents-lite.min.js'
+        `${FE_BOWER_BASE}/iscroll/iscroll.js`
     ],
     distDir: path.resolve(__dirname, 'dist') // 执行 build 时发布的路径，可以指定其他路径比如 '../webapp'
 }
