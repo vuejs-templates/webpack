@@ -5,6 +5,8 @@ import fastclick from 'fastclick';
 import throttle from './util/throttle';
 import appInterFace from './util/appInterFace'
 import axios from 'axios';
+import ajax from './util/ajax';
+
 import VueRouter from 'vue-router';
 import router from './router/routerInstance';
 Vue.use(VueRouter);
@@ -26,7 +28,7 @@ if (appInterFace.getHeaderInfo()) {
         console.log(e)
     }
 }
-Vue.config.errorHandler = function(err, vm) {
+Vue.config.errorHandler = function (err, vm) {
     console.log(err);
 };
 

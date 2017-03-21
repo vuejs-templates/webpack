@@ -7,7 +7,7 @@ var _coreBridge = function (method) {
   var len = arguments.length;
   let paramsArray = [];
   //没参数的
-  if (len == 1) {
+  if (len === 1) {
     try {
       console.log('app接口:' + method);
       return HtmlInterface[method]();

@@ -15,7 +15,7 @@ export default function (options) {
   let _error = options.error || emptyFn;
   let _beforeSend = options.beforeSend || emptyFn;
   let _complete = options.complete || emptyFn;
-  if (options.url == '') return;
+  if (options.url === '') return;
   let config = {
     method: _method,
     url: _url,

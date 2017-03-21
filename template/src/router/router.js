@@ -4,7 +4,7 @@
  * @create  2016-12-12 10:25
  */
 export default{
-    root:'/',
+    root: '/',
     aa: '/aa',
     bb: '/bb',
     cc: '/cc'

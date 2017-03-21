@@ -10,9 +10,9 @@ var base = {
     debug: false
 };
 if (location.port) {
-    if (location.port == '8080') {
+    if (location.port === '8080') {
         base.isLocal = true;
-    } else if (location.port == '1505') {
+    } else if (location.port === '1505') {
         if (location.href.indexOf('.net') > -1 || location.href.indexOf('.com') > -1) {
             base.isPre = true;
         } else {

@@ -1,8 +1,3 @@
-/**
- * @.eslintrc.js
- * @author  stylehuan
- * @create  2017-02-09 16:38
- */
 
 /**
  * Created by B41-CX on 2017/2/6.
@@ -28,8 +23,8 @@ module.exports = {
     'no-new': 1,//禁止使用new产生副作用
     'no-cond-assign': 1, //禁止条件表达式中出现赋值操作符
     'no-constant-condition': 1, //禁止在条件中使用常量表达式
-    'no-dupe-args': 1, //禁止 function 定义中出现重名参数
-    'no-dupe-keys': 1, //禁止对象字面量中出现重复的 key
+    'no-dupe-args': 2, //禁止 function 定义中出现重名参数
+    'no-dupe-keys': 2, //禁止对象字面量中出现重复的 key
     'no-duplicate-case': 1, //禁止出现重复的 case 标签
     'no-empty': 1, //禁止出现空语句块
     'no-func-assign': 1, //禁止对 function 声明重新赋值
@@ -39,16 +34,16 @@ module.exports = {
     'use-isnan': 1, //要求使用 isNaN() 检查 NaN
     /*最佳实践*/
     'curly': 1,  //强制所有控制语句使用一致的括号风格
-    'eqeqeq': [1, "always"], //要求使用 === 和 !==
+    'eqeqeq': ['error', "always"], //要求使用 === 和 !==
     'no-alert': 1, //禁用 Alert
     'no-eq-null': 1,//禁止在没有类型检查操作符的情况下与 null 进行比较
     'no-eval': 1, //禁用 eval()
     'no-self-assign': 1,//禁止自我赋值
     // allow paren-less arrow functions
-    "space-before-function-paren": [1, {
-      "anonymous": "never",
-      "named": "never",
-      "asyncArrow": "ignore"
+    "space-before-function-paren": [2, {
+      "anonymous": "always",
+      "named": "always",
+      "asyncArrow": "always"
     }], //函数名之后不能有空格
     'arrow-parens': 0,
     "semi": [0, "always"],
@@ -65,7 +60,7 @@ module.exports = {
       "exports": "never",
       "functions": "never",
     }],//要求或禁止使用拖尾逗号
-    'key-spacing': [1, {'beforeColon': false}],
+    'key-spacing': [2, {'beforeColon': false}],
     'no-mixed-spaces-and-tabs': [1],//禁止使用空格和tab
     "indent":0,
     "no-useless-escape":0,
@@ -81,4 +76,4 @@ module.exports = {
     'no-useless-call':0,
     'no-multiple-empty-lines':0,
   }
-}
+};

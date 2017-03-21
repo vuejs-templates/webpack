@@ -5,20 +5,20 @@
  */
 import eventBus from './eventBus';
 import eventMsg from './eventMsg';
-let noop = function() {
+let noop = function () {
 };
 export const MSG = eventMsg;
 export let SystemEvent = {
-  on(events, callback) {
+  on (events, callback) {
     callback = callback || noop;
     eventBus.$on(events, function (data) {
       callback.call(null, data);
     });
   },
-  emit(events, args) {
+  emit (events, args) {
     eventBus.$emit(events, args);
   },
-  off(events) {
+  off (events) {
     eventBus.$off(events);
   }
 };

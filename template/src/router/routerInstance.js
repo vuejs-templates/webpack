@@ -4,7 +4,7 @@ import {SystemEvent, MSG} from '../events/systemEvent'
 const routes = [
     {
         path: routerConf.root,
-        component(resolve) {
+        component (resolve) {
             // require(['components/active1'], resolve)
         }
     }

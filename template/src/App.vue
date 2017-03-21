@@ -1,40 +1,40 @@
 <template>
-    <div id="wrapper" v-if="isShow">
-        <h1>hello,world</h1>
-        <router-view></router-view>
-    </div>
+  <div id="wrapper" v-if="isShow">
+    <h1>hello,world</h1>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-    import Vue from 'vue'
-    import base from 'assets/js/common'
-    import {SystemEvent, MSG} from './events/systemEvent'
-    import appInterFace from './util/appInterFace'
-    export default {
-        name: 'app',
-        data() {
-            return {
-                isShow: true
-            }
-        },
-        created() {
-            if (!base.isLocal) {
-                if (!appInterFace.isNetConnect()) {
-                    this.isShow = false;
-                    appInterFace.isWebHasError();
-                }
-            }
-        },
-        mounted() {
-            SystemEvent.on(MSG.CONNECTERROT, () => {
-                console.log('connectError' + '报错信息');
-                this.isShow = false;
-                appInterFace.isWebHasError();
-            });
+  import Vue from 'vue'
+  import base from 'assets/js/common'
+  import {SystemEvent, MSG} from './events/systemEvent'
+  import appInterFace from './util/appInterFace'
+  export default {
+    name: 'app',
+    data () {
+      return {
+        isShow: true
+      }
+    },
+    created () {
+      if (!base.isLocal) {
+        if (!appInterFace.isNetConnect()) {
+          this.isShow = false;
+          appInterFace.isWebHasError();
         }
+      }
+    },
+    mounted () {
+      SystemEvent.on(MSG.CONNECTERROT, () => {
+        console.log('connectError' + '报错信息');
+        this.isShow = false;
+        appInterFace.isWebHasError();
+      });
     }
+  }
 </script>
 
 <style lang="Less">
-    @import "assets/css/base.less";
+  @import "assets/css/base.less";
 </style>
