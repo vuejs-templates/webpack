@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <loading :show="loading.status" :text="loading.text" position="absolute"></loading>
+    <toast v-model="toast.show" type="text" :time="toast.time">
     {{#router}}
-    <router-view></router-view>
+    <router-view :transition="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')"></router-view>
     {{else}}
     <hello></hello>
     {{/router}}
@@ -10,25 +11,30 @@
 </template>
 
 <script>
-{{#unless router}}
-import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-
-{{/unless}}
+import { Loading, Toast } from 'cvux/src/components'
 export default {
-  name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
+  name: 'app',
   components: {
-    Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    Loading,
+    Toast
+  },
+  computed: {
+    loading () {
+      return this.$store.state.loading
+    },
+    direction () { // 场景动画切换方向
+      return this.$store.state.direction
+    },
+    toast () {
+      return this.$store.state.toast
+    }
+  }
+}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import '~cvux/src/styles/reset';
+  body {
+    background-color: #fbf9fe;
+  }
 </style>
