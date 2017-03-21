@@ -20,8 +20,8 @@ module.exports = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
   },
-  // cheap-module-eval-source-map is faster for development
-  devtool: '#cheap-module-eval-source-map',
+  // cheap-module-eval-source-map is faster for development, but it seems to not work properly here
+  devtool: '#inline-source-map',
   plugins: [
     new webpack.DefinePlugin({
       'process.env': config.dev.env
@@ -43,7 +43,7 @@ if (config.dev.hotModuleReload) {
   module.exports.module.rules.push(
     {
       test: {{#if_eq compiler "typescript"}}/\.(ts|js)$/{{else}}/\.js$/{{/if_eq}},
-      {{#if_eq compiler "typescript"}}enforce: 'post',{{/if_eq}}
+      enforce: 'post',
       use: ['vue-hot-reload-loader'],
       include: [resolve('src'), resolve('test')]
     });

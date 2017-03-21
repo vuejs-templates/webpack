@@ -104,7 +104,7 @@ module.exports = {
     ".eslintrc.js": "eslint",
     ".eslintignore": "eslint",
     ".tslint.json": "tslint",
-    ".tsconfig.json": "compiler == 'typescript'",
+    "tsconfig.json": "compiler == 'typescript'",
     "src/**/*.ts": "compiler == 'typescript'",
     "src/**/*.js": "compiler != 'typescript'",
     "config/test.env.js": "unit || e2e",
