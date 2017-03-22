@@ -1,5 +1,5 @@
 /**
- * 服务接口
+ * api接口
  * 以插件形式存在
  */
 export default class Rest {

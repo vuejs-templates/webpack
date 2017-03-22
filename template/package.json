@@ -6,6 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
+    "build-test": "node build/build-test.js",
+    "cdn": "gulp oss",
     "build": "node build/build.js"{{#unit}},
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run"{{/unit}}{{#e2e}},
     "e2e": "node test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
@@ -13,11 +15,22 @@
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
   },
   "dependencies": {
+    "es6-shim": "^4.5.9",
     "fastclick": "^1.0.6",
+    "vue-resource": "^1.0.3",
+    "vuex": "^2.0.0",
     "vue": "^2.2.2"{{#router}},
     "vue-router": "^2.2.0"{{/router}}
   },
   "devDependencies": {
+    "ali-oss": "^4.6.2",
+    "co": "^4.6.0",
+    "cvux": "^0.1.19",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "mockjs": "^1.0.1-beta3",
+    "through2": "^2.0.3",
+    "vuex-router-sync": "^4.1.2",
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",
     {{#lint}}

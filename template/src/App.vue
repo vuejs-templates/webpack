@@ -26,7 +26,8 @@ export default {
       return this.$store.state.direction
     },
     toast () {
-      return this.$store.state.toast
+      let toast = Object.assign({}, this.$store.state.toast)
+      return toast
     }
   }
 }
