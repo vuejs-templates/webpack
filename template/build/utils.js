@@ -20,15 +20,19 @@ exports.cssLoaders = function (options) {
     }
   }
 
-  // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
+  // generate loader string, object, array to be used with extract text plugin
+  function generateLoaders (loader) {
     var loaders = [cssLoader]
+
     if (loader) {
-      loaders.push({
-        loader: loader + '-loader',
-        options: Object.assign({}, loaderOptions, {
-          sourceMap: options.sourceMap
-        })
+      // wrap string & object to array
+      if (typeof loader === 'string' ||
+        (typeof loader === 'object' && loader.constructor === Object)) {
+        loader = [loader]
+      }
+
+      loader.forEach(item => {
+        loaders.push(handleLoader(item))
       })
     }
 
@@ -44,13 +48,45 @@ exports.cssLoaders = function (options) {
     }
   }
 
+  // generate loader string and object to loader config object
+  function handleLoader (loader) {
+    if (typeof loader === 'string') {
+      return {
+        loader: loader + '-loader',
+        options: {
+          sourceMap: options.sourceMap
+        }
+      }
+    } else if (typeof loader === 'object' && loader.constructor === Object) {
+      return loader
+    }
+  }
+
   // http://vuejs.github.io/vue-loader/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
+    sass: generateLoaders([
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: options.sourceMap,
+          indentedSyntax: true
+        }
+      }
+    ]),
+    scss: generateLoaders([
+      'sass'/*,
+      // you can need sass-resources-loader for your sass
+      {
+        loader: 'sass-resources-loader',
+        options: {
+          // must choose a scss file
+          resources: path.join(__dirname, '../src/config.scss')
+        }
+      }*/
+    ]),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }
