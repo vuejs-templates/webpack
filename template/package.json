@@ -15,7 +15,7 @@
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
   },
   "dependencies": {
-    "es6-shim": "^4.5.9",
+    "es5-shim": "^4.5.9",
     "fastclick": "^1.0.6",
     "vue-resource": "^1.0.3",
     "vuex": "^2.0.0",
