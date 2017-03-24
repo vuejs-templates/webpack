@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { Loading, Toast } from 'cvux/src/components'
+import { Loading, Toast } from '@cvux'
 
 export default {
   name: 'app',
@@ -27,8 +27,7 @@ export default {
       return this.$store.state.direction
     },
     toast () {
-      let toast = Object.assign({}, this.$store.state.toast)
-      return toast
+      return this.$store.state.toast
     }
   }
 }
@@ -36,7 +35,4 @@ export default {
 
 <style lang="less">
   @import '~cvux/src/styles/reset';
-  body {
-    background-color: #fbf9fe;
-  }
 </style>

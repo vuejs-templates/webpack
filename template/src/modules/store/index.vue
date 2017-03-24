@@ -62,7 +62,7 @@
 </template>
 <script>
 import cache from '../../common/cache'
-import { Swiper, Cell, InlineDesc, Tabbar, TabbarItem } from 'cvux/src/components'
+import { Swiper, Cell, InlineDesc, Tabbar, TabbarItem } from '@cvux'
 
 export default {
   components: {
