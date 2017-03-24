@@ -1,0 +1,183 @@
+@import "fn";
+
+// normalize.less
+@import "normalize";
+
+html {
+  height: 100%;
+  font-size: 50px;
+}
+
+abbr,
+article,
+aside,
+blockquote,
+body,
+dd,
+details,
+dl,
+dt,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+input,
+li,
+mark,
+meter,
+nav,
+ol,
+output,
+p,
+pre,
+progress,
+section,
+summary,
+td,
+time,
+ul {
+  margin: 0;
+  padding: 0
+}
+
+html,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: PingFang-SC-Regular, Helvetica Neue, Helvetica, microsoft yahei, sans-serif
+}
+
+body {
+  box-sizing: border-box;
+  margin: auto;
+  max-width: 750px;
+  background-color: #eee;
+  color: #000;
+  font-size: 13px;
+  font-size: @13;
+  line-height: 1;
+  -moz-user-select: none;
+  -webkit-user-select: none
+}
+
+body {
+  height: 100%;
+  min-height: 100%
+}
+
+address,
+b,
+caption,
+cite,
+code,
+em,
+figcaption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+pre,
+th {
+  font-weight: 400;
+  font-style: normal
+}
+
+fieldset,
+iframe {
+  border: none
+}
+
+caption,
+th {
+  text-align: left
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+ul {
+  list-style: none outside
+}
+
+a,
+ins {
+  text-decoration: none
+}
+
+// article,
+// aside,
+// details,
+// figcaption,
+// figure,
+// footer,
+// header,
+// hgroup,
+// nav,
+// section,
+// summary {
+//   display: block
+// }
+
+a img,
+img {
+  border: 0
+}
+
+img {
+  max-width: 100%
+}
+
+button {
+  outline: 0;
+  border: none;
+  cursor: pointer
+}
+
+input[type=text] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
+/* 去掉点击后Android边框和IOS的默认背景 */
+
+a,
+button,
+input {
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+
+input {
+  outline: 0;
+}
+
+input::-webkit-input-placeholder {
+  color: #afafaf;
+}
+
+/* 窗口宽度<640,设计宽度=480 */
+@media only screen and (max-width:320px){html{font-size:32px}
+}
+@media only screen and (min-width:321px) and (max-width:375px){html{font-size:37.5px}
+}
+@media only screen and (min-width:376px) and (max-width:414px){html{font-size:41.4px}
+}
+@media only screen and (min-width:415px) and (max-width:435px){html{font-size:43.5px}
+}

@@ -4,33 +4,31 @@
 
 ## Build Setup
 
-``` bash
-# install dependencies
-npm install
+# 中升服务号
 
-# serve with hot reload at localhost:8080
-npm run dev
+## 开发环境搭建
 
-# build for production with minification
-npm run build
+1. 安装nodejs
+2. 执行 `npm install` 安装 package.json 中的 node 模块
+3. 执行 `npm run dev` 启动调试模式
 
-# build for production and view the bundle analyzer report
-npm run build --report
-{{#unit}}
+## 构建
 
-# run unit tests
-npm run unit
-{{/unit}}
-{{#e2e}}
+### TEST环境部署
+1. 执行 `npm run build-test`
 
-# run e2e tests
-npm run e2e
-{{/e2e}}
-{{#if_or unit e2e}}
+### IDC 正式环境部署
+1. 修改 package.json 中的版本号
+2. 执行 `npm run build` 将生成携带cdn路径的入口文件
+3. 如果需要部署到 cdn
+  * 保证环境变量中 `ACCESSKEYID`,`ACCESSKEYSECRET` 已设置
+  * 执行 `npm run cdn`
 
-# run all tests
-npm test
-{{/if_or}}
-```
+## 搭建本地代理
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+1. 下载安装 [fiddler](https://www.telerik.com/download/fiddler)
+2. 在rule改写中 将远程地址代理到本地
+
+  | 正则匹配 | 相应重定向 |
+  | ---------------------------------------------------------- | ------------------- |
+  | regex:(?isx)^https://testzswx.cheanjia.com/((?!(api\|auth)).*) | http://localhost:8000/$1 |
