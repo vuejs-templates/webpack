@@ -13,11 +13,6 @@ export default {
     regexp_coupon_code: /^\d{12}$/, // 优惠券
     regexp_decimals: /^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/ // 支持两位小数
   },
-  // 键值对的缓存数据~
-  keyMap: {
-    'CACHE_STORE_ID': 'cache_store_id',
-    'CACHE_STORE_STATUS': 'cache_store_status'
-  },
   /**
    * 计时器
    */
@@ -109,4 +104,3 @@ export default {
     return fmt
   }
 }
-

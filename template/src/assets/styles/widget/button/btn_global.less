@@ -1,0 +1,140 @@
+@import "../../base/fn";
+/* 按钮[[ */
+
+.btn {
+  display: inline-block;
+  height: 48/@w;
+  line-height: 48/@w;
+  background-color: @blue;
+  color: #fff;
+  font-size: 15/@w;
+  text-align: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative;
+  z-index: 124;
+  &:active {
+    background-color: #5175c2;
+  }
+}
+
+
+/* 不可点按钮 */
+
+.btn.btn-disable {
+  background-color: #a0a0a0;
+}
+
+.btn.btn-disable:active {
+  background-color: #a0a0a0;
+}
+
+.btn-bottom .btn.btn-disable,
+.btn-bottom .btn.btn-disable:active {
+  display: inline-table;
+  padding: 0 1.5rem;
+}
+
+
+/* 按钮]] */
+
+
+/* 底部固定按钮[[ */
+
+.btn-bottom {
+  position: relative;
+  z-index: 112;
+  padding-top: 58/@w
+}
+
+.btn-bottom .btn-fix {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-box;
+  display: box;
+  background-color: #ccc;
+  -webkit-box-align: center;
+  box-align: center
+}
+
+.btn-two {
+  padding-top: 72/@w
+}
+
+.btn-two .btn-fix {
+  padding: 7/@w 15/@w;
+  border-top: 1px solid #e5e5e5;
+  background: #fff
+}
+
+// .btn-bottom1 .select-right-con {
+//   display: block;
+//   color: #ce3b28;
+//   text-align: right;
+//   flex: 1;
+//   -webkit-box-flex: 1
+// }
+
+// .btn-bottom1 .in-text {
+//   text-align: right
+// }
+
+.btn-fix .btn-chloice-list {
+  color: #007aff;
+  font-size: 14px
+}
+
+.btn-fix .btn-chloice-list:after {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  display: inline-block;
+  margin-top: -6px;
+  width: 8px;
+  height: 8px;
+  border-color: #8e8e93 #8e8e93 transparent transparent;
+  border-style: solid;
+  border-width: 1px;
+  content: ' ';
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg)
+}
+
+.btn-bottom .btn,
+.btn-bottom1 .btn {
+  display: block
+}
+
+.btn-bottom .btn-fix-tab .price-left {
+  padding: 0 .8rem 0 1.5rem;
+  font-size: 15px;
+  line-height: 20px
+}
+
+// .btn-bottom .btn-fix-tab .btn {
+//   position: relative;
+//   z-index: 124;
+//   -webkit-box-flex: 1;
+//   -webkit-flex: 1;
+//   -ms-flex: 1;
+//   flex: 1
+// }
+
+// .btn-bottom .btn-fix-tab.disabled .btn {
+//   background: #a0a0a0
+// }
+
+.btn-bottom .btn-a0a0a0 {
+  background: #a0a0a0
+}
+
+.btn-bottom .btn {
+  display: block
+}

@@ -7,26 +7,25 @@ require('es5-shim')
 
 import Vue from 'vue'
 // vuex 仓库
-import store from '../vuex/store'
-
-// 工具 - ajax
-import ajax from './common/ajax'
-
-// Rest 插件
-import Rest from '../plugins/rest'
+import store from './vuex/store'
 
 // 微信SDK调用
-import wxHelp from './common/wxhelp'
+import wechat from './wechat'
 // 路由配置
-import router './router'
+import router from './router'
 // api配置
 import rest from './rest'
 // mock 配置
-/* replacing_mock */ // 保留用来dev模式加载mock数据
+// 保留用来dev模式加载mock数据
+// replacing_mock
+
+import cache from './common/cache'
+// import url from './common/url'
 // 样式文件
-import '../styles/app.less'
-// 初始化 ajax
-ajax.init(Vue)
+import './assets/styles/app.less'
+
+// 清空sessionStorage
+cache.clearSessionData()
 
 // 入口文件
 import App from './App.vue'
@@ -41,6 +40,7 @@ new Vue({
   {{/router}}
   store, // vuex
   rest, // api
+  wechat, // wx
   {{#if_eq build "runtime"}}
   render: h => h(App)
   {{/if_eq}}

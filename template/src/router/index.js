@@ -18,7 +18,7 @@ Vue.use(Router)
 saveStoreId()
 
 // 构造路由
-export default new Router(routeConfig)
+let router = new Router(routeConfig)
   // 路由钩子
   // S 转场动画
 let historyCount = cache.getSessionData('count') * 1 || 0
@@ -28,7 +28,7 @@ router.beforeEach((to, from, next) => {
   let meta = to.meta || {}
     // 路由变化，修改title
   if (meta && meta.title) {
-    util.changeTitle(meta.title)
+    changeTitle(meta.title)
   }
   // 转场动画方向控制
   const toIndex = cache.getSessionData(to.path)
@@ -86,9 +86,10 @@ function changeTitle(title, src) {
 }
 // 缓存storeId
 function saveStoreId() {
-  let storeId = url.getSearch().params.store_id || ''
+  let storeId = url.getSearch().store_id || ''
   if (storeId) {
     cache.setLocalStorageData(cache.keyMap.CACHE_STORE_ID, storeId)
   }
 }
 
+export default router

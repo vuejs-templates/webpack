@@ -14,6 +14,11 @@ var env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   : {{/if_or}}config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
+    // 替换加载器
+    module: {
+      rules: utils.replaceLoaders({replaceList: config.build.replaceList})
+    }
+  }, {
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,
@@ -23,8 +28,8 @@ var webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+    filename: utils.assetsPath('modules/[name].[chunkhash].js'),
+    chunkFilename: utils.assetsPath('lib/[id].[chunkhash].js')
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -33,13 +38,17 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
+        global_defs: {
+          "DEBUG": false
+        },
+        dead_code: true,
         warnings: false
       },
       sourceMap: true
     }),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].[contenthash].css')
+      filename: utils.assetsPath('styles/[name].[contenthash].css')
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.

@@ -1,9 +1,8 @@
 /**
  * cache help methods
  */
-import url from './url'
 // 初始化cache
-{
+(function () {
   if (!window.localStorage || !window.sessionStorage) {
     this.buffer.nonMark = true
   } else {
@@ -14,7 +13,7 @@ import url from './url'
       this.buffer.nonMark = true
     }
   }
-}
+})()
 export default {
   buffer: {
     nonMark: false, // 无痕浏览：用户数据不存本地，刷新即丢失
@@ -93,4 +92,3 @@ export default {
     }
   }
 }
-
