@@ -1,7 +1,7 @@
 /**
  * 路由
  */
-import StoreIndex from './store/Index' // 4s店首页
+import StoreIndex from '../modules/store/Index' // 4s店首页
 export default {
   routes: [{
     path: '/',

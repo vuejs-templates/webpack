@@ -15,6 +15,8 @@ import wechat from './wechat'
 import router from './router'
 // api配置
 import rest from './rest'
+// 初始化全局toast, loading
+import './common/mixins'
 // mock 配置
 // 保留用来dev模式加载mock数据
 // replacing_mock

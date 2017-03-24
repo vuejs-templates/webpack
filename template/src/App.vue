@@ -1,17 +1,18 @@
 <template>
   <div id="app">
     <loading :show="loading.status" :text="loading.text" position="absolute"></loading>
-    <toast v-model="toast.show" type="text" :time="toast.time">
+    <toast v-model="toast.show" type="text" :time="toast.time">{{toast.text}}</toast>
     {{#router}}
-    <router-view :transition="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')"></router-view>
-    {{else}}
-    <hello></hello>
+    <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
+      <router-view></router-view>
+    </transition>
     {{/router}}
   </div>
 </template>
 
 <script>
 import { Loading, Toast } from 'cvux/src/components'
+
 export default {
   name: 'app',
   components: {
@@ -33,7 +34,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
   @import '~cvux/src/styles/reset';
   body {
     background-color: #fbf9fe;

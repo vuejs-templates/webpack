@@ -57,3 +57,10 @@ You can fork this repo to create your own boilerplate, and use it with `vue-cli`
 ``` bash
 vue init username/repo my-project
 ```
+### 车安家 vue-webpack 框架模板
+
+执行下面的命令, 可以生成车安家的框架
+
+``` bash
+vue init cheanjia/webpack zsxxx-frontend
+```
