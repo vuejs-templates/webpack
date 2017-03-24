@@ -24,6 +24,7 @@ module.exports = {
       {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
       {{/if_eq}}
+      '@cvux': 'cvux/src/component',
       '@': resolve('src'),
     }
   },
@@ -45,6 +46,7 @@ module.exports = {
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
+      utils.getCvuxLoader(resolve('./')),
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -55,7 +57,7 @@ module.exports = {
         loader: 'url-loader',
         query: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('images/[name].[hash:7].[ext]')
         }
       },
       {

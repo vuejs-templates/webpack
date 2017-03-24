@@ -1,4 +1,5 @@
 var path = require('path')
+var fs = require('fs')
 var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
@@ -69,3 +70,43 @@ exports.styleLoaders = function (options) {
   }
   return output
 }
+// S custom
+// cvux loader
+exports.getCvuxLoader = function (projectRoot, name) {
+  name = name || 'cvux'
+  if (!projectRoot) {
+    projectRoot = path.resolve(__dirname, '../../../')
+    if (/\.npm/.test(projectRoot)) {
+      projectRoot = path.resolve(projectRoot, '../../../')
+    }
+  }
+
+  // https://github.com/webpack/webpack/issues/1643
+  const componentPath = fs.realpathSync(projectRoot + `/node_modules/${name}/`)
+  const regex = new RegExp(`node_modules.${name}.src.*?js$`)
+  var rule =  {
+    test: regex,
+    loader: 'babel-loader',
+    include: componentPath
+  }
+  return rule
+}
+
+// 生成字符替换加载器
+exports.replaceLoaders = function (options) {
+  var replaceList = options.replaceList;
+  return replaceList.map(function (v) {
+    return {
+      test: /\.(js|vue)$/,
+      loader: 'regexp-replace-loader',
+      query: {
+        match: {
+          pattern: v.pattern,
+          flags: v.flags || 'g'
+        },
+        replaceWith: v.replaceWith
+      }
+    }
+  })
+}
+// E custom

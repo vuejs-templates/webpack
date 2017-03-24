@@ -1,0 +1,129 @@
+@import "../../base/fn";
+.icon-dm {
+  position: absolute;
+  right: 30/@w2;
+  top: 30/@w2;
+  z-index: 9999;
+  img {
+    width: 110/@w2;
+    height: 110/@w2;
+    border-radius: 50%;
+  }
+}
+
+.store-info {
+  background: url(../../images/storefront-info.jpg) no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 312/@w2;
+  overflow: hidden;
+  box-sizing: border-box;
+  .store-name {
+    padding: 20/@w2 30/@w2 0 30/@w2;
+    box-sizing: border-box;
+    p.info {
+      color: @white;
+      opacity: 0.7;
+      line-height: 40/@w2;
+    }
+    a {
+      width: 60/@w2;
+      height: 60/@w2;
+      display: inline-block;
+      background: url(../../images/zs-2-icon.png) no-repeat;
+      background-size: 400/@w2 400/@w2;
+    }
+    .phone-a {
+      background-position: -320/@w2 -65/@w2;
+    }
+    .address-a {
+      background-position: -320/@w2 0;
+    }
+    em {
+      width: 1px;
+      height: 50/@w2;
+      display: inline-block;
+      background: #9daccc;
+      vertical-align: top;
+      margin: 5/@w2 10/@w2 0 10/@w2;
+    }
+  }
+}
+
+.featured-activities {
+  padding: 50/@w2 15/@w2 0 15/@w2;
+  h4 {
+    text-align: center;
+    position: relative;
+    height: 30/@w2;
+    line-height: 30/@w2;
+    img {
+      width: 291/@w2;
+      height: 30/@w2;
+      overflow: hidden;
+    }
+    span {
+      position: absolute;
+      left: 50%;
+      margin-left: -24/@w2;
+    }
+  }
+  .featured-activities-list {
+    padding-top: 20/@w2;
+    font-size: 0;
+    overflow: hidden;
+    li {
+      margin-bottom: 20/@w2;
+      a {
+        display: block;
+      }
+    }
+  }
+}
+
+
+/* tabbar */
+
+.tabbar {
+  position: inherit;
+  background: initial;
+  .weui_tabbar_icon {
+    width: 150/@w2;
+    height: 150/@w2;
+  }
+  .icon {
+    width: 150/@w2;
+    height: 150/@w2;
+    line-height: 150/@w2;
+    background: url(../../images/index-btn.png) no-repeat;
+    background-size: contain;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    i {
+      width: 60/@w2;
+      height: 60/@w2;
+      background: url(../../images/zs-2-icon.png) no-repeat;
+      background-size: 400/@w2 400/@w2;
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -30/@w2;
+      margin-top: -28/@w2;
+    }
+    .icon-yxyy {
+      background-position: -320/@w2 -140/@w2;
+    }
+    .icon-cxxj {
+      background-position: -320/@w2 -202/@w2;
+    }
+    .icon-grzx {
+      background-position: -320/@w2 -274/@w2;
+    }
+  }
+  .label {
+    color: #000000;
+    font-size: 15/@w;
+  }
+}
