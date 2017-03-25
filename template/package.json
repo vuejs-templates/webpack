@@ -77,9 +77,6 @@
     "karma-sinon-chai": "^1.2.4",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
-    {{#if_eq compiler "typescript"}}
-    "karma-typescript": "^2.1.7",
-    {{/if_eq}}
     "karma-webpack": "^2.0.2",
     "lolex": "^1.5.2",
     "mocha": "^3.2.0",
