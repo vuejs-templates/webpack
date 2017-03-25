@@ -19,6 +19,13 @@
     "vue-router": "^2.2.0"{{/router}}
   },
   "devDependencies": {
+    {{#if_eq compiler "typescript"}}
+    {{#if_or unit e2e}}
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^6.0.10",
+    "@types/sinon-chai": "^2.7.27",
+    {{/if_or}}
+    {{/if_eq}}
     "autoprefixer": "^6.7.2",
     {{#if_eq compiler "typescript"}}
     "awesome-typescript-loader": "^3.1.2",
@@ -70,6 +77,9 @@
     "karma-sinon-chai": "^1.2.4",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
+    {{#if_eq compiler "typescript"}}
+    "karma-typescript": "^2.1.7",
+    {{/if_eq}}
     "karma-webpack": "^2.0.2",
     "lolex": "^1.5.2",
     "mocha": "^3.2.0",

@@ -2,6 +2,9 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueTemplateLoaderConfig = require('./vue-template-loader.conf')
+{{#if_eq compiler "typescript"}}
+var TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
+{{/if_eq}}
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -25,7 +28,11 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       {{/if_eq}}
       '@': resolve('src'),
-    }
+    }{{#if_eq compiler "typescript"}},
+    plugins: [
+      new TsConfigPathsPlugin()
+    ]
+    {{/if_eq}}
   },
   module: {
     rules: [

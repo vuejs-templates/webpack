@@ -109,6 +109,9 @@ module.exports = {
     "src/**/*.js": "compiler != 'typescript'",
     "config/test.env.js": "unit || e2e",
     "test/unit/**/*": "unit",
+    "test/unit/**/!(karma.conf).js": "unit && compiler != 'typescript'",
+    "test/unit/**/*.ts": "unit && compiler == 'typescript'",
+    "test/unit/.tslint.json": "tslint && compiler == 'typescript'",
     "build/webpack.test.conf.js": "unit",
     "test/e2e/**/*": "e2e",
     "src/router/**/*": "router"
