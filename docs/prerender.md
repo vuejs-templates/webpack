@@ -29,3 +29,11 @@ new PrerenderSpaPlugin(
 ```
 
 If you also wanted to prerender `/about` and `/contact`, then that array would be `[ '/', '/about', '/contact' ]`.
+
+4. Enable history mode for `vue-router`:
+```js
+const router = new VueRouter({
+  mode: 'history',
+  routes: [...]
+})
+```
