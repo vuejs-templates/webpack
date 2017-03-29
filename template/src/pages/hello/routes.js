@@ -1,7 +1,7 @@
 /**
  * 页面内路由定义
  */
-const hello = resolve => require(['./hello'], resolve);
+const hello = resolve => require(['./hello'], resolve)
 
 export default [
     {

@@ -8,7 +8,7 @@
     .btn {
         display: inline-block;
         border: 1px solid #ddd;
-        padding: 5px 10px;
+        padding: 0.5rem 1rem;
         color: #333;
         background-color: #eee;
         cursor: pointer;
