@@ -6,6 +6,10 @@ jdk:
 env:
   - NODE_VERSION=6
 
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y expect
+
 install:
   - nvm install $NODE_VERSION
   - npm install

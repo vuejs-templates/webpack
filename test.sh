@@ -1,9 +1,16 @@
+#!/usr/bin/env bash
+
 set -e
 
-yes "" | ./node_modules/.bin/vue init . test
+cd tests
 
-cd test
-npm install
-npm run lint
-npm test
-npm run build
+for f in *.sh; do
+  filename=$(basename "$f")
+  testname="${filename%.*}"
+
+  source "$f" "$testname"
+done
+
+cd ..
+
+
