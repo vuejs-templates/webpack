@@ -8,6 +8,23 @@
 standard .js/.ts components using external .css and .html files. Developer still benefit of Hot Module Reload and 
 scoped CSS though.
 
+## Why using this fork ?
+
+You should really consider using this fork if ...
+
+- You have issues with `.vue` files in your favorite code editor.
+- You want to stick to pure `.js`/`.ts` files for some reason.
+- You don't want to put HTML, CSS & Script in a single file.
+
+If you want to use `.vue` [Single Files Components](https://vuejs.org/v2/guide/single-file-components.html), forget 
+about this fork and try the [official webpack template](https://github.com/vuejs-templates/webpack).
+
+## Known issues with `.vue` files and TypeScript
+
+- Intellij IDEA (and probably others) can't resolve TypeScript modules coming from `.vue` files, making navigation in a vue project really 
+painfull.
+- [tslint doesn't support `.vue` files](https://github.com/palantir/tslint/issues/2099).
+
 ## Documentation
 
 - [For this template](http://toilal.github.io/vue-webpack-template): common questions specific to this template are answered and each part is described in greater detail
