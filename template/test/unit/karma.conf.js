@@ -13,7 +13,7 @@ module.exports = function (config) {
     // 2. add it to the `browsers` array below.
     browsers: ['PhantomJS'],
     frameworks: ['mocha', 'sinon-chai'],
-    reporters: ['spec', 'coverage'],
+    reporters: ['spec', 'coverage', 'remap-coverage'],
     files: ['./index.{{#if_eq compiler "typescript"}}ts{{else}}js{{/if_eq}}'],
     preprocessors: {
       './index.{{#if_eq compiler "typescript"}}ts{{else}}js{{/if_eq}}': ['webpack', 'sourcemap']
@@ -23,11 +23,12 @@ module.exports = function (config) {
       noInfo: true{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
     },
     coverageReporter: {
-      dir: './coverage',
-      reporters: [
-        { type: 'lcov', subdir: '.' },
-        { type: 'text-summary' }{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
-      ]
+      type: 'in-memory'{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
+    },
+    remapCoverageReporter: {
+      'text-summary': null,
+      lcov: './test/unit/coverage/lcov',
+      html: './test/unit/coverage/html'{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
     }{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
   }){{#if_eq eslintConfig "airbnb"}};{{/if_eq}}
 }{{#if_eq eslintConfig "airbnb"}};{{/if_eq}}
