@@ -3,7 +3,7 @@ import Component from "vue-class-component";
 import WithRender from "./App.html?style=./App.css";
 {{#unless router}}
 
-import Hello from "./components/Hello";
+import Hello from "./components/Hello.vue";
 {{/unless}}
 
 @WithRender

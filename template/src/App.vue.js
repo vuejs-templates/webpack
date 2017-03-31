@@ -1,7 +1,7 @@
 import withRender from './App.html?style=./App.css'
 
 {{#unless router}}
-import Hello from './components/Hello'{{#if_eq eslintConfig "airbnb"}};{{/if_eq}}
+import Hello from './components/Hello.vue'{{#if_eq eslintConfig "airbnb"}};{{/if_eq}}
 
 {{/unless}}
 export default withRender({
