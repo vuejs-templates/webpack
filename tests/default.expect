@@ -22,5 +22,5 @@ send "\n"
 expect "Setup unit tests with Karma + Mocha?"
 send "\n"
 expect "Setup e2e tests with Nightwatch?"
-send "\n"
+send "n\n"
 expect eof
