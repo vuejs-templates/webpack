@@ -9,16 +9,15 @@ let domain = {
     // shareDomain: protocol + "m.tcy365.com/"
 };
 let interFace = {
-
     // test: "/api/test/xxxx",
 };
-
 if (!base.isLocal) {
     if (base.isTest) {
         //TODO
-    } else {
+    } else if (base.isPre) {
         //TODO
     }
+} else {
+    domain.main = "";
 }
-
 export {domain, interFace}

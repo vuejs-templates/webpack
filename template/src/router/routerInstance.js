@@ -1,10 +1,10 @@
 import VueRouter from 'vue-router'
-import routerConf from './router'
-import {SystemEvent, MSG} from '../events/systemEvent'
+import routerConf from "./router"
+import {eventBus, eventMsg} from "../events/systemEvent"
 const routes = [
     {
         path: routerConf.root,
-        component (resolve) {
+        component(resolve){
             // require(['components/active1'], resolve)
         }
     }
@@ -15,11 +15,11 @@ const router = new VueRouter({
     transitionOnLoad: false
 });
 router.beforeEach((to, from, next) => {
-    SystemEvent.emit(MSG.ROUTER_BEFORE);
+    eventBus.$emit(eventMsg.ROUTER_BEFORE, to, from);
     setTimeout(next, 200);
 });
 router.afterEach(() => {
-    console.log('完成');
-    SystemEvent.emit(MSG.ROUTER_AFTER);
+    console.log("完成");
+    eventBus.$emit(eventMsg.ROUTER_AFTER);
 });
 export default router;
