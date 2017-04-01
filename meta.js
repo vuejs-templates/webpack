@@ -4,7 +4,6 @@ module.exports = {
             if (v1 || v2) {
                 return options.fn(this);
             }
-
             return options.inverse(this);
         }
     },
@@ -18,6 +17,16 @@ module.exports = {
             "type": "string",
             "required": false,
             "message": "Project description",
+            "default": ""
+        },
+        "ProjectType": {
+            "type": "confirm",
+            "message": "Depend app project?"
+        },
+        "assetsPath": {
+            "type": "string",
+            "required": false,
+            "message": "Project assets directory",
             "default": ""
         },
         "author": {
@@ -40,7 +49,9 @@ module.exports = {
     "filters": {
         ".eslintrc.js": "lint",
         ".eslintignore": "lint",
-        "src/router/**/*": "router"
+        "src/router/**/*": "router",
+        "src/view": "router",
+        "src/plugins/appInterface/*": "ProjectType"
     },
     "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://github.com/ct-fed/ctyapp_h5build"
 };
