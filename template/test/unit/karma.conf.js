@@ -27,8 +27,8 @@ module.exports = function (config) {
     },
     remapCoverageReporter: {
       'text-summary': null,
-      lcov: './test/unit/coverage/lcov',
-      html: './test/unit/coverage/html'{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
+      lcovonly: './test/unit/coverage/lcov.info',
+      html: './test/unit/coverage/lcov-report'{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
     }{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
   }){{#if_eq eslintConfig "airbnb"}};{{/if_eq}}
 }{{#if_eq eslintConfig "airbnb"}};{{/if_eq}}
