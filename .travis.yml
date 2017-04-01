@@ -1,7 +1,21 @@
+sudo: required
+
+dist: trusty
+
 language: java
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 
 jdk:
   - oraclejdk8
+
+node_js:
+  - 6
 
 env:
   - NODE_VERSION=6
