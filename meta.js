@@ -91,6 +91,28 @@ module.exports = {
       "type": "confirm",
       "message": "Use TSLint to lint your TypeScript code?"
     },
+    "tslintConfig": {
+      "when": "tslint",
+      "type": "list",
+      "message": "Pick a TSLint preset",
+      "choices": [
+        {
+          "name": "Standard (https://github.com/blakeembrey/tslint-config-standard)",
+          "value": "standard",
+          "short": "Standard"
+        },
+        {
+          "name": "AirBNB (https://github.com/progre/tslint-config-airbnb)",
+          "value": "airbnb",
+          "short": "AirBNB"
+        },
+        {
+          "name": "none (configure it yourself)",
+          "value": "none",
+          "short": "none"
+        }
+      ]
+    },
     "unit": {
       "type": "confirm",
       "message": "Setup unit tests with Karma + Mocha?"
@@ -103,7 +125,7 @@ module.exports = {
   "filters": {
     ".eslintrc.js": "eslint",
     ".eslintignore": "eslint",
-    ".tslint.json": "tslint",
+    "tslint.json": "tslint",
     "tsconfig.json": "compiler == 'typescript'",
     "src/**/*.ts": "compiler == 'typescript'",
     "src/**/*.js": "compiler != 'typescript'",

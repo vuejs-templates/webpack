@@ -52,7 +52,11 @@ module.exports = {
         test: /\.ts$/,
         enforce: 'pre',
         loader: 'tslint-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('test')],
+        options: {
+          formatter: 'grouped',
+          formattersDirectory: 'node_modules/custom-tslint-formatters/formatters'
+        }
       },
       {{/tslint}}
       {

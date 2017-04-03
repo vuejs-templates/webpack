@@ -1,8 +1,0 @@
-{
-    "extends": "tslint:recommended",
-    "rules": {
-      "member-access": false,
-      "object-literal-sort-keys": false,
-      "trailing-comma": false
-    }
-}

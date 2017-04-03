@@ -1,8 +1,15 @@
 {
-    "extends": "tslint:recommended",
+{{#if_eq tslintConfig "none"}}
+    "rules": {}
+{{/if_eq}}
+{{#if_eq tslintConfig "standard"}}
+    "extends": "tslint-config-standard",
+    "rules": {}
+{{/if_eq}}
+{{#if_eq tslintConfig "airbnb"}}
+    "extends": "tslint-config-airbnb",
     "rules": {
-      "member-access": false,
-      "object-literal-sort-keys": false,
-      "trailing-comma": false
+      "import-name": false
     }
+{{/if_eq}}
 }
