@@ -12,3 +12,6 @@ Component.registerHooks([
   'beforeRouteUpdate'{{#if_eq tslintConfig "airbnb"}},{{/if_eq}}
 ]){{#if_eq tslintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
+
+// Workaround for https://github.com/babel/babel-loader/issues/188
+export default undefined{{#if_eq tslintConfig "airbnb"}};{{/if_eq}}
