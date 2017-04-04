@@ -11,7 +11,7 @@
     "e2e": "node test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#eslint}},
     "eslint": "eslint --ext .js src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/eslint}}{{#tslint}},
-    "tslint": "tslint -s node_modules/custom-tslint-formatters/formatters -t grouped src/**/*.ts{{#unit}} test/unit/**/*.ts{{/unit}}{{#e2e}} test/e2e/*.ts{{/e2e}}"{{/tslint}}
+    "tslint": "tslint -s node_modules/custom-tslint-formatters/formatters -t grouped 'src/**/*.ts'{{#unit}} 'test/unit/**/*.ts'{{/unit}}{{#e2e}} 'test/e2e/*.ts'{{/e2e}}"{{/tslint}}
   },
   "dependencies": {
     "vue": "^2.2.2"{{#if_eq compiler "typescript"}},
