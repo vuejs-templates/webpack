@@ -11,5 +11,4 @@ import Hello from './components/Hello.vue'{{#if_eq tslintConfig "airbnb"}};{{/if
   components: { Hello }{{#if_eq tslintConfig "airbnb"}},{{/if_eq}}
 }){{/unless}}
 export default class App extends Vue {
-  name = 'app'{{#if_eq tslintConfig "airbnb"}};{{/if_eq}}
 }
