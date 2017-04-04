@@ -54,6 +54,11 @@ module.exports = {
       "message": "Pick an ESLint preset",
       "choices": [
         {
+          "name": "Vue (https://github.com/vuejs/eslint-config-vue)",
+          "value": "vue",
+          "short": "Vue"
+        },
+        {
           "name": "Standard (https://github.com/feross/standard)",
           "value": "standard",
           "short": "Standard"
