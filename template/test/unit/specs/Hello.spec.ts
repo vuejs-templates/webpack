@@ -2,7 +2,7 @@ import Vue from 'vue'{{#if_eq eslintConfig 'airbnb'}};{{/if_eq}}
 
 import { expect } from 'chai'{{#if_eq eslintConfig 'airbnb'}};{{/if_eq}}
 
-import Hello from '@/components/Hello.vue'{{#if_eq eslintConfig 'airbnb'}};{{/if_eq}}
+import Hello from 'components/Hello.vue'{{#if_eq eslintConfig 'airbnb'}};{{/if_eq}}
 
 describe('Hello component', () => {
   it('should render correct contents', () => {

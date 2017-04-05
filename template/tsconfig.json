@@ -2,8 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@": ["./src"],
-      "@*": ["./src/*"]
+      "*": ["src/*"]
     },
     "experimentalDecorators": true,
     "target": "es6",
