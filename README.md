@@ -79,7 +79,7 @@
 ```
 
 
-##使用
+## 使用
 
 假设你已经安装了 `vue-cli2.0`并按照项目规范来生成项目目录了。
 
@@ -87,7 +87,7 @@
 
 ![image](https://github.com/ct-fed/ctyapp_h5build/blob/master/assets/vue-cli.gif)
 
-##命令
+## 命令
 
 **本地**
 
@@ -113,15 +113,15 @@ npm run build
 npm run zip
 ```
 
-##数据mock说明
+## 数据mock说明
 
 本地web服务是基于express搭建的。并通过中间件的形式模拟了后端的接口，无需等待后端接口的完成。具体接口的数据返回定义在`mock`目录下的`define.js`中定义，其他无需关心。如果后端接口已经完成，需要在本地联调后端接口。其`server`有提供了代理功能，可以解决跨域问题。只需要在`define.js`中配置`isProxy`为`true||false`即可。
 
-##log说明
+## log说明
 
 1、由于移动调试比较麻烦，内置了`vconsole`。此插件只集成在测试环境中，方便快速的查看代码中的log。
 2、正式环境不希望log显示，所以代码中做了拦截，对log进行了重写。如果正式环境想要查看，可通过当前的`url?debug=1`的方式来开启log。
 
-##组件说明
+## 组件说明
 
 业务中的公共组件放在`components`目录中。路由组件放在`view`目录中
