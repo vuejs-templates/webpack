@@ -1,0 +1,15 @@
+{
+{{#if_eq tslintConfig "none"}}
+    "rules": {}
+{{/if_eq}}
+{{#if_eq tslintConfig "standard"}}
+    "extends": "tslint-config-standard",
+    "rules": {}
+{{/if_eq}}
+{{#if_eq tslintConfig "airbnb"}}
+    "extends": "tslint-config-airbnb",
+    "rules": {
+      "import-name": false
+    }
+{{/if_eq}}
+}

@@ -1,7 +1,7 @@
 var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
-var vueLoaderConfig = require('./vue-loader.conf')
+var vueTemplateLoaderConfig = require('./vue-template-loader.conf')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.{{#if_eq compiler "typescript"}}ts{{else}}js{{/if_eq}}'
   },
   output: {
     path: config.build.assetsRoot,
@@ -19,19 +19,22 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', {{#if_eq compiler "typescript"}}'.ts', {{/if_eq}}'.json'],
     alias: {
       {{#if_eq build "standalone"}}
-      'vue$': 'vue/dist/vue.esm.js',
+      'vue$': 'vue/dist/vue.esm.js'
       {{/if_eq}}
-      '@': resolve('src')
-    }
+    },
+    modules: [
+      resolve('src'),
+      "node_modules"
+    ]
   },
   module: {
     rules: [
-      {{#lint}}
+      {{#eslint}}
       {
-        test: /\.(js|vue)$/,
+        test: /\.js$/,
         loader: 'eslint-loader',
         enforce: 'pre',
         include: [resolve('src'), resolve('test')],
@@ -39,17 +42,41 @@ module.exports = {
           formatter: require('eslint-friendly-formatter')
         }
       },
-      {{/lint}}
+      {{/eslint}}
+      {{#tslint}}
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
+        test: /\.ts$/,
+        enforce: 'pre',
+        loader: 'tslint-loader',
+        include: [resolve('src'), resolve('test')],
+        options: {
+          formatter: 'grouped',
+          formattersDirectory: 'node_modules/custom-tslint-formatters/formatters'
+        }
+      },
+      {{/tslint}}
+      {
+        test: /\.html$/,
+        loader: 'vue-template-loader',
+        exclude: resolve('index.html'),
+        options: vueTemplateLoaderConfig
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
       },
+      {{#if_eq compiler "typescript"}}
+      {
+        test: /\.ts$/,
+        loader: 'awesome-typescript-loader',
+        options: {
+          useBabel: true,
+          useCache: true
+        },
+        include: [resolve('src'), resolve('test')]
+      },
+      {{/if_eq}}
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',

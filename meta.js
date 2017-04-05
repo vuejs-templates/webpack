@@ -44,12 +44,28 @@ module.exports = {
       "type": "confirm",
       "message": "Install vue-router?"
     },
-    "lint": {
-      "type": "confirm",
-      "message": "Use ESLint to lint your code?"
+    "compiler": {
+      "type": "list",
+      "message": "Which language do you want to use?",
+      "choices": [
+        {
+          "name": "TypeScript (awesome-typescript-loader + babel + vue-class-component)",
+          "value": "typescript",
+          "short": "typescript"
+        },
+        {
+          "name": "ES2015 (babel)",
+          "value": "es2015",
+          "short": "es2015"
+        },
+      ]
     },
-    "lintConfig": {
-      "when": "lint",
+    "eslint": {
+      "type": "confirm",
+      "message": "Use ESLint to lint your JavaScript code?"
+    },
+    "eslintConfig": {
+      "when": "eslint",
       "type": "list",
       "message": "Pick an ESLint preset",
       "choices": [
@@ -70,6 +86,33 @@ module.exports = {
         }
       ]
     },
+    "tslint": {
+      "when": "compiler == 'typescript'",
+      "type": "confirm",
+      "message": "Use TSLint to lint your TypeScript code?"
+    },
+    "tslintConfig": {
+      "when": "tslint",
+      "type": "list",
+      "message": "Pick a TSLint preset",
+      "choices": [
+        {
+          "name": "Standard (https://github.com/blakeembrey/tslint-config-standard)",
+          "value": "standard",
+          "short": "Standard"
+        },
+        {
+          "name": "AirBNB (https://github.com/progre/tslint-config-airbnb)",
+          "value": "airbnb",
+          "short": "AirBNB"
+        },
+        {
+          "name": "none (configure it yourself)",
+          "value": "none",
+          "short": "none"
+        }
+      ]
+    },
     "unit": {
       "type": "confirm",
       "message": "Setup unit tests with Karma + Mocha?"
@@ -80,10 +123,17 @@ module.exports = {
     }
   },
   "filters": {
-    ".eslintrc.js": "lint",
-    ".eslintignore": "lint",
+    ".eslintrc.js": "eslint",
+    ".eslintignore": "eslint",
+    "tslint.json": "tslint",
+    "tsconfig.json": "compiler == 'typescript'",
+    "src/**/*.ts": "compiler == 'typescript'",
+    "src/**/*.js": "compiler != 'typescript'",
     "config/test.env.js": "unit || e2e",
     "test/unit/**/*": "unit",
+    "test/unit/**/!(karma.conf).js": "unit && compiler != 'typescript'",
+    "test/unit/**/*.ts": "unit && compiler == 'typescript'",
+    "test/unit/.tslint.json": "tslint && compiler == 'typescript'",
     "build/webpack.test.conf.js": "unit",
     "test/e2e/**/*": "e2e",
     "src/router/**/*": "router"

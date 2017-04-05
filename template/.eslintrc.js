@@ -9,18 +9,18 @@ module.exports = {
   env: {
     browser: true,
   },
-  {{#if_eq lintConfig "standard"}}
+  {{#if_eq eslintConfig "standard"}}
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
   {{/if_eq}}
-  {{#if_eq lintConfig "airbnb"}}
+  {{#if_eq eslintConfig "airbnb"}}
   extends: 'airbnb-base',
   {{/if_eq}}
   // required to lint *.vue files
   plugins: [
     'html'
   ],
-  {{#if_eq lintConfig "airbnb"}}
+  {{#if_eq eslintConfig "airbnb"}}
   // check if imports actually resolve
   'settings': {
     'import/resolver': {
@@ -32,17 +32,17 @@ module.exports = {
   {{/if_eq}}
   // add your custom rules here
   'rules': {
-    {{#if_eq lintConfig "standard"}}
+    {{#if_eq eslintConfig "standard"}}
     // allow paren-less arrow functions
     'arrow-parens': 0,
     // allow async-await
     'generator-star-spacing': 0,
     {{/if_eq}}
-    {{#if_eq lintConfig "airbnb"}}
+    {{#if_eq eslintConfig "airbnb"}}
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       'js': 'never',
-      'vue': 'never'
+      'html': 'never'
     }],
     // allow optionalDependencies
     'import/no-extraneous-dependencies': ['error', {

@@ -1,0 +1,39 @@
+sudo: required
+
+dist: trusty
+
+language: java
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+jdk:
+  - oraclejdk8
+
+node_js:
+  - 6
+
+env:
+  - NODE_VERSION=6
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y expect
+
+install:
+  - nvm install $NODE_VERSION
+  - npm install
+
+# https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+
+script:
+  - nvm use $NODE_VERSION
+  - bash test.sh

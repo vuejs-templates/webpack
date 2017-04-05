@@ -1,12 +1,33 @@
-# vue-webpack-boilerplate
+# vue-webpack-template [![Build Status](https://travis-ci.org/Toilal/vue-webpack-template.svg?branch=master)](https://travis-ci.org/Toilal/vue-webpack-template)
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 
-> This template is Vue 2.0 compatible. For Vue 1.x use this command: `vue init webpack#1.0 my-project`
+> This template is Vue 2.0 compatible.
+
+> This is a fork of official webpack template. It adds a TypeScript option and replace .vue component files with 
+standard .js/.ts components using external .css and .html files. Developer still benefit of Hot Module Reload and 
+scoped CSS though.
+
+## Why using this fork ?
+
+You should really consider using this fork if ...
+
+- You have issues with `.vue` files in your favorite code editor.
+- You want to stick to pure `.js`/`.ts` files for some reason.
+- You don't want to put HTML, CSS & Script in a single file.
+
+If you want to use `.vue` [Single Files Components](https://vuejs.org/v2/guide/single-file-components.html), forget 
+about this fork and try the [official webpack template](https://github.com/vuejs-templates/webpack).
+
+## Known issues with `.vue` files and TypeScript
+
+- Intellij IDEA (and probably others) can't resolve TypeScript modules coming from `.vue` files, making navigation in a vue project really 
+painfull.
+- [tslint doesn't support `.vue` files](https://github.com/palantir/tslint/issues/2099).
 
 ## Documentation
 
-- [For this template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
+- [For this template](http://toilal.github.io/vue-webpack-template): common questions specific to this template are answered and each part is described in greater detail
 - [For Vue 2.0](http://vuejs.org/guide/): general information about how to work with Vue, not specific to this template
 
 ## Usage
@@ -15,7 +36,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
+$ vue init Toilal/vue-webpack-template my-project
 $ cd my-project
 $ npm install
 $ npm run dev
@@ -26,7 +47,7 @@ If port 8080 is already in use on your machine you must change the port number i
 ## What's Included
 
 - `npm run dev`: first-in-class development experience.
-  - Webpack + `vue-loader` for single file Vue components.
+  - Webpack + `vue-template-loader` + `vue-hot-reload-loader` for Vue components.
   - State preserving hot-reload
   - State preserving compilation error overlay
   - Lint-on-save with ESLint

@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"]
+    },
+    "experimentalDecorators": true,
+    "target": "es6",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      {{#if_or unit e2e}}
+      "chai",
+      "mocha",
+      "node",
+      "sinon",
+      "sinon-chai",
+      {{/if_or}}
+      "vue"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "awesomeTypescriptLoaderOptions": {
+      "useBabel": true,
+      "useCache": true
+    }
+  }
+}
