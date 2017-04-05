@@ -1,7 +1,13 @@
 <template>
+  {{#ProjectType}}
   <div id="wrapper" v-if="isShow">
+    {{else}}
+    <div id="wrapper">
+    {{/ProjectType}}
     <h1>hello,world</h1>
+    {{#router}}
     <router-view></router-view>
+    {{/router}}
   </div>
 </template>
 
@@ -9,28 +15,34 @@
   import Vue from 'vue'
   import base from 'assets/js/common'
   import {SystemEvent, MSG} from './events/systemEvent'
-  import appInterFace from './util/appInterFace'
   export default {
     name: 'app',
     data () {
       return {
+      {{#ProjectType}}
         isShow: true
+      {{/ProjectType}}
       }
     },
     created () {
-      if (!base.isLocal) {
-        if (!appInterFace.isNetConnect()) {
-          this.isShow = false;
-          appInterFace.isWebHasError();
+      {{#ProjectType}}
+      if (base.isInSelfApp) {
+        this.$appInterface.setPageName("抢钱风暴");
+        if (!base.isLocal) {
+          if (!this.$appInterface.isNetConnect()) {
+            this.isShow = false;
+            this.$appInterface.isWebHasError();
+          }
         }
+        eventBus.$on(eventMsg.CONNECTERROT, ()=> {
+          console.log('connectError' + "报错信息");
+          this.isShow = false;
+          this.$appInterface.isWebHasError();
+        });
       }
+      {{/ProjectType}}
     },
     mounted () {
-      SystemEvent.on(MSG.CONNECTERROT, () => {
-        console.log('connectError' + '报错信息');
-        this.isShow = false;
-        appInterFace.isWebHasError();
-      });
     }
   }
 </script>
