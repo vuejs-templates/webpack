@@ -2,9 +2,6 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueTemplateLoaderConfig = require('./vue-template-loader.conf')
-{{#if_eq compiler "typescript"}}
-var TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
-{{/if_eq}}
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -25,14 +22,13 @@ module.exports = {
     extensions: ['.js', {{#if_eq compiler "typescript"}}'.ts', {{/if_eq}}'.json'],
     alias: {
       {{#if_eq build "standalone"}}
-      'vue$': 'vue/dist/vue.esm.js',
+      'vue$': 'vue/dist/vue.esm.js'
       {{/if_eq}}
-      '@': resolve('src')
-    }{{#if_eq compiler "typescript"}},
-    plugins: [
-      new TsConfigPathsPlugin()
+    },
+    modules: [
+      resolve('src'),
+      "node_modules"
     ]
-    {{/if_eq}}
   },
   module: {
     rules: [
@@ -73,14 +69,11 @@ module.exports = {
       {{#if_eq compiler "typescript"}}
       {
         test: /\.ts$/,
-        use: [
-          {
-            loader: 'babel-loader',
-          },
-          {
-            loader: 'awesome-typescript-loader'
-          }
-        ],
+        loader: 'awesome-typescript-loader',
+        options: {
+          useBabel: true,
+          useCache: true
+        },
         include: [resolve('src'), resolve('test')]
       },
       {{/if_eq}}

@@ -46,17 +46,17 @@ module.exports = {
     },
     "compiler": {
       "type": "list",
-      "message": "Which JavaScript compiler do you want to use?",
+      "message": "Which language do you want to use?",
       "choices": [
         {
-          "name": "TypeScript (awesome-typescript-loader + vue-class-component + babel)",
+          "name": "TypeScript (awesome-typescript-loader + babel + vue-class-component)",
           "value": "typescript",
           "short": "typescript"
         },
         {
           "name": "ES2015 (babel)",
-          "value": "babel",
-          "short": "babel"
+          "value": "es2015",
+          "short": "es2015"
         },
       ]
     },

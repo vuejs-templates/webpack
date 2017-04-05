@@ -1,4 +1,5 @@
 import Vue from 'vue'{{#if_eq tslintConfig "airbnb"}};{{/if_eq}}
+
 Vue.config.productionTip = false{{#if_eq tslintConfig "airbnb"}};{{/if_eq}}
 
 const crequire = (require as WebpackRequire){{#if_eq tslintConfig "airbnb"}};{{/if_eq}}
