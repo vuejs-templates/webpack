@@ -3,7 +3,7 @@
  * @author  stylehuan
  * @create  2016-12-05 11:38
  */
-import url from "util/url"
+import url from 'util/url'
 var base = {
     isTest: false,
     isLocal: false,
@@ -11,17 +11,17 @@ var base = {
     debug: false
 };
 if (location.port) {
-    if (location.port == "8080") {
+    if (location.port === '8080') {
         base.isLocal = true;
-    } else if (location.port == "1505") {
-        if (location.href.indexOf(".net") > -1 || location.href.indexOf(".com") > -1) {
+    } else if (location.port === '1505') {
+        if (location.href.indexOf('.net') > -1 || location.href.indexOf('.com') > -1) {
             base.isPre = true;
         } else {
             base.isTest = true;
         }
     }
 }
-if (base.isLocal || base.isTest || base.isPre || url.getLocationParam("debug")) {
+if (base.isLocal || base.isTest || base.isPre || url.getLocationParam('debug')) {
     base.debug = true;
 }
 var empty = function () {
@@ -35,6 +35,6 @@ if (!base.debug) {
 {{#ProjectType}}
 base.isInSelfApp = false;
 {{/ProjectType}}
-base.isInWX = navigator.userAgent.toLowerCase().indexOf("micromessenger") != -1;//是否在微信
+base.isInWX = navigator.userAgent.toLowerCase().indexOf('micromessenger') != -1;//是否在微信
 base.isIos = !!navigator.appVersion.match(/(iphone|ipad|ipod)/gi);
 export default base;
