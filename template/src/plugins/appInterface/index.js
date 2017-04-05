@@ -3,15 +3,15 @@
  * @author  stylehuan
  * @create  2017-03-14 15:06
  */
-import base from "assets/js/common";
-import mockHeaders from "../../../mock/headers";
+import base from 'assets/js/common';
+import mockHeaders from '../../../mock/headers';
 let _coreBridge = function (method) {
     var len = arguments.length;
     let paramsArray = [];
     //没参数的
     if (len == 1) {
         try {
-            console.log("app接口:" + method);
+            console.log('app接口:' + method);
             return HtmlInterface[method]();
         } catch (e) {
             console.log(e);
@@ -22,7 +22,7 @@ let _coreBridge = function (method) {
         paramsArray[i] = arguments[i + 1];
     }
     try {
-        console.log("app接口:" + method + "参数" + paramsArray);
+        console.log('app接口:' + method + '参数' + paramsArray);
         return (i = window.HtmlInterface)[method].apply(i, paramsArray)
     } catch (e) {
         console.log('---error---:' + e);
@@ -97,10 +97,10 @@ export default {
                 window.share = function (result) {
                     var code = -1;
                     switch (result) {
-                        case "分享成功":
+                      case '分享成功':
                             code = 1;
                             break;
-                        case "分享失败":
+                        case '分享失败':
                             code = 2;
                             break;
                         default:
@@ -138,7 +138,7 @@ export default {
                 _coreBridge('openAccountSafeActivity')
             },
             isWebHasError: function (isError, url) {
-                isError = typeof isError === "undefined" ? true : isError;
+                isError = typeof isError === 'undefined' ? true : isError;
                 url = url || location.href;
                 _coreBridge('isWebHasError', isError, url)
             },
