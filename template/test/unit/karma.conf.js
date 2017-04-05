@@ -25,6 +25,18 @@ module.exports = function (config) {
     coverageReporter: {
       type: 'in-memory'{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
     },
+    {{#if_eq compiler "es2015"}}
+    remapOptions: {
+      warn: function(warn) { // Disable remap warnings (when no sourcemap is found)
+        if (typeof warn !== "string") {
+          warn = warn.toString();
+        }
+        if (warn.indexOf("Could not find source map for") === -1) {
+          console.warn.apply(this, arguments)
+        }
+      }
+    },
+    {{/if_eq}}
     remapCoverageReporter: {
       'text-summary': null,
       lcovonly: './test/unit/coverage/lcov.info',
