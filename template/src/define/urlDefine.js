@@ -3,8 +3,8 @@
  * @author  stylehuan
  * @create  2016-12-14 13:15
  */
-import base from "assets/js/common";
-let protocol = "http://";
+import base from 'assets/js/common';
+let protocol = 'http://';
 let domain = {
     // shareDomain: protocol + "m.tcy365.com/"
 };
@@ -18,6 +18,6 @@ if (!base.isLocal) {
         //TODO
     }
 } else {
-    domain.main = "";
+    domain.main = '';
 }
 export {domain, interFace}
