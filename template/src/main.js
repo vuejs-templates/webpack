@@ -48,7 +48,6 @@ Vue.config.errorHandler = function (err, vm) {
 };
 
 {{#router}}
-eventBus.$on(eventMsg.ROUTER_BEFORE, (to, from)=> {
 eventBus.$on(eventMsg.ROUTER_BEFORE, (to, from) => {
     Vue.$bee.loading.show();
 });
