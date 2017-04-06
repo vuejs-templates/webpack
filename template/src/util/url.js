@@ -9,7 +9,7 @@ export default {
     },
     getLocationParam: function (param, url) {
         var _str = !url ? window.location.search : url;
-        if (_str == '') return '';
+        if (_str === '') return '';
         _str = _str.substr(_str.indexOf('?') + 1).toLowerCase();
         var _arr = _str.split('&');
         for (var i = 0; i < _arr.length; i++) {
@@ -47,7 +47,7 @@ export default {
         var _location = window.location;
         var _hash = _location.hash;
         var _href = '';
-        if (typeof _hash == 'undefined') {
+        if (typeof _hash === 'undefined') {
             _href = _location.href;
         } else {
             _href = _location.toString().replace(_hash, '')

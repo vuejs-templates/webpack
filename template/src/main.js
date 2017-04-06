@@ -1,20 +1,19 @@
-import "babel-polyfill";
-import Vue from "vue";
-import App from "./App";
-import fastclick from "fastclick";
-import throttle from "./util/throttle";
-import loading from "snail-loading";
 
+import 'babel-polyfill';
+import Vue from 'vue';
+import App from './App';
+import fastclick from 'fastclick';
+import throttle from './util/throttle';
 {{#ProjectType}}
-import axios from "axios";
+import axios from 'axios';
 {{/ProjectType}}
-import {eventBus, eventMsg} from "./events/systemEvent"
+import {eventBus, eventMsg} from './events/systemEvent'
 
 {{#router}}
-import VueRouter from "vue-router";
-import router from "./router/routerInstance";
+import VueRouter from 'vue-router';
+import router from './router/routerInstance';
 {{/router}}
-import base from "assets/js/common";
+import base from 'assets/js/common';
 
 {{#router}}
 Vue.use(VueRouter);
@@ -24,7 +23,7 @@ Vue.use(loading);
 
 fastclick.attach(document.body);
 //采用了节流函数
-window.addEventListener('scroll', throttle(()=>{
+window.addEventListener('scroll', throttle(() => {
 
 }, 200));
 
@@ -50,6 +49,7 @@ Vue.config.errorHandler = function (err, vm) {
 
 {{#router}}
 eventBus.$on(eventMsg.ROUTER_BEFORE, (to, from)=> {
+eventBus.$on(eventMsg.ROUTER_BEFORE, (to, from) => {
     Vue.$bee.loading.show();
 });
 eventBus.$on(eventMsg.ROUTER_AFTER, ()=> {
