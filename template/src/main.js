@@ -1,3 +1,4 @@
+
 import 'babel-polyfill';
 import Vue from 'vue';
 import App from './App';
@@ -18,6 +19,8 @@ import base from 'assets/js/common';
 Vue.use(VueRouter);
 {{/router}}
 
+Vue.use(loading);
+
 fastclick.attach(document.body);
 //采用了节流函数
 window.addEventListener('scroll', throttle(() => {
@@ -35,19 +38,24 @@ if (appInterFace.getHeaderInfo()) {
     } catch (e) {
         console.log(e)
     }
+    base.isInSelfApp = true;
+} else {
+    base.isInSelfApp = false;
 }
 {{/ProjectType}}
 Vue.config.errorHandler = function (err, vm) {
     console.log(err);
 };
 
-
+{{#router}}
+eventBus.$on(eventMsg.ROUTER_BEFORE, (to, from)=> {
 eventBus.$on(eventMsg.ROUTER_BEFORE, (to, from) => {
     Vue.$bee.loading.show();
 });
 eventBus.$on(eventMsg.ROUTER_AFTER, ()=> {
     Vue.$bee.loading.hide();
 });
+{{/router}}
 
 new Vue({
 {{#router}}
