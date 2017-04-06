@@ -72,7 +72,10 @@
     "postcss-plugin-px2rem": "^0.6.0",
     "express-http-proxy": "^0.11.0",
     "yargs": "^6.5.0",
-    "zip-local": "^0.3.4"
+    "zip-local": "^0.3.4",
+
+
+    "snail-loading":"^1.0.2"
   },
   "engines": {
     "node": ">= 4.0.0",
