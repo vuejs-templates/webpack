@@ -1,4 +1,4 @@
-# Handing Static Assets
+# Handling Static Assets
 
 You will notice in the project structure we have two directories for static assets: `src/assets` and `static/`. What is the difference between them?
 
