@@ -70,6 +70,10 @@ module.exports = {
         }
       ]
     },
+    "stylelint": {
+      "type": "confirm",
+      "message": "Use stylelint to lint your css?"
+    },
     "unit": {
       "type": "confirm",
       "message": "Setup unit tests with Karma + Mocha?"
