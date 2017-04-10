@@ -1,4 +1,3 @@
-{{#tpl_lang}}
 {{#if_eq templateLanguage "pug"}}
 <template lang="pug">
   div#app
@@ -22,7 +21,6 @@
   </div>
 </template>
 {{/if_eq}}
-{{/tpl_lang}}
 
 <script>
 {{#unless router}}

@@ -70,22 +70,17 @@ module.exports = {
         }
       ]
     },
-    "tpl_lang": {
-      "type": "confirm",
-      "message": "Change default template engine?"
-    },
     "templateLanguage": {
-      "when": "tpl_lang",
       "type": "list",
       "message": "Pick a Template engine",
       "choices": [
         {
-          "name": "html",
+          "name": "HTML",
           "value": "html",
-          "short": "html"
+          "short": "HTML"
         },
         {
-          "name": "pug (https://pugjs.org)",
+          "name": "Pug (https://pugjs.org)",
           "value": "pug",
           "short": "Pug"
         }
