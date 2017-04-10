@@ -70,6 +70,27 @@ module.exports = {
         }
       ]
     },
+    "tpl_lang": {
+      "type": "confirm",
+      "message": "Change default template engine?"
+    },
+    "templateLanguage": {
+      "when": "tpl_lang",
+      "type": "list",
+      "message": "Pick a Template engine",
+      "choices": [
+        {
+          "name": "html",
+          "value": "html",
+          "short": "html"
+        },
+        {
+          "name": "pug (https://pugjs.org)",
+          "value": "pug",
+          "short": "Pug"
+        }
+      ]
+    },
     "unit": {
       "type": "confirm",
       "message": "Setup unit tests with Karma + Mocha?"
@@ -77,10 +98,6 @@ module.exports = {
     "e2e": {
       "type": "confirm",
       "message": "Setup e2e tests with Nightwatch?"
-    },
-    "pug": {
-      "type": "confirm",
-      "message": "Use pug as template engine?"
     }
   },
   "filters": {

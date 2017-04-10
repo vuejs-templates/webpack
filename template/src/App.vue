@@ -1,3 +1,16 @@
+{{#tpl_lang}}
+{{#if_eq templateLanguage "pug"}}
+<template lang="pug">
+  div#app
+    img(src="./assets/logo.png")
+    {{#router}}
+    router-view
+    {{else}}
+    hello
+    {{/router}}
+</template>
+{{/if_eq}}
+{{#if_eq templateLanguage "html"}}
 <template>
   <div id="app">
     <img src="./assets/logo.png">
@@ -8,6 +21,8 @@
     {{/router}}
   </div>
 </template>
+{{/if_eq}}
+{{/tpl_lang}}
 
 <script>
 {{#unless router}}

@@ -10,8 +10,7 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run"{{/unit}}{{#e2e}},
     "e2e": "node test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#lint}},
-    "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}{{#pug}},
-    "pug": "pug -P -E vue -b ./src -w ./src"{{/pug}}
+    "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
   },
   "dependencies": {
     "vue": "^2.2.2"{{#router}},
@@ -48,6 +47,11 @@
     "eslint-plugin-import": "^2.2.0",
     {{/if_eq}}
     {{/lint}}
+    {{#tpl_lang}}
+    {{#if_eq templateLanguage "pug"}}
+    "pug": "^2.0.0-beta11",
+    {{/if_eq}}
+    {{/tpl_lang}}
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.1",
     "extract-text-webpack-plugin": "^2.0.0",
