@@ -95,7 +95,6 @@ detectPort(port, function (err, _port) {
   var server = app.listen(_port)
 })
 
-
 module.exports = {
   ready: readyPromise,
   close: () => {
