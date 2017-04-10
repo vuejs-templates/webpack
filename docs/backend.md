@@ -5,6 +5,7 @@ If you are building a purely-static app (one that is deployed separately from th
 Let's take a look at the default `config/index.js`:
 
 ``` js
+// config/index.js
 var path = require('path')
 
 module.exports = {
