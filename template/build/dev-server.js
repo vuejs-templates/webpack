@@ -10,6 +10,7 @@ var path = require('path')
 var express = require('express')
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
+var detectPort = require('detect-port')
 var webpackConfig = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
   : {{/if_or}}require('./webpack.dev.conf')
@@ -64,20 +65,40 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
-var uri = 'http://localhost:' + port
-
-devMiddleware.waitUntilValid(function () {
-  console.log('> Listening at ' + uri + '\n')
+// When default port is in use, find another available port and start the app on that port
+var _resolve
+var readyPromise = new Promise(resolve => {
+  _resolve = resolve
 })
 
-module.exports = app.listen(port, function (err) {
+detectPort(port, function (err, _port) {
   if (err) {
     console.log(err)
-    return
   }
 
-  // when env is testing, don't need open it
-  if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-    opn(uri)
+  if (port != _port) {
+    console.log(`port ${port} was occupied, trying port: ${_port}`);
   }
+  
+  var uri = 'http://localhost:' + _port
+
+  console.log('> Starting dev server...')
+  devMiddleware.waitUntilValid(() => {
+    console.log('> Listening at ' + uri + '\n')
+    // when env is testing, don't need open it
+    if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
+      opn(uri)
+    }
+    _resolve()
+  })
+
+  var server = app.listen(_port)
 })
+
+
+module.exports = {
+  ready: readyPromise,
+  close: () => {
+    server.close()
+  }
+}
