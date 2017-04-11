@@ -21,6 +21,7 @@ module.exports = {
         },
         "ProjectType": {
             "type": "confirm",
+            "required": false,
             "message": "Depend app project?"
         },
         "assetsPath": {
@@ -47,6 +48,7 @@ module.exports = {
         },
         "unit":{
             "type": "confirm",
+            "required": false,
             "message": "install karma?"
         }
     },
