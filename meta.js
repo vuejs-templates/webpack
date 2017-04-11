@@ -44,6 +44,10 @@ module.exports = {
         "lint": {
             "type": "confirm",
             "message": "Use ESLint to lint your code?"
+        },
+        "unit":{
+            "type": "confirm",
+            "message": "install karma?"
         }
     },
     "filters": {
