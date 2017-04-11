@@ -51,7 +51,9 @@ module.exports = {
         ".eslintignore": "lint",
         "src/router/**/*": "router",
         "src/view": "router",
-        "src/plugins/appInterface/*": "ProjectType"
+        "src/plugins/appInterface/*": "ProjectType",
+        "test/unit/**/*": "unit",
+        "build/webpack.test.conf.js": "unit",
     },
     "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://github.com/ct-fed/ctyapp_h5build"
 };
