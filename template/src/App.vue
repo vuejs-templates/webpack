@@ -14,7 +14,7 @@
 <script>
   import Vue from 'vue'
   import base from 'assets/js/common'
-  import {eventBus, MSG} from './events/systemEvent'
+  import {eventBus, eventMsg} from './events/systemEvent'
   export default {
     name: 'app',
     data () {
