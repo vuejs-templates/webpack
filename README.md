@@ -12,8 +12,6 @@
 - 移动适配方案
 - poscss自动处理`px` To `rem`、autoprefixer自动根据css属性添加低版本浏览器前缀。无视浏览器兼容问题 
 - 生成zip压缩文件
-
-
 ## 目录说明
 ```
 │  index.html                     入口页面
