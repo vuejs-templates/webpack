@@ -28,28 +28,16 @@ npm run analyzer
 
 ```
 src
-├── assets
-|   ├── images
-|   ├── video
-|   ├── fonts
-|   └── ...
-|
 ├── app
-|   ├── components
-|   ├── pages
-|   ├── router
-|   └── ...
-|
+│   ├── App.vue
+│   ├── components
+│   │   └── DemoComponent.vue
+│   ├── pages
+│   │   └── IndexPage.vue
+│   └── plugins
+│       └── routes.js
+├── main.js
 ├── sprites
-|   ├── images
-|   └── generated
-|       ├── sprite.less
-|       └── sprite.png
-|
 ├── static
-|   └── ...
-|
 └── styles
-    ├── common.less
-    └── ...
 ```
