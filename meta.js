@@ -9,7 +9,7 @@ module.exports = {
     },
     "filters":           {},
     "skipInterpolation": [
-        "src/sprites/templates/**/*",
+        "build/templates/**/*",
         "src/**/*.vue"
     ],
     "completeMessage":   "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev"

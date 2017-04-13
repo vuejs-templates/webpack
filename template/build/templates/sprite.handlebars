@@ -1,0 +1,15 @@
+.sprite {
+  display:inline-block;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-image: url({{spritesheet.escaped_image}});
+  background-size: ({{spritesheet.px.width}}/2) ({{spritesheet.px.height}}/2);
+}
+
+{{#sprites}}
+  .sprite-{{name}}{
+    width: ({{px.width}}/2);
+    height: ({{px.height}}/2);
+    background-position: ({{px.offset_x}}/2) ({{px.offset_y}}/2);
+  }
+{{/sprites}}
