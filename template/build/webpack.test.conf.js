@@ -11,6 +11,11 @@ var webpackConfig = merge(baseConfig, {
     rules: utils.styleLoaders()
   },
   devtool: '#inline-source-map',
+  resolveLoader: {
+    alias: {
+      'scss-loader': 'sass-loader'
+    }
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': require('../config/test.env')
