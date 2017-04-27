@@ -12,7 +12,7 @@ module.exports = (config) => {
 
         output: {
             path: config.assetsPath,
-            publicPath: config.assetsPublicPath,
+            publicPath: config.assetsPublicPath + '/',
             filename: '[name].js',
         },
 

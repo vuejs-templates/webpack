@@ -2,6 +2,7 @@
     <div class="App">
         <div class="App_logoSprite"></div>
         <div class="App_logoStatic"></div>
+        <img src="~static/lhs.png" width="124" height="124">
         <router-view></router-view>
     </div>
 </template>

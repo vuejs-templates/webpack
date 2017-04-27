@@ -21,11 +21,12 @@ module.exports = (config) => {
         vueConfig.options.loaders = {
             css:  ExtractTextPlugin.extract({
                 use:      'css-loader',
-                fallback: 'vue-style-loader'
+                fallback: 'vue-style-loader',
             }),
             less: ExtractTextPlugin.extract({
                 use:      'css-loader!less-loader',
-                fallback: 'vue-style-loader'
+                fallback: 'vue-style-loader',
+                publicPath: ''
             })
         };
     }
