@@ -28,6 +28,7 @@
         "underscore-template-loader": "^0.7.3",
         "url-loader": "^0.5.8",
         "vue-loader": "^10.3.0",
+        "file-loader": "^0.11.1",
         "vue-style-loader": "^2.0.0",
         "vue-template-compiler": "^2.1.10",
         "webpack": "^2.2.1",
