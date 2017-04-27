@@ -18,17 +18,18 @@ module.exports = (config) => {
 
         resolve: {
             extensions: ['.js', '.vue', '.json'],
-            modules:    [
+            modules: [
                 utils.resolve('src'),
                 utils.resolve('node_modules')
             ],
-            alias:      {
-                'vue$':       'vue/dist/vue.common.js',
-                'src':        utils.resolve('src'),
-                'assets':     utils.resolve('src/app/assets'),
+            alias: {
+                'vue$': 'vue/dist/vue.common.js',
+                'src': utils.resolve('src'),
                 'components': utils.resolve('src/app/components'),
-                'pages':      utils.resolve('src/app/pages'),
-                'router':     utils.resolve('src/app/router'),
+                'pages': utils.resolve('src/app/pages'),
+                'plugins': utils.resolve('src/app/plugins'),
+                'static': utils.resolve('src/static'),
+                'styles': utils.resolve('src/styles'),
             }
         },
 
