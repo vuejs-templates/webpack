@@ -2,45 +2,10 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
-var eslintFriendlyFormatter = require('eslint-friendly-formatter')
-// 接收运行参数
-const argv = require('yargs')
-    .describe('debug', 'debug 环境') // use 'webpack --debug'
-    .argv;
-let publicPath = config.dev.assetsPublicPath;
-if (process.env.NODE_ENV === 'production') {
-    publicPath = config.build.assetsPublicPath;
-    if (argv.debug) {
-        publicPath = config.test.assetsPublicPath;
-    }
-}
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
 module.exports = {
-    entry: {
-        app: './src/main.js'
-    },
-    output: {
-        path: config.build.assetsRoot,
-        filename: '[name].js',
-        publicPath: process.env.NODE_ENV === 'production'
-            ? config.build.assetsPublicPath
-            : config.dev.assetsPublicPath
-    },
-    resolve: {
-        extensions: ['.js', '.vue', '.json'],
-        modules: [
-            resolve('src'),
-            resolve('node_modules')
-        ],
-        alias: {
-            'vue$': 'vue/dist/vue.common.js',
-            'src': resolve('src'),
-            'assets': resolve('src/assets'),
-            'components': resolve('src/components')
-        }
-    },
     module: {
         rules: [
             {
