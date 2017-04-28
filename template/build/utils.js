@@ -2,10 +2,17 @@ var path = require('path')
 var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
+var argv = require('yargs')
+    .describe('debug', 'debug 环境') // use 'webpack --debug'
+    .argv;
 exports.assetsPath = function (_path) {
-  var assetsSubDirectory = process.env.NODE_ENV === 'production'
-    ? config.build.assetsSubDirectory
-    : config.dev.assetsSubDirectory
+  var assetsSubDirectory = config.dev.assetsSubDirectory;
+  if (process.env.NODE_ENV === 'production') {
+    assetsSubDirectory = config.build.assetsSubDirectory;
+    if (argv.debug) {
+      assetsSubDirectory = config.test.assetsSubDirectory;
+    }
+  }
   return path.posix.join(assetsSubDirectory, _path)
 }
 
