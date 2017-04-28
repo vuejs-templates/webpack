@@ -13,7 +13,6 @@ if (process.env.NODE_ENV === 'production') {
         publicPath = config.test.assetsPublicPath;
     }
 }
-
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
@@ -44,15 +43,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.(js|vue)$/,
-                loader: 'eslint-loader',
-                enforce: "pre",
-                include: [resolve('src'), resolve('test')],
-                options: {
-                    formatter: eslintFriendlyFormatter
-                }
-            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',

@@ -30,7 +30,7 @@ let _coreBridge = function (method) {
     }
 };
 export default {
-    install(vue){
+    install(vue,a){
         const appInterFace = {
             isLogined: function () {
                 return _coreBridge('isLogined');
