@@ -65,11 +65,38 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                loader: 'url-loader',
-                query: {
-                    limit: 10000,
-                    name: utils.assetsPath('images/[name].[hash:7].[ext]')
-                }
+                use: [{
+                    loader: 'url-loader',
+                    query: {
+                        limit: 10000,
+                        name: utils.assetsPath('images/[name].[hash:7].[ext]')
+                    }
+                },
+                    {
+                        loader: 'img-loader',
+                        options: {
+                            enabled: process.env.NODE_ENV === 'production',
+                            gifsicle: {
+                                interlaced: false
+                            },
+                            mozjpeg: {
+                                progressive: true,
+                                arithmetic: false
+                            },
+                            optipng: false, // disabled
+                            pngquant: {
+                                floyd: 0.5,
+                                speed: 2
+                            },
+                            svgo: {
+                                plugins: [
+                                    {removeTitle: true},
+                                    {convertPathData: false}
+                                ]
+                            }
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
