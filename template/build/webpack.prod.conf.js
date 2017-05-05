@@ -6,6 +6,7 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var env = config.build.env;
 var vConsolePlugin = require('vconsole-webpack-plugin');
 // 接收运行参数
@@ -77,6 +78,12 @@ var webpackConfig = merge(baseWebpackConfig, {
             name: 'manifest',
             chunks: ['vendor']
         }),
+        new CopyWebpackPlugin([
+        {
+            from: path.resolve(__dirname, '../static'),
+            to: config.build.assetsSubDirectory
+        }
+        ]),
         new vConsolePlugin({enable: !!argv.debug})
     ]
 });

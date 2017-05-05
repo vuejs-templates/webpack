@@ -7,7 +7,7 @@ var proxy = require("express-http-proxy");
 var mockData = require("./define");
 
 var apiProxy = function () {
-    if (!mockData.define.isProxy) {
+    if (mockData.define.isProxy) {
         return proxy(mockData.define.domains.test1, {
             forwardPath: function (req, res) {
                 return req._parsedUrl.path
