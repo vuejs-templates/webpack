@@ -6,33 +6,28 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var ImageminPlugin = require('imagemin-webpack-plugin').default;
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var env = config.build.env;
 var vConsolePlugin = require('vconsole-webpack-plugin');
 // 接收运行参数
-const argv = require('yargs')
+var argv = require('yargs')
     .describe('debug', 'debug 环境') // use 'webpack --debug'
     .argv;
+var _build = argv.debug ? config.test : config.build;
 var webpackConfig = merge(baseWebpackConfig, {
     module: {
         rules: utils.styleLoaders({
-            sourceMap: config.build.productionSourceMap,
+            sourceMap: _build.productionSourceMap,
             extract: true
         })
     },
-    devtool: config.build.productionSourceMap ? '#source-map' : false,
+    devtool: _build.productionSourceMap ? '#source-map' : false,
     output: {
-        path: config.build.assetsRoot,
+        path: _build.assetsRoot,
         filename: utils.assetsPath('js/[name].[chunkhash].js'),
         chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
     plugins: [
-        new ImageminPlugin({
-            disable: process.env.NODE_ENV !== 'production', // Disable during development
-            pngquant: {
-                quality: '95-100'
-            }
-        }),
         // http://vuejs.github.io/vue-loader/en/workflow/production.html
         new webpack.DefinePlugin({
             'process.env': env
@@ -50,7 +45,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         // you can customize output by editing /index.html
         // see https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
-            filename: config.build.index,
+            filename: _build.index,
             template: 'index.html',
             inject: true,
             minify: {
@@ -83,10 +78,16 @@ var webpackConfig = merge(baseWebpackConfig, {
             name: 'manifest',
             chunks: ['vendor']
         }),
+        new CopyWebpackPlugin([
+        {
+            from: path.resolve(__dirname, '../static'),
+            to: config.build.assetsSubDirectory
+        }
+        ]),
         new vConsolePlugin({enable: !!argv.debug})
     ]
 });
-if (config.build.productionGzip) {
+if (_build.productionGzip) {
     var CompressionWebpackPlugin = require('compression-webpack-plugin')
     webpackConfig.plugins.push(
         new CompressionWebpackPlugin({
@@ -94,7 +95,7 @@ if (config.build.productionGzip) {
             algorithm: 'gzip',
             test: new RegExp(
                 '\\.(' +
-                config.build.productionGzipExtensions.join('|') +
+                _build.productionGzipExtensions.join('|') +
                 ')$'
             ),
             threshold: 10240,
@@ -102,7 +103,7 @@ if (config.build.productionGzip) {
         })
     )
 }
-if (config.build.bundleAnalyzerReport) {
+if (_build.bundleAnalyzerReport) {
     var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
     webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
