@@ -3,12 +3,11 @@
  * @author  stylehuan
  * @create  2017-02-09 13:19
  */
-import Vue from 'vue'
-import eventBus from './eventBus'
-let eventMsg = {
-    ROUTER_BEFORE: 'ROUTER_BEFORE',
-    ROUTER_AFTER: 'ROUTER_AFTER',
-    CONNECTERROT: 'CONNECTERROT',
-    UPDATE_PAGE_DIR: 'UPDATE_PAGE_DIR'
+import eventBus from './eventBus';
+const eventMsg = {
+  ROUTER_BEFORE: 'ROUTER_BEFORE',
+  ROUTER_AFTER: 'ROUTER_AFTER',
+  CONNECTERROT: 'CONNECTERROT',
+  UPDATE_PAGE_DIR: 'UPDATE_PAGE_DIR'
 };
-export {eventBus, eventMsg}
+export {eventBus, eventMsg};

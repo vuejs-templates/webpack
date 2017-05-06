@@ -8,9 +8,9 @@ const MOZ_HACK_REGEXP = /^moz([A-Z])/;
 const ieVersion = isServer ? 0 : Number(document.documentMode);
 
 /* istanbul ignore next */
-const trim = function (string) {
-    return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
-}
+const trim = function (str) {
+  return str == null ? "" : String.prototype.trim.call(str).replace(/\s/g, "")
+};
 /* istanbul ignore next */
 const camelCase = function (name) {
     return name.replace(SPECIAL_CHARS_REGEXP, function (_, separator, letter, offset) {
