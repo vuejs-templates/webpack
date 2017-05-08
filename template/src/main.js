@@ -28,8 +28,11 @@ window.addEventListener('scroll', throttle(() => {
 }, 200));
 
 {{#ProjectType}}
-if (appInterFace.getHeaderInfo()) {
-    var headStr = appInterFace.getHeaderInfo();
+import appInterFace from './plugins/appInterface/index';
+Vue.use(appInterFace);
+const _interface = Vue.$bee.appInterface;
+if (_interface.getHeaderInfo()) {
+    var headStr = _interface.getHeaderInfo();
     var params = JSON.parse(headStr);
     try {
         for (var k in params) {
