@@ -1,0 +1,62 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system,"SF UI Text",Roboto,Noto,"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+  user-select: none;
+}
+
+*[contenteditable] {
+  user-select: auto !important;
+}
+
+*:focus {
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  outline: none;
+  border: none;
+}
+
+a {
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  &[disabled] {
+    color: #bbb;
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: #ddd;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: Consolas,Menlo,Courier,monospace;
+}
+
+// Remove the clear button of a text input control in IE10+
+input::-ms-clear, input::-ms-reveal {
+  display: none;
+}

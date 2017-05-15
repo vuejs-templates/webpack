@@ -1,0 +1,5 @@
+// Disable OS-level styles
+@mixin no-appearance {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}

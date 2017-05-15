@@ -1,2 +1,4 @@
 build/*.js
 config/*.js
+src/components/Share.vue
+

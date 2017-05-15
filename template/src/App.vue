@@ -1,34 +1,66 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    {{#router}}
-    <router-view></router-view>
-    {{else}}
-    <hello></hello>
-    {{/router}}
+    <swiper :options="swiperOption" class="swiper-box" ref="mySwiper">
+      <swiper-slide class="swiper-item">
+        <Index></Index>
+      </swiper-slide>
+    </swiper>
+    <i class="icon icon_arrow_up animated infinite fadeInUp"></i>
+    <Share :mshare="mshare"></Share>
   </div>
 </template>
 
 <script>
-{{#unless router}}
-import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import $ from 'jquery'
+import Bus from 'Script/bus.js'
+import Index from 'Src/components/Index.vue'
+import Share from 'Src/components/Share.vue'
 
-{{/unless}}
 export default {
-  name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
+  name: 'app',
+  data () {
+    return {
+      swiperOption: {
+        initialSlide: 0,
+        direction: 'vertical',
+        slidesPerView: 1,
+        paginationClickable: false,
+        spaceBetween: 30,
+        mousewheelControl: true
+      },
+      mshare: {
+        title: '母乳之旅 遇见最美的自己',
+        desc: '妈妈网母乳喂养日特别策划就要发车啦，赶紧上车，一起来体验下神奇的母乳之旅吧~',
+        image: 'https://act.mama.cn/cms/2017/medela/dist/static/share.jpg',
+        link: window.location.href,
+        zt_id: 59
+      }
+    }
+  },
   components: {
-    Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    Index,
+    Share
+  },
+  mounted () {
+    // 注册 EventBus
+    Bus.$on('customMethod', (msg) => {
+    })
+  }
+}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+@import './assets/style/common.scss';
+@import './assets/style/swiper.scss';
+
+.icon_arrow_up {
+  position: fixed;
+  z-index: $zindex-fixed;
+  bottom: 50px;
+  left: 46%;
+  width: 54px;
+  height: 28px;
+  background: url('./assets/images/icon_arrow_up.png');
+  background-size: contain;
 }
 </style>

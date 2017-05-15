@@ -1,0 +1,54 @@
+// flex
+// 子元素-平均分栏
+@mixin flex1 {
+    flex: 1;
+}
+@mixin flex2 {
+    flex: 2;
+}
+@mixin flex3 {
+    flex: 3;
+}
+@mixin flex4 {
+    flex: 4;
+}
+@mixin flex5 {
+    flex: 5;
+}
+// 父元素-横向排列（主轴）
+@mixin flex-h {
+    display: flex;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+}
+// 父元素-从右到左横向排列（主轴）
+@mixin flex-h-r{
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+    flex-direction: row-reverse;
+}
+// 父元素-水平居中（主轴是横向才生效）
+@mixin flex-hc {
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+// 父元素-纵向排列（主轴）
+@mixin flex-v {
+    display: flex;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+}
+@mixin flex-v-r{
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+    flex-direction: column-reverse;
+}
+// 父元素-竖直居中（主轴是横向才生效）
+@mixin flex-vc {
+    -webkit-box-align: center;
+    align-items: center;
+}

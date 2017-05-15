@@ -3,13 +3,14 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.js',
+    pc: './src/pc_main.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -21,15 +22,19 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      {{#if_eq build "standalone"}}
-      'vue$': 'vue/dist/vue.esm.js',
-      {{/if_eq}}
-      '@': resolve('src')
+      vue$: 'vue/dist/vue.esm.js',
+      Src: path.resolve(__dirname, '../src'),
+      Style: path.resolve(__dirname, '../src/assets/style'),
+      Script: path.resolve(__dirname, '../src/assets/script'),
+      Images: path.resolve(__dirname, '../src/assets/images')
     }
+  },
+  externals: {
+    jquery: 'jQuery',
+    MamaJSBridge: 'MamaJSBridge'
   },
   module: {
     rules: [
-      {{#lint}}
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
@@ -39,7 +44,6 @@ module.exports = {
           formatter: require('eslint-friendly-formatter')
         }
       },
-      {{/lint}}
       {
         test: /\.vue$/,
         loader: 'vue-loader',
