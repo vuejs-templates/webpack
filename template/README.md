@@ -4,54 +4,32 @@
 # 目录结构
 
 ``` bash
-# webpack基础配置
-|- build
-# 资源路径/模板路径/代理配置
-|- config
-# 源代码
-|- src
-   # wap 入口
-   |- main.js
-   # wap 入口组件
-   |- App.vue
-   # pc 入口
-   |- main_pc.js 
-   # pc 入口组件
-   |- PC.vue 
-   # 路由目录（一般不需要）
-   |- router 
-   # 静态资源目录
-   |- assets 
-      # 图片目录
-      |- images 
-      # 脚本目录
-      |- script 
-         # vue 事件巴士
-         |- bus.js 
-      # 样式目录
-      |- style 
-         # 核心
-         |- core 
-         # 包含 mixins/variables
-            |- fn.scss 
-         # 全局scss 一般引入这个就可以了
-         |- common.scss 
-         # icon
-         |- icon.scss 
-         # swiper样式配置
-         |- swiper.scss 
-   # 组件目录
-   |- components 
-      # 分享组件
-      |- Share.uve 
-      # 业务组件
-      |- Index.uve 
-# 不需要编译的文件
-|- static 
-# 模板文件，包含 index/wapindex
-|- tpl 
-# 配置文件，包含 autoprefix/px2rem
-|- .postcssrc postcss 
+- build # webpack基础配置
+- config # 资源路径/模板路径/代理配置
+
+- src # 源代码
+   - main.js # wap 入口
+   - App.vue # wap 入口组件
+   - main_pc.js # pc 入口
+   - PC.vue # pc 入口组件
+   # 文件夹
+   - router # 路由目录（一般不需要）
+   - assets # 静态资源目录
+      - images # 图片目录
+      - script # 脚本目录
+         - bus.js # vue 事件巴士
+      - style # 样式目录
+         - core # 核心
+            - fn.scss # 包含 mixins/variables
+         - common.scss # 全局scss 一般引入这个就可以了
+         - icon.scss # icon
+         - swiper.scss # swiper样式配置
+   - components # 组件目录
+      - Share.uve # 分享组件
+      - Index.uve # 业务组件
+- static # 不需要编译的文件
+- tpl # 模板文件，包含 index/wapindex
+- .postcssrc postcss # 配置文件，包含 autoprefix/px2rem
 
 ```
 
