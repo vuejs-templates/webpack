@@ -7,6 +7,7 @@
     </swiper>
     <i class="icon icon_arrow_up animated infinite fadeInUp"></i>
     <Share :mshare="mshare"></Share>
+    <Music :src="mp3"></Music>
   </div>
 </template>
 
@@ -15,6 +16,7 @@
 import Bus from 'Script/bus.js'
 import Index from 'Src/components/Index.vue'
 import Share from 'Src/components/Share.vue'
+import Music from 'Src/components/Music.vue'
 
 export default {
   name: 'app',
@@ -34,12 +36,14 @@ export default {
         image: 'https://act.mama.cn/cms/2017/medela/dist/static/share.jpg',
         link: window.location.href,
         zt_id: 0
-      }
+      },
+      mp3: require('./assets/audio/bg.mp3')
     }
   },
   components: {
     Index,
-    Share
+    Share,
+    Music
   },
   mounted () {
     // 注册 EventBus
