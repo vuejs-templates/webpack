@@ -22,7 +22,9 @@
    |- router 
    # 静态资源目录
    |- assets 
-      # 图片目录
+      # 音乐/背景图存放
+      |- audio
+      # 图片目录
       |- images 
       # 脚本目录
       |- script 
