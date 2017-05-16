@@ -6,6 +6,9 @@
 ``` bash
 - build # webpack基础配置
 - config # 资源路径/模板路径/代理配置
+- static # 不需要编译的文件
+- tpl # 模板文件，包含 index/wapindex
+- .postcssrc # postcss配置文件，包含 autoprefix/px2rem
 
 - src # 源代码
    - main.js # wap 入口
@@ -27,10 +30,6 @@
    - components # 组件目录
       - Share.uve # 分享组件
       - Index.uve # 业务组件
-- static # 不需要编译的文件
-- tpl # 模板文件，包含 index/wapindex
-- .postcssrc postcss # 配置文件，包含 autoprefix/px2rem
-
 ```
 
 > A Vue.js project
