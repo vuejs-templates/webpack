@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import $ from 'jquery'
-import Bus from 'Script/bus.js'
+// import $ from 'jquery'
+// import Bus from 'Script/bus.js'
 
 export default {
   name: 'pc',

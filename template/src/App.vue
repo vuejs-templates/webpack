@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import $ from 'jquery'
+// import $ from 'jquery'
 import Bus from 'Script/bus.js'
 import Index from 'Src/components/Index.vue'
 import Share from 'Src/components/Share.vue'
@@ -29,11 +29,11 @@ export default {
         mousewheelControl: true
       },
       mshare: {
-        title: '母乳之旅 遇见最美的自己',
-        desc: '妈妈网母乳喂养日特别策划就要发车啦，赶紧上车，一起来体验下神奇的母乳之旅吧~',
+        title: '自定义标题',
+        desc: '自定义描述',
         image: 'https://act.mama.cn/cms/2017/medela/dist/static/share.jpg',
         link: window.location.href,
-        zt_id: 59
+        zt_id: 0
       }
     }
   },

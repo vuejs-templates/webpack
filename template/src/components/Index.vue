@@ -1,5 +1,5 @@
 <template>
-  <div class="com">
+  <div class="wrap">
     <div class="logo animated fadeIn"></div>
     <div class="title animated fadeInUp"></div>
   </div>
