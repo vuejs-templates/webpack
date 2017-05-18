@@ -1,5 +1,5 @@
 {
-  "name": "medela",
+  "name": "act-templates",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "lizhiyuan <lizy@mama.cn>",
@@ -67,7 +67,7 @@
   },
   "browserslist": [
     "> 1%",
-    "last 2 versions",
+    "last 5 versions",
     "not ie <= 8"
   ]
 }
