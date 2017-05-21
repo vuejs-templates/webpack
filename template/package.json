@@ -89,6 +89,7 @@
     "ora": "^1.2.0",
     "rimraf": "^2.6.0",
     "url-loader": "^0.5.8",
+    "vue-hot-reload-api": "^2.1.0",
     "vue-loader": "^11.3.4",
     "vue-style-loader": "^2.0.5",
     "vue-template-compiler": "^2.2.6",
