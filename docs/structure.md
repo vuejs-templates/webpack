@@ -4,7 +4,7 @@
 .
 ├── build/                      # webpack config files
 │   └── ...
-├── config/                     
+├── config/
 │   ├── index.js                # main project config
 │   └── ...
 ├── src/
@@ -26,8 +26,9 @@
 │   │   ├── runner.js           # test runner script
 │   │   └── nightwatch.conf.js  # test runner config file
 ├── .babelrc                    # babel config
-├── .editorconfig.js            # editor config
+├── .postcssrc.js               # postcss config
 ├── .eslintrc.js                # eslint config
+├── .editorconfig               # editor config
 ├── index.html                  # index.html template
 └── package.json                # build scripts and dependencies
 ```

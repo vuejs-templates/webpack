@@ -24,3 +24,18 @@ module.exports = {
 ```
 
 The above example will proxy the request `/api/posts/1` to `http://jsonplaceholder.typicode.com/posts/1`.
+
+## URL Matching
+
+In addition to static urls you can also use glob patterns to match URLs, e.g. `/api/**`. See [Context Matching](https://github.com/chimurai/http-proxy-middleware#context-matching) for more details. In addition, you can provide a `filter` option that can be a custom function to determine whether a request should be proxied:
+
+``` js
+proxyTable: {
+  '*': {
+    target: 'http://jsonplaceholder.typicode.com',
+    filter: function (pathname, req) {
+      return pathname.match('^/api') && req.method === 'GET'
+    }
+  }
+}
+```

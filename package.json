@@ -5,6 +5,9 @@
   "description": "A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.",
   "scripts": {
     "docs": "cd docs && gitbook serve",
-    "deploy-docs": "bash ./deploy-docs.sh"
+    "docs:deploy": "bash ./deploy-docs.sh"
+  },
+  "devDependencies": {
+    "vue-cli": "^2.8.1"
   }
 }
