@@ -18,6 +18,9 @@ npm run build
 npm run build --report
 {{#unit}}
 
+# build for distribution (through npm) with minification
+npm run build-dist
+
 # run unit tests
 npm run unit
 {{/unit}}
