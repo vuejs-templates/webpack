@@ -15,7 +15,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
+$ vue init AlayaCare/webpack my-project
 $ cd my-project
 $ npm install
 $ npm run dev
@@ -38,6 +38,12 @@ If port 8080 is already in use on your machine you must change the port number i
   - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
   - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
   - Use `npm run build --report`to build with bundle size analytics.
+  
+- `npm run build-dist`: Production ready build for component distribution (through npm).
+  - Generates one Javascript file. minified, ready to be imported in other Vue.js projects.
+  - All CSS and HTML content is included in the generated Javascript file.
+  - Only components included in the file `index.js` (at the project root) will be included in the generated bundle.
+  - Use `npm run build-dist --report`to build with bundle size analytics.
 
 - `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Mocha](http://mochajs.org/) + [karma-webpack](https://github.com/webpack/karma-webpack).
   - Supports ES2015+ in test files.
@@ -49,11 +55,3 @@ If port 8080 is already in use on your machine you must change the port number i
   - Works with one command out of the box:
     - Selenium and chromedriver dependencies automatically handled.
     - Automatically spawns the Selenium server.
-
-### Fork It And Make Your Own
-
-You can fork this repo to create your own boilerplate, and use it with `vue-cli`:
-
-``` bash
-vue init username/repo my-project
-```

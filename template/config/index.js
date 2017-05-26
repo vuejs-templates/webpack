@@ -21,6 +21,16 @@ module.exports = {
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report
   },
+  dist: {
+    env: require('./prod.env'),
+    assetsRoot: path.resolve(__dirname, '../publish'),
+    productionSourceMap: true,
+    // Run the build command with an extra argument to
+    // View the bundle analyzer report after build finishes:
+    // `npm run build-dist --report`
+    // Set to `true` or `false` to always turn it on or off
+    bundleAnalyzerReport: process.env.npm_config_report
+  },
   dev: {
     env: require('./dev.env'),
     port: 8080,
