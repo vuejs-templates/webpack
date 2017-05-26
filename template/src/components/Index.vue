@@ -16,7 +16,7 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/core/fn.scss';
 
-.com {
+.wrap {
   background: url('../assets/images/bg_index.png') no-repeat left top;
   background-size: cover;
 }
