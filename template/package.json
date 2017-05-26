@@ -48,6 +48,9 @@
     "eslint-plugin-import": "^2.2.0",
     {{/if_eq}}
     {{/lint}}
+    {{#if_eq templateLanguage "pug"}}
+    "pug": "^2.0.0-beta11",
+    {{/if_eq}}
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.1",
     "extract-text-webpack-plugin": "^2.0.0",

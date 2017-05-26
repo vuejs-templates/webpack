@@ -70,6 +70,22 @@ module.exports = {
         }
       ]
     },
+    "templateLanguage": {
+      "type": "list",
+      "message": "Pick a Template engine",
+      "choices": [
+        {
+          "name": "HTML",
+          "value": "html",
+          "short": "HTML"
+        },
+        {
+          "name": "Pug (https://pugjs.org)",
+          "value": "pug",
+          "short": "Pug"
+        }
+      ]
+    },
     "unit": {
       "type": "confirm",
       "message": "Setup unit tests with Karma + Mocha?"
