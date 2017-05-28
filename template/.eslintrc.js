@@ -8,7 +8,13 @@ module.exports = {
   },
   env: {
     browser: true,
+    es6: true,
+    node: true
   },
+  {{#if_eq lintConfig "eslint:recommended"}}
+  // http://eslint.org/docs/rules/
+  extends: 'eslint:recommended',
+  {{/if_eq}}
   {{#if_eq lintConfig "standard"}}
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
@@ -49,7 +55,8 @@ module.exports = {
       'optionalDependencies': ['test/unit/index.js']
     }],
     {{/if_eq}}
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    // allow console and debugger during development
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'no-console': process.env.NODE_ENV === 'production' ? 2 : 0
   }
 }

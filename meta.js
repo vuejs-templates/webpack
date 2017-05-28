@@ -54,6 +54,11 @@ module.exports = {
       "message": "Pick an ESLint preset",
       "choices": [
         {
+          "name": "Recommended (http://eslint.org/docs/rules/)",
+          "value": "eslint:recommended",
+          "short": "Recommended"
+        },
+        {
           "name": "Standard (https://github.com/feross/standard)",
           "value": "standard",
           "short": "Standard"
