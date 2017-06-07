@@ -9,7 +9,7 @@ module.exports = {
     if (client.currentTest.results.failed > 0 || client.currentTest.results.errors > 0) {
       client
       .source(function (result){
-          console.log(result.value);
+        console.log(result.value);
       })
       .getLogTypes(function(result) {
         console.log(result);
