@@ -4,7 +4,8 @@ var config = require('../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin'){{#cdn}}
+var WebpackCdnPlugin = require('webpack-cdn-plugin'){{/cdn}}
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -29,7 +30,8 @@ module.exports = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'index.html',
       inject: true
-    }),
+    }),{{#cdn}}
+    new WebpackCdnPlugin({modules: config.build.packages, prod: false, publicPath: '/libraries'}),{{/cdn}}
     new FriendlyErrorsPlugin()
   ]
 })
