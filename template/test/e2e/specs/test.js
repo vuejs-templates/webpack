@@ -2,6 +2,24 @@
 // http://nightwatchjs.org/guide#usage
 
 module.exports = {
+  before: function(client) {
+    client.globals.waitForConditionTimeout = 5000{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  },
+  afterEach: function(client, done) {
+    if (client.currentTest.results.failed > 0 || client.currentTest.results.errors > 0) {
+      client
+      .source(function (result){
+          console.log(result.value);
+      })
+      .getLogTypes(function(result) {
+        console.log(result);
+      })
+      .getLog('browser', function(result) {
+        console.log(result);
+      }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    }
+    done(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  },
   'default e2e tests': function {{#if_eq lintConfig "airbnb"}}test{{/if_eq}}(browser) {
     // automatically uses dev Server port from /config.index.js
     // default: http://localhost:8080
