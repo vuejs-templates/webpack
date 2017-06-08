@@ -13,7 +13,6 @@ if (process.env.NODE_ENV === 'production') {
         publicPath = config.test.assetsPublicPath;
     }
 }
-
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
@@ -107,10 +106,10 @@ module.exports = {
                 }
             },
             {
-                test: /\.mp3$/,
+                test: /\.(mp3|mp4)(\?.*)?$/,
                 loader: 'file-loader',
                 query: {
-                    name: utils.assetsPath('sounds/[name].[hash:7].[ext]')
+                    name: utils.assetsPath('media/[name].[hash:7].[ext]')
                 }
             }
         ]
