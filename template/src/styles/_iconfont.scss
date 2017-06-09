@@ -1,0 +1,86 @@
+
+@font-face {font-family: "icon";
+  src: url('./assets/fonts/iconfont.eot?t=1496239475952'); /* IE9*/
+  src: url('./assets/fonts/iconfont.eot?t=1496239475952#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./assets/fonts/iconfont.woff?t=1496239475952') format('woff'), /* chrome, firefox */
+  url('./assets/fonts/iconfont.ttf?t=1496239475952') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('./assets/fonts/iconfont.svg?t=1496239475952#icon') format('svg'); /* iOS 4.1- */
+}
+
+.icon {
+  font-family:"icon" !important;
+  font-size: 1.2em;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-em-very-dissatisfied:before { content: "\e632"; }
+
+.icon-em-dissatisfied:before { content: "\e633"; }
+
+.icon-em-neutral:before { content: "\e634"; }
+
+.icon-em-satisfied:before { content: "\e635"; }
+
+.icon-em-very-satisfied:before { content: "\e636"; }
+
+.icon-translate:before { content: "\e637"; }
+
+.icon-copyright:before { content: "\a9"; }
+
+.icon-date-range:before { content: "\e639"; }
+
+.icon-face:before { content: "\e63a"; }
+
+.icon-favorite:before { content: "\e63b"; }
+
+.icon-favorite-border:before { content: "\e63c"; }
+
+.icon-info-outline:before { content: "\e63d"; }
+
+.icon-info:before { content: "\e63e"; }
+
+.icon-launch:before { content: "\e63f"; }
+
+.icon-trending-down:before { content: "\e640"; }
+
+.icon-trending-flat:before { content: "\e641"; }
+
+.icon-trending-up:before { content: "\e642"; }
+
+.icon-attachment:before { content: "\e643"; }
+
+.icon-close:before { content: "\e644"; }
+
+.icon-check:before { content: "\e645"; }
+
+.icon-chevron-left:before { content: "\e646"; }
+
+.icon-chevron-right:before { content: "\e647"; }
+
+.icon-expand-less:before { content: "\e648"; }
+
+.icon-expand-more:before { content: "\e649"; }
+
+.icon-first-page:before { content: "\e64a"; }
+
+.icon-last-page:before { content: "\e64b"; }
+
+.icon-more-horiz:before { content: "\e64c"; }
+
+.icon-more-vert:before { content: "\e64d"; }
+
+.icon-unfold-less:before { content: "\e64e"; }
+
+.icon-unfold-more:before { content: "\e64f"; }
+
+.icon-refresh:before { content: "\e650"; }
+
+.icon-share:before { content: "\e652"; }
+
+.icon-star:before { content: "\e653"; }
+
+.icon-star-border:before { content: "\e654"; }
+
+.icon-star-half:before { content: "\e655"; }

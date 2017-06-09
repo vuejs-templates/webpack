@@ -1,0 +1,23 @@
+extends: eslint:recommended
+# eslint: recommended
+parser: esprima
+parserOptions:
+  ecmaVersion: 6
+  sourceType: module # script
+  ecmaFeatures:
+    modules: true
+    jsx: true
+env:
+  browser: true
+  node: true
+  es6: true
+globals: # 定义全局变量
+  wx: false
+  App: false
+  Page: false
+  getApp: false
+rules:
+  no-console: 1 #	禁用 console
+  semi: 0 # 要求或禁止使用分号而不是 ASI
+  no-undef: 2
+  no-unused-vars: 2

@@ -14,10 +14,21 @@
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
   },
   "dependencies": {
+    {{#axios}}"axios": "^0.16.1",{{/axios}}
+    {{#howler}}"howler": "^2.0.3",{{/howler}}
+    {{#mousetrap}}"mousetrap": "^1.6.1",{{/mousetrap}}
+    {{#qrcode}}"qrcode": "^0.8.2",{{/qrcode}}
+    {{#swiper}}"swiper": "^3.4.2",{{/swiper}}
+    "lodash": "^4.17.4",
+    "normalize.css": "^7.0.0",
     "vue": "^2.3.3"{{#router}},
-    "vue-router": "^2.3.1"{{/router}}
+    "vue-router": "^2.3.1"{{/router}}{{#vuex}},
+    "vuex": "^2.3.1"{{/vuex}}
   },
   "devDependencies": {
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.3",
+    {{#flexible}}"postcss-px2rem": "^0.3.0",{{/flexible}}
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",
     {{#lint}}

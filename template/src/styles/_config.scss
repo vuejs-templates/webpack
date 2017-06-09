@@ -1,0 +1,45 @@
+/*
+基本颜色
+ */
+
+$color1: #e7ecf0;
+$color2: #c5d1df;
+$color3: #a6b7c8;
+$color4: #8193a7;
+$color5: #50637a;
+$color6: #39485c;
+$color7: #333e4d;
+
+$greenColor-0: #1BB981;
+$greenColor-1: #CFECE2;
+$greenColor-2: #57C9A1;
+$greenColor-3: #00925F;
+$greenColor-4: #006541;
+
+$aColor: #00aae0; // 链接颜色
+$aHColor: #00aae0; // 链接hover颜色
+
+$blueColor: #00aae0; //蓝色
+$redColor: #e8470b; //红色
+$greenColor: $greenColor-0; //绿色
+
+$fontColor1: $color4; //字体颜色，浅色
+$fontColor2: $color7; //字体颜色，深色
+
+
+
+$bgColor: #fff;
+$borderColor: #ccd4d4 !default;
+
+$fontSize: 16px * 2;
+$fontFamilyCN: 'PingFang SC','Lantinghei SC','Microsoft Yahei','Hiragino Sans GB','Microsoft Sans Serif',sans-serif;
+$fontFamilyEN: 'Avenir','Corbel', 'Helvetica Neue', Helvetica, sans-serif;
+
+/*
+布局参数
+ */
+$width: 750px;
+$top-height: 50px; // 顶部导航条的高度
+// $left-width: 2.00rem; // 左边侧边栏的宽度
+// $page-width: 6.00rem; // 左边侧边栏的宽度
+$inner: 20px;

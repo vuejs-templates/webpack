@@ -44,6 +44,34 @@ module.exports = {
       "type": "confirm",
       "message": "Install vue-router?"
     },
+    "vuex": {
+      "type": "confirm",
+      "message": "Install vuex?"
+    },
+    "axios": {
+      "type": "confirm",
+      "message": "Install axios?"
+    },
+    "howler": {
+      "type": "confirm",
+      "message": "Install howler? (audio library)"
+    },
+    "mousetrap": {
+      "type": "confirm",
+      "message": "Install mousetrap? (hotkey)"
+    },
+    "qrcode": {
+      "type": "confirm",
+      "message": "Install qrcode? "
+    },
+    "swiper": {
+      "type": "confirm",
+      "message": "Install swiper? "
+    },
+    "flexible": {
+      "type": "confirm",
+      "message": "Install flexible (rem)? "
+    },
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
@@ -86,7 +114,11 @@ module.exports = {
     "test/unit/**/*": "unit",
     "build/webpack.test.conf.js": "unit",
     "test/e2e/**/*": "e2e",
-    "src/router/**/*": "router"
+    "src/router/**/*": "router",
+    "src/store/**/*": "vuex",
+    "src/utils/audio.js": "howler",
+    "src/components/global/qrcode.js": "qrcode",
+    "src/utils/flexible.js": "flexible"
   },
   "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };

@@ -1,0 +1,37 @@
+$maxColumn: 5;
+
+$sprite: (
+  star-border: 1 1,
+  star: 2 1,
+  love-border: 1 2,
+  love: 2 2,
+  emoji-very-dissatisfied: 1 3,
+  emoji-dissatisfied: 2 3,
+  emoji-neutral: 3 3,
+  emoji-satisfied: 4 3,
+  emoji-very-satisfied: 5 3
+);
+
+[class|='i-sprite'] {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  background: url('./assets/icon.png') no-repeat 0 0 ;
+  background-size: $maxColumn + em;
+}
+
+@function xyConv($v) {
+    @return -($v - 1) + em;
+}
+
+@function xy($list) {
+  $x: nth($list, 1);
+  $y: nth($list, 2);
+  @return  xyConv($x) + ' ' + xyConv($y);
+}
+
+@each $name, $position in $sprite {
+  .i-sprite-#{$name} {
+    background-position: xy($position);
+  }
+}
