@@ -1,5 +1,4 @@
 var path = require('path')
-var glob = require('glob')
 var glob = require('glob-all')
 var utils = require('./utils')
 var webpack = require('webpack')
