@@ -50,6 +50,12 @@ If port 8080 is already in use on your machine you must change the port number i
     - Selenium and chromedriver dependencies automatically handled.
     - Automatically spawns the Selenium server.
 
+- `PurifyCSS Plugin for webpack`: For remove unused CSS styles https://github.com/webpack-contrib/purifycss-webpack
+  - Results with bulma.io: 
+  - Before:  `app.css 141 kB , unused CSS rules 1851`
+  - After:   `app.css 28 kB , unused CSS rules 246`
+
+
 ### Fork It And Make Your Own
 
 You can fork this repo to create your own boilerplate, and use it with `vue-cli`:

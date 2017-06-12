@@ -1,4 +1,6 @@
 var path = require('path')
+var glob = require('glob')
+var glob = require('glob-all')
 var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
@@ -40,6 +42,18 @@ var webpackConfig = merge(baseWebpackConfig, {
     // extract css into its own file
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css')
+    }),
+	new PurifyCSSPlugin({
+      // Give paths to parse for rules. These should be absolute! 
+        purifyOptions: {
+            whitelist: ['someclass']
+        },
+      paths: glob.sync([
+        path.join(__dirname, '../src/components/*.vue'),
+        path.join(__dirname, '../src/*.vue'),
+        path.join(__dirname, '../index.html'),
+        // other path for HTML or vue files
+      ]),
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
