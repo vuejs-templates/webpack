@@ -18,6 +18,10 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   webpack(webpackConfig, function (err, stats) {
     spinner.stop()
     if (err) throw err
+    if (stats.hasErrors()) {
+      console.error(stats.toString('errors-only'))
+      process.exit(1)
+    }
     process.stdout.write(stats.toString({
       colors: true,
       modules: false,
