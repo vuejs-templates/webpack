@@ -31,9 +31,8 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {
-	log: () => {},
-	path: webpackConfig.output.publicPath + "/__webpack_hmr"
-
+  log: () => {},
+	path: path.join(webpackConfig.output.publicPath, "__webpack_hmr")
 })
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
@@ -53,7 +52,12 @@ Object.keys(proxyTable).forEach(function (context) {
 })
 
 // handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')())
+app.use(
+	require('connect-history-api-fallback')({
+		index: config.dev.assetsPublicPath + 'index.html'
+	})
+);
+
 
 // serve webpack bundle output
 app.use(devMiddleware)
