@@ -8,10 +8,9 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
 
-var env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
-  ? require('../config/test.env')
-  : {{/if_or}}config.build.env
+var env = config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -52,11 +51,10 @@ var webpackConfig = merge(baseWebpackConfig, {
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
-        ? 'index.html'
-        : {{/if_or}}config.build.index,
+      filename: config.build.index,
       template: 'index.html',
       inject: true,
+      inlineSource: '.(css)$', // 插入到html的css、js文件都要内联
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -81,6 +79,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         )
       }
     }),
+    new HtmlWebpackInlineSourcePlugin(),
     // extract webpack runtime and module manifest to its own file in order to
     // prevent vendor hash from being updated whenever app bundle is updated
     new webpack.optimize.CommonsChunkPlugin({
