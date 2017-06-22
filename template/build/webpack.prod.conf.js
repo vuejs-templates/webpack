@@ -43,22 +43,20 @@ var webpackConfig = merge(baseWebpackConfig, {
       filename: utils.assetsPath('css/[name].[contenthash].css')
     }),
 	new PurifyCSSPlugin({
-      
         purifyOptions: {
             whitelist: ['someclass']
         },
-       
       // Logs out verbose logs.
-      verbose: false,
-      // An array of file extensions for determining used classes within node_modules
-      moduleExtensions: ['.html', '.vue'],
-      // Give paths to parse for rules. These should be absolute!
+       verbose: true,
+       // An array of file extensions for determining used classes within node_modules
+       moduleExtensions: ['.html', '.vue'],
+       // Give paths to parse for rules. These should be absolute!
       paths: glob.sync([
         path.join(__dirname, '../src/components/*.vue'),
         path.join(__dirname, '../src/*.vue'),
         path.join(__dirname, '../index.html'),
         // other path for HTML or vue files
-      ]),
+      ])
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
