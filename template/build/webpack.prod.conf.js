@@ -43,10 +43,16 @@ var webpackConfig = merge(baseWebpackConfig, {
       filename: utils.assetsPath('css/[name].[contenthash].css')
     }),
 	new PurifyCSSPlugin({
-      // Give paths to parse for rules. These should be absolute! 
+      
         purifyOptions: {
             whitelist: ['someclass']
         },
+       
+      // Logs out verbose logs.
+      verbose: false,
+      // An array of file extensions for determining used classes within node_modules
+      moduleExtensions: ['.html', '.vue'],
+      // Give paths to parse for rules. These should be absolute!
       paths: glob.sync([
         path.join(__dirname, '../src/components/*.vue'),
         path.join(__dirname, '../src/*.vue'),
