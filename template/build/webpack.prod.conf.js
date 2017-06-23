@@ -103,20 +103,21 @@ if (config.build.removeUnusedCss) {
   var PurifyCSSPlugin = require('purifycss-webpack')
 
   // Analyzes your code and remove unused CSS from resulted file
-	new PurifyCSSPlugin({
-        purifyOptions: {
-            whitelist: ['someclass']
-        },
-      // Logs out verbose logs.
-      verbose: false,
-       // An array of file extensions for determining used classes within node_modules
-      moduleExtensions: ['.vue'],
-       // Give paths to parse for rules. These should be absolute!
-      paths: glob.sync([
-        // add here more file those can contains css classes eg *.+(html|vue|jsx)')
-        path.join(__dirname, '../**/*.+(html|vue)'),
-        // other path for HTML or vue files
-      ])
+  webpackConfig.plugins.push(
+    new PurifyCSSPlugin({
+          purifyOptions: {
+              whitelist: ['someclass']
+          },
+        // Logs out verbose logs.
+        verbose: false,
+         // An array of file extensions for determining used classes within node_modules
+        moduleExtensions: ['.vue'],
+         // Give paths to parse for rules. These should be absolute!
+        paths: glob.sync([
+          // add here more file those can contains css classes eg *.+(html|vue|jsx)')
+          path.join(__dirname, '../**/*.+(html|vue)'),
+          // other path for HTML or vue files
+        ])
     })
   )
 }
