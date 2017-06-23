@@ -9,6 +9,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var PurifyCSSPlugin = require('purifycss-webpack')
 
 var env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -42,6 +43,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css')
     }),
+  // Analyzes your code and remove unused CSS from resulted file
 	new PurifyCSSPlugin({
         purifyOptions: {
             whitelist: ['someclass']
@@ -52,9 +54,8 @@ var webpackConfig = merge(baseWebpackConfig, {
        moduleExtensions: ['.html', '.vue'],
        // Give paths to parse for rules. These should be absolute!
       paths: glob.sync([
-        path.join(__dirname, '../src/components/*.vue'),
-        path.join(__dirname, '../src/*.vue'),
-        path.join(__dirname, '../index.html'),
+        // add here more file those can contains css classes eg *.+(html|vue|jsx)')
+        path.join(__dirname, '../**/*.+(html|vue)'),
         // other path for HTML or vue files
       ])
     }),
