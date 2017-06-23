@@ -51,7 +51,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       // Logs out verbose logs.
        verbose: true,
        // An array of file extensions for determining used classes within node_modules
-       moduleExtensions: ['.html', '.vue'],
+       moduleExtensions: ['.vue'],
        // Give paths to parse for rules. These should be absolute!
       paths: glob.sync([
         // add here more file those can contains css classes eg *.+(html|vue|jsx)')
