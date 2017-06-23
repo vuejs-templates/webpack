@@ -76,6 +76,8 @@
     "babel-plugin-istanbul": "^4.1.1",
     "phantomjs-prebuilt": "^2.1.14",
     {{/unit}}
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
     {{#e2e}}
     "chromedriver": "^2.27.2",
     "cross-spawn": "^5.0.1",
