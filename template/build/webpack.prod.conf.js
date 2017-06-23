@@ -9,7 +9,6 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-var PurifyCSSPlugin = require('purifycss-webpack')
 
 var env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -42,22 +41,6 @@ var webpackConfig = merge(baseWebpackConfig, {
     // extract css into its own file
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css')
-    }),
-  // Analyzes your code and remove unused CSS from resulted file
-	new PurifyCSSPlugin({
-        purifyOptions: {
-            whitelist: ['someclass']
-        },
-      // Logs out verbose logs.
-       verbose: true,
-       // An array of file extensions for determining used classes within node_modules
-       moduleExtensions: ['.vue'],
-       // Give paths to parse for rules. These should be absolute!
-      paths: glob.sync([
-        // add here more file those can contains css classes eg *.+(html|vue|jsx)')
-        path.join(__dirname, '../**/*.+(html|vue)'),
-        // other path for HTML or vue files
-      ])
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
@@ -115,6 +98,28 @@ var webpackConfig = merge(baseWebpackConfig, {
     ])
   ]
 })
+
+if (config.build.removeUnusedCss) {
+  var PurifyCSSPlugin = require('purifycss-webpack')
+
+  // Analyzes your code and remove unused CSS from resulted file
+	new PurifyCSSPlugin({
+        purifyOptions: {
+            whitelist: ['someclass']
+        },
+      // Logs out verbose logs.
+      verbose: false,
+       // An array of file extensions for determining used classes within node_modules
+      moduleExtensions: ['.vue'],
+       // Give paths to parse for rules. These should be absolute!
+      paths: glob.sync([
+        // add here more file those can contains css classes eg *.+(html|vue|jsx)')
+        path.join(__dirname, '../**/*.+(html|vue)'),
+        // other path for HTML or vue files
+      ])
+    })
+  )
+}
 
 if (config.build.productionGzip) {
   var CompressionWebpackPlugin = require('compression-webpack-plugin')
