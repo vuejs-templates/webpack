@@ -47,6 +47,7 @@ Object.keys(proxyTable).forEach(function (context) {
   if (typeof options === 'string') {
     options = { target: options }
   }
+  options.logLevel = 'debug'
   app.use(proxyMiddleware(options.filter || context, options))
 })
 
