@@ -24,7 +24,7 @@
     </v-navigation-drawer>
     <v-toolbar>
       <v-toolbar-side-icon @click.native.stop="drawer = !drawer" light></v-toolbar-side-icon>
-      <v-btn 
+      <v-btn
         icon
         light
         @click.native.stop="miniVariant = !miniVariant"
@@ -59,7 +59,7 @@
       <v-container fluid>
         <v-slide-y-transition mode="out-in">
           <v-layout column align-center>
-            <img src="/static/v.png" alt="Vuetify.js" class="mb-5" />
+            <img src="/static/v.png" alt="Vuetify.js" class="mb-5">
             <blockquote>
               &#8220;First, solve the problem. Then, write the code.&#8221;
               <footer>
