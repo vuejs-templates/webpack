@@ -8,5 +8,6 @@ module.exports = {
       ? config.build.productionSourceMap
       : config.dev.cssSourceMap,
     extract: isProduction
-  })
+  }){{#typescript}},
+    esModule: true{{/typescript}}
 }
