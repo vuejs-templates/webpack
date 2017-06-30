@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>\{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <h2 class="class2">Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
       <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
@@ -20,9 +20,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'hello',
+<script {{#typescript}}lang="ts"{{/typescript}}>
+{{#typescript}}
+import Vue from 'vue'
+import Component from 'vue-class-component'
+
+@Component
+export default class Hello extends Vue{{else}}
+export default{{/typescript}} {
+  name{{#typescript}} ={{else}}:{{/typescript}} 'hello'{{#unless typescript}},{{/unless}}
   data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
     return {
       msg: 'Welcome to Your Vue.js App'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
