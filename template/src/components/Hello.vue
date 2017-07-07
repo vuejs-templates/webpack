@@ -1,4 +1,4 @@
-<template {{#pug}}lang="pug"{{/pug}}>
+<template{{#pug}} lang="pug"{{/pug}}>
   {{#pug}}
   .hello
     h1 \{{ msg }}
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style {{#if_eq sass "sass"}}lang="sass"{{/if_eq}}{{#if_eq sass "scss"}}lang="scss"{{/if_eq}} scoped>
+<style{{#if_eq sass "sass"}} lang="sass"{{/if_eq}}{{#if_eq sass "scss"}} lang="scss"{{/if_eq}} scoped>
 {{#if_eq sass "sass"}}
 h1, h2
   font-weight: normal

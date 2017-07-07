@@ -1,4 +1,4 @@
-<template {{#pug}}lang="pug"{{/pug}}>
+<template{{#pug}} lang="pug"{{/pug}}>
   {{#pug}}
   #app
     img(src='./assets/logo.png')
@@ -32,7 +32,7 @@ export default {
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
-<style {{#if_eq sass "sass"}}lang="sass"{{/if_eq}}{{#if_eq sass "scss"}}lang="scss"{{/if_eq}}>
+<style{{#if_eq sass "sass"}} lang="sass"{{/if_eq}}{{#if_eq sass "scss"}} lang="scss"{{/if_eq}}>
 {{#if_eq sass "sass"}}
 #app
   font-family: 'Avenir', Helvetica, Arial, sans-serif
