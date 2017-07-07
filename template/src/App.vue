@@ -1,4 +1,13 @@
-<template>
+<template {{#pug}}lang="pug"{{/pug}}>
+  {{#pug}}
+  #app
+    img(src='./assets/logo.png')
+    {{#router}}
+    router-view
+    {{else}}
+    hello
+    {{/router}}
+  {{else}}
   <div id="app">
     <img src="./assets/logo.png">
     {{#router}}
@@ -7,6 +16,7 @@
     <hello></hello>
     {{/router}}
   </div>
+  {{/pug}}
 </template>
 
 <script>
@@ -22,7 +32,16 @@ export default {
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
-<style>
+<style {{#if_eq sass "sass"}}lang="sass"{{/if_eq}}{{#if_eq sass "scss"}}lang="scss"{{/if_eq}}>
+{{#if_eq sass "sass"}}
+#app
+  font-family: 'Avenir', Helvetica, Arial, sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  text-align: center
+  color: #2c3e50
+  margin-top: 60px
+{{else}}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -31,4 +50,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+{{/if_eq}}
 </style>

@@ -24,6 +24,32 @@ module.exports = {
       "type": "string",
       "message": "Author"
     },
+    "sass": {
+      "type": "list",
+      "message": "Enable a CSS Pre-Processor",
+      "choices": [
+        {
+          "name": "Sass (Cleaner, indented CSS syntax)",
+          "value": "sass",
+          "short": "Sass"
+        },
+        {
+          "name": "SCSS (Fully compliant superset of CSS syntax)",
+          "value": "scss",
+          "short": "Scss"
+        },
+        {
+          "name": "none (configure it yourself)",
+          "value": "none",
+          "short": "none"
+        }
+      ]
+    },
+    "pug": {
+      "type": "confirm",
+      "message": "Use Pug? (Clean HTML templating engine)",
+      "default": false
+    },
     "build": {
       "type": "list",
       "message": "Vue build",
