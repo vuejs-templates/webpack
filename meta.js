@@ -114,5 +114,5 @@ module.exports = {
     "test/e2e/**/*": "e2e",
     "src/router/**/*": "router"
   },
-  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nYour Pre-Processor selections have determined the base component template\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
+  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nchalk.greenBright(Your Pre-Processor selections have determined the base component template)\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };
