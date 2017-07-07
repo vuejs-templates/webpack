@@ -48,7 +48,7 @@ module.exports = {
     "pug": {
       "type": "confirm",
       "message": "Use Pug? (Clean HTML templating engine)",
-      "default": false
+      "default": true
     },
     "build": {
       "type": "list",
