@@ -26,7 +26,7 @@ module.exports = {
     },
     "sass": {
       "type": "list",
-      "message": "Enable a CSS Pre-Processor",
+      "message": "CSS Pre-Processor template",
       "choices": [
         {
           "name": "Sass (Cleaner, indented CSS syntax)",
@@ -39,7 +39,7 @@ module.exports = {
           "short": "Scss"
         },
         {
-          "name": "none (configure it yourself)",
+          "name": "none (configure one yourself)",
           "value": "none",
           "short": "none"
         }
@@ -47,7 +47,7 @@ module.exports = {
     },
     "pug": {
       "type": "confirm",
-      "message": "Use Pug? (Clean HTML templating engine)",
+      "message": "Use Pug template?",
       "default": true
     },
     "build": {
@@ -114,5 +114,5 @@ module.exports = {
     "test/e2e/**/*": "e2e",
     "src/router/**/*": "router"
   },
-  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
+  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nYour Pre-Processor selections have determined the base component template\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };
