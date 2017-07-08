@@ -2,7 +2,7 @@
 
 [Vue's official webpack template](https://github.com/vuejs-templates/webpack) with additional [Sass](http://sass-lang.com/) & [Pug](https://pugjs.org/) options for variable Vue templates.
 
-This gives you a ```(in my opinion)``` cleaner CLI, with several choices that will determine your Vue file layouts based on your Pre-Processor selections:  
+This gives you a modified CLI with several choices that will determine your Vue file layouts based on your Pre-Processor selections:  
 ![](http://i.imgur.com/oNpznbm.gif)
 
 Confirming the Pug selection results in actually applying a Pug template ```(dependencies included)```:
