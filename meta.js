@@ -114,5 +114,5 @@ module.exports = {
     "test/e2e/**/*": "e2e",
     "src/router/**/*": "router"
   },
-  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nYour components have been preset using:{{#pug}}\n  Pug{{/pug}}{{#if_eq sass "Sass"}}\n  Sass{{/if_eq}}{{#if_eq sass "Scss"}}\n  Scss{{/if_eq}}{{#if_eq sass "none"}}\n  No Preset{{/if_eq}}\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
+  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nYour components have been preset using:{{#pug}}\n  HTML: Pug{{/pug}}{{#sass}}\n  CSS: Sass{{/sass}}\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };
