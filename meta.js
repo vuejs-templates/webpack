@@ -24,6 +24,22 @@ module.exports = {
       "type": "string",
       "message": "Author"
     },
+    "build": {
+      "type": "list",
+      "message": "Vue build",
+      "choices": [
+        {
+          "name": "Runtime + Compiler: recommended for most users",
+          "value": "standalone",
+          "short": "standalone"
+        },
+        {
+          "name": "Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere",
+          "value": "runtime",
+          "short": "runtime"
+        }
+      ]
+    },
     "sass": {
       "type": "list",
       "message": "Select CSS template",
@@ -48,22 +64,6 @@ module.exports = {
     "pug": {
       "type": "confirm",
       "message": "Install Pug template?",
-    },
-    "build": {
-      "type": "list",
-      "message": "Vue build",
-      "choices": [
-        {
-          "name": "Runtime + Compiler: recommended for most users",
-          "value": "standalone",
-          "short": "standalone"
-        },
-        {
-          "name": "Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere",
-          "value": "runtime",
-          "short": "runtime"
-        }
-      ]
     },
     "router": {
       "type": "confirm",
