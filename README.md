@@ -1,12 +1,23 @@
-# vue-webpack-boilerplate
+# vue-webpack-sass-pug
 
-> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
+[Vue's official webpack template](https://github.com/vuejs-templates/webpack) with additional [Sass](http://sass-lang.com/) & [Pug](https://pugjs.org/) options for variable Vue templates.
 
-> This template is Vue 2.0 compatible. For Vue 1.x use this command: `vue init webpack#1.0 my-project`
+This gives you a ```(in my opinion)``` cleaner CLI, with several choices that will determine your Vue file layouts based on your Pre-Processor selections:  
+![](http://i.imgur.com/oNpznbm.gif)
+
+Confirming the Pug selection results in actually applying a Pug template ```(dependencies included)```:
+![](http://i.imgur.com/iGctYQE.gif)
+
+Confirming the Sass or SCSS selection results in actually applying a Sass or SCSS template ```(dependencies included)```:    
+![](http://i.imgur.com/4sF9nC5.gif)
 
 ## Documentation
 
-- [For this template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
+- Includes the Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
+
+- This template is Vue 2.0 compatible.
+
+- [For webpack template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
 - [For Vue 2.0](http://vuejs.org/guide/): general information about how to work with Vue, not specific to this template
 
 ## Usage
@@ -15,10 +26,10 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
+$ vue init andremorise/vue-webpack-sass-pug my-project
 $ cd my-project
-$ npm install
-$ npm run dev
+$ npm install (or yarn, when installed)
+$ npm run dev (or yarn dev, when installed)
 ```
 
 If port 8080 is already in use on your machine you must change the port number in `/config/index.js`. Otherwise `npm run dev` will fail.
