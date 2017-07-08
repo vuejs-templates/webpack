@@ -26,7 +26,7 @@ module.exports = {
     },
     "build": {
       "type": "list",
-      "message": "Vue build                      ",
+      "message": "Vue build >                       ",
       "choices": [
         {
           "name": "Runtime + Compiler: recommended for most users",
@@ -42,7 +42,7 @@ module.exports = {
     },
     "sass": {
       "type": "list",
-      "message": "Select CSS template            ",
+      "message": "Select CSS template >             ",
       "choices": [
         {
           "name": "Sass (Cleaner, indented CSS syntax)",
@@ -63,20 +63,20 @@ module.exports = {
     },
     "pug": {
       "type": "confirm",
-      "message": "Install Pug template?          ",
+      "message": "Install Pug template? >           "
     },
     "router": {
       "type": "confirm",
-      "message": "Install vue-router?            "
+      "message": "Install vue-router? >             "
     },
     "lint": {
       "type": "confirm",
-      "message": "Use ESLint to lint your code?  "
+      "message": "Use ESLint to lint your code? >   "
     },
     "lintConfig": {
       "when": "lint",
       "type": "list",
-      "message": "Select ESLint preset           ",
+      "message": "Select ESLint preset >            ",
       "choices": [
         {
           "name": "Standard (https://github.com/feross/standard)",
@@ -97,11 +97,11 @@ module.exports = {
     },
     "unit": {
       "type": "confirm",
-      "message": "Setup Karma + Mocha unit tests?"
+      "message": "Setup Karma + Mocha unit tests? > "
     },
     "e2e": {
       "type": "confirm",
-      "message": "Setup Nightwatch e2e tests?    "
+      "message": "Setup Nightwatch e2e tests? >     "
     }
   },
   "filters": {
