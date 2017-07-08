@@ -26,7 +26,7 @@ module.exports = {
     },
     "sass": {
       "type": "list",
-      "message": "CSS Pre-Processor template",
+      "message": "Select CSS template",
       "choices": [
         {
           "name": "Sass (Cleaner, indented CSS syntax)",
@@ -47,8 +47,7 @@ module.exports = {
     },
     "pug": {
       "type": "confirm",
-      "message": "Use Pug template?",
-      "default": true
+      "message": "Install Pug template?",
     },
     "build": {
       "type": "list",
@@ -98,11 +97,11 @@ module.exports = {
     },
     "unit": {
       "type": "confirm",
-      "message": "Setup unit tests with Karma + Mocha?"
+      "message": "Setup Karma + Mocha unit tests?"
     },
     "e2e": {
       "type": "confirm",
-      "message": "Setup e2e tests with Nightwatch?"
+      "message": "Setup Nightwatch e2e tests?"
     }
   },
   "filters": {
@@ -114,5 +113,5 @@ module.exports = {
     "test/e2e/**/*": "e2e",
     "src/router/**/*": "router"
   },
-  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install / yarn\n  npm run dev / yarn dev\n\nVue files have been modified to match your Pre-Processor selections\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
+  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install (or yarn)\n  npm run dev (or yarn dev)\n\nVue files have been modified to match your Pre-Processor selections\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };
