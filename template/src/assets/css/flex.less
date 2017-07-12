@@ -1,0 +1,115 @@
+@charset "utf-8";
+.flex() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-center() {
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  box-pack: center;
+}
+
+.box-align(@center) {
+  //box-align: start | end | center | baseline | stretch;
+  /*交叉轴对齐：顶部对齐（默认） | 底部对齐 | 居中对齐 | 文本基线对齐 | 上下对齐并铺满*/
+  text-align: @center;
+  -moz-box-align: @center; /*Firefox*/
+  -webkit-box-align: @center; /*Safari,Opera,Chrome*/
+  box-align: @center;
+}
+
+.align-items(@center) {
+  //align-items: flex-start | flex-end | center | baseline | stretch;
+  /*交叉轴对齐方式：顶部对齐（默认） | 底部对齐 | 居中对齐 | 上下对齐并铺满 | 文本基线对齐*/
+  align-items: @center;
+  -webkit-align-items: @center;
+}
+
+.box-pack(@param) {
+  //box-pack: start | end | center | justify;
+  /*主轴对齐：左对齐（默认） | 右对齐 | 居中对齐 | 左右对齐*/
+  -moz-box-pack: @param;
+  -ms-box-pack: @param;
+  -webkit-box-pack: @param;
+}
+
+.justify-content(@param) {
+  //justify-content: flex-start | flex-end | center | space-between | space-around;
+  /*主轴对齐：左对齐（默认） | 右对齐 | 居中对齐 | 两端对齐 | 平均分布*/
+  -webkit-justify-content: @param;
+  -moz-justify-content: @param;
+  justify-content: @param;
+}
+
+.flexItem(@flex) {
+  -webkit-flex: @flex;
+  -moz-flex: @flex;
+  -ms-flex: @flex;
+  flex: @flex;
+  -moz-box-flex: @flex;
+  -webkit-box-flex: @flex;
+  -ms-box-flex: @flex;
+  box-flex: @flex;
+}
+
+.box-orient(@param) {
+  // box-orient: horizontal | vertical | inline-axis | block-axis | inherit;
+  /*排列方向：水平 | 垂直 | 行内方式排列（默认） | 块方式排列 | 继承父级的box-orient*/
+  -webkit-box-orient: @param;
+  -moz-box-orient: @param;
+  -ms-box-orient: @param;
+}
+
+.box-direction(@param) {
+  // box-direction: normal | reverse | inherit;
+  /*显示方向：默认方向 | 反方向 | 继承子元素的 box-direction*/
+  -moz-box-direction: @param;
+  -webkit-box-direction: @param;
+  box-direction: @param;
+}
+
+.flex-wrap(@param) {
+  -webkit-flex-wrap: @param;
+  flex-wrap: @param;
+}
+
+.box-lines(@param) {
+  //box-lines: single | multiple;
+  /*允许换行：不允许（默认） | 允许*/
+  -moz-box-lines: @param; /*Firefox*/
+  -webkit-box-lines: @param; /*Safari,Opera,Chrome*/
+  box-lines: @param;
+}
+
+.flex-direction(@param) {
+  //row | row-reverse | column | column-reverse;
+  /*主轴方向：左到右（默认） | 右到左 | 上到下 | 下到上*/
+  -webkit-flex-direction: @param;
+  flex-direction: @param;
+}
+
+.box-ordinal-group(@param) {
+  //子元素的显示次序
+  -moz-box-ordinal-group: @param; /*Firefox*/
+  -webkit-box-ordinal-group: @param; /*Safari,Opera,Chrome*/
+  box-ordinal-group: @param;
+}
+
+.order(@param) {
+  //子元素的显示次序
+  -webkit-order: @param;
+  order: @param;
+}
+
+.align-self(@param) {
+  //auto | flex-start | flex-end | center | baseline | stretch;
+  /*单独对齐方式：自动（默认） | 顶部对齐 | 底部对齐 | 居中对齐 | 上下对齐并铺满 | 文本基线对齐*/
+  -webkit-align-self: @param;
+  align-self: @param;
+}
