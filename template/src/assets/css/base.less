@@ -1,6 +1,9 @@
 @import "fontface";
 @import "reset";
 @import "mixins";
+@import "text";
+@import "color";
+@import "flex";
 
 body {
   font-family: Helvetica, sans-serif;
@@ -8,12 +11,32 @@ body {
   color: #5c5c5c;
 }
 
-.process_border{
-  .border-1px(1px,#000);
+.process_border {
+  .border-1px(1px, #000);
 }
 
 .blur {
   //filter: blur(4px);
 }
+
+.flex_center {
+  .justify-content(center);
+  .box-pack(center);
+  .align-items(center);
+  .box-align(center);
+}
+
+.flex_align_center {
+  .align-items(center);
+  .box-align(center);
+}
+
+.flex_justify_center {
+  .justify-content(center);
+  .box-pack(center);
+}
+
+
+
 
 
