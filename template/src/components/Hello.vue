@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<script>
+<script{{#typescript}} lang="ts"{{/typescript}}>
 export default {
   name: 'hello',
   data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {

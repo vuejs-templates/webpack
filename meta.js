@@ -40,6 +40,11 @@ module.exports = {
         }
       ]
     },
+    "typescript": {
+      "type": "confirm",
+      "message": "Use TypeScript as default language?",
+      "default": false
+    },
     "router": {
       "type": "confirm",
       "message": "Install vue-router?"
@@ -86,7 +91,24 @@ module.exports = {
     "test/unit/**/*": "unit",
     "build/webpack.test.conf.js": "unit",
     "test/e2e/**/*": "e2e",
-    "src/router/**/*": "router"
+    "src/router/**/*": "router",
+    "tsconfig.json": "typescript"
   },
-  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
+  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack",
+  "metalsmith": function (metalsmith, opts, helpers) {
+    function renameJsSourcesToTs(files, metalsmith, done) {
+      // If typescript is enabled rename any .js files in src/ folder to .ts extension
+      if (metalsmith.metadata().typescript) {
+        Object.keys(files).forEach(filename => {
+          if (/^src.*\.js$/.test(filename)) {
+          const renamed = filename.replace(/\.js$/, ".ts");
+          files[renamed] = files[filename]
+          delete files[filename]
+        }
+      })
+      }
+      done(null, files)
+    }
+    metalsmith.use(renameJsSourcesToTs)
+  }
 };
