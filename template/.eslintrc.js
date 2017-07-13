@@ -16,9 +16,13 @@ module.exports = {
   {{#if_eq lintConfig "airbnb"}}
   extends: 'airbnb-base',
   {{/if_eq}}
+  {{#if_eq lintConfig "vue"}}
+  extends: 'vue',
+  {{/if_eq}}
   // required to lint *.vue files
   plugins: [
-    'html'
+    'html'{{#if_eq lintConfig "vue"}},{{/if_eq}}
+    {{#if_eq lintConfig "vue"}}'vue'{{/if_eq}}
   ],
   {{#if_eq lintConfig "airbnb"}}
   // check if imports actually resolve

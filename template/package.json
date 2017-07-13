@@ -47,6 +47,10 @@
     "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-plugin-import": "^2.2.0",
     {{/if_eq}}
+    {{#if_eq lintConfig "vue"}}
+    "eslint-config-vue": "^2.0.2",
+    "eslint-plugin-vue": "^2.0.1",
+    {{/if_eq}}
     {{/lint}}
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.1",
