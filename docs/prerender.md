@@ -14,7 +14,7 @@ npm install --save-dev prerender-spa-plugin
 
 ```js
 // This line should go at the top of the file where other 'imports' live in
-var PrerenderSpaPlugin = require('prerender-spa-plugin')
+const PrerenderSpaPlugin = require('prerender-spa-plugin')
 ```
 
 3. Configure it in the `plugins` array (also in **build/webpack.prod.conf.js**):
