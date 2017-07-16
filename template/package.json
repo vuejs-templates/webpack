@@ -16,7 +16,7 @@
   "dependencies": {
     "vue": "^2.3.4"{{#router}},
     "vue-router": "^2.3.1"{{/router}},
-    "vuetify": "^0.13.0"
+    "vuetify": "^0.14.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
