@@ -94,7 +94,13 @@
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
       ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor"
-    }
+    },
+    "collectCoverageFrom" : [
+      "src/**/*.{js,vue}",
+      "!src/main.js",
+      "!src/router/index.js",
+      "!**/node_modules/**"
+    ]
   },
   {{/unit}}
   "engines": {
