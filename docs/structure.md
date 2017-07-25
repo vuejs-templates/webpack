@@ -17,9 +17,7 @@
 ├── static/                     # pure static assets (directly copied)
 ├── test/
 │   └── unit/                   # unit tests
-│   │   ├── specs/              # test spec files
-│   │   ├── index.js            # test build entry file
-│   │   └── karma.conf.js       # test runner config file
+│   │   └── specs/              # test spec files
 │   └── e2e/                    # e2e tests
 │   │   ├── specs/              # test spec files
 │   │   ├── custom-assertions/  # custom assertions for e2e tests
