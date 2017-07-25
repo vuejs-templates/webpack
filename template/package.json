@@ -8,7 +8,7 @@
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
     "build": "node build/build.js"{{#unit}},
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run"{{/unit}}{{#e2e}},
+    "unit": "cross-env BABEL_ENV=test jest test/unit/specs"{{/unit}}{{#e2e}},
     "e2e": "node test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#lint}},
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
@@ -59,23 +59,9 @@
     "webpack-bundle-analyzer": "^2.2.1",
     {{#unit}}
     "cross-env": "^5.0.1",
-    "karma": "^1.4.1",
-    "karma-coverage": "^1.1.1",
-    "karma-mocha": "^1.3.0",
-    "karma-phantomjs-launcher": "^1.0.2",
-    "karma-phantomjs-shim": "^1.4.0",
-    "karma-sinon-chai": "^1.3.1",
-    "karma-sourcemap-loader": "^0.3.7",
-    "karma-spec-reporter": "0.0.31",
-    "karma-webpack": "^2.0.2",
-    "lolex": "^1.5.2",
-    "mocha": "^3.2.0",
-    "chai": "^3.5.0",
-    "sinon": "^2.1.0",
-    "sinon-chai": "^2.8.0",
-    "inject-loader": "^3.0.0",
-    "babel-plugin-istanbul": "^4.1.1",
-    "phantomjs-prebuilt": "^2.1.14",
+    "jest": "^20.0.4",
+    "babel-jest": "^20.0.3",
+    "jest-vue-preprocessor": "^1.0.1",
     {{/unit}}
     {{#e2e}}
     "chromedriver": "^2.27.2",
@@ -98,6 +84,24 @@
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"
   },
+  {{#unit}}
+  "jest": {
+    "moduleNameMapper": {
+      "^vue$": "vue/dist/vue.common.js",
+      "@/([^\\.]*).vue$": "<rootDir>/src/$1.vue",
+      "@/([^\\.]*)$": "<rootDir>/src/$1.js",
+      "(.*)/(.*).vue$": "$1/$2.vue"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor"
+    }
+  },
+  {{/unit}}
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
