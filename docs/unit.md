@@ -6,4 +6,4 @@ An overview of the tools used by this boilerplate for unit testing:
 
 ## Mocking Dependencies
 
-Jest comes with the ability to mock dependencies. See the [mock functions guide](https://facebook.github.io/jest/docs/mock-functions.html) for more details
+Jest comes with the ability to mock dependencies. See the [mock functions guide](https://facebook.github.io/jest/docs/mock-functions.html) for more details.
