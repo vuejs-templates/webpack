@@ -61,6 +61,7 @@
     "cross-env": "^5.0.1",
     "jest": "^20.0.4",
     "babel-jest": "^20.0.3",
+    "babel-plugin-module-resolver": "^2.7.1",
     "jest-vue-preprocessor": "^1.0.1",
     {{/unit}}
     {{#e2e}}
@@ -86,12 +87,6 @@
   },
   {{#unit}}
   "jest": {
-    "moduleNameMapper": {
-      "^vue$": "vue/dist/vue.common.js",
-      "@/([^\\.]*).vue$": "<rootDir>/src/$1.vue",
-      "@/([^\\.]*)$": "<rootDir>/src/$1.js",
-      "(.*)/(.*).vue$": "$1/$2.vue"
-    },
     "moduleFileExtensions": [
       "js",
       "vue"
