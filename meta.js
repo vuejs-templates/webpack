@@ -42,7 +42,8 @@ module.exports = {
     },
     "cdn": {
       "type": "confirm",
-      "message": "Use a CDN when building for production?"
+      "message": "Use a CDN when building for production?",
+      "default": false
     },
     "cdnConfig": {
       "when": "cdn",
