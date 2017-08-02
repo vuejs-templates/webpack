@@ -95,7 +95,7 @@
     "vue-template-compiler": "^2.3.3",
     "webpack": "^2.6.1",
     {{#cdn}}
-    "webpack-cdn-plugin": "^1.3.4",
+    "webpack-cdn-plugin": "^1.4.3",
     {{/cdn}}
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
