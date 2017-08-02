@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <img src="./assets/logo.png">
     {{#router}}
     <router-view></router-view>
