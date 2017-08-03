@@ -13,12 +13,12 @@ module.exports = {
         name: 'vue',
         var: 'Vue',
         path: 'dist/vue.runtime.min.js'
-      },
+      }{{#router}},
       {
         name: 'vue-router',
         var: 'VueRouter',
         path: 'dist/vue-router.min.js'
-      }
+      }{{/router}}
     ],{{/cdn}}
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
