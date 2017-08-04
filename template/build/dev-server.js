@@ -42,6 +42,10 @@ compiler.plugin('compilation', function (compilation) {
   })
 })
 
+// enable hot-reload and state-preserving
+// compilation error display
+app.use(hotMiddleware)
+
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]
@@ -56,10 +60,6 @@ app.use(require('connect-history-api-fallback')())
 
 // serve webpack bundle output
 app.use(devMiddleware)
-
-// enable hot-reload and state-preserving
-// compilation error display
-app.use(hotMiddleware)
 
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
