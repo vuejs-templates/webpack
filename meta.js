@@ -74,6 +74,23 @@ module.exports = {
       "type": "confirm",
       "message": "Setup unit tests with Karma + Mocha?"
     },
+    "unitConfig": {
+      "when": "unit",
+      "type": "list",
+      "message": "Pick a Browser for karma tests",
+      "choices": [
+        {
+          "name": "PhantomJS",
+          "value": "phantomjs",
+          "short": "PhantomJS"
+        },
+        {
+          "name": "Chrome Headless",
+          "value": "chromeheadless",
+          "short": "Chrome Headless"
+        }
+      ]
+    },
     "e2e": {
       "type": "confirm",
       "message": "Setup e2e tests with Nightwatch?"
