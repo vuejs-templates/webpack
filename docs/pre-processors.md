@@ -20,7 +20,7 @@ Once installed, you can use the pre-processors inside your `*.vue` components us
 
 ### A note on SASS syntax
 
-- `lang="scss"` corresponds to the CSS-superset syntax (with curly braces and semicolones).
+- `lang="scss"` corresponds to the CSS-superset syntax (with curly braces and semicolons).
 - `lang="sass"` corresponds to the indentation-based syntax.
 
 ### PostCSS
@@ -37,7 +37,7 @@ module.exports = {
 }
 ```
 
-See [vue-loader's related documentation](http://vuejs.github.io/vue-loader/features/postcss.html) for more details.
+See [vue-loader's related documentation](http://vuejs.github.io/vue-loader/en/features/postcss.html) for more details.
 
 ### Standalone CSS Files
 

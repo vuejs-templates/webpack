@@ -4,7 +4,7 @@
 .
 ├── build/                      # webpack config files
 │   └── ...
-├── config/                     
+├── config/
 │   ├── index.js                # main project config
 │   └── ...
 ├── src/
@@ -26,9 +26,10 @@
 │   │   ├── runner.js           # test runner script
 │   │   └── nightwatch.conf.js  # test runner config file
 ├── .babelrc                    # babel config
-├── .editorconfig.js            # editor config
+├── .postcssrc.js               # postcss config
 ├── .eslintrc.js                # eslint config
 ├── .stylelintrc.js             # stylelint config
+├── .editorconfig               # editor config
 ├── index.html                  # index.html template
 └── package.json                # build scripts and dependencies
 ```
@@ -61,7 +62,7 @@ Contains e2e test related files. See [End-to-end Testing](e2e.md) for more detai
 
 ### `index.html`
 
-This is the **template** `index.html` for our single page application. During development and builds, Webpack will generate assets, and the URLs for those generated assets will automatically injected into this template to render the final HTML.
+This is the **template** `index.html` for our single page application. During development and builds, Webpack will generate assets, and the URLs for those generated assets will be automatically injected into this template to render the final HTML.
 
 ### `package.json`
 
