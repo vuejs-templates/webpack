@@ -12,7 +12,7 @@
     "e2e": "node test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#eslint}},
     "lint:eslint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/eslint}}{{#stylelint}},
-    "lint:stylelint": "stylelint 'src/**/*.@(?(s)?(a|c)ss|vue|html)' --config ./.stylelintrc.js --extract"{{/stylelint}}{{#if_or eslint stylelint}},
+    "lint:stylelint": "stylelint \"**/*.{vue,html,css,sss,less,scss,sass}\" --custom-syntax postcss-html"{{/stylelint}}{{#if_or eslint stylelint}},
     "lint": "{{#eslint}}npm run lint:eslint{{/eslint}}{{#eslint}}{{#stylelint}} && {{/stylelint}}{{/eslint}}{{#stylelint}}npm run lint:stylelint{{/stylelint}}"{{/if_or}}
   },
   "dependencies": {
@@ -79,6 +79,9 @@
     "babel-plugin-istanbul": "^4.1.1",
     "phantomjs-prebuilt": "^2.1.14",
     {{/unit}}
+    {{#stylelint}}
+    "postcss-html": "^0.9.0",
+    {{/stylelint}}
     {{#e2e}}
     "chromedriver": "^2.27.2",
     "cross-spawn": "^5.0.1",
@@ -88,8 +91,8 @@
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
     {{#stylelint}}
-    "stylelint": "^6.5.0",
-    "stylelint-webpack-plugin": "^0.2.0",
+    "stylelint": "^8.0.0",
+    "stylelint-webpack-plugin": "^0.9.0",
     {{#if_eq stylelintConfig "standard"}}
     "stylelint-config-standard": "^8.0.0",
     {{/if_eq}}
