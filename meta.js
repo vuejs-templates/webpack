@@ -74,10 +74,10 @@ module.exports = {
       "type": "confirm",
       "message": "Setup unit tests with Karma + Mocha?"
     },
-    "unitConfig": {
+    "unitBrowser": {
       "when": "unit",
       "type": "list",
-      "message": "Pick a Browser for karma tests",
+      "message": "Pick a Browser for karma unit tests",
       "choices": [
         {
           "name": "PhantomJS",
@@ -86,7 +86,7 @@ module.exports = {
         },
         {
           "name": "Chrome Headless",
-          "value": "chromeheadless",
+          "value": "chrome",
           "short": "Chrome Headless"
         }
       ]
