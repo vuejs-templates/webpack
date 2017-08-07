@@ -34,7 +34,7 @@
     "css-loader": "^0.28.0",
     "cssnano": "^3.10.0",
     {{#lint}}
-    "eslint": "^3.19.0",
+    "eslint": "^4.4.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-html": "^3.0.0",
