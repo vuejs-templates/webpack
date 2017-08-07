@@ -2,6 +2,9 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+{{#stylelint}}
+var StyleLintPlugin = require('stylelint-webpack-plugin');
+{{/stylelint}}
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -18,6 +21,19 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  {{#stylelint}}
+  plugins: [
+    // Stylelint for all imports
+    // https://github.com/vieron/stylelint-webpack-plugin
+    new StyleLintPlugin({
+      configFile: resolve('.stylelintrc.js'),
+      context: 'inherits from webpack',
+      files: '../src/**/*.(vue|html|css|sss|less|scss|sass)',
+      failOnError: false,
+      syntax: require('postcss-html'),
+    })
+  ],
+  {{/stylelint}}
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
