@@ -32,8 +32,7 @@ import appInterFace from './plugins/appInterface/index';
 Vue.use(appInterFace);
 const _interface = Vue.$bee.appInterface;
 if (_interface.getHeaderInfo()) {
-    var headStr = _interface.getHeaderInfo();
-    var params = JSON.parse(headStr);
+    var params = _interface.getHeaderInfo();
     try {
         for (var k in params) {
             axios.defaults.headers[k] = params[k];

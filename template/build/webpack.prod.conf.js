@@ -79,6 +79,7 @@ var webpackConfig = merge(baseWebpackConfig, {
             name: 'manifest',
             chunks: ['vendor']
         }),
+        new webpack.IgnorePlugin(/mock\/headers$/),
         new CopyWebpackPlugin([
             {
                 from: path.resolve(__dirname, '../static'),
