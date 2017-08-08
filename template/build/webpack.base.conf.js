@@ -28,7 +28,7 @@ module.exports = {
     new StyleLintPlugin({
       configFile: resolve('.stylelintrc.js'),
       context: 'inherits from webpack',
-      files: '../src/**/*.(vue|html|css|sss|less|scss|sass)',
+      files: '../src/**/*.(vue|html?|css|sss|less|scss|sass)',
       failOnError: false,
       syntax: require('postcss-html'),
     })
