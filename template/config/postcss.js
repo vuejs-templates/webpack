@@ -8,4 +8,4 @@
 //具体规则请查看https://github.com/ant-tool/postcss-plugin-px2rem
 module.exports = {
     selectorBlackList: ["ex_px"]
-}
+};
