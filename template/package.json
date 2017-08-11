@@ -14,9 +14,9 @@
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
   },
   "dependencies": {
-    "vue": "^2.3.4"{{#router}},
+    "vue": "^2.4.2"{{#router}},
     "vue-router": "^2.3.1"{{/router}},
-    "vuetify": "^0.14.1"
+    "vuetify": "^0.14.7"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -94,7 +94,7 @@
     "url-loader": "^0.5.8",
     "vue-loader": "^11.3.4",
     "vue-style-loader": "^2.0.5",
-    "vue-template-compiler": "^2.3.4",
+    "vue-template-compiler": "^2.4.2",
     "webpack": "^2.3.3",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
