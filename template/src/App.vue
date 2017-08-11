@@ -23,25 +23,25 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar fixed>
-      <v-toolbar-side-icon @click.native.stop="drawer = !drawer" light></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer" light></v-toolbar-side-icon>
       <v-btn
         icon
         light
-        @click.native.stop="miniVariant = !miniVariant"
+        @click.stop="miniVariant = !miniVariant"
       >
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
       <v-btn
         icon
         light
-        @click.native.stop="clipped = !clipped"
+        @click.stop="clipped = !clipped"
       >
         <v-icon>web</v-icon>
       </v-btn>
       <v-btn
         icon
         light
-        @click.native.stop="fixed = !fixed"
+        @click.stop="fixed = !fixed"
       >
         <v-icon>remove</v-icon>
       </v-btn>
@@ -50,7 +50,7 @@
       <v-btn
         icon
         light
-        @click.native.stop="rightDrawer = !rightDrawer"
+        @click.stop="rightDrawer = !rightDrawer"
       >
         <v-icon>menu</v-icon>
       </v-btn>
@@ -78,7 +78,7 @@
       v-model="rightDrawer"
     >
       <v-list>
-        <v-list-tile @click.native="right = !right">
+        <v-list-tile @click="right = !right">
           <v-list-tile-action>
             <v-icon light>compare_arrows</v-icon>
           </v-list-tile-action>
