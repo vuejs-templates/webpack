@@ -1,2 +1,2 @@
-build/*.js
+build_config/*.js
 config/*.js
