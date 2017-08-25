@@ -19,10 +19,20 @@ exports.cssLoaders = function (options) {
       sourceMap: options.sourceMap
     }
   }
-
+  var postLoader = {
+    loader: 'postcss-loader',
+    options: {
+      plugins: function () {
+        return [
+          require('autoprefixer')({broswers: ['last 5 versions']})
+        ]
+      }
+    }
+  }
+  
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
-    var loaders = [cssLoader]
+    var loaders = [cssLoader,postLoader]
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
@@ -47,7 +57,6 @@ exports.cssLoaders = function (options) {
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
-    postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
