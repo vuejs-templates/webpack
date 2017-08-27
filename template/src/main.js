@@ -8,6 +8,8 @@ import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
 
+Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
