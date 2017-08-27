@@ -6,6 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 {{#unit}}
 test/unit/coverage
+.tmp/
+.nyc_output/
 {{/unit}}
 {{#e2e}}
 test/e2e/reports
