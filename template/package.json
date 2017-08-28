@@ -68,7 +68,6 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.31",
     "karma-webpack": "^2.0.2",
-    "lolex": "^1.5.2",
     "mocha": "^3.2.0",
     "chai": "^3.5.0",
     "sinon": "^2.1.0",
