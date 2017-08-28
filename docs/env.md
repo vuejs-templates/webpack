@@ -41,3 +41,11 @@ So, the environment variables are:
     - API_KEY    = '...'
 
 As we can see, `test.env` inherits the `dev.env` and the `dev.env` inherits the `prod.env`.
+
+### Usage		
+
+It is simple to use the environment variables in your code. For example:		
+
+```js		
+Vue.config.productionTip = process.env.NODE_ENV === 'production'		
+```
