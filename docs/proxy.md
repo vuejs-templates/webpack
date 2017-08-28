@@ -31,7 +31,7 @@ In addition to static urls you can also use glob patterns to match URLs, e.g. `/
 
 ``` js
 proxyTable: {
-  '*': {
+  '**': {
     target: 'http://jsonplaceholder.typicode.com',
     filter: function (pathname, req) {
       return pathname.match('^/api') && req.method === 'GET'
