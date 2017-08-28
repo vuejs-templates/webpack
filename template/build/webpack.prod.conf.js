@@ -7,7 +7,8 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin'){{#cdn}}
+var WebpackCdnPlugin = require('webpack-cdn-plugin'){{/cdn}}
 
 var env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -66,7 +67,11 @@ var webpackConfig = merge(baseWebpackConfig, {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
-    }),
+    }),{{#if cdn}}
+    new WebpackCdnPlugin({
+      modules: config.build.packages{{#if_eq cdnConfig "cdnjs"}},
+      prodUrl: '//cdnjs.cloudflare.com/ajax/libs/:name/:version/:path'{{/if_eq}}
+    }),{{else}}
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -86,7 +91,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    }),
+    }),{{/if}}
     // copy custom static assets
     new CopyWebpackPlugin([
       {

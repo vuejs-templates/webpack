@@ -40,6 +40,28 @@ module.exports = {
         }
       ]
     },
+    "cdn": {
+      "type": "confirm",
+      "message": "Use a CDN when building for production?",
+      "default": false
+    },
+    "cdnConfig": {
+      "when": "cdn",
+      "type": "list",
+      "message": "Pick a CDN repository",
+      "choices": [
+        {
+          "name": "unpkg.com",
+          "value": "unpkg",
+          "short": "unpkg"
+        },
+        {
+          "name": "cdnjs.cloudflare.com",
+          "value": "cdnjs",
+          "short": "cdnjs"
+        }
+      ]
+    },
     "router": {
       "type": "confirm",
       "message": "Install vue-router?"
