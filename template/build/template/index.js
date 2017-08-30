@@ -2,6 +2,7 @@
 require('es6-promise').polyfill()
 require('utils/polyfills')
 
+import {init} from 'utils/sdk'
 import {load} from 'conf/global'
 import router from 'router'
 import routes from 'src/pages/[PAGE_NAME]/routes'
@@ -22,6 +23,8 @@ if (process.env.NODE_ENV === 'development') {
     Vue.config.devtools = true
 }
 
-load().then(function() {
+init().then(load).then(function(userInfo) {
     router(routes, '#app')
+}).catch(e => {
+    console.error(e.message)
 })

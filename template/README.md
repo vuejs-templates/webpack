@@ -1,6 +1,6 @@
 # {{ name }}
 
-> 基于 webpack2 + vue2 + vuex2 + vue-router2 + axios [启动模板](https://github.com/lkiarest/webpack/tree/app2) 创建
+> 基于 webpack2 + vue2 + vuex2 + vue-router2 + axios [启动模板](https://github.com/lkiarest/webpack/tree/cpdaily) 创建
 
 仅提供模板工程，不做任何多余的事情(The Single Responsibility Principle)
 

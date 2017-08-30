@@ -6,14 +6,8 @@
  */
 var path = require('path')
 
-const __DEBUG__ = process.env.NODE_ENV === 'development' // 是否开发模式
-
-const _jsUrl = (base) => {
-    return base + (__DEBUG__ ? '.js' : '.min.js')
-}
-
-// const FE_BOWER_BASE = '//feres.cpdaily.com/bower_components'
-const BOOTCDN_BASE = 'https://cdn.bootcss.com'
+// const FE_BASE = '//feres.cpdaily.com/fe_components'
+const BOWER_BASE = '//feres.cpdaily.com/bower_components'
 
 module.exports = {
     proxy: { // DEV 模式下访问后端 api 时防止跨域使用的代理
@@ -33,20 +27,17 @@ module.exports = {
     babelDir: [], // 指定允许使用babel-loader编译的文件目录或路径匹配，默认已支持src
     loaders: [], // 增加其他文件类型的loader，默认已支持 vue
     csslibs: [ // 在index.html中需要引入的 css lib
+        '//feres.cpdaily.com/fe_components/iconfont_mobile/iconfont.css'
     ],
     jslibs: [ // 在 index.html 中需要引入的 js lib， vue 和 router 必须引入，其余可选
         // _jsUrl(`${FE_BOWER_BASE}/bluebird/bluebird`),
-        // _jsUrl(`${FE_BOWER_BASE}/vue2/vue`),
-        // _jsUrl(`${FE_BOWER_BASE}/vue2/vue-router`),
+        `${BOWER_BASE}/vue2/vue.min.js`,
+        `${BOWER_BASE}/vue2/vue-router.min.js`,
         // _jsUrl(`${FE_BOWER_BASE}/vue2/vue-i18n`),
-        // _jsUrl(`${FE_BOWER_BASE}/vue2/vuex`),
-        // _jsUrl(`${FE_BOWER_BASE}/vue2/axios`),
+        `${BOWER_BASE}/vue2/vuex.min.js`,
+        `${BOWER_BASE}/moment/moment.js`,
+        `${BOWER_BASE}/vue2/axios.min.js`
         // `${FE_BOWER_BASE}/iscroll/iscroll.js`,
-        _jsUrl(`${BOOTCDN_BASE}/vue/2.2.4/vue`),
-        _jsUrl(`${BOOTCDN_BASE}/vue-router/2.2.1/vue-router`),
-        _jsUrl(`${BOOTCDN_BASE}/vue-i18n/5.0.3/vue-i18n`),
-        _jsUrl(`${BOOTCDN_BASE}/vuex/2.2.1/vuex`),
-        _jsUrl(`${BOOTCDN_BASE}/axios/0.15.3/axios`)
     ],
     distDir: path.resolve(__dirname, 'docs') // 执行 build 时发布的路径，可以指定其他路径比如 '../webapp'
 }

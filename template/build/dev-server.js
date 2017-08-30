@@ -20,12 +20,17 @@ var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
-  quiet: false
+  noInfo: true
+})
+
+devMiddleware.waitUntilValid(function () {
+  console.log('> Listening at http://localhost:' + port + '\n')
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {
   log: () => {}
 })
+
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
   compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
@@ -56,10 +61,6 @@ app.use(hotMiddleware)
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./src'))
-
-devMiddleware.waitUntilValid(function () {
-  console.log('> Listening at http://localhost:' + port + '\n')
-})
 
 module.exports = app.listen(port, function (err) {
   if (err) {
