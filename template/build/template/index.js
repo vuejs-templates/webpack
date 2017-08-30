@@ -1,3 +1,8 @@
+// polyfills
+require('es6-promise').polyfill()
+require('utils/polyfills')
+
+import {load} from 'conf/global'
 import router from 'router'
 import routes from 'src/pages/[PAGE_NAME]/routes'
 // import index from 'src/pages/[PAGE_NAME]/[ENTRY_NAME]';
@@ -17,4 +22,6 @@ if (process.env.NODE_ENV === 'development') {
     Vue.config.devtools = true
 }
 
-router(routes, '#app')
+load().then(function() {
+    router(routes, '#app')
+})

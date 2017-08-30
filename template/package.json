@@ -19,7 +19,8 @@
     "doc": "node build/doc.js"
   },
   "dependencies": {
-    "babel-runtime": "^6.0.0"
+    "babel-runtime": "^6.0.0",
+    "es6-promise": "^4.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -92,6 +93,7 @@
     "selenium-server": "2.53.0",
     {{/e2e}}
     "ora": "^1.1.0",
+    "postcss": "^5.2.17",
     "serve-static": "^1.11.1",
     "shelljs": "^0.6.0",
     "url-loader": "^0.5.7",

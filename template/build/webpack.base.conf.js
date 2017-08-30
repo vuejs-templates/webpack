@@ -53,11 +53,11 @@ var loaders = [
   },
   {
     test: /\.css$/,
-    loader: 'style-loader!css-loader'
+    loader: 'style-loader!css-loader!postcss-loader'
   },
   {
     test: /\.less$/,
-    loader: 'style-loader!css-loader!less-loader'
+    loader: 'style-loader!css-loader!postcss-loader!less-loader'
   },
   {
     test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

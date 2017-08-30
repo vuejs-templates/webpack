@@ -12,7 +12,7 @@ const _jsUrl = (base) => {
     return base + (__DEBUG__ ? '.js' : '.min.js')
 }
 
-// const FE_BOWER_BASE = 'http://res.wisedu.com/bower_components'
+// const FE_BOWER_BASE = '//feres.cpdaily.com/bower_components'
 const BOOTCDN_BASE = 'https://cdn.bootcss.com'
 
 module.exports = {
@@ -42,7 +42,6 @@ module.exports = {
         // _jsUrl(`${FE_BOWER_BASE}/vue2/vuex`),
         // _jsUrl(`${FE_BOWER_BASE}/vue2/axios`),
         // `${FE_BOWER_BASE}/iscroll/iscroll.js`,
-        _jsUrl(`${BOOTCDN_BASE}/bluebird/3.5.0/bluebird`),
         _jsUrl(`${BOOTCDN_BASE}/vue/2.2.4/vue`),
         _jsUrl(`${BOOTCDN_BASE}/vue-router/2.2.1/vue-router`),
         _jsUrl(`${BOOTCDN_BASE}/vue-i18n/5.0.3/vue-i18n`),
