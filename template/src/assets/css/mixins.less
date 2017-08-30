@@ -67,20 +67,20 @@
 .flexItem(@flex) {
   -webkit-flex: @flex;
   -moz-flex: @flex;
-  -ms-flex:@flex;
+  -ms-flex: @flex;
   flex: @flex;
-  -moz-box-flex:@flex;
+  -moz-box-flex: @flex;
   -webkit-box-flex: @flex;
-  -ms-box-flex:@flex;
+  -ms-box-flex: @flex;
   box-flex: @flex;
 }
 
-.flexJustifyCenter{
-  -webkit-justify-content:center;
-  justify-content:center;
-  -moz-box-pack:center;
-  -webkit--moz-box-pack:center;
-  box-pack:center;
+.flexJustifyCenter {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -moz-box-pack: center;
+  -webkit--moz-box-pack: center;
+  box-pack: center;
 }
 
 // Appearance
@@ -404,82 +404,12 @@
   border-width: @size 0 @size @size;
 }
 
-// Arrow
-// -------------------------
-.arrow(@direction: down, @size: 10px, @color: #000, @borderColor: #c00) {
-  position: absolute;
-  width: 0;
-  height: 0;
-  font-size: 0;
-  &:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    font-size: 0;
-  }
-}
-
-.arrow(@direction: down, @size: 10px, @color: #fff, @borderColor: #ccc) when (@direction = down) {
-  border-color: @borderColor transparent transparent transparent;
-  border-style: solid dashed dashed dashed;
-  border-width: @size @size 0 @size;
-  &:after {
-    left: -@size;
-    top: -(@size+1);
-    border-color: @color transparent transparent transparent;
-    border-style: solid dashed dashed dashed;
-    border-width: @size @size 0 @size;
-  }
-}
-
-.arrow(@direction: down, @size: 10px, @color: #fff, @borderColor: #ccc) when (@direction = left) {
-  border-color: transparent @borderColor transparent transparent;
-  border-style: dashed solid dashed dashed;
-  border-width: @size @size @size 0;
-  &:after {
-    left: 1px;
-    top: -@size;
-    border-color: transparent @color transparent transparent;
-    border-style: dashed solid dashed dashed;
-    border-width: @size @size @size 0;
-  }
-}
-
-.arrow(@direction: down, @size: 10px, @color: #fff, @borderColor: #ccc) when (@direction = up) {
-  border-color: transparent transparent @borderColor transparent;
-  border-style: dashed dashed solid dashed;
-  border-width: 0 @size @size @size;
-  &:after {
-    left: -@size;
-    top: 1px;
-    border-color: transparent transparent @color transparent;
-    border-style: dashed dashed solid dashed;
-    border-width: 0 @size @size @size;
-  }
-}
-
-.arrow(@direction: down, @size: 10px, @color: #fff, @borderColor: #ccc) when (@direction = right) {
-  border-color: transparent transparent transparent @borderColor;
-  border-style: dashed dashed dashed solid;
-  border-width: @size 0 @size @size;
-  &:after {
-    left: -(@size+1);
-    top: -@size;
-    border-color: transparent transparent transparent @color;
-    border-style: dashed dashed dashed solid;
-    border-width: @size 0 @size @size;
-  }
-}
-
 // fix background-image with `./img/xxx.png` in REM support option.
 .rem-bg() {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
 }
-
-
 
 .border-1px(@borderSize:1px, @color:#fff) {
   position: relative;
@@ -580,4 +510,44 @@
       transform-origin: 0 0;
     }
   }
+}
+
+/*** @spriteW：  雪碧图宽度
+** @spriteH：  雪碧图高度
+** @iconW：   icon宽度
+** @iconH：   icon高度
+** @positionX：icon在雪碧图的x坐标
+** @positionY：icon在雪碧图的y坐标
+*/
+.backgroundP(@spriteW,@spriteH,@iconW,@iconH,@positionX,@positionY) when(@positionX>0) and (@positionY >0) {
+  background-position: @positionX /(@spriteW - @iconW)  * 100%,@positionY /(@spriteH - @iconH)  * 100%;
+}
+
+/*** @spriteW：  雪碧图宽度
+** @spriteH：  雪碧图高度
+** @iconW：   icon宽度
+** @iconH：   icon高度
+** @positionX：icon在雪碧图的x坐标
+** @positionY：icon在雪碧图的y坐标
+*/
+.backgroundP(@positionX,@spriteW,@iconW,@positionY,@spriteH,@iconH) when(@positionX=0) and (@positionY >0) {
+  background-position: 0,@positionY /(@spriteH - @iconH)  * 100%;
+}
+
+/*** @spriteW：  雪碧图宽度
+** @spriteH：  雪碧图高度
+** @iconW：   icon宽度
+** @iconH：   icon高度
+** @positionX：icon在雪碧图的x坐标
+** @positionY：icon在雪碧图的y坐标
+*/
+.background-position(@positionX,@spriteW,@iconW,@positionY,@spriteH,@iconH) when(@positionX>0) and (@positionY =0) {
+  background-position: @positionX /(@spriteW - @iconW)  * 100%, 0;
+}
+
+.background(@image;@color:transparent;@repeat:no-repeat;@size:contain) {
+  background-color: transparent;
+  background-image: url(@image);
+  background-repeat: @repeat;
+  background-size: @size;
 }

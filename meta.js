@@ -30,6 +30,11 @@ module.exports = {
             "message": "Project assets directory",
             "default": ""
         },
+        "rem":{
+            "type": "confirm",
+            "required": false,
+            "message": "是否需要rem适配"
+        },
         "author": {
             "type": "string",
             "message": "Author"
