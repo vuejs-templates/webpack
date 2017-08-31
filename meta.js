@@ -77,7 +77,7 @@ module.exports = {
     "stylelintConfig": {
       "when": "stylelint",
       "type": "list",
-      "message": "Pick an stylelint preset",
+      "message": "Pick a stylelint preset",
       "choices": [
         {
           "name": "Standard (https://github.com/stylelint/stylelint-config-standard)",
