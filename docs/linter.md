@@ -27,4 +27,4 @@ If you are not happy with the default linting rules, you have several options:
   "indentation": "tab",
   ```
 
-2. Pick "none" for ESLint preset when generating the project and define your own rules. See [Stylelint documentation](http://stylelint.io/user-guide/rules/) for more details.
+2. Pick "none" for stylelint preset when generating the project and define your own rules. See [Stylelint documentation](http://stylelint.io/user-guide/rules/) for more details.
