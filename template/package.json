@@ -87,7 +87,18 @@
     "opn": "^5.1.0",
     "optimize-css-assets-webpack-plugin": "^2.0.0",
     "ora": "^1.2.0",
+    {{#pug}}
+    "pug": "^2.0.0-rc.2",
+    {{/pug}}
     "rimraf": "^2.6.0",
+    {{#if_eq sass "sass"}}
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    {{/if_eq}}
+    {{#if_eq sass "scss"}}
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    {{/if_eq}}
     "url-loader": "^0.5.8",
     "vue-loader": "^13.0.4",
     "vue-style-loader": "^3.0.1",

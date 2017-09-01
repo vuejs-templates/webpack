@@ -12,21 +12,21 @@ module.exports = {
     "name": {
       "type": "string",
       "required": true,
-      "message": "Project name"
+      "message": "Project name "
     },
     "description": {
       "type": "string",
       "required": false,
-      "message": "Project description",
+      "message": "Project description ",
       "default": "A Vue.js project"
     },
     "author": {
       "type": "string",
-      "message": "Author"
+      "message": "Author "
     },
     "build": {
       "type": "list",
-      "message": "Vue build",
+      "message": "Vue build ",
       "choices": [
         {
           "name": "Runtime + Compiler: recommended for most users",
@@ -40,18 +40,43 @@ module.exports = {
         }
       ]
     },
+    "sass": {
+      "type": "list",
+      "message": "Select CSS template ",
+      "choices": [
+        {
+          "name": "Sass (Cleaner, indented CSS syntax)",
+          "value": "sass",
+          "short": "Sass"
+        },
+        {
+          "name": "SCSS (Fully compliant superset of CSS syntax)",
+          "value": "scss",
+          "short": "SCSS"
+        },
+        {
+          "name": "none (configure one yourself)",
+          "value": "none",
+          "short": "none"
+        }
+      ]
+    },
+    "pug": {
+      "type": "confirm",
+      "message": "Install Pug template "
+    },
     "router": {
       "type": "confirm",
-      "message": "Install vue-router?"
+      "message": "Install vue-router "
     },
     "lint": {
       "type": "confirm",
-      "message": "Use ESLint to lint your code?"
+      "message": "Use ESLint to lint your code "
     },
     "lintConfig": {
       "when": "lint",
       "type": "list",
-      "message": "Pick an ESLint preset",
+      "message": "Select ESLint preset ",
       "choices": [
         {
           "name": "Standard (https://github.com/feross/standard)",
@@ -72,11 +97,11 @@ module.exports = {
     },
     "unit": {
       "type": "confirm",
-      "message": "Setup unit tests with Karma + Mocha?"
+      "message": "Setup Karma + Mocha unit tests "
     },
     "e2e": {
       "type": "confirm",
-      "message": "Setup e2e tests with Nightwatch?"
+      "message": "Setup Nightwatch e2e tests "
     }
   },
   "filters": {
@@ -88,5 +113,5 @@ module.exports = {
     "test/e2e/**/*": "e2e",
     "src/router/**/*": "router"
   },
-  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
+  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install (or yarn)\n  npm run dev (or yarn dev)\n\nVue files have been modified to match your Pre-Processor selections\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };
