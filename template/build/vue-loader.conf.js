@@ -10,5 +10,11 @@ module.exports = {
     sourceMap: sourceMapEnabled,
     extract: isProduction
   }),
-  cssSourceMap: sourceMapEnabled
+  cssSourceMap: sourceMapEnabled,
+  transformToRequire: {
+    video: 'src',
+    source: 'src',
+    img: 'src',
+    image: 'xlink:href'
+  }
 }
