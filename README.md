@@ -33,7 +33,7 @@ If port 8080 is already in use on your machine you must change the port number i
   - Source maps
 
 - `npm run build`: Production ready build.
-  - JavaScript minified with [UglifyJS](https://github.com/mishoo/UglifyJS2).
+  - JavaScript minified with [babel-minify](https://github.com/babel/minify).
   - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
   - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
   - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
