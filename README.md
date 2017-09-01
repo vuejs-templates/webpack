@@ -18,10 +18,13 @@ $ npm install -g vue-cli
 $ vue init webpack my-project
 $ cd my-project
 $ npm install
+# run at default port 8080
 $ npm run dev
+# run at port 6060
+$ npm run dev -- --port 6060
 ```
 
-If port 8080 is already in use on your machine you must change the port number in `/config/index.js`. Otherwise `npm run dev` will fail.
+You can change the port at `config/index.js` as well.
 
 ## What's Included
 

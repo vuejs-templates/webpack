@@ -16,6 +16,10 @@ var webpackConfig = {{#if_or unit e2e}}(process.env.NODE_ENV === 'testing' || pr
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
+var portIndex = process.argv.indexOf('--port')
+if (portIndex !== -1) {
+  port = process.argv[portIndex + 1] || port;
+}
 // automatically open browser, if not set will be false
 var autoOpenBrowser = !!config.dev.autoOpenBrowser
 // Define HTTP proxies to your custom API backend
