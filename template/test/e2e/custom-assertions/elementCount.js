@@ -18,8 +18,8 @@ exports.assertion = function (selector, count) {
   }
   this.command = function (cb) {
     var self = this{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-    return this.api.execute(function (selector) {
-      return document.querySelectorAll(selector).length{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    return this.api.execute(function (selectorToCount) {
+      return document.querySelectorAll(selectorToCount).length{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }, [selector], function (res) {
       cb.call(self, res){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
