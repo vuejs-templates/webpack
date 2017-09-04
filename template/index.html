@@ -49,8 +49,10 @@
 <body>
 <div id="app"></div>
 <% if (htmlWebpackPlugin.options.env) {%>
-<script src="//cdn.jsdelivr.net/eruda/1.2.2/eruda.min.js"></script>
-<script>eruda.init();</script>
+<script type="text/javascript" src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/2.5.1/vconsole.min.js"></script>
+<% } %>
+<% if (htmlWebpackPlugin.options.isLocal) {%>
+<script type="text/javascript" src="./static/headers.js"></script>
 <% } %>
 </body>
 </html>
