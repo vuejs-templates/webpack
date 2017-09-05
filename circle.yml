@@ -2,6 +2,10 @@ machine:
   node:
     version: stable
 
+general:
+  artifacts:
+    - test
+
 dependencies:
   pre:
     - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
