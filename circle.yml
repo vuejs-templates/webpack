@@ -2,10 +2,6 @@ machine:
   node:
     version: stable
 
-general:
-  artifacts:
-    - test
-
 dependencies:
   pre:
     - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
@@ -15,3 +11,9 @@ dependencies:
 test:
   override:
     - bash test.sh
+  post:
+    - for x in test/* test/.[!.]* test/..?*; do
+        if [ -e "$x" ] && [ $x != "test/node_modules" ]; then
+          mv -- "$x" $CIRCLE_ARTIFACTS/;
+        fi
+      done
