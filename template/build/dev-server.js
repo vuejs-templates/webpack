@@ -14,6 +14,8 @@ var webpackConfig = {{#if_or unit e2e}}(process.env.NODE_ENV === 'testing' || pr
   ? require('./webpack.prod.conf')
   : {{/if_or}}require('./webpack.dev.conf')
 
+// default hostname where dev server listens for incoming traffic
+var host = process.env.HOST || config.dev.host || 'localhost'
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // automatically open browser, if not set will be false
@@ -82,7 +84,7 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 
-var server = app.listen(port)
+var server = app.listen(port, host)
 
 module.exports = {
   ready: readyPromise,
