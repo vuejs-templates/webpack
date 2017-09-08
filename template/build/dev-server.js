@@ -72,14 +72,22 @@ var readyPromise = new Promise(resolve => {
   _resolve = resolve
 })
 
+var server
+var portfinder = require('portfinder')
+portfinder.basePort = port
+
 console.log('> Starting dev server...')
 devMiddleware.waitUntilValid(() => {
-  console.log('> Listening at ' + uri + '\n')
-  // when env is testing, don't need open it
-  if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-    opn(uri)
-  }
-  _resolve()
+  portfinder.getPort((err, port) => {
+    var uri = 'http://localhost:' + port
+    console.log('> Listening at ' + uri + '\n')
+    // when env is testing, don't need open it
+    if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
+      opn(uri)
+    }
+    server = app.listen(port)
+    _resolve()
+  })
 })
 
 var server = app.listen(port)
