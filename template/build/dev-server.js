@@ -68,8 +68,10 @@ app.use(staticPath, express.static('./static'))
 var uri = 'http://localhost:' + port
 
 var _resolve
-var readyPromise = new Promise(resolve => {
+var _reject
+var readyPromise = new Promise((resolve, reject) => {
   _resolve = resolve
+  _reject = reject
 })
 
 var server
@@ -79,6 +81,9 @@ portfinder.basePort = port
 console.log('> Starting dev server...')
 devMiddleware.waitUntilValid(() => {
   portfinder.getPort((err, port) => {
+    if (err) {
+      _reject(err)
+    }
     var uri = 'http://localhost:' + port
     console.log('> Listening at ' + uri + '\n')
     // when env is testing, don't need open it
