@@ -51,8 +51,18 @@ Object.keys(proxyTable).forEach(function (context) {
   app.use(proxyMiddleware(options.filter || context, options))
 })
 
+// redirect when assetsPublicPath is a sub-path
+if (config.dev.assetsPublicPath != '/') {
+  app.get('/', function(req, res) {
+    res.redirect(config.dev.assetsPublicPath)
+  })
+}
+
 // handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')())
+app.use(require('connect-history-api-fallback')({
+  // use index.html in assetsPublicPath
+  index: path.posix.join(config.dev.assetsPublicPath, 'index.html')
+}))
 
 // serve webpack bundle output
 app.use(devMiddleware)
