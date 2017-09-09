@@ -84,6 +84,7 @@ devMiddleware.waitUntilValid(() => {
     if (err) {
       _reject(err)
     }
+    process.env.PORT = port
     var uri = 'http://localhost:' + port
     console.log('> Listening at ' + uri + '\n')
     // when env is testing, don't need open it
