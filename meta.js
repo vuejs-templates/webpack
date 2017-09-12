@@ -85,6 +85,16 @@ module.exports = {
           "short": "Standard"
         },
         {
+          "name": "Recommended (https://github.com/stylelint/stylelint-config-recommended)",
+          "value": "recommended",
+          "short": "Recommended"
+        },
+        {
+          "name": "Wikimedia (https://github.com/wikimedia/stylelint-config-wikimedia)",
+          "value": "wikimedia",
+          "short": "Wikimedia"
+        },
+        {
           "name": "none (configure it yourself)",
           "value": "none",
           "short": "none"

@@ -95,6 +95,12 @@
     {{#if_eq stylelintConfig "standard"}}
     "stylelint-config-standard": "^17.0.0",
     {{/if_eq}}
+    {{#if_eq stylelintConfig "recommended"}}
+    "stylelint-config-recommended": "^1.0.0",
+    {{/if_eq}}
+    {{#if_eq stylelintConfig "wikimedia"}}
+    "stylelint-config-wikimedia": "^0.4.1",
+    {{/if_eq}}
     {{/stylelint}}
     "opn": "^5.1.0",
     "optimize-css-assets-webpack-plugin": "^2.0.0",
