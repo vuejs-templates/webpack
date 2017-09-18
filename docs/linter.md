@@ -17,7 +17,7 @@ If you are not happy with the default linting rules, you have several options:
 3. Pick "none" for ESLint preset when generating the project and define your own rules. See [ESLint documentation](http://eslint.org/docs/rules/) for more details.
 
 ## stylelint
-This boilerplate uses [stylelint](http://stylint.io/) as for style linting, and uses the [Standard](https://github.com/stylelint/stylelint-config-standard) preset.
+This boilerplate uses [stylelint](https://stylelint.io/) as for style linting, and uses the [Standard](https://github.com/stylelint/stylelint-config-standard) preset.
 
 If you are not happy with the default linting rules, you have several options:
 
