@@ -8,14 +8,14 @@
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
     "build": "node build/build.js"{{#unit}},
-    "unit": "cross-env BABEL_ENV=test jest test/unit/specs --coverage"{{/unit}}{{#e2e}},
+    "unit": "jest test/unit/specs --coverage"{{/unit}}{{#e2e}},
     "e2e": "node test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#lint}},
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
   },
   "dependencies": {
-    "vue": "^2.3.3"{{#router}},
-    "vue-router": "^2.6.0"{{/router}}
+    "vue": "^2.4.2"{{#router}},
+    "vue-router": "^2.7.0"{{/router}}
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -58,11 +58,10 @@
     "http-proxy-middleware": "^0.17.3",
     "webpack-bundle-analyzer": "^2.2.1",
     {{#unit}}
-    "cross-env": "^5.0.1",
-    "jest": "^20.0.4",
-    "babel-jest": "^20.0.3",
+    "babel-jest": "^21.0.2",
     "babel-plugin-module-resolver": "^2.7.1",
-    "jest-vue-preprocessor": "^1.0.1",
+    "jest": "^21.1.0",
+    "jest-vue": "^0.5.6",
     {{/unit}}
     {{#e2e}}
     "chromedriver": "^2.27.2",
@@ -77,9 +76,9 @@
     "ora": "^1.2.0",
     "rimraf": "^2.6.0",
     "url-loader": "^0.5.8",
-    "vue-loader": "^12.1.0",
+    "vue-loader": "^13.0.4",
     "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.3.3",
+    "vue-template-compiler": "^2.4.2",
     "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
@@ -89,12 +88,14 @@
   "jest": {
     "moduleFileExtensions": [
       "js",
+      "json",
       "vue"
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor"
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue"
     },
+    "mapCoverage": true,
     "collectCoverageFrom" : [
       "src/**/*.{js,vue}",
       "!src/main.js",
