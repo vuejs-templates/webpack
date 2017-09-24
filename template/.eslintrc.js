@@ -10,7 +10,7 @@ module.exports = {
     browser: true,
   },
   {{#if_eq lintConfig "standard"}}
-  // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
+  // https://github.com/standard/standard/blob/master/docs/RULES-en.md
   extends: 'standard',
   {{/if_eq}}
   {{#if_eq lintConfig "airbnb"}}
