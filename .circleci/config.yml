@@ -29,6 +29,9 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
+          name: make executable
+          command: chmod +x test.sh
+      - run:
           name: install template
           command: ./test.sh
       - persist_to_workspace:
