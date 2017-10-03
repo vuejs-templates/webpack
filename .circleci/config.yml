@@ -25,9 +25,9 @@ jobs:
   create_project_and_deps:
     <<: *defaults
     steps:
+      - checkout    
       - attach_workspace:
           at: ~/project
-      - checkout
       - run:
           name: install template
           command: |
