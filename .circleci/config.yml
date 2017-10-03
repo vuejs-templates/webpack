@@ -20,7 +20,7 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths:
-            - webpack-template/.node_modules
+            - webpack-template/node_modules
 
   create_project_and_deps:
     <<: *defaults
