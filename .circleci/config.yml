@@ -83,10 +83,10 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - install_root_deps
+      - install_template_deps
       - create_project_and_deps:
           requires:
-            - install_root_deps
+            - install_template_deps
       - install_template_and_deps:
           requires:
             - create_project_and_deps
