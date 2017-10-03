@@ -20,13 +20,13 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths:
-            - webpack-template
+            - webpack-template/.node_modules
 
   create_project_and_deps:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/projets
+          at: ~/project
       - checkout
       - run:
           name: install template
@@ -41,7 +41,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/projets
+          at: ~/project
       - checkout
       - restore_cache:
           key: project-cache-{{ checksum "test/package.json" }}
