@@ -30,7 +30,7 @@ jobs:
           at: ~/project
       - run:
           name: install template
-          command: test.sh
+          command: ./test.sh
       - persist_to_workspace:
           root: ~/project
           paths:
