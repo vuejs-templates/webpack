@@ -30,7 +30,7 @@ jobs:
           at: ~/project
       - run:
           name: install template
-          shell: /bin/sh
+          shell: /bin/bash
           command: yes "" | ./node_modules/.bin/vue init . test
       - persist_to_workspace:
           root: ~/project
