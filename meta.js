@@ -72,7 +72,29 @@ module.exports = {
     },
     "unit": {
       "type": "confirm",
-      "message": "Setup unit tests with Jest?"
+      "message": "Setup unit tests"
+    },
+    "runner": {
+      "when": "unit",
+      "type": "list",
+      "message": "Pick a test runner",
+      "choices": [
+        {
+          "name": "Jest",
+          "value": "jest",
+          "short": "jest"
+        },
+        {
+          "name": "Karma and Mocha",
+          "value": "karma",
+          "short": "karma"
+        },
+        {
+          "name": "none (configure it yourself)",
+          "value": "noTest",
+          "short": "noTest"
+        }
+      ]
     },
     "e2e": {
       "type": "confirm",

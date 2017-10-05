@@ -7,11 +7,18 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
-    "build": "node build/build.js"{{#unit}},
-    "unit": "jest test/unit/specs --coverage"{{/unit}}{{#e2e}},
+    {{#if_eq runner "jest"}}
+    "unit": "jest test/unit/specs --coverage",
+    {{/if_eq}}
+    {{#if_eq runner "karma"}}
+    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+    {{/if_eq}}
+    {{#e2e}}
     "e2e": "node test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#lint}},
-    "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
+    "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
+    {{/lint}}
+    "build": "node build/build.js"
   },
   "dependencies": {
     "vue": "^2.4.2"{{#router}},
@@ -57,12 +64,31 @@
     "html-webpack-plugin": "^2.28.0",
     "http-proxy-middleware": "^0.17.3",
     "webpack-bundle-analyzer": "^2.2.1",
-    {{#unit}}
+    {{#if_eq runner "jest"}}
     "babel-jest": "^21.0.2",
     "babel-plugin-module-resolver": "^2.7.1",
     "jest": "^21.2.0",
-    "jest-vue": "^0.5.6",
-    {{/unit}}
+    "jest-vue": "^0.7.0",
+    {{/if_eq}}
+    {{#if_eq runner "karma"}}
+    "cross-env": "^5.0.1",
+    "karma": "^1.4.1",
+    "karma-coverage": "^1.1.1",
+    "karma-mocha": "^1.3.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-phantomjs-shim": "^1.4.0",
+    "karma-sinon-chai": "^1.3.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.31",
+    "karma-webpack": "^2.0.2",
+    "mocha": "^3.2.0",
+    "chai": "^4.1.2",
+    "sinon": "^4.0.0",
+    "sinon-chai": "^2.8.0",
+    "inject-loader": "^3.0.0",
+    "babel-plugin-istanbul": "^4.1.1",
+    "phantomjs-prebuilt": "^2.1.14",
+    {{/if_eq}}
     {{#e2e}}
     "chromedriver": "^2.27.2",
     "cross-spawn": "^5.0.1",
