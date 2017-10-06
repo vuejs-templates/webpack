@@ -20,7 +20,7 @@
     name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
     components: {
       Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},{{/router}}
+    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
     data() {
       return {
         isMounted: false{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
