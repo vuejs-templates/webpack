@@ -1,0 +1,19 @@
+.slide-down-enter-active, .slide-down-leave-active {
+  transition: transform 1s, opacity 1s;
+  transform: translateY(0%);
+  opacity: 1;
+}
+.slide-down-enter, .slide-down-leave-to {
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.slide-up-enter-active, .slide-up-leave-active {
+  transition: transform 1s, opacity 1s;
+  transform: translateY(0%);
+  opacity: 1;
+}
+.slide-up-enter, .slide-up-leave-to {
+  transform: translateY(50%);
+  opacity: 0;
+}
