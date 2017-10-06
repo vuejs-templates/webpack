@@ -3,6 +3,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 {{/if_eq}}
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import '@/assets/scss/index.scss'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import retina from 'retinajs'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import VueRetina from 'vue-retina'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#vuex}}
