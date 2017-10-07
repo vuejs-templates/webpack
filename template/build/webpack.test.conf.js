@@ -1,11 +1,12 @@
+'use strict'
 // This is the webpack config used for unit tests.
 
-var utils = require('./utils')
-var webpack = require('webpack')
-var merge = require('webpack-merge')
-var baseWebpackConfig = require('./webpack.base.conf')
+const utils = require('./utils')
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const baseWebpackConfig = require('./webpack.base.conf')
 
-var webpackConfig = merge(baseWebpackConfig, {
+const webpackConfig = merge(baseWebpackConfig, {
   // use inline sourcemap for karma-sourcemap-loader
   module: {
     rules: utils.styleLoaders()
