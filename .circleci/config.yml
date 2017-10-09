@@ -91,10 +91,10 @@ workflows:
             - install_template_deps
       - install_project_deps:
           requires:
-            - create_project_and_deps
+            - create_project
       - exec_unit_tests:
           requires:
-            - install_template_and_deps
+            - install_project_deps
       - exec_e2e_tests:
           requires:
-            - install_template_and_deps
+            - install_project_deps
