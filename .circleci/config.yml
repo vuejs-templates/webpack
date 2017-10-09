@@ -33,7 +33,7 @@ jobs:
           shell: /bin/bash
           command: |
             set -e
-            yes "" | vue init . test
+            yes "" | ./node_modules/.bin/vue init . test
       - persist_to_workspace:
           root: ~/project
           paths:
