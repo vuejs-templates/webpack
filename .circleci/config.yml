@@ -22,18 +22,18 @@ jobs:
           paths:
             - webpack-template/node_modules
 
-  create_project_and_deps:
+  create_project:
     <<: *defaults
     steps:
-      - checkout    
+      - checkout
       - attach_workspace:
           at: ~/project
       - run:
-          name: make executable
-          command: chmod +x test.sh
-      - run:
-          name: install template
-          command: ./test.sh
+          name: run vue-cli
+          shell: /bin/bash
+          command: |
+            set -e
+            yes "" | vue init . test
       - persist_to_workspace:
           root: ~/project
           paths:
@@ -42,9 +42,9 @@ jobs:
   install_project_deps:
     <<: *defaults
     steps:
+      - checkout
       - attach_workspace:
           at: ~/project
-      - checkout
       - restore_cache:
           key: project-cache-{{ checksum "test/package.json" }}
       - run:
@@ -64,9 +64,9 @@ jobs:
   exec_unit_tests:
     <<: *defaults
     steps:
+      - checkout
       - attach_workspace:
             at: ~/project
-      - checkout
       - run:
           name: Unit Tests
           command: npm run unit
@@ -74,9 +74,9 @@ jobs:
   exec_e2e_tests:
     <<: *defaults
     steps:
+      - checkout
       - attach_workspace:
             at: ~/project
-      - checkout
       - run:
           name: End-To-End Tests
           command: npm run e2e
@@ -86,10 +86,10 @@ workflows:
   build_and_test:
     jobs:
       - install_template_deps
-      - create_project_and_deps:
+      - create_project:
           requires:
             - install_template_deps
-      - install_template_and_deps:
+      - install_project_deps:
           requires:
             - create_project_and_deps
       - exec_unit_tests:
