@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'hello',
+  name: 'HelloWorld',
   data{{#unless_eq eslintConfig "airbnb"}} {{/unless_eq}}() {
     return {
       msg: 'Welcome to Your Vue.js App'{{#if_eq eslintConfig "airbnb"}},{{/if_eq}}
@@ -33,8 +33,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
+h1, h2 {
   font-weight: normal;
 }
 
