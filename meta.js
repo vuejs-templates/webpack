@@ -101,7 +101,7 @@ module.exports = {
       // If typescript is enabled rename any .js files in src/ folder to .ts extension
       if (metalsmith.metadata().typescript) {
         Object.keys(files).forEach(filename => {
-          if (/^src.*\.js$/.test(filename)) {
+          if (/^(src|test\\unit\\specs).*\.js$/.test(filename)) {
           const renamed = filename.replace(/\.js$/, ".ts");
           files[renamed] = files[filename]
           delete files[filename]
