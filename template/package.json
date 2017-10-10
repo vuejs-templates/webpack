@@ -12,7 +12,7 @@
     "e2e": "node test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#eslint}},
     "lint:eslint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/eslint}}{{#stylelint}},
-    "lint:stylelint": "stylelint \"**/*.{vue,htm,html,css,sss,less,scss,sass}\" --custom-syntax postcss-html"{{/stylelint}}{{#if_or eslint stylelint}},
+    "lint:stylelint": "stylelint \"src/**/*.{vue,htm,html,css,sss,less,scss,sass}\" --custom-syntax postcss-html"{{/stylelint}}{{#if_or eslint stylelint}},
     "lint": "{{#eslint}}npm run lint:eslint{{/eslint}}{{#eslint}}{{#stylelint}} && {{/stylelint}}{{/eslint}}{{#stylelint}}npm run lint:stylelint{{/stylelint}}"{{/if_or}}
   },
   "dependencies": {
