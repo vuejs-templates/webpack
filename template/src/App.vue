@@ -1,5 +1,13 @@
 <template>
   <div id="app">
+    <h1>
+      {{#if_eq typefor "mobile"}}
+      mobile App
+      {{/if_eq}}
+      {{#if_eq typefor "pc"}}
+      pc App
+      {{/if_eq}}
+    </h1>
     {{#router}}
     <router-view/>
     {{else}}

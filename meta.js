@@ -30,12 +30,12 @@ module.exports = {
       "choices": [
         {
           "name": "PC: no fast-click  and pc reset css",
-          "value": "PC",
+          "value": "pc",
           "short": "pc"
         },
         {
           "name": "Mobile: have fast-click and mobile reset css",
-          "value": "Mobile",
+          "value": "mobile",
           "short": "mobile"
         }
       ]
@@ -70,22 +70,22 @@ module.exports = {
       "choices": [
         {
           "name": "Only CSS: recommended for most users",
-          "value": "Css",
+          "value": "css",
           "short": "css"
         },
         {
           "name": "Stylus And Css: For Stylus users",
-          "value": "Stylus",
+          "value": "stylus",
           "short": "stylus"
         },
         {
           "name": "Sass And Css: For Sass users",
-          "value": "Sass",
+          "value": "sass",
           "short": "sass"
         },
         {
           "name": "Less And Css: For Less users",
-          "value": "Less",
+          "value": "less",
           "short": "less"
         },
       ]
@@ -136,7 +136,8 @@ module.exports = {
     "test/unit/**/*": "unit",
     "build/webpack.test.conf.js": "unit",
     "test/e2e/**/*": "e2e",
-    "src/router/**/*": "router"
+    "src/router/**/*": "router",
+    "src/store/**/*": "vuex"
   },
   "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}yarn\n  yarn dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };

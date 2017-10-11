@@ -9,22 +9,22 @@ export default {
 
 }
 </script>
-{{#if_eq styls "css"}}
+{{#if_eq style "css"}}
 <style scoped>
 
 </style>
 {{/if_eq}}
-{{#if_eq styls "less"}}
+{{#if_eq style "less"}}
 <style lang="less" scoped>
 
 </style>
 {{/if_eq}}
-{{#if_eq styls "sass"}}
+{{#if_eq style "sass"}}
 <style lang="sass" scoped>
 
 </style>
 {{/if_eq}}
-{{#if_eq styls "stylus"}}
+{{#if_eq style "stylus"}}
 <style lang="stylus" scoped>
 
 </style>
