@@ -9,6 +9,11 @@
 
 > 这是兼容 `Vue 2.0` 的模板，如果你需要 `Vue 1.0` 版本的模板，你可以使用官方的方案，这里页同样不提供和更新 `Vue 1.0` 的任何模板。（没有用过 `Vue 1.0`）
 
+## Improvement point 与官方相比改进的地方
+
+- 支持[Vuex](https://github.com/vuejs/vuex)
+- 增加了网络API访问的接口，这里提供比较流行的两种[axios](https://github.com/axios/axios)与[jsonp](https://github.com/webmodules/jsonp)，其中jsonp可以使用提供的common/js/jsonp.js文件进行Promise扩展
+
 ## Documentation 文档
 
 - [For this template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail

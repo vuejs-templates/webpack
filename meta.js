@@ -45,14 +45,14 @@ module.exports = {
       "message": "Vue build",
       "choices": [
         {
-          "name": "Runtime + Compiler: recommended for most users",
-          "value": "standalone",
-          "short": "standalone"
-        },
-        {
           "name": "Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere",
           "value": "runtime",
           "short": "runtime"
+        },
+        {
+          "name": "Runtime + Compiler: recommended for most users",
+          "value": "standalone",
+          "short": "standalone"
         }
       ]
     },
@@ -62,33 +62,13 @@ module.exports = {
     },
     "vuex": {
       "type": "confirm",
+      "default": false,
       "message": "Install vuex?"
     },
-    "style": {
-      "type": "list",
-      "message": "Style Language Compatible",
-      "choices": [
-        {
-          "name": "Only CSS: recommended for most users",
-          "value": "css",
-          "short": "css"
-        },
-        {
-          "name": "Stylus And Css: For Stylus users",
-          "value": "stylus",
-          "short": "stylus"
-        },
-        {
-          "name": "Sass And Css: For Sass users",
-          "value": "sass",
-          "short": "sass"
-        },
-        {
-          "name": "Less And Css: For Less users",
-          "value": "less",
-          "short": "less"
-        },
-      ]
+    "stylus": {
+      "type": "confirm",
+      "default": true,
+      "message": "Whether to use stylus, otherwise css, other self-prepared"
     },
     "api": {
       "type": "confirm",
@@ -122,10 +102,12 @@ module.exports = {
     },
     "unit": {
       "type": "confirm",
+      "default": false,
       "message": "Setup unit tests with Karma + Mocha?"
     },
     "e2e": {
       "type": "confirm",
+      "default": false,
       "message": "Setup e2e tests with Nightwatch?"
     }
   },
@@ -137,7 +119,8 @@ module.exports = {
     "build/webpack.test.conf.js": "unit",
     "test/e2e/**/*": "e2e",
     "src/router/**/*": "router",
-    "src/store/**/*": "vuex"
+    "src/store/**/*": "vuex",
+    "src/common/stylus/**/*": "stylus"
   },
   "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}yarn\n  yarn dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };
