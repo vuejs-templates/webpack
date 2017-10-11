@@ -1,12 +1,12 @@
-import * as types from './mutation-types'
+// import * as types from './mutation-types'
 
 // import { saveSearch, deleteSearch, clearSearch, savePlay, saveFavorite, deleteFavorite } from '@/common/js/cache'
 // you can inport some Functions to use it here
 
 /**
- * commit to change state 
- * @param {*} param0 
- * @param {*} param1 
+ * commit to change state
+ * @param {*} param0
+ * @param {*} param1
  */
 // export const selectPlay = function ({ commit, state }, { list, index }) {
 //   commit(types.SET_SEQUENCE_LIST, list)
