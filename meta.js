@@ -12,7 +12,7 @@ module.exports = {
     "name": {
       "type": "string",
       "required": true,
-      "message": "Project name"
+      "message": "Project name For Mobile App or PC Web App (SPA)"
     },
     "description": {
       "type": "string",
@@ -23,6 +23,22 @@ module.exports = {
     "author": {
       "type": "string",
       "message": "Author"
+    },
+    "typefor": {
+      "type": "list",
+      "message": "Devlop for PC or Mobile?",
+      "choices": [
+        {
+          "name": "PC: no fast-click  and pc reset css",
+          "value": "PC",
+          "short": "pc"
+        },
+        {
+          "name": "Mobile: have fast-click and mobile reset css",
+          "value": "Mobile",
+          "short": "mobile"
+        }
+      ]
     },
     "build": {
       "type": "list",
@@ -43,6 +59,40 @@ module.exports = {
     "router": {
       "type": "confirm",
       "message": "Install vue-router?"
+    },
+    "vuex": {
+      "type": "confirm",
+      "message": "Install vuex?"
+    },
+    "style": {
+      "type": "list",
+      "message": "Style Language Compatible",
+      "choices": [
+        {
+          "name": "Only CSS: recommended for most users",
+          "value": "Css",
+          "short": "css"
+        },
+        {
+          "name": "Stylus And Css: For Stylus users",
+          "value": "Stylus",
+          "short": "stylus"
+        },
+        {
+          "name": "Sass And Css: For Sass users",
+          "value": "Sass",
+          "short": "sass"
+        },
+        {
+          "name": "Less And Css: For Less users",
+          "value": "Less",
+          "short": "less"
+        },
+      ]
+    },
+    "api": {
+      "type": "confirm",
+      "message": "Use axios and jsonp or good-storage to help you connect your APIs?"
     },
     "lint": {
       "type": "confirm",
