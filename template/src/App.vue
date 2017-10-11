@@ -37,8 +37,11 @@ export default {
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   text-align center
-  color $color-text-l
+  color #2c3e50
   margin-top 60px
+  h1
+    font-size 40px
+    margin 20px 0
 </style>
 {{else}}
 <style>
@@ -49,6 +52,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h1 {
+  font-size: 40px;
+  margin: 20px 0;
 }
 </style>
 {{/stylus}}

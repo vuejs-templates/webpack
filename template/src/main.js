@@ -8,10 +8,9 @@ import VueLazyLoad from 'vue-lazyload'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#router}}
 import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
-{{#if_eq style "stylus"}}
+{{#stylus}}
 import 'common/stylus/index.styl'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-{{/if_eq}}
-
+{{/stylus}}
 {{#if_eq typefor "mobile"}}
 import fastclick from 'fastclick'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/if_eq}}
