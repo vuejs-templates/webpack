@@ -29,6 +29,14 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
+    },
+    before: function(app) {
+        // Redirect to index.html in assetsPublicPath if path is not set to root
+        if (config.dev.assetsPublicPath && config.dev.assetsPublicPath != '/') {
+            app.get('/', function(req, res) {
+                res.redirect(config.dev.assetsPublicPath);
+            });
+        }
     }
   },
   plugins: [
