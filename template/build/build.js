@@ -1,5 +1,13 @@
 require('./check-versions')()
 
+var staging = false;
+
+process.argv.slice(2).forEach(function(val, index) {
+  if(val === "--staging-build") {
+    staging = true;
+  }
+});
+
 process.env.NODE_ENV = 'production'
 
 var ora = require('ora')
@@ -8,9 +16,15 @@ var path = require('path')
 var chalk = require('chalk')
 var webpack = require('webpack')
 var config = require('../config')
-var webpackConfig = require('./webpack.prod.conf')
+var webpackConfig;
 
-var spinner = require('./spinner');
+if(staging) {
+  webpackConfig = require('./webpack.staging.conf')
+} else {
+  webpackConfig = require('./webpack.prod.conf')
+}
+
+var spinner = require('./spinner')(staging ? 'staging' : 'production');
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   if (err) throw err

@@ -1,7 +1,8 @@
 var ora = require('ora');
 
-var spinner = ora('🐱  Building for production...');
-spinner.color = 'magenta';
-spinner.start();
-
-module.exports = spinner;
+module.exports = function(string) {
+    var spinner = ora('🐱  Building for ' + string + '...');
+    spinner.color = 'magenta';
+    spinner.start();
+    return spinner;
+}
