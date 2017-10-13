@@ -79,7 +79,6 @@ exports.createNotifierCallback = function () {
     if (severity !== 'error') {
       return
     }
-    console.log('it should notify!!')
     const error = errors[0]
 
     const filename = error.file.split('!').pop()
