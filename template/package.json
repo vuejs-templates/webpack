@@ -67,7 +67,6 @@
     "karma-spec-reporter": "0.0.31",
     "karma-webpack": "^2.0.2",
     "mocha": "^3.2.0",
-    "node-notifier": "^5.1.2",
     "chai": "^4.1.2",
     "sinon": "^4.0.0",
     "sinon-chai": "^2.8.0",
@@ -75,6 +74,7 @@
     "babel-plugin-istanbul": "^4.1.1",
     "phantomjs-prebuilt": "^2.1.14",
     {{/unit}}
+    "node-notifier": "^5.1.2",
     {{#e2e}}
     "chromedriver": "^2.27.2",
     "cross-spawn": "^5.0.1",
