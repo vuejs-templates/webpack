@@ -2,7 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     {{#router}}
-    <router-view/>
+    <RouterView/>
     {{else}}
     <HelloWorld/>
     {{/router}}
