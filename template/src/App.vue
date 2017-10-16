@@ -10,16 +10,18 @@
 </template>
 
 <script{{#typescript}} lang="ts"{{/typescript}}>
+{{#typescript}}import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};
+{{/if_eq}}{{/typescript}}
 {{#unless router}}
 import HelloWorld from './components/HelloWorld'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 {{/unless}}
-export default {
+export default {{#typescript}}Vue.extend({{/typescript}}{
   name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
   components: {
     HelloWorld{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+}{{#typescript}}){{/typescript}}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
 <style>
