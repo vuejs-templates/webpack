@@ -70,3 +70,12 @@ exports.styleLoaders = function (options) {
   }
   return output
 }
+
+exports.envVarsToDefinePlugin = function (envObj) {
+  return Object.keys(envObj).map(function (k) {
+    return [k, "'" + envObj[k] + "'"]
+  }).reduce(function (o, e) {
+    o[e[0]] = e[1]
+    return o
+  }, {})
+}
