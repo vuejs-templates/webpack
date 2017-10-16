@@ -59,7 +59,20 @@ Object.keys(proxyTable).forEach(function (context) {
 })
 
 // handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')())
+app.use(require('connect-history-api-fallback')({
+   // this allows to redirect also paths that contain dots
+  disableDotRule: true,
+  rewrites: [
+    { from: /^\/app.js$/,
+      to:'/app.js'
+    },
+    { from: /.*hot-update.(js|json)$/,
+      to: function(context) {
+        return context.parsedUrl.href
+      }
+    }
+  ]
+}))
 
 // serve webpack bundle output
 app.use(devMiddleware)
