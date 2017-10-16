@@ -4,7 +4,7 @@
     {{#router}}
     <router-view/>
     {{else}}
-    <hello-world/>
+    <HelloWorld/>
     {{/router}}
   </div>
 </template>
