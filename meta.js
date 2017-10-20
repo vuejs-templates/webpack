@@ -18,7 +18,7 @@ module.exports = {
       "type": "string",
       "required": false,
       "message": "Project description",
-      "default": "A Vue.js project"
+      "default": "A Vue.js project for CRM"
     },
     "author": {
       "type": "string",
@@ -29,7 +29,7 @@ module.exports = {
       "message": "Vue build",
       "choices": [
         {
-          "name": "Runtime + Compiler: recommended for most users",
+          "name": "Runtime + Compiler: recommended for most users; Suggested for CRM projects",
           "value": "standalone",
           "short": "standalone"
         },
@@ -43,6 +43,10 @@ module.exports = {
     "router": {
       "type": "confirm",
       "message": "Install vue-router?"
+    },
+    "vuex": {
+      "type": "confirm",
+      "message": "Install vuex?"
     },
     "lint": {
       "type": "confirm",
