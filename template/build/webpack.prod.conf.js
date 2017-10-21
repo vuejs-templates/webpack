@@ -9,9 +9,9 @@ import * as utils from './utils';
 import config from '../config';
 import baseWebpackConfig from './webpack.base.conf';
 
-const { dev } = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
-  ? require('../config/test.env')
-  : {{/if_or}}config.build.env;
+const { env } = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
+  ? require('../config/test.env').default
+  : {{/if_or}}config.build;
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -99,6 +99,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   ]
 });
 
+/* eslint-disable global-require */
 if (config.build.productionGzip) {
   const CompressionWebpackPlugin = require('compression-webpack-plugin');
 

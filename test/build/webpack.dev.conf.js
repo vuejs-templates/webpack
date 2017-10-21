@@ -13,7 +13,7 @@ Object.keys(baseWebpackConfig.entry).forEach((name) => {
 
 export default merge(baseWebpackConfig, {
   module: {
-    rules: styleLoaders({ 
+    rules: styleLoaders({
       sourceMap: config.dev.cssSourceMap
     })
   },

@@ -1,7 +1,7 @@
 require("babel-register")({
   presets: 'env'
 });
-const webpackConfig = require('./build/webpack.base.conf.js');
+const webpackConfig = require('./build/webpack.base.conf.js').default;
 
 // https://eslint.org/docs/user-guide/configuring
 

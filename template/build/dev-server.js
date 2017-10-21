@@ -6,14 +6,14 @@ import proxyMiddleware from 'http-proxy-middleware';
 import portfinder from 'portfinder';
 import config from '../config';
 
-require('./check-versions')();
+require('./check-versions').default();
 
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV);
 }
 
 const webpackConfig = {{#if_or unit e2e}}(process.env.NODE_ENV === 'testing' || process.env.NODE_ENV === 'production')
-  ? require('./webpack.prod.conf').default;
+  ? require('./webpack.prod.conf').default
   : {{/if_or}}require('./webpack.dev.conf').default;
 
 // default port where dev server listens for incoming traffic
@@ -26,7 +26,7 @@ const {
   dev: {
     proxyTable
   }
-} = config.dev.proxyTable;
+} = config;
 
 const app = express();
 const compiler = webpack(webpackConfig);
@@ -73,8 +73,6 @@ app.use(hotMiddleware);
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory);
 app.use(staticPath, express.static('./static'));
 
-const uri = `http://localhost:${port}`;
-
 /* eslint-disable no-underscore-dangle */
 let _resolve;
 let _reject;
@@ -88,18 +86,18 @@ portfinder.basePort = port;
 
 console.log('> Starting dev server...');
 devMiddleware.waitUntilValid(() => {
-  portfinder.getPort((err, port) => {
-    if (err) {
-      _reject(err)
+  portfinder.getPort((error, realPort) => {
+    if (error) {
+      _reject(error)
     }
-    process.env.PORT = port;
-    const uri = `http://localhost:${port}`;
+    process.env.PORT = realPort;
+    const uri = `http://localhost:${realPort}`;
     console.log(`> Listening at ${uri}\n`);
     // when env is testing, don't need open it
     if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
       opn(uri);
     }
-    server = app.listen(port);
+    server = app.listen(realPort);
     _resolve();
   });
 });

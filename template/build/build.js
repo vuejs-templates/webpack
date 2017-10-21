@@ -9,7 +9,7 @@ import webpackConfig from './webpack.prod.conf';
 /* eslint-disable prefer-template */
 /* eslint-disable function-paren-newline */
 
-require('./check-versions')();
+require('./check-versions').default();
 
 process.env.NODE_ENV = 'production';
 

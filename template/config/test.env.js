@@ -1,6 +1,7 @@
-const devEnv = require('./dev.env')
+import merge from 'webpack-merge';
+import devConfig from './dev.env';
 
-export default merge(devEnv, {
+export default merge(devConfig, {
   env: {
     NODE_ENV: '"testing"'
   }

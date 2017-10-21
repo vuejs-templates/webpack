@@ -26,6 +26,6 @@ const webpackConfig = merge(baseConfig, {
 });
 
 // no need for app entry during tests
-delete webpackConfig.entry
+delete webpackConfig.entry;
 
 export default webpackConfig;
