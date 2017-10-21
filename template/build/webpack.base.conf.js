@@ -1,8 +1,8 @@
-import eslintFirendlyFormatter from 'eslint-friendly-formatter';
 import config from '../config';
 import * as utils from './utils';
 import vueLoaderConfig from './vue-loader.conf';
 
+/* eslint-disable global-require */
 export default {
   entry: {
     app: './src/main.js'
@@ -32,7 +32,7 @@ export default {
         enforce: 'pre',
         include: [utils.resolve('src'), utils.resolve('test')],
         options: {
-          formatter: eslintFirendlyFormatter
+          formatter: require('eslint-friendly-formatter')
         }
       },
       {{/lint}}
