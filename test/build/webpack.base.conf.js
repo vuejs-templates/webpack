@@ -17,15 +17,12 @@ export default {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      {{#if_eq build "standalone"}}
       vue$: 'vue/dist/vue.esm.js',
-      {{/if_eq}}
       '@': utils.resolve('src')
     }
   },
   module: {
     rules: [
-      {{#lint}}
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
@@ -35,7 +32,6 @@ export default {
           formatter: eslintFirendlyFormatter
         }
       },
-      {{/lint}}
       {
         test: /\.vue$/,
         loader: 'vue-loader',

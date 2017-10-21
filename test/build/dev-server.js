@@ -12,9 +12,7 @@ if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV);
 }
 
-const webpackConfig = {{#if_or unit e2e}}(process.env.NODE_ENV === 'testing' || process.env.NODE_ENV === 'production')
-  ? require('./webpack.prod.conf').default;
-  : {{/if_or}}require('./webpack.dev.conf').default;
+const webpackConfig = require('./webpack.dev.conf').default;
 
 // default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.dev.port;
