@@ -23,7 +23,7 @@ PrototypeConfig.createPrototype(Vue);
 new Vue({
   el: '#app',
   {{#router}}
-  router,
+  router: router.initRouter(),
   {{/router}}
   store: StoreConfig.initStore(),
   {{#if_eq build "runtime"}}
@@ -35,16 +35,6 @@ new Vue({
     LocationConfig.appPickLocation().then(() => {
     }).catch(() => {
     });
-    this.$router.beforeEach((to, from, next) => {
-      if (from.name === 'Hello') {
-        LocationConfig.appPickLocation().then(() => {
-        }).catch(() => {
-        });
-      }
-      window.scrollTo(0, 0);
-      this.alertClose();
-      next()
-    })
   },
   components: { App }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   {{/if_eq}}

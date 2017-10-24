@@ -5,7 +5,7 @@ import LocationManager from '@util/LocationManager';
 import LocalInfoManager from '@util/LocalInfoManager';
 import GlobalConstant from '@util/GlobalConstant';
 import {JToolDate} from 'jbzwebsdk';
-import NetworkCity from '@network/NetworkCity'
+import NetworkCity from '@network/NetworkOther'
 
 class LocationConfig {
   /**
@@ -14,7 +14,7 @@ class LocationConfig {
   static appPickLocation() {
     return new Promise((resolve, reject) => {
       LocationManager.getLocation().then((location) => {
-        NetworkCity.cityByCoordinate(location).then(data => {
+        NetworkCity.cityByCoordinate({latitude:location.latitude, longitude:location.longitude}).then(data => {
           resolve(location);
           // 获取到定位，获取城市
           // console.log(data);
