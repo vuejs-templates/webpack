@@ -1,10 +1,7 @@
 /**
- * Created by cuppi on 2017/5/15.
+ * Created by cuppi on 2017/10/24.
  */
 
-/**
- * Created by cuppi on 2017/5/15.
- */
 /* eslint-disable */
 import {JToolObject as ObjectTool, JToolDate as DateTool} from 'jbzwebsdk';
 

@@ -1,5 +1,5 @@
 /**
- * Created by cuppi on 2017/5/12.
+ * Created by cuppi on 2017/10/24.
  */
 
 const cityUrl = {
@@ -40,12 +40,20 @@ const accountUrl = {
 
 const tradeUrl = {
   jbzLockSeat: '',
-  jbzWebAtAppApplyTicket: ''
+  jbzWebAtAppApplyTicket: '',
+  jbzCancelOrder: '',
+  jbzAppPrepay: '',
+  jbzWebPrepay: ''
+};
+
+const mineUrl = {
+  jbzMineCinema: ''
 };
 
 const otherUrl = {
   jbzBanners: '/content/banners',
-  jbzSearch: ''
+  jbzSearch: '',
+  jbzHotSearchKeyword: ''
 };
 
-export default {cityUrl, cinemaUrl, filmUrl, accountUrl, tradeUrl, otherUrl};
+export default {cityUrl, cinemaUrl, filmUrl, accountUrl, tradeUrl, otherUrl, mineUrl};
