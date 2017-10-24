@@ -1,0 +1,77 @@
+
+/**
+ *********** 尺寸常量 *********
+ **/
+
+// 字体大小
+$font-size-11: 11px;
+$font-size-12: 12px;
+$font-size-13: 13px;
+$font-size-14: 14px;
+$font-size-15: 15px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+
+// 通用字体大小
+$fs-1: 0.18rem;
+$fs-2: 0.22rem;
+$fs-3: 0.26rem;
+$fs-4: 0.3rem;
+$fs-5: 0.36rem;
+$fs-6: 0.32rem;
+$fs-7: 0.28rem;
+
+$padding: 0.25rem;
+
+/**
+ *********** 颜色常量 *********
+ **/
+
+// 文字颜色
+$font-color-1: #333333;
+$font-color-2: #666666;
+$font-color-3: #999999;
+$font-color-4: #cccccc;
+$font-color-5: #adadad;
+$font-color-6: #ff9933;
+$font-color-7: #555555;
+$font-color-8: #ff8000;
+
+// 通用文字颜色
+$fc-1: #333333;
+$fc-2: #666666;
+$fc-3: #999999;
+$fc-4: #cccccc;
+$fc-5: #adadad;
+$fc-6: #ff9933;
+$fc-7: #555555;
+$fc-8: #ff8000;
+
+// 通用颜色
+$c-theme: #00a6ff;
+$c-background: #f5f5f5;
+$c-white: #fff;
+$c-333: #333;
+$c-999: #999;
+$c-666: #666;
+$c-border: #d7d7d7;
+
+/**
+ ***********  其他常量 *********
+ **/
+
+//z-index层叠常量
+$index-floor: 0;
+$index-top: 999;
+$index-1: 10;
+$index-2: 20;
+$index-3: 30;
+$index-4: 40;
+$index-5: 50;
+$index-6: 60;
+$index-7: 70;
+$index-8: 80;
+$index-9: 90;
+
+//文字粗细
+$font-weight: 500;

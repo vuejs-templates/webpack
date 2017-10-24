@@ -1,0 +1,49 @@
+@mixin flex() {
+  display: box; /* OLD - Android 4.4-  新加入*/
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+}
+
+@mixin flex-space-between {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+
+@mixin align-items-center {
+  align-items: center;
+  -webkit-align-items: center;
+}
+
+@mixin justify-content-center {
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+
+@mixin justify-content-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+@mixin flex-x($number:1) {
+  -webkit-box-flex: $number;
+  -ms-flex: $number;
+  -webkit-flex: $number;
+  flex: $number
+}
+
+@mixin flex-grow($num) {
+  flex-grow: $num
+}
+
+@mixin flex-grow($num) {
+  flex-grow: $num
+}

@@ -1,0 +1,167 @@
+@mixin flex-box() {
+  /* 当使用flex-box布局时 子元素的也需要为box-model 才能使用-webkit-box-orient的方向设置 */
+  display: box; /* OLD - Android 4.4- */
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+}
+
+//flex x轴
+@mixin flex-x() {
+  display: box; /* OLD - Android 4.4-  新加入*/
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+}
+
+//flex y轴
+@mixin flex-y() {
+  display: box; /* OLD - Android 4.4- 新加入*/
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+}
+
+@mixin flex_auto() {
+  -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 1; /* OLD - Firefox 19- */
+  -webkit-flex: auto; /* Chrome */
+  -ms-flex: auto; /* IE 10 */
+  flex: auto; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+@mixin flex($number: 1) {
+  -webkit-box-flex: $number;
+  -ms-flex: $number;
+  -webkit-flex: $number;
+  flex: $number;
+}
+
+//@mixin flex-x($number:1) {
+//  -webkit-box-flex: $number;
+//  -ms-flex: $number;
+//  -webkit-flex: $number;
+//  flex: $number
+//}
+
+@mixin flex-align-items_center() {
+  /* 09版 新加入*/
+  -webkit-box-align: center;
+  /* 12版 新加入*/
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+}
+
+@mixin flex-justify-content_center() {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+@mixin flex-justify-content_flex-end() {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+@mixin flex-justify-content_space-between() {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+@mixin flex-justify-content_space-around() {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+@mixin flex-align-self_center() {
+  -webkit-align-self: center;
+  align-self: center;
+}
+
+@mixin flex-wrap() {
+  /* 09版 */
+  -webkit-box-lines: multiple;
+  /* 12版 */
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+@mixin flex-x-center() {
+  @include flex-x();
+  @include flex-justify-content_center()
+}
+
+@mixin flex-x-middle() {
+  @include flex-x();
+  @include flex-align-items_center();
+}
+
+@mixin flex-y-center() {
+  @include flex-y();
+  @include flex-justify-content_center();
+}
+
+@mixin flex-y-middle() {
+  @include flex-y();
+  @include flex-align-items_center();
+}
+
+@mixin flex-center($direction: x) {
+  @if $direction == x {
+    @include flex-x();
+  } @else if $direction == y {
+    @include flex-y();
+  }
+  @include flex-justify-content_center();
+  @include flex-align-items_center();
+}
+
+@mixin flex-space-between {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+
+@mixin align-items-center {
+  align-items: center;
+  -webkit-align-items: center;
+}
+
+@mixin justify-content-center {
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+
+@mixin justify-content-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+@mixin flex-grow($num) {
+  flex-grow: $num
+}

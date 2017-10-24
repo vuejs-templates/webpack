@@ -1,0 +1,149 @@
+// flex布局
+@import 'mixin-flex';
+
+// css画箭头
+@mixin setArrow($direction, $arrowSize, $borderColor, $borderWidth) {
+  display: inline-block !important;
+  height: $arrowSize;
+  width: $arrowSize;
+  border-width: $borderWidth $borderWidth 0 0 !important;
+  border-color: $borderColor !important;
+  border-style: solid !important;
+  @if $direction == up {
+    transform: matrix(0.71, -0.71, 0.71, 0.71, 0, 0); // rotate(-45deg)
+  } @else if $direction == right {
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0); // rotate(45deg);
+    position: relative;
+    //top: -2px;
+  } @else if $direction == down {
+    transform: matrix(-0.71, 0.71, -0.71, -0.71, 0, 0); // rotate(135deg);
+    position: relative;
+    //top: -3px;
+  } @else {
+    transform: matrix(-0.71, -0.71, 0.71, -0.71, 0, 0); // rotate(-135deg);
+    position: relative;
+    //top: -2px;
+  }
+}
+
+// 分割线
+@mixin setTopLine($c: $seg-color, $w: 1px) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: $w solid $c;
+  color: $c;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+}
+
+@mixin setBottomLine($c: $seg-color, $w: 1px) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: $w solid $c;
+  color: $c;
+  transform-origin: 0 100%;
+  transform: scaleY(0.5);
+}
+
+@mixin setLeftLine($c: $seg-color, $w: 1px) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-left: $w solid $c;
+  color: $c;
+  transform-origin: 0 0;
+  transform: scaleX(0.5);
+}
+
+@mixin setRightLine($c: $seg-color, $w: 1px) {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-right: $w solid $c;
+  color: $c;
+  transform-origin: 100% 0;
+  transform: scaleX(0.5);
+}
+
+// 清除浮动
+@mixin clearfix() {
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+  }
+}
+
+// 最小高度
+@mixin minHeight($min-height) {
+  min-height: $min-height;
+  height: auto !important;
+  height: $min-height;
+}
+
+// 绝对居中
+@mixin absoluteCenter() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+//强制换行
+@mixin textWrap() {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+//文字不换行
+@mixin textNoWrap() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+//文字超出省略号 （容器宽度）
+@mixin ellipsis($w:auto) {
+  width: $w;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+//文字超出省略号（行数）
+@mixin ellipsisLine($line: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
+
+//英文换行
+@mixin hyphens() {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
