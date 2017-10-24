@@ -12,12 +12,6 @@ class LocationConfig {
    * 进入APP时获取一次定位（应该只调用一次，在第一次进入APP的时候调用）
    */
   static appPickLocation() {
-    console.log(this.$route);
-    /*  this.$router.beforeEach(function (to, from, next) {
-     window.scrollTo(0, 0);
-     console.log('aaaaaaaaaaa');
-     // next();
-     }); */
     return new Promise((resolve, reject) => {
       LocationManager.getLocation().then((location) => {
         NetworkOthers.getAddress({latitude: location.latitude, longitude: location.longitude}).then(data => {
