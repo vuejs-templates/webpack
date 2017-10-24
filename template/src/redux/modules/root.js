@@ -1,10 +1,11 @@
 /**
  * Created by cuppi on 2017/10/24.
  */
-const loading = 'loading';
 
+/* eslint-disable */
 const defaultRoot = {
 };
+/* eslint-enable */
 
 const rootModule = {
   state:{

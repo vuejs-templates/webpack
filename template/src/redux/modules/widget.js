@@ -2,7 +2,6 @@
  * Created by cuppi on 2017/10/24.
  */
 
-const loading = 'loading';
 import {ROOT} from '../mutations';
 
 const defaultState = {
@@ -31,9 +30,10 @@ const rootModule = {
       state.showLoading = bool;
     },
     [ROOT.ALERT_QUESTION](state, options) {
-      state.alertQuestion = Object.assign(defaultRoot.alertQuestion, options);
+      state.alertQuestion = Object.assign(defaultState.alertQuestion, options);
     }
   }
 };
 
 export default rootModule;
+

@@ -26,6 +26,12 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       {{/if_eq}}
       '@': resolve('src'),
+      '@config': resolve('src/config'),
+      '@components': resolve('src/components'),
+      '@network': resolve('src/network'),
+      '@util': resolve('src/util'),
+      '@tool': resolve('src/tool'),
+      'release-config': path.resolve(__dirname, '../src/config/ReleaseConfig.js')
     }
   },
   module: {
