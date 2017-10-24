@@ -4,16 +4,18 @@
  */
 
 // 示例
-
 /*
-import SomeWidget from '../widget/SomeWidget.vue'
-
+ import SomeWidget from '../widget/SomeWidget.vue'
+ */
 class ComponentConfig {
   // 主文件调用方法
   static createComponent(vue) {
-    vue.component('some-widget', SomeWidget);
+    /*
+     ******** 下面实现创建全局控件 ******
+     **/
+
+    // vue.component('some-widget', SomeWidget);
   }
 }
 
 export default ComponentConfig;
-*/

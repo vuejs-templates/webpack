@@ -9,8 +9,15 @@ import router from './router'
 {{/router}}
 
 import StoreConfig from '@config/StoreConfig';
+import ComponentConfig from '@config/ComponentConfig';
+import NetworkConfig from '@config/NetworkConfig';
+import PrototypeConfig from '@config/PrototypeConfig';
+import LocationConfig from '@config/LocationConfig';
 
 Vue.config.productionTip = false
+ComponentConfig.createComponent(Vue);
+NetworkConfig.createNetwork();
+PrototypeConfig.createPrototype(Vue);
 
 /* eslint-disable no-new */
 new Vue({
@@ -24,6 +31,22 @@ new Vue({
   {{/if_eq}}
   {{#if_eq build "standalone"}}
   template: '<App/>',
+  mounted: function () {
+  LocationConfig.appPickLocation().then(() => {
+  }).catch(() => {
+  });
+  this.$router.beforeEach((to, from, next) => {
+    if (from.name === 'Hello') {
+      LocationConfig.appPickLocation().then(() => {
+      }).catch(() => {
+      });
+    }
+    window.scrollTo(0, 0);
+    this.alertClose();
+    next()
+  })
+  }
   components: { App }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+
   {{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+})

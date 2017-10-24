@@ -2,6 +2,7 @@
  * Created by cuppi on 2017/10/24.
  */
 
+/* eslint-disable */
 let instance = null;
 
 class NativeBridge{
@@ -87,7 +88,7 @@ class NativeBridge{
   getUserLocation() {
     return new Promise((resolve, reject) => {
       this.getUserLocationSecret().then()
-      reject('未实现的方法e');
+      reject(new Error('未实现的方法'));
     })
   }
 
@@ -125,3 +126,5 @@ class NativeBridge{
 }
 
 export default NativeBridge;
+
+/* eslint-enable */

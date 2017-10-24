@@ -2,7 +2,7 @@
  * Created by cuppi on 2017/10/23.
  */
 
-import {JNetworkConfig, JSDK} from 'jbzwebsdk';
+import {JNetworkConfig} from 'jbzwebsdk';
 import GlobalConstant from '../util/GlobalConstant';
 import DataMap from '../sdkconfig/jbz.network.unify';
 import UrlMap from '../sdkconfig/jbz.url.config';
@@ -45,8 +45,9 @@ export default class Network {
 
   /*
    static someParas() {
-      return {};
+   return {};
    }
    */
 }
+
 
