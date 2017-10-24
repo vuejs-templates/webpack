@@ -5,7 +5,7 @@ import LocationManager from '@util/LocationManager';
 import LocalInfoManager from '@util/LocalInfoManager';
 import GlobalConstant from '@util/GlobalConstant';
 import {JToolDate} from 'jbzwebsdk';
-import NetworkCity from '@network/NetworkOther'
+import NetworkCity from '@network/NetworkCity'
 
 class LocationConfig {
   /**
