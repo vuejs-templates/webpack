@@ -18,7 +18,7 @@ class LocationConfig {
           resolve(location);
           // 获取到定位，获取城市
           // console.log(data);
-          this._choiceIfUseCacheLocationCity(data);
+          this._choiceIfUseCacheLocationCity(data.city);
         }, err => {
           console.log(err);
           this._choiceIfUseCacheLocationCity();
