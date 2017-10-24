@@ -32,21 +32,20 @@ new Vue({
   {{#if_eq build "standalone"}}
   template: '<App/>',
   mounted: function () {
-  LocationConfig.appPickLocation().then(() => {
-  }).catch(() => {
-  });
-  this.$router.beforeEach((to, from, next) => {
-    if (from.name === 'Hello') {
-      LocationConfig.appPickLocation().then(() => {
-      }).catch(() => {
-      });
-    }
-    window.scrollTo(0, 0);
-    this.alertClose();
-    next()
-  })
-  }
+    LocationConfig.appPickLocation().then(() => {
+    }).catch(() => {
+    });
+    this.$router.beforeEach((to, from, next) => {
+      if (from.name === 'Hello') {
+        LocationConfig.appPickLocation().then(() => {
+        }).catch(() => {
+        });
+      }
+      window.scrollTo(0, 0);
+      this.alertClose();
+      next()
+    })
+  },
   components: { App }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-
   {{/if_eq}}
 })
