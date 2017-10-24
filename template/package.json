@@ -73,7 +73,7 @@
     "karma-webpack": "^2.0.2",
     "mocha": "^3.2.0",
     "chai": "^4.1.2",
-    "sinon": "^4.0.0",
+    "sinon": "^4.0.1",
     "sinon-chai": "^2.8.0",
     "inject-loader": "^3.0.0",
     "babel-plugin-istanbul": "^4.1.1",
@@ -99,7 +99,8 @@
     "webpack": "^3.6.0",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.18.2",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "vuex": "^3.0.0"
   },
   "engines": {
     "node": ">= 4.0.0",
