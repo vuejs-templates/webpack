@@ -36,4 +36,3 @@ const rootModule = {
 };
 
 export default rootModule;
-
