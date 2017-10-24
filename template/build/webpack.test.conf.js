@@ -5,7 +5,7 @@ import * as utils from './utils';
 import baseConfig from './webpack.base.conf';
 import testEnvConfig from '../config/test.env';
 
-const webpackConfig = merge(baseConfig, {
+const webpackConfig = merge(baseWebpackConfig, {
   // use inline sourcemap for karma-sourcemap-loader
   module: {
     rules: utils.styleLoaders()
