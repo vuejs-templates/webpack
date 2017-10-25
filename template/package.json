@@ -101,7 +101,9 @@
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.18.2",
     "webpack-merge": "^4.1.0",
-    "vuex": "^3.0.0"
+    "vuex": "^3.0.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6"
   },
   "engines": {
     "node": ">= 4.0.0",
