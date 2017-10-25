@@ -34,6 +34,7 @@ module.exports = {
       '@network': resolve('src/network'),
       '@util': resolve('src/util'),
       '@tool': resolve('src/tool'),
+      '@widget': resolve('src/widget'),
       'release-config': path.resolve(__dirname, '../src/config/ReleaseConfig.js')
     }
   },
