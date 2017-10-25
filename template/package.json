@@ -103,7 +103,9 @@
     "webpack-merge": "^4.1.0",
     "vuex": "^3.0.0",
     "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "postcss-loader": "^2.0.8",
+    "style-loader": "^0.18.2"
   },
   "engines": {
     "node": ">= 4.0.0",
