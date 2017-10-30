@@ -1,13 +1,15 @@
-'use strict'
-const utils = require('./utils')
-const config = require('../config')
-const isProduction = process.env.NODE_ENV === 'production'
+import {
+  cssLoaders
+} from './utils';
+import config from '../config';
 
-module.exports = {
-  loaders: utils.cssLoaders({
-    sourceMap: isProduction
-      ? config.build.productionSourceMap
-      : config.dev.cssSourceMap,
+const isProduction = process.env.NODE_ENV === 'production';
+
+export default {
+  loaders: cssLoaders({
+    sourceMap: isProduction ?
+      config.build.productionSourceMap :
+      config.dev.cssSourceMap,
     extract: isProduction
   }),
   transformToRequire: {
@@ -16,4 +18,4 @@ module.exports = {
     img: 'src',
     image: 'xlink:href'
   }
-}
+};

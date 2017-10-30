@@ -1,3 +1,8 @@
+require("babel-register")({
+  presets: 'env'
+});
+const webpackConfig = require('./build/webpack.base.conf.js').default;
+
 // https://eslint.org/docs/user-guide/configuring
 
 module.exports = {
@@ -25,7 +30,7 @@ module.exports = {
   'settings': {
     'import/resolver': {
       'webpack': {
-        'config': 'build/webpack.base.conf.js'
+        'config': webpackConfig
       }
     }
   },
@@ -50,6 +55,7 @@ module.exports = {
     }],
     {{/if_eq}}
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'comma-dangle': 0
   }
 }

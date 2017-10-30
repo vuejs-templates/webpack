@@ -8,7 +8,9 @@ import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
 
-Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.config.productionTip = process.env.NODE_ENV === 'production';
+/* eslint-disable no-multi-assign */
+Vue.config.performance = Vue.config.devtools = process.env.NODE_ENV === 'development';
 
 /* eslint-disable no-new */
 new Vue({

@@ -1,14 +1,9 @@
-'use strict'
-const path = require('path')
-const utils = require('./utils')
-const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
+import config from '../config';
+import * as utils from './utils';
+import vueLoaderConfig from './vue-loader.conf';
 
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
-}
-
-module.exports = {
+/* eslint-disable global-require */
+export default {
   entry: {
     app: './src/main.js'
   },
@@ -23,9 +18,9 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       {{#if_eq build "standalone"}}
-      'vue$': 'vue/dist/vue.esm.js',
+      vue$: 'vue/dist/vue.esm.js',
       {{/if_eq}}
-      '@': resolve('src'),
+      '@': utils.resolve('src')
     }
   },
   module: {
@@ -35,7 +30,7 @@ module.exports = {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
+        include: [utils.resolve('src'), utils.resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter')
         }
@@ -49,7 +44,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [utils.resolve('src'), utils.resolve('test')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -77,4 +72,4 @@ module.exports = {
       }
     ]
   }
-}
+};

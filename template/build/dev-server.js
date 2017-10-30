@@ -1,40 +1,45 @@
-'use strict'
-require('./check-versions')()
+import opn from 'opn';
+import path from 'path';
+import express from 'express';
+import webpack from 'webpack';
+import proxyMiddleware from 'http-proxy-middleware';
+import portfinder from 'portfinder';
+import config from '../config';
 
-const config = require('../config')
+require('./check-versions').default();
+
 if (!process.env.NODE_ENV) {
-  process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
+  process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV);
 }
 
-const opn = require('opn')
-const path = require('path')
-const express = require('express')
-const webpack = require('webpack')
-const proxyMiddleware = require('http-proxy-middleware')
 const webpackConfig = {{#if_or unit e2e}}(process.env.NODE_ENV === 'testing' || process.env.NODE_ENV === 'production')
-  ? require('./webpack.prod.conf')
-  : {{/if_or}}require('./webpack.dev.conf')
+  ? require('./webpack.prod.conf').default
+  : {{/if_or}}require('./webpack.dev.conf').default;
 
 // default port where dev server listens for incoming traffic
-const port = process.env.PORT || config.dev.port
+const port = process.env.PORT || config.dev.port;
 // automatically open browser, if not set will be false
-const autoOpenBrowser = !!config.dev.autoOpenBrowser
+const autoOpenBrowser = !!config.dev.autoOpenBrowser;
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
-const proxyTable = config.dev.proxyTable
+const {
+  dev: {
+    proxyTable
+  }
+} = config;
 
-const app = express()
-const compiler = webpack(webpackConfig)
+const app = express();
+const compiler = webpack(webpackConfig);
 
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
   quiet: true
-})
+});
 
 const hotMiddleware = require('webpack-hot-middleware')(compiler, {
   log: false,
   heartbeat: 2000
-})
+});
 // force page reload when html-webpack-plugin template changes
 // currently disabled until this is resolved:
 // https://github.com/jantimon/html-webpack-plugin/issues/680
@@ -45,63 +50,61 @@ const hotMiddleware = require('webpack-hot-middleware')(compiler, {
 //   })
 // })
 
-// enable hot-reload and state-preserving
-// compilation error display
-app.use(hotMiddleware)
-
 // proxy api requests
-Object.keys(proxyTable).forEach(function (context) {
-  let options = proxyTable[context]
+Object.keys(proxyTable).forEach((context) => {
+  let options = proxyTable[context];
   if (typeof options === 'string') {
-    options = { target: options }
+    options = { target: options };
   }
-  app.use(proxyMiddleware(options.filter || context, options))
-})
+  app.use(proxyMiddleware(options.filter || context, options));
+});
 
 // handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')())
+app.use(require('connect-history-api-fallback')());
 
 // serve webpack bundle output
-app.use(devMiddleware)
+app.use(devMiddleware);
+
+// enable hot-reload and state-preserving
+// compilation error display
+app.use(hotMiddleware);
 
 // serve pure static assets
-const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
-app.use(staticPath, express.static('./static'))
+const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory);
+app.use(staticPath, express.static('./static'));
 
-const uri = 'http://localhost:' + port
+/* eslint-disable no-underscore-dangle */
+let _resolve;
+let _reject;
+const readyPromise = new Promise((resolve, reject) => {
+  _resolve = resolve;
+  _reject = reject;
+});
 
-var _resolve
-var _reject
-var readyPromise = new Promise((resolve, reject) => {
-  _resolve = resolve
-  _reject = reject
-})
+let server;
+portfinder.basePort = port;
 
-var server
-var portfinder = require('portfinder')
-portfinder.basePort = port
-
-console.log('> Starting dev server...')
+console.log('> Starting dev server...');
 devMiddleware.waitUntilValid(() => {
-  portfinder.getPort((err, port) => {
-    if (err) {
-      _reject(err)
+  portfinder.getPort((error, realPort) => {
+    if (error) {
+      _reject(error)
     }
-    process.env.PORT = port
-    var uri = 'http://localhost:' + port
-    console.log('> Listening at ' + uri + '\n')
+    process.env.PORT = realPort;
+    const uri = `http://localhost:${realPort}`;
+    console.log(`> Listening at ${uri}\n`);
     // when env is testing, don't need open it
     if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-      opn(uri)
+      opn(uri);
     }
-    server = app.listen(port)
-    _resolve()
-  })
-})
+    server = app.listen(realPort);
+    _resolve();
+  });
+});
 
-module.exports = {
+export default {
   ready: readyPromise,
-  close: () => {
-    server.close()
+  close() {
+    server.close();
   }
-}
+};
