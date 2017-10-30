@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "./node_modules/.bin/babel-node --presets env build/dev-server.js",
     "start": "npm run dev",
-    "build": "./node_modules/.bin/babel-node --presets env build/build.js"{{#unit}},
+    "build": "NODE_ENV=production ./node_modules/.bin/babel-node --presets env build/build.js"{{#unit}},
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run"{{/unit}}{{#e2e}},
     "e2e": "./node_modules/.bin/babel-node --presets env test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#lint}},

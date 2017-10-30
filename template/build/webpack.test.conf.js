@@ -2,7 +2,7 @@
 import webpack from 'webpack';
 import merge from 'webpack-merge';
 import * as utils from './utils';
-import baseConfig from './webpack.base.conf';
+import baseWebpackConfig from './webpack.base.conf';
 import testEnvConfig from '../config/test.env';
 
 const webpackConfig = merge(baseWebpackConfig, {
