@@ -38,7 +38,7 @@ module.exports = {
         include: [resolve('src'), resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter'),
-          emitWaring: !config.dev.showEslintErrorsInOverlay
+          emitWarning: !config.dev.showEslintErrorsInOverlay
         }
       }] : []),
       {{/lint}}
