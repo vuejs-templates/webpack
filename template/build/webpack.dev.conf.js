@@ -22,7 +22,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     port: process.env.PORT || config.dev.port,
     open: config.dev.autoOpenBrowser,
     overlay: config.dev.errorOverlay ? {
-      warnings: true,
+      warnings: false,
       errors: true,
     } : false,
     publicPath: config.dev.assetsPublicPath,
