@@ -5,7 +5,7 @@
   "author": "{{ author }}",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js"{{#unit}},
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run"{{/unit}}{{#e2e}},
