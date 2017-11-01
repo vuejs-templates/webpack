@@ -6,7 +6,6 @@ const path = require('path')
 
 module.exports = {
   dev: {
-    env: require('./dev.env'),
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.HOST, if port is in use, a free one will be determined
 
@@ -37,7 +36,7 @@ module.exports = {
     cssSourceMap: false
   },
   build: {
-    env: require('./prod.env'),
+    // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
 
     // Paths
