@@ -4,7 +4,11 @@
     {{#router}}
     <router-view/>
     {{else}}
+<<<<<<< HEAD
     <hello-world/>
+=======
+    <HelloWorld/>
+>>>>>>> 89c6fb18d4640afd6a5e89106b2493b4465d36a3
     {{/router}}
   </div>
 </template>
@@ -12,6 +16,10 @@
 <script>
 {{#unless router}}
 import HelloWorld from './components/HelloWorld'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89c6fb18d4640afd6a5e89106b2493b4465d36a3
 {{/unless}}
 export default {
   name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
