@@ -6,8 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-<<<<<<< HEAD
-    "start": "node build/dev-server.js",
+    "start": "npm run dev",
     {{#if_eq runner "jest"}}
     "unit": "jest test/unit/specs --coverage",
     {{/if_eq}}
@@ -15,13 +14,11 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     {{/if_eq}}
     {{#e2e}}
-=======
-    "start": "npm run dev",
-    "build": "node build/build.js"{{#unit}},
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run"{{/unit}}{{#e2e}},
->>>>>>> 89c6fb18d4640afd6a5e89106b2493b4465d36a3
-    "e2e": "node test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
-    "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#lint}},
+    "e2e": "node test/e2e/runner.js",{{/e2e}}
+    {{#if_or unit e2e}}
+    "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}",
+    {{/if_or}}
+    {{#lint}}
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
     {{/lint}}
     "build": "node build/build.js"
@@ -131,6 +128,7 @@
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
       ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
     },
+    "setupFiles": ["<rootDir>/test/unit/setup"],
     "mapCoverage": true,
     "collectCoverageFrom" : [
       "src/**/*.{js,vue}",
