@@ -11,18 +11,7 @@
   "plugins": ["transform-runtime"],
   "env": {
     "test": {
-      "presets": ["env", "stage-2"],
-      {{#if_eq runner "jest"}}
-      "plugins": [
-        ["module-resolver", {
-          "root": ["./src"],
-          "alias": {
-            "@": "./src"
-          }
-        }]
-      ]
-      {{/if_eq}}
-      {{#if_eq runner "karma"}}
+      "presets": ["env", "stage-2"]{{#if_eq runner "karma"}},
       "plugins": ["istanbul"]
       {{/if_eq}}
     }
