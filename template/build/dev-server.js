@@ -33,6 +33,7 @@ const devMiddleware = require('webpack-dev-middleware')(compiler, {
 
 const hotMiddleware = require('webpack-hot-middleware')(compiler, {
   log: false,
+  path: path.join(webpackConfig.output.publicPath, "__webpack_hmr"),
   heartbeat: 2000
 })
 // force page reload when html-webpack-plugin template changes
@@ -59,16 +60,18 @@ Object.keys(proxyTable).forEach(function (context) {
 })
 
 // handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')())
+app.use(
+  require('connect-history-api-fallback')({
+    index: webpackConfig.output.publicPath + 'index.html'
+  })
+)
 
 // serve webpack bundle output
 app.use(devMiddleware)
 
 // serve pure static assets
-const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
+const staticPath = path.posix.join(webpackConfig.output.publicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
-
-const uri = 'http://localhost:' + port
 
 var _resolve
 var _reject
@@ -88,7 +91,7 @@ devMiddleware.waitUntilValid(() => {
       _reject(err)
     }
     process.env.PORT = port
-    var uri = 'http://localhost:' + port
+    const uri = 'http://localhost:' + port + webpackConfig.output.publicPath
     console.log('> Listening at ' + uri + '\n')
     // when env is testing, don't need open it
     if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
