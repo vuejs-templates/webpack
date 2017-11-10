@@ -85,6 +85,7 @@
     "shelljs": "^0.7.6",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
+    "postcss-loader": "^2.0.8",
     "rimraf": "^2.6.0",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
