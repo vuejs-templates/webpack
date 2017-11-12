@@ -1,4 +1,3 @@
-
 'use strict'
 // Template version: 1.2.0
 // see http://vuejs-templates.github.io/webpack for documentation.
@@ -46,7 +45,7 @@ module.exports = {
     // (https://github.com/webpack/css-loader#sourcemaps)
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
-    cssSourceMap: false,    
+    cssSourceMap: false,
   },
   
   build: {
