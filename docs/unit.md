@@ -1,8 +1,10 @@
 # Unit Testing
 
-This project offers two options for unit testing—Jest, and Karma and Mocha.
+This project offers two options for unit testing:
 
-An overview of the tools used by this boilerplate for unit testing:
+1. Jest
+2. Karma and Mocha.
+
 
 ## Jest
 
