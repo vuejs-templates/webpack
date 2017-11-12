@@ -1,18 +1,16 @@
 {
   "presets": [
     ["env", {
-      "modules": false,
-      "targets": {
-        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
-      }
+      "modules": false
     }],
     "stage-2"
   ],
   "plugins": ["transform-runtime"],
   "env": {
     "test": {
-      "presets": ["env", "stage-2"],
+      "presets": ["env", "stage-2"]{{#if_eq runner "karma"}},
       "plugins": ["istanbul"]
+      {{/if_eq}}
     }
   }
 }

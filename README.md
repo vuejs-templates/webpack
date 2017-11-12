@@ -21,7 +21,7 @@ $ npm install
 $ npm run dev
 ```
 
-If port 8080 is already in use on your machine you must change the port number in `/config/index.js`. Otherwise `npm run dev` will fail.
+The development server will run on port 8080 by default. If that port is already in use on your machine, the next free port will be used.
 
 ## What's Included
 
@@ -36,13 +36,12 @@ If port 8080 is already in use on your machine you must change the port number i
   - JavaScript minified with [UglifyJS](https://github.com/mishoo/UglifyJS2).
   - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
   - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
-  - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
+  - Static assets compiled with version hashes for efficient long-term caching, and an auto-generated production `index.html` with proper URLs to these generated assets.
   - Use `npm run build --report`to build with bundle size analytics.
 
-- `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Mocha](http://mochajs.org/) + [karma-webpack](https://github.com/webpack/karma-webpack).
+- `npm run unit`: Unit tests run in [JSDOM](https://github.com/tmpvar/jsdom) with [Jest](https://facebook.github.io/jest/), or in PhantomJS with Karma + Mocha + karma-webpack.
   - Supports ES2015+ in test files.
-  - Supports all webpack loaders.
-  - Easy mock injection.
+  - Easy mocking.
 
 - `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
   - Run tests in multiple browsers in parallel.

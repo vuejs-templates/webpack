@@ -1,9 +1,11 @@
-var utils = require('./utils')
-var config = require('../config')
-var isProduction = process.env.NODE_ENV === 'production'
-var sourceMapEnabled = isProduction
+'use strict'
+const utils = require('./utils')
+const config = require('../config')
+const isProduction = process.env.NODE_ENV === 'production'
+const sourceMapEnabled = isProduction
   ? config.build.productionSourceMap
   : config.dev.cssSourceMap
+
 
 module.exports = {
   loaders: utils.cssLoaders({

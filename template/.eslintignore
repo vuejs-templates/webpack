@@ -1,2 +1,7 @@
-build/*.js
-config/*.js
+/build/
+/config/
+/dist/
+/*.js
+{{#unit}}
+/test/unit/coverage/
+{{/unit}}
