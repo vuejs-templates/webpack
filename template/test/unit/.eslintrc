@@ -1,5 +1,5 @@
 {
-  "env": {{{#if_eq runner "karma"}}
+  "env": { {{#if_eq runner "karma"}}
     "mocha": true{{/if_eq}}{{#if_eq runner "jest"}}
     "jest"{{/if_eq}}
   }{{#if_eq runner "karma"}},
