@@ -1,9 +1,11 @@
 {
-  "env": {
-    "mocha": true
-  },
+  "env": {{{#if_eq runner "karma"}}
+    "mocha": true{{/if_eq}}{{#if_eq runner "jest"}}
+    "jest"{{/if_eq}}
+  }{{#if_eq runner "karma"}},
   "globals": {
     "expect": true,
-    "sinon": true
-  }
+    "sinon": true,
+    "jest": true
+  }{{/if_eq}}
 }

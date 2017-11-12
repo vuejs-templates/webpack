@@ -8,8 +8,9 @@
   "plugins": ["transform-runtime"],
   "env": {
     "test": {
-      "presets": ["env", "stage-2"],
+      "presets": ["env", "stage-2"]{{#if_eq runner "karma"}},
       "plugins": ["istanbul"]
+      {{/if_eq}}
     }
   }
 }
