@@ -1,6 +1,5 @@
-
 'use strict'
-// Template version: 1.2.0
+// Template version: 1.2.1
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
@@ -23,15 +22,15 @@ module.exports = {
 
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
-    // linting errors and warings will be shown in the console.
+    // linting errors and warnings will be shown in the console.
     useEslint: true,
-    // If true, eslint errors and warings will also be shown in the error overlay
+    // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
 
     /**
      * Source Maps
-    */
+     */
 
     // https://webpack.js.org/configuration/devtool/#development
     devtool: 'eval-source-map',
@@ -46,7 +45,7 @@ module.exports = {
     // (https://github.com/webpack/css-loader#sourcemaps)
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
-    cssSourceMap: false,    
+    cssSourceMap: false,
   },
   
   build: {
@@ -59,8 +58,9 @@ module.exports = {
     assetsPublicPath: '/',
 
     /**
-     * SourceMap
-    */
+     * Source Maps
+     */
+
     productionSourceMap: true,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',

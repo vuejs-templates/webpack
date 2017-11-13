@@ -97,6 +97,7 @@
     "nightwatch": "^0.9.12",
     "selenium-server": "^3.0.1",
     {{/e2e}}
+    "postcss-loader": "^2.0.8",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
@@ -127,6 +128,7 @@
     },
     "setupFiles": ["<rootDir>/test/unit/setup"],
     "mapCoverage": true,
+    "coverageDirectory": "<rootDir>/test/unit/coverage",
     "collectCoverageFrom" : [
       "src/**/*.{js,vue}",
       "!src/main.js",
