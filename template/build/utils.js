@@ -18,8 +18,8 @@ exports.cssLoaders = function (options) {
     return {
       loader: 'css-loader',
       options: {
-        minimize: process.env.NODE_ENV === 'production',
         importLoaders,
+        minimize: process.env.NODE_ENV === 'production',
         sourceMap: options.sourceMap
       }
     }
@@ -34,9 +34,7 @@ exports.cssLoaders = function (options) {
 
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
-    let importLoaders = 0
-    if (options.usePostCSS) importLoaders++
-    if (options.usePostCSS && loader) importLoaders++
+    const importLoaders = options.usePostCSS && !loader ? 1 : 0
     const cssLoader = createCssLoader({ importLoaders })
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
     if (loader) {
