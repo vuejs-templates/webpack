@@ -1,0 +1,15 @@
+{ 
+  "destDirName": "test",
+  "inPlace": false,
+  "noEscape": true,
+  "name": "test",
+  "description": "A Vue.js project",
+  "author": "Thorsten <t.luenborg@googlemail.com>",
+  "build": "standalone",
+  "router": false,
+  "lint": true,
+  "lintConfig": "standard",
+  "unit": true,
+  "runner": "jest",
+  "e2": true 
+}
