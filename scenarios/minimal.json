@@ -2,14 +2,14 @@
   "destDirName": "test",
   "inPlace": false,
   "noEscape": true,
-  "name": "test",
-  "description": "A Vue.js project",
+  "name": "test-minimal",
+  "description": "Testing the minimal template setup",
   "author": "Thorsten <t.luenborg@googlemail.com>",
-  "build": "runtime",
+  "build": "standalone",
   "router": false,
-  "lint": true,
+  "lint": false,
   "lintConfig": "standard",
-  "unit": true,
+  "unit": false,
   "runner": "jest",
-  "e2e": true 
+  "e2e": false 
 }

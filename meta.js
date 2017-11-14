@@ -11,9 +11,18 @@ const pkg = require('./package.json')
 
 const templateVersion = pkg.version
 
+const {
+  isTest,
+  addTestAnswers,
+} = require('./scenarios')
+
 module.exports = {
+  metalsmith: {
+    before: addTestAnswers
+  },
   helpers: {
     if_or(v1, v2, options) {
+
       if (v1 || v2) {
         return options.fn(this)
       }

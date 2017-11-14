@@ -5,11 +5,11 @@
   "name": "test",
   "description": "A Vue.js project",
   "author": "Thorsten <t.luenborg@googlemail.com>",
-  "build": "runtime",
+  "build": "standalone",
   "router": false,
   "lint": true,
-  "lintConfig": "standard",
+  "lintConfig": "airbnb",
   "unit": true,
-  "runner": "jest",
+  "runner": "karma",
   "e2e": true 
 }
