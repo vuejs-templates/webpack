@@ -14,14 +14,11 @@ exports.assetsPath = function (_path) {
 exports.cssLoaders = function (options) {
   options = options || {}
 
-  function createCssLoader({ importLoaders }) {
-    return {
-      loader: 'css-loader',
-      options: {
-        importLoaders,
-        minimize: process.env.NODE_ENV === 'production',
-        sourceMap: options.sourceMap
-      }
+  const cssLoader = {
+    loader: 'css-loader',
+    options: {
+      minimize: process.env.NODE_ENV === 'production',
+      sourceMap: options.sourceMap
     }
   }
 
@@ -34,8 +31,6 @@ exports.cssLoaders = function (options) {
 
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
-    const importLoaders = options.usePostCSS && !loader ? 1 : 0
-    const cssLoader = createCssLoader({ importLoaders })
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
     if (loader) {
       loaders.push({
