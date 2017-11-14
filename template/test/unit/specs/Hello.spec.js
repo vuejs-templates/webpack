@@ -1,5 +1,6 @@
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import HelloWorld from '@/components/HelloWorld'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{#typescript}}import {expect} from 'chai'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}{{/typescript}}
 
 describe('HelloWorld.vue', () => {
   it('should render correct contents', () => {
