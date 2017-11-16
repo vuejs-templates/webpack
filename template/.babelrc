@@ -9,8 +9,7 @@
   "env": {
     "test": {
       "presets": ["env", "stage-2"]{{#if_eq runner "karma"}},
-      "plugins": ["istanbul"]
-      {{/if_eq}}
+      "plugins": ["istanbul"]{{/if_eq}}
     }
   }{{/if_or}}
 }
