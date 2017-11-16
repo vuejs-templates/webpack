@@ -108,6 +108,7 @@ module.exports = {
     "build/webpack.test.conf.js": "e2e || (unit && runner === 'karma')",
     "test/unit/**/*": "unit",
     "test/unit/index.js": "unit && runner === 'karma'",
+    "test/unit/jest.conf.js": "unit && runner === 'jest'",
     "test/unit/karma.conf.js": "unit && runner === 'karma'",
     "test/unit/specs/index.js": "unit && runner === 'karma'",
     "test/unit/setup.js": "unit && runner === 'jest'",
