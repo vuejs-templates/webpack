@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     {{#if_eq runner "jest"}}
-    "unit": "jest test/unit/specs --coverage",
+    "unit": "jest --config test/unit/jest.conf.js --coverage",
     {{/if_eq}}
     {{#if_eq runner "karma"}}
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
@@ -68,6 +68,7 @@
     {{#if_eq runner "jest"}}
     "babel-jest": "^21.0.2",
     "jest": "^21.2.0",
+    "jest-serializer-vue": "^0.3.0",
     "vue-jest": "^1.0.2",
     {{/if_eq}}
     {{#if_eq runner "karma"}}
