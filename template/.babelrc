@@ -9,7 +9,8 @@
   "env": {
     "test": {
       "presets": ["env", "stage-2"]{{#if_eq runner "karma"}},
-      "plugins": ["istanbul"]{{/if_eq}}
+      "plugins": ["istanbul"]{{/if_eq}}{{#if_eq runner "jest"}},
+      "plugins": ["transform-es2015-modules-commonjs", "dynamic-import-node"]{{/if_eq}}
     }
   }{{/if_or}}
 }
