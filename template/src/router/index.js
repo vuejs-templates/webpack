@@ -8,7 +8,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
+      name: 'HelloWorld',
       component: HelloWorld{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   ]{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
