@@ -11,16 +11,8 @@ const isTest = exports.isTest = index !== -1
 const scenario = isTest && require(`./${scenarios[index]}.json`)
 
 exports.addTestAnswers = (metalsmith, options, helpers) => {
-  if (isTest) {
-    
-    Object.assign(metalsmith.metadata(), {
-      isNotCI: false,
-    },
-    scenario)
-  } else {
-    Object.assign(metalsmith.metadata(), {
-      isNotCI: true,
-    })
-  }
-  console.log(metalsmith.metadata())
+  Object.assign(metalsmith.metadata(), {
+    isNotTest: !isTest,
+  } (isTest ? scenario : undefined))
+  // console.log(metalsmith.metadata())
 }
