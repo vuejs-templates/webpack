@@ -44,8 +44,14 @@
     {{#typescript}}
     "ts-loader": "^2.3.7",
     "typescript": "^2.5.3",
+    {{#if_eq runner "karma"}}
     "@types/mocha": "^2.2.43",
     "@types/chai": "^4.0.4",
+    {{/if_eq}}
+    {{#if_eq runner "jest"}}
+    "ts-jest": "^21.2.3",
+    "@types/jest": "^21.1.6",
+    {{/if_eq}}
     {{/typescript}}
     {{#lint}}
     "eslint": "^3.19.0",

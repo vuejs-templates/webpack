@@ -2,6 +2,7 @@
   "compilerOptions": {
     "module": "es2015",
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "strict": true,
     "lib": [
       "dom",
@@ -11,5 +12,8 @@
   },
   "include": [
     "./src/**/*.ts"
+  ],
+  "files" : [
+    "vue-shims.d.ts"
   ]
 }
