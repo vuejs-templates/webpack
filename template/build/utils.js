@@ -17,7 +17,6 @@ exports.cssLoaders = function (options) {
   const cssLoader = {
     loader: 'css-loader',
     options: {
-      minimize: process.env.NODE_ENV === 'production',
       sourceMap: options.sourceMap
     }
   }
@@ -88,7 +87,7 @@ exports.createNotifierCallback = function () {
     }
     const error = errors[0]
 
-    const filename = error.file.split('!').pop()
+    const filename = error.file && error.file.split('!').pop()
     notifier.notify({
       title: pkg.name,
       message: severity + ': ' + error.name,
