@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     {{#if_eq runner "jest"}}
-    "unit": "jest test/unit/specs --coverage",
+    "unit": "jest --config test/unit/jest.conf.js --coverage",
     {{/if_eq}}
     {{#if_eq runner "karma"}}
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
@@ -67,7 +67,10 @@
     "webpack-bundle-analyzer": "^2.9.0",
     {{#if_eq runner "jest"}}
     "babel-jest": "^21.0.2",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "jest": "^21.2.0",
+    "jest-serializer-vue": "^0.3.0",
     "vue-jest": "^1.0.2",
     {{/if_eq}}
     {{#if_eq runner "karma"}}
@@ -112,33 +115,6 @@
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0"
   },
-  {{#if_eq runner "jest"}}
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "moduleNameMapper": {
-      "^@/(.*)$": "<rootDir>/src/$1"
-    },
-    "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
-    },
-    "setupFiles": ["<rootDir>/test/unit/setup"],
-    "mapCoverage": true,
-    "coverageDirectory": "<rootDir>/test/unit/coverage",
-    "collectCoverageFrom" : [
-      "src/**/*.{js,vue}",
-      "!src/main.js",
-      {{#router}}
-      "!src/router/index.js",
-      {{/router}}
-      "!**/node_modules/**"
-    ]
-  },
-  {{/if_eq}}
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
