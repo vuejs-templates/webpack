@@ -21,6 +21,12 @@ $ npm install
 $ npm run dev
 ```
 
+If you wish to use the latest version of the webpack template, do the following instead:
+
+``` bash
+$ vue init webpack#develop my-project
+```
+
 The development server will run on port 8080 by default. If that port is already in use on your machine, the next free port will be used.
 
 ## What's Included
