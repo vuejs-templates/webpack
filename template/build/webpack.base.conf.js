@@ -44,6 +44,12 @@ module.exports = {
       }] : []),
       {{/lint}}
       {
+        test: /\.html/,
+        enforce: 'pre',
+        loader: 'htmllint-loader',
+        exclude: /node_modules/
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig

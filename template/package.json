@@ -46,6 +46,9 @@
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-html": "^3.0.0",
+    "htmlhint-loader": "1.3.0",
+    "eslint-plugin-html": "^2.0.0",
+    "htmllint-loader": "^1.3.8",
     {{#if_eq lintConfig "standard"}}
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-promise": "^3.4.0",
