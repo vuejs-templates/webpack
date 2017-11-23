@@ -1,10 +1,10 @@
-import Hello from '@/components/Hello'
+import HelloWorld from '@/components/HelloWorld'
 
 const routes = [
   {
     path: '/',
-    name: 'hello',
-    component: Hello,
+    name: 'HelloWorld',
+    component: HelloWorld,
     meta: {
       title: 'Hello MTUE'
     }
