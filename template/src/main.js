@@ -8,6 +8,18 @@ import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
 
+import MuseUI from 'muse-ui'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import axios from 'axios'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import VueAxios from 'vue-axios'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import 'muse-ui/dist/muse-ui.css'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import 'muse-ui/dist/theme-default.css'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import VueWechatTitle from 'vue-wechat-title'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
+Vue.use(MuseUI){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
+Vue.use(VueWechatTitle){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.use(VueAxios, axios){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
 Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 /* eslint-disable no-new */
