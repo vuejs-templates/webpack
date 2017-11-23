@@ -5,7 +5,7 @@
   "author": "{{ author }}",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "node build/dev-server.js",
     "start": "npm run dev",
     {{#if_eq runner "jest"}}
     "unit": "jest --config test/unit/jest.conf.js --coverage",
@@ -101,6 +101,9 @@
     {{/e2e}}
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
+    "muse-ui": "^2.1.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
@@ -110,10 +113,16 @@
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
+    "vue-wechat-title": "^2.0.4",
     "portfinder": "^1.0.13",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-hot-middleware": "^2.18.2",
+    "webpack-merge": "^4.1.0",
+    "axios": "^0.17.0",
+    "vue-axios": "^2.0.2",
+    "compression-webpack-plugin": "^1.0.1",
+    "http-proxy-middleware": "^0.17.3"
   },
   "engines": {
     "node": ">= 4.0.0",
