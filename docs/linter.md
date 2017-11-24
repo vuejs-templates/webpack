@@ -1,7 +1,7 @@
 # Linter Configuration
 
 ## ESLint
-This boilerplate uses [ESLint](https://eslint.org/) as the linter, and uses the [Standard](https://github.com/feross/standard/blob/master/RULES.md) preset with some small customizations.
+This boilerplate uses [ESLint](https://eslint.org/) for JavaScript linting, and uses the [Standard](https://github.com/feross/standard/blob/master/RULES.md) preset with some small customizations.
 
 If you are not happy with the default linting rules, you have several options:
 

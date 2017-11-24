@@ -1,18 +1,16 @@
 {
   "presets": [
     ["env", {
-      "modules": false,
-      "targets": {
-        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
-      }
+      "modules": false
     }],
     "stage-2"
   ],
-  "plugins": ["transform-runtime"],
+  "plugins": ["transform-runtime"]{{#if_or unit e2e}},
   "env": {
     "test": {
-      "presets": ["env", "stage-2"],
-      "plugins": ["istanbul"]
+      "presets": ["env", "stage-2"]{{#if_eq runner "karma"}},
+      "plugins": ["istanbul"]{{/if_eq}}{{#if_eq runner "jest"}},
+      "plugins": ["transform-es2015-modules-commonjs", "dynamic-import-node"]{{/if_eq}}
     }
-  }
+  }{{/if_or}}
 }
