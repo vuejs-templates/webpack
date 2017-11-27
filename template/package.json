@@ -22,7 +22,7 @@
     "lint:eslint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
     {{/eslint}}
     {{#stylelint}}
-    "lint:stylelint": "stylelint \"src/**/*.{vue,htm,html,css,sss,less,scss,sass}\" --custom-syntax postcss-html",
+    "lint:stylelint": "stylelint \"src/**/*.{vue,htm,html,css,sss,less,scss}\"",
     {{/stylelint}}
     {{#if_or eslint stylelint}}
     "lint": "{{#eslint}}npm run lint:eslint{{/eslint}}{{#eslint}}{{#stylelint}} && {{/stylelint}}{{/eslint}}{{#stylelint}}npm run lint:stylelint{{/stylelint}}",
@@ -111,7 +111,7 @@
     "shelljs": "^0.7.6",
     {{#stylelint}}
     "postcss-html": "^0.9.0",
-    "stylelint": "^8.2.0",
+    "stylelint": "^8.3.0",
     "stylelint-webpack-plugin": "^0.9.0",
     {{#if_eq stylelintConfig "standard"}}
     "stylelint-config-standard": "^17.0.0",
