@@ -33,8 +33,6 @@ module.exports = {
   // add your custom rules here
   rules: {
     {{#if_eq lintConfig "standard"}}
-    // allow paren-less arrow functions
-    'arrow-parens': 'off',
     // allow async-await
     'generator-star-spacing': 'off',
     {{/if_eq}}
