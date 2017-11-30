@@ -24,7 +24,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       {{#if_eq build "standalone"}}
-      'vue$': 'vue/dist/vue.esm.js',
+      'vue$': path.resolve(__dirname, '../node_modules/vue/dist/vue.esm.js'),
       {{/if_eq}}
       '@': resolve('src'),
     }
