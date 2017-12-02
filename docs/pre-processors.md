@@ -25,14 +25,18 @@ Once installed, you can use the pre-processors inside your `*.vue` components us
 
 ### PostCSS
 
-Styles in `*.vue` files are piped through PostCSS by default, so you don't need to use a specific loader for it. You can simply add PostCSS plugins you want to use in `build/webpack.base.conf.js` under the `vue` block:
+Styles in `*.vue` files and style files (`*.css`, `*.scss` etc) are piped through PostCSS by default, so you don't need to use a specific loader for it.
+
+You can simply add PostCSS plugins you want to use to the `.postcssrc.js`file in your project's root directory:
 
 ``` js
-// build/webpack.base.conf.js
+// https://github.com/michael-ciniawsky/postcss-load-config
+
 module.exports = {
-  // ...
-  vue: {
-    postcss: [/* your plugins */]
+  "plugins": {
+    // to edit target browsers: use "browserslist" field in package.json
+    "postcss-import": {},
+    "autoprefixer": {}
   }
 }
 ```
