@@ -16,7 +16,7 @@ All build commands are executed via [NPM Scripts](https://docs.npmjs.com/misc/sc
 
 > Build assets for production. See [Integrating with Backend Framework](backend.md) for more details.
 
-- JavaScript minified with [UglifyJS](https://github.com/mishoo/UglifyJS2).
+- JavaScript minified with [UglifyJS v3](https://github.com/mishoo/UglifyJS2/tree/harmony).
 - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
 - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
 - All static assets compiled with version hashes for efficient long-term caching, and a production `index.html` is auto-generated with proper URLs to these generated assets.
