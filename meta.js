@@ -108,6 +108,10 @@ module.exports = {
     "e2e": {
       "type": "confirm",
       "message": "Setup e2e tests with Nightwatch?"
+    },
+    "autoInstall": {
+      "type": "confirm",
+      "message": "Should we run `npm install` for you after the project has been created? (strongly recommended)"
     }
   },
   "filters": {
@@ -132,12 +136,17 @@ module.exports = {
 
     const cwd = path.join(process.cwd(), data.inPlace ? "" : data.destDirName)
     
-    installDependencies(cwd)
-    .then(() => {
-      return runLintFix(cwd, data)
-    })
-    .then(() => {
+    if (data.autoInstall) {
+      installDependencies(cwd)
+      .then(() => {
+        return runLintFix(cwd, data)
+      })
+      .then(() => {
+        printMessage(data)
+      })
+    } else {
       printMessage(data)
-    })
+    }
+    
   }
 };
