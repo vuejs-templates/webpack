@@ -36,3 +36,7 @@ All build commands are executed via [NPM Scripts](https://docs.npmjs.com/misc/sc
 - Works with one command out of the box:
   - Selenium and chromedriver dependencies automatically handled.
   - Automatically spawns the Selenium server.
+
+### `npm run lint`
+
+> Runs eslint and reports any linting errors in your code. See [Linter Configuration](linter.md)
