@@ -36,7 +36,7 @@ exports.installDependencies = function installDependencies(cwd, data) {
 exports.runLintFix = function runLintFix(cwd, data) {
   if (data.lint && data.lintConfig === 'airbnb') {
     console.log('\n\n# Running eslint --fix to comply with AirBnB preset rules...')
-    console.log(# '============\n')
+    console.log('# ============\n')
     return runCommand('npm', ['run', 'lint', '--', '--fix'], {
       cwd
     })
