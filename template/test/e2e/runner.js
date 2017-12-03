@@ -32,6 +32,9 @@ devConfigPromise.then(devConfig => {
   if (opts.indexOf('--env') === -1) {
     opts = opts.concat(['--env', 'chrome']){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   }
+  if (opts.indexOf('--reporter') === -1) {
+    opts = opts.concat(['--reporter', 'test/e2e/html-reporter.js']);
+  }
 
   const spawn = require('cross-spawn'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   const runner = spawn('./node_modules/.bin/nightwatch', opts, { stdio: 'inherit' }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
