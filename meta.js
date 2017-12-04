@@ -146,8 +146,6 @@ module.exports = {
     "src/router/**/*": "router"
   },
   "complete": function (data, { chalk }) {
-
-    // console.log(JSON.stringify(data, null, 2))
     
     const green = chalk.green
 
