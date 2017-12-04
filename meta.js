@@ -128,24 +128,26 @@ module.exports = {
     "test/e2e/**/*": "e2e",
     "src/router/**/*": "router"
   },
-  "complete": function (data) {
+  "complete": function (data, { chalk }) {
 
     // console.log(JSON.stringify(data, null, 2))
     
-    sortDependencies(data)
+    const green = chalk.green
+
+    sortDependencies(data, green)
 
     const cwd = path.join(process.cwd(), data.inPlace ? "" : data.destDirName)
     
     if (data.autoInstall) {
-      installDependencies(cwd)
+      installDependencies(cwd, green)
       .then(() => {
-        return runLintFix(cwd, data)
+        return runLintFix(cwd, data, green)
       })
       .then(() => {
-        printMessage(data)
+        printMessage(data, green)
       })
     } else {
-      printMessage(data)
+      printMessage(data, chalk)
     }
     
   }

@@ -28,8 +28,8 @@ exports.sortDependencies = function sortDependencies(data) {
  * @param {string} cwd Path of the created project directory
  * @param {object} data Data from questionnaire
  */
-exports.installDependencies = function installDependencies(cwd, data) {
-  console.log(`\n\n# Installing project dependencies ...`)
+exports.installDependencies = function installDependencies(cwd, color) {
+  console.log(`\n\n# ${color('Installing project dependencies ...')}`)
   console.log('# ========================\n')
   return runCommand('npm', ['install'], {
     cwd
@@ -41,9 +41,9 @@ exports.installDependencies = function installDependencies(cwd, data) {
  * @param {string} cwd Path of the created project directory
  * @param {object} data Data from questionnaire
  */
-exports.runLintFix = function runLintFix(cwd, data) {
+exports.runLintFix = function runLintFix(cwd, data, color) {
   if (data.lint && lintStyles.indexOf(data.lintConfig) !== -1) {
-    console.log(`\n\nRunning eslint --fix to comply with AirBnB preset rules...`)
+    console.log(`\n\n${color('Running eslint --fix to comply with AirBnB preset rules...')}`)
     console.log('# ========================\n')
     return runCommand('npm', ['run', 'lint', '--', '--fix'], {
       cwd
@@ -56,14 +56,14 @@ exports.runLintFix = function runLintFix(cwd, data) {
  * Prints the final message with instructions of necessary next steps.
  * @param {Object} data Data from questionnaire.
  */
-exports.printMessage = function printMessage(data) {
+exports.printMessage = function printMessage(data, { green, yellow }) {
   const message = `
-# Project initialization finished!
+# ${green('Project initialization finished!')}
 # ========================
 
 To get started:
 
-  ${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${requiresLint(data) ? 'npm run lint -- --fix\n  ' : ''}npm run dev
+  ${yellow(`${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${requiresLint(data) ? 'npm run lint -- --fix\n  ' : ''}npm run dev`)}
   
 Documentation can be found at https://vuejs-templates.github.io/webpack
 `
