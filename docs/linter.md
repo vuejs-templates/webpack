@@ -28,3 +28,11 @@ If you are not happy with the default linting rules, you have several options:
   ```
 
 2. Pick "none" for stylelint preset when generating the project and define your own rules. See [Stylelint documentation](http://stylelint.io/user-guide/rules/) for more details.
+
+## Fixing Linting Errors
+
+You can run the following command to let eslint fix any errors it finds (if it can - not all errors are fixable like this):
+
+```
+npm run lint:fix
+```

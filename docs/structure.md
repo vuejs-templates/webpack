@@ -34,9 +34,8 @@
 ├── .eslintignore.js            # eslint ignore rules
 ├── .gitignore                  # sensible defaults for gitignore
 ├── .postcssrc.js               # postcss config
-├── .eslintrc.js                # eslint config
 ├── .stylelintrc.js             # stylelint config
-├── .editorconfig               # editor config
+├── .stylelintignore            # stylelint ignore rules
 ├── index.html                  # index.html template
 ├── package.json                # build scripts and dependencies
 └── README.md                   # Default README file
