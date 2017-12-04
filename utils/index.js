@@ -28,10 +28,10 @@ exports.sortDependencies = function sortDependencies(data) {
  * @param {string} cwd Path of the created project directory
  * @param {object} data Data from questionnaire
  */
-exports.installDependencies = function installDependencies(cwd, color) {
+exports.installDependencies = function installDependencies(cwd, executable = 'npm', color) {
   console.log(`\n\n# ${color('Installing project dependencies ...')}`)
   console.log('# ========================\n')
-  return runCommand('npm', ['install'], {
+  return runCommand(executable, ['install'], {
     cwd
   })
 }

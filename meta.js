@@ -110,8 +110,25 @@ module.exports = {
       "message": "Setup e2e tests with Nightwatch?"
     },
     "autoInstall": {
-      "type": "confirm",
-      "message": "Should we run `npm install` for you after the project has been created? (strongly recommended)"
+      "type": "list",
+      "message": "Should we run `npm install` for you after the project has been created? (recommended)",
+      "choices": [
+        {
+          "name": "Yes, use NPM",
+          "value": 'npm',
+          short: 'npm'
+        },
+        {
+          name: 'Yes, use Yarn',
+          value: 'yarn',
+          short: 'yarn'
+        },
+        {
+          name: 'No, I will handle that myself',
+          value: false,
+          short: 'no'
+        }
+      ]
     }
   },
   "filters": {
@@ -139,7 +156,7 @@ module.exports = {
     const cwd = path.join(process.cwd(), data.inPlace ? "" : data.destDirName)
     
     if (data.autoInstall) {
-      installDependencies(cwd, green)
+      installDependencies(cwd, data.autoInstall, green)
       .then(() => {
         return runLintFix(cwd, data, green)
       })
