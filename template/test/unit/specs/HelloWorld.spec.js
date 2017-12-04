@@ -1,8 +1,8 @@
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import HelloWorld from '@/components/HelloWorld'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-{{#typescript}}{{#if_eq runner "karma"}}import {expect} from 'chai'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}{{/if_eq}}{{/typescript}}
+{{#typescript}}{{#if_eq runner "karma"}}import {expect} from 'chai'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}{{/if_eq}}
 
-describe('HelloWorld.vue', () => {
+{{/typescript}}describe('HelloWorld.vue', () => {
   it('should render correct contents', () => {
     const Constructor = Vue.extend(HelloWorld){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     const vm = new Constructor().$mount(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
