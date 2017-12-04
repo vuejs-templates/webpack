@@ -1,0 +1,6 @@
+/build/
+/config/
+/dist/
+{{#unit}}
+/test/unit/coverage/
+{{/unit}}
