@@ -43,7 +43,7 @@ exports.installDependencies = function installDependencies(cwd, executable = 'np
  */
 exports.runLintFix = function runLintFix(cwd, data, color) {
   if (data.lint && lintStyles.indexOf(data.lintConfig) !== -1) {
-    console.log(`\n\n${color('Running eslint --fix to comply with AirBnB preset rules...')}`)
+    console.log(`\n\n${color('Running eslint --fix to comply with chosen preset rules...')}`)
     console.log('# ========================\n')
     return runCommand('npm', ['run', 'lint', '--', '--fix'], {
       cwd
