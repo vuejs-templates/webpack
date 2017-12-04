@@ -57,16 +57,16 @@
     {{/eslint}}
     {{#stylelint}}
     "postcss-html": "^0.9.0",
-    "stylelint": "^8.3.0",
+    "stylelint": "^8.3.1",
     "stylelint-webpack-plugin": "^0.9.0",
     {{#if_eq stylelintConfig "standard"}}
-    "stylelint-config-standard": "^17.0.0",
+    "stylelint-config-standard": "^18.0.0",
     {{/if_eq}}
     {{#if_eq stylelintConfig "recommended"}}
-    "stylelint-config-recommended": "^1.0.0",
+    "stylelint-config-recommended": "^2.0.0",
     {{/if_eq}}
     {{#if_eq stylelintConfig "wikimedia"}}
-    "stylelint-config-wikimedia": "^0.4.1",
+    "stylelint-config-wikimedia": "^0.4.2",
     {{/if_eq}}
     {{/stylelint}}
     {{#if_eq runner "jest"}}
