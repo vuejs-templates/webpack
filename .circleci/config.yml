@@ -1,11 +1,38 @@
 version: 2
-defaults: &defaults
-  working_directory: ~/project/webpack-template
+vm_settings: &vm_settings
   docker:
     - image: circleci/node:8.3-browsers
+
+create_project: &create_project
+  - checkout
+  - attach-workspace:
+      at: ~/project
+  - run:
+      name: run cli
+      command: ../.bin/vue init . test-$VUE_TEMLP_TEST
+
+run_unit_tests: &run_unit_tests
+    steps:
+      - checkout
+      - attach_workspace:
+            at: ~/project
+      - run:
+          name: Unit Tests
+          command: npm run unit
+
+run_e2e_tests: &run_e2e_tests
+  steps:
+    - checkout
+    - attach_workspace:
+          at: ~/project
+    - run:
+        name: End-To-End Tests
+        command: npm run e2e
+
 jobs:
   install_template_deps:
-    <<: *defaults
+    <<: *vm_settings
+    working_directory: ~/project/webpack-template
     steps:
       - checkout
       - restore_cache:
@@ -22,64 +49,22 @@ jobs:
           paths:
             - webpack-template/node_modules
 
-  create_project:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/project
-      - run:
-          name: run vue-cli
-          shell: /bin/bash
-          command: |
-            set -e
-            yes "" | ./node_modules/.bin/vue init . test
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - webpack-template/test
+  create_minimal:
+    <<: *vm_settings
+    working_directory: ~/project/webpack-template
+    environment:
+      - VUE_TEMPL_TEST: minimal
+    <<: *create_project
   
-  install_project_deps:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/project
-      - restore_cache:
-          key: project-cache-{{ checksum "test/package.json" }}
-      - run:
-          name: install template dependencies
-          command: |
-            cd test
-            npm install
-      - save_chache:
-          key: project-cache-{{ checksum "test/package.json" }}
-          paths:
-            - test/node_modules
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - webpack-template/test/node_modules
-  
-  exec_unit_tests:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-            at: ~/project
-      - run:
-          name: Unit Tests
-          command: npm run unit
-  
-  exec_e2e_tests:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-            at: ~/project
-      - run:
-          name: End-To-End Tests
-          command: npm run e2e
+  unit_minimal:
+    <<: *vm_settings
+    working_directory: ~/project/webpack-template/test-minimal
+    <<: *run_unit_tests
+
+  e2e_minimal:
+    <<: *vm_settings
+    working_directory: ~/project/webpack-template/test-minimal
+    <<: *run_e2e_tests
 
 workflows:
   version: 2
@@ -92,9 +77,9 @@ workflows:
       - install_project_deps:
           requires:
             - create_project
-      - exec_unit_tests:
+      - run_unit_tests:
           requires:
             - install_project_deps
-      - exec_e2e_tests:
+      - run_e2e_tests:
           requires:
             - install_project_deps
