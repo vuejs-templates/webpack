@@ -150,7 +150,7 @@ module.exports = {
     ".stylelintrc.js": "stylelint",
     ".stylelintignore": "stylelint",
     "config/test.env.js": "unit || e2e",
-    "build/webpack.test.conf.js": "e2e || (unit && runner === 'karma')",
+    "build/webpack.test.conf.js": "unit && runner === 'karma'",
     "test/unit/**/*": "unit",
     "test/unit/index.js": "unit && runner === 'karma'",
     "test/unit/jest.conf.js": "unit && runner === 'jest'",
