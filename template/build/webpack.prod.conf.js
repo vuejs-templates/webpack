@@ -46,10 +46,11 @@ const webpackConfig = merge(baseWebpackConfig, {
     // extract css into its own file
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css'),
-      // set the following option to `true` if you want to extract CSS from
-      // codesplit chunks into this main css file as well.
-      // This will result in *all* of your app's CSS being loaded upfront.
-      allChunks: false,
+      // setting the following option to `false` will not extract CSS from codesplit chunks.
+      // This CSS will be inserted with style-loader when the codesplit chunk has been loaded.
+      // it's currently deactivated because we are seeing that sourcemaps are included in the bundle as well, increasing file size:
+      // https://github.com/vuejs-templates/webpack/issues/1110
+      allChunks: true,
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
