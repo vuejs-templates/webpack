@@ -9,7 +9,7 @@ create_project: &create_project
       at: ~/project
   - run:
       name: run cli
-      command: ../.bin/vue init . test-$VUE_TEMLP_TEST
+      command: .bin/vue init . test-$VUE_TEMLP_TEST
 
 run_unit_tests: &run_unit_tests
     steps:
