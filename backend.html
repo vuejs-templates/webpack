@@ -1,0 +1,444 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Integrate with Backend Framework · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="proxy.html" />
+    
+    
+    <link rel="prev" href="env.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="structure.html">
+            
+                <a href="structure.html">
+            
+                    
+                    Project Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="commands.html">
+            
+                <a href="commands.html">
+            
+                    
+                    Build Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="babel.html">
+            
+                <a href="babel.html">
+            
+                    
+                    Babel Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="linter.html">
+            
+                <a href="linter.html">
+            
+                    
+                    Linter Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="pre-processors.html">
+            
+                <a href="pre-processors.html">
+            
+                    
+                    Pre-Processors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="static.html">
+            
+                <a href="static.html">
+            
+                    
+                    Handling Static Assets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="env.html">
+            
+                <a href="env.html">
+            
+                    
+                    Environment Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9" data-path="backend.html">
+            
+                <a href="backend.html">
+            
+                    
+                    Integrate with Backend Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="proxy.html">
+            
+                <a href="proxy.html">
+            
+                    
+                    API Proxying During Development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="unit.html">
+            
+                <a href="unit.html">
+            
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="e2e.html">
+            
+                <a href="e2e.html">
+            
+                    
+                    End-to-end Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="prerender.html">
+            
+                <a href="prerender.html">
+            
+                    
+                    Prerendering for SEO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Integrate with Backend Framework</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="integrating-with-backend-framework">Integrating with Backend Framework</h1>
+<p>If you are building a purely-static app (one that is deployed separately from the backend API), then you probably don&apos;t even need to edit <code>config/index.js</code>. However, if you want to integrate this template with an existing backend framework, e.g. Rails/Django/Laravel, which comes with their own project structures, you can edit <code>config/index.js</code> to directly generate front-end assets into your backend project.</p>
+<p>Let&apos;s take a look at the default <code>config/index.js</code>:</p>
+<pre><code class="lang-js">// config/index.js
+&apos;use strict&apos;
+const path = require(&apos;path&apos;)
+
+module.exports = {
+  dev: {
+    / Paths
+    assetsSubDirectory: &apos;static&apos;,
+    assetsPublicPath: &apos;/&apos;,
+    proxyTable: {},
+
+    // Various Dev Server settings
+    host: &apos;localhost&apos;,
+    port: 8080, 
+
+    // skipping other options as they are only convenience features
+  },
+  build: {
+    // Template for index.html
+    index: path.resolve(__dirname, &apos;../dist/index.html&apos;),
+
+    // Paths
+    assetsRoot: path.resolve(__dirname, &apos;../dist&apos;),
+    assetsSubDirectory: &apos;static&apos;,
+    assetsPublicPath: &apos;/&apos;,
+
+    productionSourceMap: true,
+
+    // skipping the rest ...
+  },
+}
+</code></pre>
+<p>Inside the <code>build</code> section, we have the following options:</p>
+<h3 id="buildindex"><code>build.index</code></h3>
+<blockquote>
+<p>Must be an absolute path on your local file system.</p>
+</blockquote>
+<p>This is where the <code>index.html</code> (with injected asset URLs) will be generated.</p>
+<p>If you are using this template with a backend-framework, you can edit <code>index.html</code> accordingly and point this path to a view file rendered by your backend app, e.g. <code>app/views/layouts/application.html.erb</code> for a Rails app, or <code>resources/views/index.blade.php</code> for a Laravel app.</p>
+<h3 id="buildassetsroot"><code>build.assetsRoot</code></h3>
+<blockquote>
+<p>Must be an absolute path on your local file system.</p>
+</blockquote>
+<p>This should point to the root directory that contains all the static assets for your app. For example, <code>public/</code> for both Rails/Laravel.</p>
+<h3 id="buildassetssubdirectory"><code>build.assetsSubDirectory</code></h3>
+<p>Nest webpack-generated assets under this directory in <code>build.assetsRoot</code>, so that they are not mixed with other files you may have in <code>build.assetsRoot</code>. For example, if <code>build.assetsRoot</code> is <code>/path/to/dist</code>, and <code>build.assetsSubDirectory</code> is <code>static</code>, then all Webpack assets will be generated in <code>path/to/dist/static</code>.</p>
+<p>This directory will be cleaned before each build, so it should only contain assets generated by the build.</p>
+<p>Files inside <code>static/</code> will be copied into this directory as-is during build. This means if you change this prefix, all your absolute URLs referencing files in <code>static/</code> will also need to be changed. See <a href="static.html">Handling Static Assets</a> for more details.</p>
+<h3 id="buildassetspublicpath"><code>build.assetsPublicPath</code></h3>
+<p>This should be the URL path where your <code>build.assetsRoot</code> will be served from over HTTP. In most cases, this will be root (<code>/</code>). Only change this if your backend framework serves static assets with a path prefix. Internally, this is passed to Webpack as <code>output.publicPath</code>.</p>
+<h3 id="buildproductionsourcemap"><code>build.productionSourceMap</code></h3>
+<p>Whether to generate source maps for production build.</p>
+<h3 id="devport"><code>dev.port</code></h3>
+<p>Specify the port for the dev server to listen to.</p>
+<h3 id="devproxytable"><code>dev.proxyTable</code></h3>
+<p>Define proxy rules for the dev server. See <a href="proxy.html">API Proxying During Development</a> for more details.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="env.html" class="navigation navigation-prev " aria-label="Previous page: Environment Variables">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="proxy.html" class="navigation navigation-next " aria-label="Next page: API Proxying During Development">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Integrate with Backend Framework","level":"1.9","depth":1,"next":{"title":"API Proxying During Development","level":"1.10","depth":1,"path":"proxy.md","ref":"proxy.md","articles":[]},"previous":{"title":"Environment Variables","level":"1.8","depth":1,"path":"env.md","ref":"env.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"backend.md","mtime":"2017-12-10T14:08:42.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-11T16:32:14.805Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
