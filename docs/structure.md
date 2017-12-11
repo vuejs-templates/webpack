@@ -31,7 +31,7 @@
 ├── .babelrc                    # babel config
 ├── .editorconfig               # indentation, spaces/tabs and similar settings for your editor
 ├── .eslintrc.js                # eslint config
-├── .eslintignore.js            # eslint ignore rules
+├── .eslintignore               # eslint ignore rules
 ├── .gitignore                  # sensible defaults for gitignore
 ├── .postcssrc.js               # postcss config
 ├── index.html                  # index.html template
