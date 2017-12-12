@@ -20,7 +20,7 @@ module.exports = merge(prodEnv, {
 
 // config/test.env.js
 module.exports = merge(devEnv, {
-  NODE_ENV: '"testing"'
+  NODE_ENV: '"test"'
 })
 ```
 
@@ -36,7 +36,7 @@ So, the environment variables are:
     - DEBUG_MODE = true,
     - API_KEY    = '...'
 - Testing
-    - NODE_ENV   = 'testing',
+    - NODE_ENV   = 'test',
     - DEBUG_MODE = true,
     - API_KEY    = '...'
 
