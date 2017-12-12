@@ -11,16 +11,13 @@ const lintStyles = ['standard', 'airbnb']
  */
 exports.sortDependencies = function sortDependencies(data) {
   const packageJsonFile = path.join(
-    data.inPlace ? "" : data.destDirName,
-    "package.json"
+    data.inPlace ? '' : data.destDirName,
+    'package.json'
   )
   const packageJson = JSON.parse(fs.readFileSync(packageJsonFile))
   packageJson.devDependencies = sortObject(packageJson.devDependencies)
   packageJson.dependencies = sortObject(packageJson.dependencies)
-  fs.writeFileSync(
-    packageJsonFile,
-    JSON.stringify(packageJson, null, 2) + "\n"
-  );
+  fs.writeFileSync(packageJsonFile, JSON.stringify(packageJson, null, 2) + '\n')
 }
 
 /**
@@ -28,11 +25,15 @@ exports.sortDependencies = function sortDependencies(data) {
  * @param {string} cwd Path of the created project directory
  * @param {object} data Data from questionnaire
  */
-exports.installDependencies = function installDependencies(cwd, executable = 'npm', color) {
+exports.installDependencies = function installDependencies(
+  cwd,
+  executable = 'npm',
+  color
+) {
   console.log(`\n\n# ${color('Installing project dependencies ...')}`)
   console.log('# ========================\n')
   return runCommand(executable, ['install'], {
-    cwd
+    cwd,
   })
 }
 
@@ -43,10 +44,18 @@ exports.installDependencies = function installDependencies(cwd, executable = 'np
  */
 exports.runLintFix = function runLintFix(cwd, data, color) {
   if (data.lint && lintStyles.indexOf(data.lintConfig) !== -1) {
-    console.log(`\n\n${color('Running eslint --fix to comply with chosen preset rules...')}`)
+    console.log(
+      `\n\n${color(
+        'Running eslint --fix to comply with chosen preset rules...'
+      )}`
+    )
     console.log('# ========================\n')
-    return runCommand('npm', ['run', 'lint', '--', '--fix'], {
-      cwd
+    const args =
+      data.autoInstall === 'npm'
+        ? ['run', 'lint', '--', '--fix']
+        : ['run', 'lint', '--fix']
+    return runCommand(data.autoInstall, args, {
+      cwd,
     })
   }
   return Promise.resolve()
@@ -63,7 +72,11 @@ exports.printMessage = function printMessage(data, { green, yellow }) {
 
 To get started:
 
-  ${yellow(`${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${requiresLint(data) ? 'npm run lint -- --fix\n  ' : ''}npm run dev`)}
+  ${yellow(
+    `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${installMsg(
+      data
+    )}${lintMsg(data)}npm run dev`
+  )}
   
 Documentation can be found at https://vuejs-templates.github.io/webpack
 `
@@ -71,27 +84,48 @@ Documentation can be found at https://vuejs-templates.github.io/webpack
 }
 
 /**
- * Returns true if the user will have to run lint --fix themselves.
+ * If the user will have to run lint --fix themselves, it returns a string
+ * containing the instruction for this step.
  * @param {Object} data Data from questionnaire.
  */
-function requiresLint(data) {
-  return !data.autoInstall && data.lint && lintStyles.indexOf(data.lintConfig) !== -1
+function lintMsg(data) {
+  return !data.autoInstall &&
+    data.lint &&
+    lintStyles.indexOf(data.lintConfig) !== -1
+    ? 'npm run lint -- --fix (or for yarn: yarn run lint --fix)\n  '
+    : ''
+}
+
+/**
+ * If the user will have to run `npm install` or `yarn` themselves, it returns a string
+ * containing the instruction for this step.
+ * @param {Object} data Data from the questionnaire
+ */
+function installMsg(data) {
+  return !data.autoInstall ? 'npm install (or if using yarn: yarn)\n  ' : ''
 }
 
 /**
  * Spawns a child process and runs the specified command
  * By default, runs in the CWD and inherits stdio
  * Options are the same as node's child_process.spawn
- * @param {string} cmd 
- * @param {array<string>} args 
+ * @param {string} cmd
+ * @param {array<string>} args
  * @param {object} options
  */
 function runCommand(cmd, args, options) {
   return new Promise((resolve, reject) => {
-    const spwan = spawn(cmd, args, Object.assign({
-      cwd: process.cwd(),
-      stdio: 'inherit',
-    }, options))
+    const spwan = spawn(
+      cmd,
+      args,
+      Object.assign(
+        {
+          cwd: process.cwd(),
+          stdio: 'inherit',
+        },
+        options
+      )
+    )
 
     spwan.on('exit', () => {
       resolve()
@@ -101,9 +135,11 @@ function runCommand(cmd, args, options) {
 
 function sortObject(object) {
   // Based on https://github.com/yarnpkg/yarn/blob/v1.3.2/src/config.js#L79-L85
-  const sortedObject = {};
-  Object.keys(object).sort().forEach(item => {
-    sortedObject[item] = object[item];
-  });
-  return sortedObject;
+  const sortedObject = {}
+  Object.keys(object)
+    .sort()
+    .forEach(item => {
+      sortedObject[item] = object[item]
+    })
+  return sortedObject
 }
