@@ -27,6 +27,7 @@ module.exports = {
     {{#router}}
     '!src/router/index.js',
     {{/router}}
+    '!test/**',
     '!**/node_modules/**'
   ]
 }
