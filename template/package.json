@@ -8,10 +8,10 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     {{#if_eq runner "jest"}}
-    "unit": "jest --config test/unit/jest.conf.js --coverage",
+    "unit": "cross-env NODE_ENV=testing jest --config test/unit/jest.conf.js --coverage",
     {{/if_eq}}
     {{#if_eq runner "karma"}}
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+    "unit": "cross-env NODE_ENV=testing karma start test/unit/karma.conf.js --single-run",
     {{/if_eq}}
     {{#e2e}}
     "e2e": "node test/e2e/runner.js",
