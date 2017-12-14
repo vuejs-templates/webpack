@@ -125,7 +125,7 @@ function installMsg(data) {
  */
 function runCommand(cmd, args, options) {
   return new Promise((resolve, reject) => {
-    const spwan = spawn(
+    const child = spawn(
       cmd,
       args,
       Object.assign(
@@ -138,8 +138,12 @@ function runCommand(cmd, args, options) {
       )
     )
 
-    spwan.on('exit', () => {
+    child.on('exit', () => {
       resolve()
+    })
+
+    child.on('error', error => {
+      reject(error)
     })
   })
 }
