@@ -14,7 +14,7 @@ const webpackConfig = require('./webpack.prod.conf')
 
 var argv = require('minimist')(process.argv.slice(2))
 if (argv['app-env']) {
-  process.env.VUE_APP_ENV = argv['app-env']
+  process.env.APP_ENV = argv['app-env']
 }
 
 const spinner = ora('building for production...')

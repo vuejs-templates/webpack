@@ -2,10 +2,12 @@
 process.env.NODE_ENV = 'production'
 
 // We use this env variable to make webpack the test env from /config/environments/test.env.js
-process.env.VUE_APP_ENV = 'test'
+process.env.APP_ENV = 'test'
 
 // We use this special ENV Variable to set some e2e-specific things in the production config.
 process.env.VUE_TEST = 'e2e'
+
+const env = require('../../config/env') // This should always be loaded first!
 
 const webpack = require('webpack')
 const DevServer = require('webpack-dev-server')

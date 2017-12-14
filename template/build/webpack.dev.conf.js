@@ -1,4 +1,5 @@
 'use strict'
+const env = require('../config/env') // This should always be loaded first!
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')

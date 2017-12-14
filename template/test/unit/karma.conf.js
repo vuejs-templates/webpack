@@ -2,6 +2,8 @@
 //   http://karma-runner.github.io/0.13/config/configuration-file.html
 // we are also using it with karma-webpack
 //   https://github.com/webpack/karma-webpack
+const env = require('../../config/env') // This should always be loaded first!
+
 if (!process.env.NODE_ENV) {
   proces.env.NODE_ENV = 'test'
 }

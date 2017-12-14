@@ -99,3 +99,9 @@ exports.createNotifierCallback = () => {
     })
   }
 }
+
+exports.stringifyValues = function stringifyValues (obj) {
+  Object.keys(obj).forEach(key => {
+    obj[key] = JSON.stringify(obj[key])
+  })
+}
