@@ -28,12 +28,22 @@ exports.sortDependencies = function sortDependencies(data) {
 exports.installDependencies = function installDependencies(
   cwd,
   executable = 'npm',
-  color
+  chalk
 ) {
-  console.log(`\n\n# ${color('Installing project dependencies ...')}`)
+  console.log(`\n\n# ${chalk.green('Installing project dependencies ...')}`)
   console.log('# ========================\n')
   return runCommand(executable, ['install'], {
     cwd,
+  })
+  .catch(error => {
+    console.error(error)
+    console.log('# ' + chalk.red('Error installing dependencies\n'))
+    console.log(`Don't worry though, your project is still totally fine,
+we just had problems running \`npm install\` for you. 
+So run these commands in your project directory and you will be fine:
+  ${chalk.yellow('npm install')} (or for yarn: ${chalk.yellow('yarn')})
+  ${chalk.yellow('npm run lint -- --fix')} (or for yarn: ${chalk.yellow('yarn lint --fix')})
+    `)
   })
 }
 
@@ -42,10 +52,10 @@ exports.installDependencies = function installDependencies(
  * @param {string} cwd Path of the created project directory
  * @param {object} data Data from questionnaire
  */
-exports.runLintFix = function runLintFix(cwd, data, color) {
+exports.runLintFix = function runLintFix(cwd, data, chalk) {
   if (data.lint && lintStyles.indexOf(data.lintConfig) !== -1) {
     console.log(
-      `\n\n${color(
+      `\n\n${chalk.green(
         'Running eslint --fix to comply with chosen preset rules...'
       )}`
     )
