@@ -122,6 +122,7 @@ function runCommand(cmd, args, options) {
         {
           cwd: process.cwd(),
           stdio: 'inherit',
+          shell: true,
         },
         options
       )
