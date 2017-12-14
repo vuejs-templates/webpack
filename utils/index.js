@@ -27,23 +27,21 @@ exports.sortDependencies = function sortDependencies(data) {
  */
 exports.installDependencies = function installDependencies(
   cwd,
-  executable = 'npm',
+  data,
   chalk
 ) {
+  const executable = data.autoInstall
   console.log(`\n\n# ${chalk.green('Installing project dependencies ...')}`)
   console.log('# ========================\n')
   return runCommand(executable, ['install'], {
     cwd,
   })
-  .catch(error => {
-    console.error(error)
-    console.log('# ' + chalk.red('Error installing dependencies\n'))
-    console.log(`Don't worry though, your project is still totally fine,
-we just had problems running \`npm install\` for you. 
-So run these commands in your project directory and you will be fine:
-  ${chalk.yellow('npm install')} (or for yarn: ${chalk.yellow('yarn')})
-  ${chalk.yellow('npm run lint -- --fix')} (or for yarn: ${chalk.yellow('yarn lint --fix')})
-    `)
+  .catch(err => {
+
+    const msg = npmErrorMsg(data, chalk)
+    const error =  new Error(msg)
+    error.name = 'VueTemplateNpmInstallError'
+    throw error
   })
 }
 
@@ -83,7 +81,7 @@ exports.printMessage = function printMessage(data, { green, yellow }) {
 To get started:
 
   ${yellow(
-    `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${installMsg(
+    `${dirMsg(data)}${installMsg(
       data
     )}${lintMsg(data)}npm run dev`
   )}
@@ -91,6 +89,17 @@ To get started:
 Documentation can be found at https://vuejs-templates.github.io/webpack
 `
   console.log(message)
+}
+
+/**
+ * If the project was generated in a new subdirectory,
+ * this will print a instructions to navigate to that directory.
+ * @param {Object} data Data from questionnaire.
+ */
+function dirMsg(data) {
+  return data.inPlace
+    ? ''
+    : `cd ${data.destDirName}\n  `
 }
 
 /**
@@ -113,6 +122,19 @@ function lintMsg(data) {
  */
 function installMsg(data) {
   return !data.autoInstall ? 'npm install (or if using yarn: yarn)\n  ' : ''
+}
+
+function npmErrorMsg(data, chalk) {
+  return `
+# ${chalk.red('Error installing dependencies')}
+# ========================
+
+Don't worry though, your project is still totally fine.
+We just had problems running \`npm install\` for you.
+
+So run these commands in your project directory and you will be fine:
+  ${dirMsg(data)}${chalk.yellow('npm install')} (or for yarn: ${chalk.yellow('yarn')})
+  ${data.lint ? `${chalk.yellow('npm run lint -- --fix')} (or for yarn: ${chalk.yellow('yarn lint --fix')})` : ''}`    
 }
 
 /**
