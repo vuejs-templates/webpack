@@ -2,7 +2,9 @@
 //   http://karma-runner.github.io/0.13/config/configuration-file.html
 // we are also using it with karma-webpack
 //   https://github.com/webpack/karma-webpack
-
+if (!process.env.NODE_ENV) {
+  proces.env.NODE_ENV = 'test'
+}
 var webpackConfig = require('../../build/webpack.test.conf')
 
 module.exports = function (config) {

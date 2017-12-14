@@ -1,7 +1,7 @@
 'use strict'
 const utils = require('./utils')
 const config = require('../config')
-const isProduction = ['testing', 'production'].indexOf(process.env.NODE_ENV) !== -1
+const isProduction = process.env.NODE_ENV === 'production'
 const sourceMapEnabled = isProduction
   ? config.build.productionSourceMap
   : config.dev.cssSourceMap
