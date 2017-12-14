@@ -155,9 +155,9 @@ module.exports = {
     const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName)
 
     if (data.autoInstall) {
-      installDependencies(cwd, data.autoInstall, green)
+      installDependencies(cwd, data.autoInstall, chalk)
         .then(() => {
-          return runLintFix(cwd, data, green)
+          return runLintFix(cwd, data, chalk)
         })
         .then(() => {
           printMessage(data, green)
