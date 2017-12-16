@@ -1,8 +1,6 @@
-## What these files are for
+## Passing Environment Variables to your application
 
-You application can run in different modes - development, test, production.
-
-Each of these modes might require different default values for things like:
+You application can run in different modes, as documented in the chapter about [Commands](commands.md) - `development`, `test`, `production`. Each of these modes might require different default values for things like:
 
 * log levels
 * API URLs
@@ -10,6 +8,7 @@ Each of these modes might require different default values for things like:
 * ...?
 
 You can define these values in the files with the name matching the mode.
+
 ```javascript
 // config/variables/development.js
 module.exports = {
@@ -23,7 +22,7 @@ module.exports = {
 
 > If you are pulling your hair at this point because we are saving config in the code, please read on. We talk about those concerns in depth a bit further down.
 
-We can also map to environment variables easily.
+You can also map to environment variables easily.
 
 ```javascript
 // config/variables/development.js
