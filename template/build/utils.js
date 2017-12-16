@@ -112,7 +112,24 @@ function stringifyValues (obj) {
 }
 
 const externalVars = require('../config/variables/externals.js')
-const modeVars = require(`../config/variables/${process.env.NODE_ENV}`)
+
+// This mess is necessary because of the airbnb eslint config
+// a dynamic require('../config/variables/${process.env.NODE_ENV}.js')
+// breaks eslint. responsible is the eslint-import-resolver-webpack plugin
+let modeVars
+switch (process.env.NODE_ENV) {
+  case 'development':
+    modeVars = require('../config/variables/development.js') // eslint-disable-line
+    break
+  case 'test':
+    modeVars = require('../config/variables/test.js') // eslint-disable-line
+    break
+  case 'production':
+    modeVars = require('../config/variables/production.js') // eslint-disable-line
+    break
+}
+
+// const modeVars = require(`../config/variables/${process.env.NODE_ENV}`) // eslint-disable-line
 const envVars = merge(externalVars, modeVars)
 
 exports.envVars = envVars

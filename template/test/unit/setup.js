@@ -11,7 +11,20 @@ if (!process.env.NODE_ENV) {
 }
 
 // then we load any other variables defined in the matching variabel file
-const env = require(`../../config/variables/${process.env.NODE_ENV}`)
+// This ugly switch statement is necessary to accommodate airbnb eslint import rules.
+// See also: /build/utils.js
+let env
+switch (process.env.NODE_ENV) {
+  case 'development':
+    env = require('../config/variables/development.js') // eslint-disable-line
+    break
+  case 'test':
+    env = require('../config/variables/test.js') // eslint-disable-line
+    break
+  case 'production':
+    env = require('../config/variables/production.js') // eslint-disable-line
+    break
+}
 Object.keys(env).forEach(key => {
   process.env[key] = env[key]
 })
