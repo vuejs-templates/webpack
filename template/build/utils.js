@@ -102,16 +102,18 @@ exports.createNotifierCallback = () => {
   }
 }
 
-exports.stringifyValues = function stringifyValues (obj) {
+function stringifyValues (obj) {
+  const result = {}
   Object.keys(obj).forEach(key => {
-    obj[key] = JSON.stringify(obj[key])
+    result[key] = JSON.stringify(obj[key])
   })
+
+  return result
 }
 
 const externalVars = require('../config/variables/externals.js')
 const modeVars = require(`../config/variables/${process.env.NODE_ENV}`)
-const envVars = merge(modeVars, externalVars)
+const envVars = merge(externalVars, modeVars)
 
 exports.envVars = envVars
-
-exports.stringifiedEnvVars = stringifyValues(Object.assign({}, envVars))
+exports.stringifiedEnvVars = stringifyValues(envVars)

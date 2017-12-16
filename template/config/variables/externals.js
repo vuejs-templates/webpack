@@ -5,10 +5,8 @@
  * Since imformation in .env files is usually sensitive, we don't do that
  * automatically.
  */
-require(dotenv).config()
+require('dotenv').config()
 
 module.exports = {
-  // remember to wrap string values in double quotes ('"string"')
-  // or use JSON.stringify:
-  // API_URL: JSON.stringify(process.env.API_URL)
+  // LOGLEVEL: process.env.LOGLEVEL
 }

@@ -1,10 +1,14 @@
 'use strict'
 // This is the webpack config used for unit tests with karma/mocha.
+if (!process.env.NODE_ENV) {
+  process.env.NODE_ENV = 'TEST'
+}
+require('dotenv').config() // This should always be loaded first!
 
-const env = require('../config/env') // This should always be loaded first!
-const utils = require('./utils')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
+
+const utils = require('./utils')
 const baseWebpackConfig = require('./webpack.base.conf')
 
 const webpackConfig = merge(baseWebpackConfig, {
