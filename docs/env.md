@@ -72,16 +72,15 @@ axios.get(process.env.API_URL + '/users?key=' + process.env.API_KEY).then(/*...*
 
 ## Strategies for different build environments.
 
-Usually you have more build environments than the three app modes - `development`, `test`, `production`. You have a CI environment where you run tests, a staging environment where you run tests and run a built version of your app for your team to test, a QA environment that holds a "copy" of your prod for debugging purposes and so on. In some of those environments you only run `nrpm run test`, in only `npm run build` and in some you run both, or even `npm run dev`. The bottom line is, each app's setup is different, each team's requirements are different.
+Usually you have more build environments than the three app modes (`development`, `test`, `production`): You might have a CI environment where you run tests, a staging environment where you run a built version of your app for your team to test, but with a staging API backend, a QA environment that holds a "copy" of your prod for debugging purposes and so on. In some of those environments you only run `npm run test`, in others only `npm run build` and in some you run both, or even `npm run dev`. The bottom line is, each app's setup is different, each team's requirements are different.
 
-How can you condfigure those different environments and still keep configuration flexible and secure?
+How can you configure those different environments and still keep configuration flexible and secure?
 
-The answer is environment variables configured in an `.env` file, namespaced by "mode".
+The answer for this template is environment variables configured in an `.env` file, namespaced by "mode".
 
-Here's you this would look for a "staging" environment:
+Here's how this would look for a "staging" environment:
 ```
 // /.env
-API_KEY_DEV=dusgnsdk374849$$33h
 API_KEY_TEST=hd833nfn029373bek$02
 API_KEY_PROD=hd833nfn029373bek$02
 ```
@@ -98,11 +97,11 @@ module.exports = {
 
 Now when you run `npm run test`, inside of your Vue app, `process.env.API_KEY` will match the value of `API_KEY_TEST` in your `.env` file,
 
-When you run `npm run build`, it will match `API_KEY_PROD`. In this case it's the same value, because you want to run the `build` command with the same API_KEY as the `test` command, but they can be differnt in other environments, like when you develop locally:
+When you run `npm run build`, it will match `API_KEY_PROD`. In this case it's the same value, because you want to run the `build` command with the same API_KEY as the `test` command, but they can be different in other environments, like when you develop locally:
 
 ```
 // /.env
-API_URL_DEV=localhost:8080 // dev-server
+API_URL_DEV=localhost:8080 // dev-server (proxying to a test-backend)
 API_URL_TEST=localhost:4001 // test-backend
 ```
 ```javascript
@@ -115,6 +114,8 @@ module.exports = {
   API_KEY: process.env.API_URL_TEST
 }
 ```
+
+In your app, you can access `process.env.API_KEY` and will get the correct value in each mode.
 
 ## A word on 'seperation of config from code' according to "The 12 Factor App"
 
