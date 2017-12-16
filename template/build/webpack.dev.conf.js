@@ -1,8 +1,8 @@
 'use strict'
+require('dotenv').config() // This should always be loaded first!
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = 'development'
 }
-require('dotenv').config() // This should always be loaded first!
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')

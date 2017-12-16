@@ -1,8 +1,8 @@
 'use strict'
+require('dotenv').config() // This should always be loaded first!
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = 'production'
 }
-require('dotenv').config() // This should always be loaded first!
 const path = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
