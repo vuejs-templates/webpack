@@ -3,7 +3,7 @@
 import Vue from 'vue'
 
 // We load any environment variable defined in a `.env` file first
-reuqire('dotenv').config()
+require('dotenv').config()
 
 // Then we set NODE_ENV
 if (!process.env.NODE_ENV) {
