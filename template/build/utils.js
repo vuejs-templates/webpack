@@ -1,7 +1,9 @@
 'use strict'
-const path = require('path')
-const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const merge = require('webpack-merge')
+const path = require('path')
+
+const config = require('../config')
 const packageConfig = require('../package.json')
 
 exports.assetsPath = function (_path) {
@@ -105,3 +107,11 @@ exports.stringifyValues = function stringifyValues (obj) {
     obj[key] = JSON.stringify(obj[key])
   })
 }
+
+const externalVars = require('../config/variables/externals.js')
+const modeVars = require(`../config/variables/${process.env.NODE_ENV}`)
+const envVars = merge(modeVars, externalVars)
+
+exports.envVars = envVars
+
+exports.stringifiedEnvVars = stringifyValues(Object.assign({}, envVars))

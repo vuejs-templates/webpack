@@ -2,7 +2,6 @@
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
-const env = require('../config/env')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
@@ -96,7 +95,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': env
+      'process.env': utils.stringifiedEnvVars
     }),
   ]
 }

@@ -7,15 +7,9 @@ const ora = require('ora')
 const rm = require('rimraf')
 const path = require('path')
 const chalk = require('chalk')
-const minimist = require('minimist')
 const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
-
-var argv = require('minimist')(process.argv.slice(2))
-if (argv['app-env']) {
-  process.env.APP_ENV = argv['app-env']
-}
 
 const spinner = ora('building for production...')
 spinner.start()
