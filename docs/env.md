@@ -35,7 +35,7 @@ You will also find a file called `externals.js` in this folder. Use this file if
 
 ### How are these files processed?
 
-When you run one of the available [commands](commands.md), `process.env.NODE_ENV` will be set to one of the three modes mentioned above, and the appropriate module from `/config/variables` will be required. The object exported by that module will be merged with the one from `externals.js`. In case of duplicate entries, the latter overwrites the former.
+When you run one of the available [commands](commands.md), `process.env.NODE_ENV` will be set to one of the three modes mentioned above, and the appropriate module from `/config/variables` will be required. The object exported by that module will be merged with the one from `externals.js`. In case of duplicate entries, the former overwrites the latter.
 
 The resulting object will be passed to webpack's [`DefinePlugin`](https://webpack.js.org/plugins/define-plugin/) to make the values available in your Vue application.
 
@@ -50,7 +50,7 @@ axios.get(process.env.API_URL + '/users').then(/*...*/)
 
 ## `.env` file support
 
-Whenever you run one of the available [commands](commands.md) (expect `lint`), We use [dontenv](https://www.npmjs.com/package/dotenv) to load any environment variables that you have provided with an `.env` file in the root directory of your project.
+Whenever you run one of the available [commands](commands.md) (except `lint`), We use [dontenv](https://www.npmjs.com/package/dotenv) to load any environment variables that you have provided with an `.env` file in the root directory of your project.
 
 That means that you can pass values from your `.env` file to your Vue app through the variable files we introduced above.
 
@@ -60,7 +60,7 @@ Example:
 API_KEY: hd833nfn029373bek$02
 ```
 ```javascript
-// config/variables/_externals.env.js
+// config/variables/externals.js
 module.exports = {
   API_KEY: process.env.API_KEY
 }
