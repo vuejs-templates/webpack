@@ -16,13 +16,13 @@ if (!process.env.NODE_ENV) {
 let env
 switch (process.env.NODE_ENV) {
   case 'development':
-    env = require('../config/variables/development.js') // eslint-disable-line
+    env = require('../../config/variables/development.js') // eslint-disable-line
     break
   case 'test':
-    env = require('../config/variables/test.js') // eslint-disable-line
+    env = require('../../config/variables/test.js') // eslint-disable-line
     break
   case 'production':
-    env = require('../config/variables/production.js') // eslint-disable-line
+    env = require('../../config/variables/production.js') // eslint-disable-line
     break
 }
 Object.keys(env).forEach(key => {
