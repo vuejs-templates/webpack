@@ -52,6 +52,8 @@ module.exports = {
         'e' // for e.returnvalue
       ]
     }],
+    // allow vuex
+    'no-param-reassign': ["error", { 'props': false }],
     // allow optionalDependencies
     'import/no-extraneous-dependencies': ['error', {
       optionalDependencies: ['test/unit/index.js']
