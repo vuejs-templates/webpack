@@ -4,12 +4,13 @@
   "noEscape": true,
   "name": "test",
   "description": "A Vue.js project",
-  "author": "Thorsten <t.luenborg@googlemail.com>",
+  "author": "CircleCI",
   "build": "standalone",
   "router": false,
   "lint": true,
   "lintConfig": "airbnb",
   "unit": true,
   "runner": "karma",
-  "e2e": true 
+  "e2e": true,
+  "autoInstall": false
 }

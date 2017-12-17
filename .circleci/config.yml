@@ -9,7 +9,16 @@ create_project: &create_project
       at: ~/project
   - run:
       name: run cli
-      command: .bin/vue init . test-$VUE_TEMLP_TEST
+      command: .bin/vue init . test
+  - restore_cache:
+          key: template-cache-{{ checksum "package.json" }}
+  - run:
+      name: Install npm dependencies
+      command: cd test && npm install
+  - save_cache:
+      key: template-cache-{{ checksum "test/package.json" }}
+      paths:
+        - test/node_modules
 
 run_unit_tests: &run_unit_tests
     steps:
