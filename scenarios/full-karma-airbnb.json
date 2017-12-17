@@ -1,6 +1,4 @@
 { 
-  "destDirName": "test",
-  "inPlace": false,
   "noEscape": true,
   "name": "test",
   "description": "A Vue.js project",

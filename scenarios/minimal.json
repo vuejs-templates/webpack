@@ -1,6 +1,4 @@
 { 
-  "destDirName": "test",
-  "inPlace": false,
   "noEscape": true,
   "name": "test-minimal",
   "description": "Testing the minimal template setup",
