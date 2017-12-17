@@ -96,13 +96,13 @@ jobs:
       - attach_workspace:
           at: '~/project/webpack-template'
       - restore_cache:
-          key: template-cache-full-karma-airbnb-{{ checksum "test-full/package.json" }}
+          key: template-cache-full-karma-airbnb-{{ checksum "test-full-karma-airbnb/package.json" }}
       - run:
           name: Install npm dependencies
           working_directory: ~/project/webpack-template/test-full-karma-airbnb
           command: npm install
       - save_cache:
-          key: template-cache-full-karma-airbnb-{{ checksum "test-full/package.json" }}
+          key: template-cache-full-karma-airbnb-{{ checksum "test-full-karma-airbnb/package.json" }}
           paths:
             - test-full/node_modules
             - run:
