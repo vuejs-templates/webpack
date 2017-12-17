@@ -4,23 +4,6 @@ vm_settings: &vm_settings
   docker:
     - image: circleci/node:8.3-browsers
 
-run_tests: &run_tests
-  - checkout
-  - attach-workspace:
-      at: ~/project
-  - run:
-      name: roll out template
-      command: .bin/vue init . test-$VUE_TEMPL_TEST
-  - restore_cache:
-          key: template-cache-{{ .Environment.VUE_TEMP_TEST }}-{{ checksum "test/package.json" }}
-  - run:
-      name: Install npm dependencies
-      command: cd test && npm install
-  - save_cache:
-      key: template-cache-{{ .Environment.VUE_TEMP_TEST }}-{{ checksum "test/package.json" }}
-      paths:
-        - test-$VUE_TEMPL_TEST/node_modules
-
 jobs:
   install_template_deps:
     <<: *vm_settings
@@ -35,17 +18,107 @@ jobs:
           key: template-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
+      - run:
+          name: Rollout minimal scenario
+          command: VUE_TEMPL_TEST=minimal vue init . test-minimal
+      # - run:
+      #     name: Rollout full scenario
+      #     command: VUE_TEMPL_TEST=full vue init . test-full
+      # - run:
+      #     name: Rollout full-karma-airbnb scenario
+      #     command: VUE_TEMPL_TEST=full-karma-airbnb vue init . test-full-karma-airbnb
       - persist_to_workspace:
           root: ~/project
           paths:
             - webpack-template/node_modules
+            - test-*
 
   scenario_minimal:
     <<: *vm_settings
     environment:
       - VUE_TEMPL_TEST: minimal
-    steps: *run_tests
-  
+    steps:
+      - checkout
+      - attach_workspace:
+          at: '~/project/webpack-template'
+      - restore_cache:
+          key: template-cache-minimal-{{ checksum "test-minimal/package.json" }}
+      - run:
+          name: Install npm dependencies
+          working_directory: ~/project/webpack-template/test-minimal
+          command: npm install
+      - save_cache:
+          key: template-cache-minimal-{{ checksum "test-minimal/package.json" }}
+          paths:
+            - test-minimal/node_modules
+      - run:
+          name: Test build
+          working_directory: ~/project/webpack-template/test-minimal
+          command: npm run build
+
+    scenario_full:
+    <<: *vm_settings
+    environment:
+      - VUE_TEMPL_TEST: full
+    steps:
+      - checkout
+      - attach_workspace:
+          at: '~/project/webpack-template'
+      - restore_cache:
+          key: template-cache-full-{{ checksum "test-full/package.json" }}
+      - run:
+          name: Install npm dependencies
+          working_directory: ~/project/webpack-template/test-full
+          command: npm install
+      - save_cache:
+          key: template-cache-full-{{ checksum "test-full/package.json" }}
+          paths:
+            - test-full/node_modules
+      - run:
+          name: Run Lint
+          command: cd test-full && npm run lint -- --fix
+      - run:
+          name: Run Unit and e2e tests
+          command: cd test-full && npm run test
+          when: always # even if lint fails, we want to run tests to see if those pass in the result.
+      - run:
+          name: Test build
+          working_directory: ~/project/webpack-template/test-full
+          command: npm run build
+          when: always
+
+    scenario_full-karma-airbnb:
+    <<: *vm_settings
+    environment:
+      - VUE_TEMPL_TEST: full
+    steps:
+      - checkout
+      - attach_workspace:
+          at: '~/project/webpack-template'
+      - restore_cache:
+          key: template-cache-full-karma-airbnb-{{ checksum "test-full/package.json" }}
+      - run:
+          name: Install npm dependencies
+          working_directory: ~/project/webpack-template/test-full-karma-airbnb
+          command: npm install
+      - save_cache:
+          key: template-cache-full-karma-airbnb-{{ checksum "test-full/package.json" }}
+          paths:
+            - test-full/node_modules
+            - run:
+          name: Run Lint
+          command: cd test-full-karma-airbnb && npm run lint -- --fix
+      - run:
+          name: Run Unit and e2e tests
+          command: cd test-full-karma-airbnb && npm run test
+          when: always
+      - run:
+          name: Test build
+          working_directory: ~/project/webpack-template/test-full-karma-airbnb
+          command: npm run build
+          when: always
+
+
 workflows:
   version: 2
   build_and_test:
@@ -54,6 +127,9 @@ workflows:
       - scenario_minimal:
           requires:
             - install_template_deps
-      - scenario_full:
-          requires:
-            - install_template_deps
+      # - scenario_full:
+      #     requires:
+      #       - install_template_deps
+      # - scenario_full-karma-airbnb:
+      #     requires:
+      #       - install_template_deps
