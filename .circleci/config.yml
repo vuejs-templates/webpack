@@ -1,47 +1,29 @@
 version: 2
 vm_settings: &vm_settings
+  working_directory: ~/project/webpack-template
   docker:
     - image: circleci/node:8.3-browsers
 
-create_project: &create_project
+run_tests: &run_tests
   - checkout
   - attach-workspace:
       at: ~/project
   - run:
-      name: run cli
-      command: .bin/vue init . test
+      name: roll out template
+      command: .bin/vue init . test-$VUE_TEMPL_TEST
   - restore_cache:
-          key: template-cache-{{ checksum "package.json" }}
+          key: template-cache-{{ .Environment.VUE_TEMP_TEST }}-{{ checksum "test/package.json" }}
   - run:
       name: Install npm dependencies
       command: cd test && npm install
   - save_cache:
-      key: template-cache-{{ checksum "test/package.json" }}
+      key: template-cache-{{ .Environment.VUE_TEMP_TEST }}-{{ checksum "test/package.json" }}
       paths:
-        - test/node_modules
-
-run_unit_tests: &run_unit_tests
-    steps:
-      - checkout
-      - attach_workspace:
-            at: ~/project
-      - run:
-          name: Unit Tests
-          command: npm run unit
-
-run_e2e_tests: &run_e2e_tests
-  steps:
-    - checkout
-    - attach_workspace:
-          at: ~/project
-    - run:
-        name: End-To-End Tests
-        command: npm run e2e
+        - test-$VUE_TEMPL_TEST/node_modules
 
 jobs:
   install_template_deps:
     <<: *vm_settings
-    working_directory: ~/project/webpack-template
     steps:
       - checkout
       - restore_cache:
@@ -58,37 +40,20 @@ jobs:
           paths:
             - webpack-template/node_modules
 
-  create_minimal:
+  scenario_minimal:
     <<: *vm_settings
-    working_directory: ~/project/webpack-template
     environment:
       - VUE_TEMPL_TEST: minimal
-    <<: *create_project
+    steps: *run_tests
   
-  unit_minimal:
-    <<: *vm_settings
-    working_directory: ~/project/webpack-template/test-minimal
-    <<: *run_unit_tests
-
-  e2e_minimal:
-    <<: *vm_settings
-    working_directory: ~/project/webpack-template/test-minimal
-    <<: *run_e2e_tests
-
 workflows:
   version: 2
   build_and_test:
     jobs:
       - install_template_deps
-      - create_project:
+      - scenario_minimal:
           requires:
             - install_template_deps
-      - install_project_deps:
+      - scenario_full:
           requires:
-            - create_project
-      - run_unit_tests:
-          requires:
-            - install_project_deps
-      - run_e2e_tests:
-          requires:
-            - install_project_deps
+            - install_template_deps
