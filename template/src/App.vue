@@ -11,15 +11,15 @@
 
 <script>
 {{#unless router}}
-import HelloWorld from './components/HelloWorld'
+import HelloWorld from './components/HelloWorld';
 
 {{/unless}}
 export default {
-  name: 'app'{{#router}}{{else}},
+  name: 'app',{{#router}}{{else}}
   components: {
-    HelloWorld
-  }{{/router}}
-}
+    HelloWorld,
+  },{{/router}}
+};
 </script>
 
 <style>
