@@ -20,13 +20,13 @@ jobs:
             - node_modules
       - run:
           name: Rollout minimal scenario
-          command: VUE_TEMPL_TEST=minimal vue init . test-minimal
+          command: VUE_TEMPL_TEST=minimal node_modules/.bin/vue init . test-minimal
       # - run:
       #     name: Rollout full scenario
-      #     command: VUE_TEMPL_TEST=full vue init . test-full
+      #     command: VUE_TEMPL_TEST=full node_modules/.bin/vue init . test-full
       # - run:
       #     name: Rollout full-karma-airbnb scenario
-      #     command: VUE_TEMPL_TEST=full-karma-airbnb vue init . test-full-karma-airbnb
+      #     command: VUE_TEMPL_TEST=full-karma-airbnb node_modules/.bin/vue init . test-full-karma-airbnb
       - persist_to_workspace:
           root: ~/project
           paths:
