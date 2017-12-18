@@ -1,6 +1,5 @@
 {{#axios}}
-import axios from 'axios'
-import qs from 'qs'
+import axios from 'axios'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/axios}}
 
 /**
@@ -46,7 +45,6 @@ export default {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       transformRequest: [function (data) {
-        data = qs.stringify(data)
         return data
       }]
     })
@@ -71,7 +69,6 @@ export default {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       transformRequest: [function (data) {
-        data = qs.stringify(data)
         return data
       }]
     })
@@ -96,7 +93,6 @@ export default {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       transformRequest: [function (data) {
-        data = qs.stringify(data)
         return data
       }]
     })

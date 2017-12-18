@@ -1,5 +1,6 @@
-import axios from 'axios'
-
+{{#axios}}
+import axios from 'axios'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{/axios}}
 export const commonParams = {
   pageIndex: 1,
   pageSize: 10
