@@ -56,8 +56,7 @@
     {{/if_eq}}
     {{/eslint}}
     {{#stylelint}}
-    "postcss-html": "^0.9.0",
-    "stylelint": "^8.3.1",
+    "stylelint": "^8.4.0",
     "stylelint-webpack-plugin": "^0.9.0",
     {{#if_eq stylelintConfig "standard"}}
     "stylelint-config-standard": "^18.0.0",

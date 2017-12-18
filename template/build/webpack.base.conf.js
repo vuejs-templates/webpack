@@ -39,11 +39,7 @@ module.exports = {
     // Stylelint for all imports
     // https://github.com/vieron/stylelint-webpack-plugin
     new StyleLintPlugin({
-      configFile: resolve('.stylelintrc.js'),
-      context: 'inherits from webpack',
-      files: '../src/**/*.(vue|html?|css|sss|less|scss)',
-      failOnError: false,
-      syntax: require('postcss-html'),
+      files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
     })
   ],
   {{/stylelint}}
