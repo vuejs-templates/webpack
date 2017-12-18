@@ -24,6 +24,7 @@ If you are not happy with the default linting rules, you have several options:
 1. Overwrite individual rules in `.stylelintrc.js`. For example, you can add the following rule to enforce tabs.
 
   ``` js
+  // .stylelintrc.js
   "indentation": "tab",
   ```
 
