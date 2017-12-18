@@ -25,7 +25,11 @@
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    "vue-router": "^3.0.1"{{/router}},
+    "vuex": "^2.1.1"{{/vuex}},
+    "axios": "^0.16.2"{{/axios}},
+    "vue-axios": "^2.0.2"{{/axios}},
+    "vant": "^0.11.0"{{/vant}}
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -91,6 +95,7 @@
     "inject-loader": "^3.0.0",
     "babel-plugin-istanbul": "^4.1.1",
     "phantomjs-prebuilt": "^2.1.14",
+    "qs": "^6.5.0"{{/axios}},
     {{/if_eq}}
     "node-notifier": "^5.1.2",
     {{#e2e}}
