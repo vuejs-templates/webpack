@@ -2,8 +2,6 @@ const path = require('path')
 const fs = require('fs')
 const spawn = require('child_process').spawn
 
-const lintStyles = ['standard', 'airbnb']
-
 /**
  * Sorts dependencies in package.json alphabetically.
  * They are unsorted because they were grouped for the handlebars helpers
@@ -38,22 +36,22 @@ exports.installDependencies = function installDependencies(
 }
 
 /**
- * Runs `npm run lint -- --fix` in the project directory
+ * Runs `npm run lint:fix` in the project directory
  * @param {string} cwd Path of the created project directory
  * @param {object} data Data from questionnaire
  */
 exports.runLintFix = function runLintFix(cwd, data, color) {
-  if (data.lint && lintStyles.indexOf(data.lintConfig) !== -1) {
+  if (
+    (data.stylelint && data.stylelintConfig !== 'none') ||
+    (data.eslint && data.eslintConfig !== 'none')
+  ) {
     console.log(
       `\n\n${color(
-        'Running eslint --fix to comply with chosen preset rules...'
+        'Running npm run lint:fix to comply with chosen preset rules...'
       )}`
     )
     console.log('# ========================\n')
-    const args =
-      data.autoInstall === 'npm'
-        ? ['run', 'lint', '--', '--fix']
-        : ['run', 'lint', '--fix']
+    const args = ['run', 'lint:fix']
     return runCommand(data.autoInstall, args, {
       cwd,
     })
@@ -84,15 +82,16 @@ Documentation can be found at https://vuejs-templates.github.io/webpack
 }
 
 /**
- * If the user will have to run lint --fix themselves, it returns a string
+ * If the user will have to run lint:fix themselves, it returns a string
  * containing the instruction for this step.
  * @param {Object} data Data from questionnaire.
  */
 function lintMsg(data) {
-  return !data.autoInstall &&
-    data.lint &&
-    lintStyles.indexOf(data.lintConfig) !== -1
-    ? 'npm run lint -- --fix (or for yarn: yarn run lint --fix)\n  '
+  return !data.autoInstall && (
+      (data.stylelint && data.stylelintConfig !== 'none') ||
+      (data.eslint && data.eslintConfig !== 'none')
+    )
+    ? 'npm run lint:fix (or for yarn: yarn run lint:fix)\n  '
     : ''
 }
 
