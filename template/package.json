@@ -25,10 +25,10 @@
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}},
-    "vuex": "^2.1.1"{{/vuex}},
+    "vue-router": "^3.0.1"{{/router}}{{#vuex}},
+    "vuex": "^2.1.1"{{/vuex}}{{#axios}},
     "axios": "^0.16.2"{{/axios}},
-    "vue-axios": "^2.0.2"{{/axios}},
+    "vue-axios": "^2.0.2"{{/axios}}{{#vant}},
     "vant": "^0.11.0"{{/vant}}
   },
   "devDependencies": {
