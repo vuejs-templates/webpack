@@ -21,7 +21,7 @@
 </template>
 
 <script{{#typescript}} lang="ts"{{/typescript}}>
-{{#typescript}}import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{#typescript}}import Vue from 'vue'
 
 {{/typescript}}export default {{#typescript}}Vue.extend({{/typescript}}{
   name: 'HelloWorld',

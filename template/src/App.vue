@@ -10,8 +10,7 @@
 </template>
 
 <script{{#typescript}} lang="ts"{{/typescript}}>
-{{#typescript}}import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};
-{{/if_eq}}{{/typescript}}
+{{#typescript}}import Vue from 'vue'{{/typescript}}
 {{#unless router}}
 import HelloWorld from './components/HelloWorld'
 
