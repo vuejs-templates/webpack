@@ -3,7 +3,7 @@
 // we are also using it with karma-webpack
 //   https://github.com/webpack/karma-webpack
 
-var webpackConfig = require('../../build/webpack.test.conf'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+var webpackConfig = require('../../build/webpack.test.conf')
 
 module.exports = function (config) {
   config.set({
@@ -20,14 +20,14 @@ module.exports = function (config) {
     },
     webpack: webpackConfig,
     webpackMiddleware: {
-      noInfo: true{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      noInfo: true
     },
     coverageReporter: {
       dir: './coverage',
       reporters: [
         { type: 'lcov', subdir: '.' },
-        { type: 'text-summary' }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+        { type: 'text-summary' }
       ]
-    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    }
+  })
+}

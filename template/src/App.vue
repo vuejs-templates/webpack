@@ -13,15 +13,15 @@
 {{#typescript}}import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};
 {{/if_eq}}{{/typescript}}
 {{#unless router}}
-import HelloWorld from './components/HelloWorld'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import HelloWorld from './components/HelloWorld'
 
 {{/unless}}
 export default {{#typescript}}Vue.extend({{/typescript}}{
-  name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
+  name: 'app'{{#router}}{{else}},
   components: {
-    HelloWorld{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
-}{{#typescript}}){{/typescript}}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    HelloWorld
+  }{{/router}}
+}{{#typescript}}){{/typescript}}
 </script>
 
 <style>
