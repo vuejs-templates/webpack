@@ -51,8 +51,8 @@ module.exports = {
       ],
     },
     typescript: {
-      type: "confirm",
-      message: "Use TypeScript as default language?",
+      type: 'confirm',
+      message: 'Use TypeScript as default language?',
       default: false
     },
     router: {
@@ -176,13 +176,13 @@ module.exports = {
       printMessage(data, chalk)
     }
   },
-  "metalsmith": function (metalsmith, opts, helpers) {
+  metalsmith: function (metalsmith, opts, helpers) {
     function renameJsSourcesToTs(files, metalsmith, done) {
       // If typescript is enabled rename any .js files in src/ folder to .ts extension
       if (metalsmith.metadata().typescript) {
         Object.keys(files).forEach(filename => {
           if (/^(src|test\\unit\\specs).*\.js$/.test(filename)) {
-          const renamed = filename.replace(/\.js$/, ".ts");
+          const renamed = filename.replace(/\.js$/, '.ts');
           files[renamed] = files[filename]
           delete files[filename]
         }
