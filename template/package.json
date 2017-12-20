@@ -80,6 +80,7 @@
     "chromedriver": "^2.27.2",
     "cross-spawn": "^5.0.1",
     "nightwatch": "^0.9.12",
+    "nightwatch-cucumber": "^8.2.10",
     "selenium-server": "^3.0.1",
     {{/e2e}}
     "autoprefixer": "^7.1.2",
