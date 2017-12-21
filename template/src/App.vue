@@ -12,7 +12,7 @@
 <script{{#typescript}} lang="ts"{{/typescript}}>
 {{#typescript}}import Vue from 'vue'{{/typescript}}
 {{#unless router}}
-import HelloWorld from './components/HelloWorld'
+import HelloWorld from './components/HelloWorld{{#typescript}}.vue{{/typescript}}'
 
 {{/unless}}
 export default {{#typescript}}Vue.extend({{/typescript}}{
