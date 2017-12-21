@@ -50,7 +50,7 @@ jobs:
       - save_cache:
           key: template-cache-minimal-{{ checksum "test-minimal/package.json" }}
           paths:
-            - "test-minimal/node_modules"
+            - test-minimal/node_modules
       - run:
           name: Test build
           working_directory: ~/project/webpack-template/test-minimal
