@@ -1,7 +1,9 @@
 'use strict'
-const path = require('path')
-const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const merge = require('webpack-merge')
+const path = require('path')
+
+const config = require('../config')
 const packageConfig = require('../package.json')
 
 exports.assetsPath = function (_path) {
@@ -99,3 +101,36 @@ exports.createNotifierCallback = () => {
     })
   }
 }
+
+function stringifyValues (obj) {
+  const result = {}
+  Object.keys(obj).forEach(key => {
+    result[key] = JSON.stringify(obj[key])
+  })
+
+  return result
+}
+
+const externalVars = require('../config/variables/externals.js')
+
+// This mess is necessary because of the airbnb eslint config
+// a dynamic require('../config/variables/${process.env.NODE_ENV}.js')
+// breaks eslint. responsible is the eslint-import-resolver-webpack plugin
+let modeVars
+switch (process.env.NODE_ENV) {
+  case 'development':
+    modeVars = require('../config/variables/development.js') // eslint-disable-line
+    break
+  case 'test':
+    modeVars = require('../config/variables/test.js') // eslint-disable-line
+    break
+  case 'production':
+    modeVars = require('../config/variables/production.js') // eslint-disable-line
+    break
+}
+
+// const modeVars = require(`../config/variables/${process.env.NODE_ENV}`) // eslint-disable-line
+const envVars = merge(externalVars, modeVars)
+
+exports.envVars = envVars
+exports.stringifiedEnvVars = stringifyValues(envVars)

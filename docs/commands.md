@@ -4,7 +4,9 @@ All build commands are executed via [NPM Scripts](https://docs.npmjs.com/misc/sc
 
 ### `npm run dev`
 
-> Starts a Node.js local development server. See [API Proxying During Development](proxy.md) for more details.
+Starts a Node.js local development server. See [API Proxying During Development](proxy.md) for more details.
+
+> Sets process.env.NODE_ENV to `'development'`
 
 - Webpack + `vue-loader` for single file Vue components.
 - State preserving hot-reload
@@ -14,7 +16,9 @@ All build commands are executed via [NPM Scripts](https://docs.npmjs.com/misc/sc
 
 ### `npm run build`
 
-> Build assets for production. See [Integrating with Backend Framework](backend.md) for more details.
+Build assets for production. See [Integrating with Backend Framework](backend.md) for more details.
+
+> Sets process.env.NODE_ENV to `'production'`
 
 - JavaScript minified with [UglifyJS v3](https://github.com/mishoo/UglifyJS2/tree/harmony).
 - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
@@ -23,14 +27,19 @@ All build commands are executed via [NPM Scripts](https://docs.npmjs.com/misc/sc
 
 ### `npm run unit`
 
-> Run unit tests in JSDOM with [Jest](https://facebook.github.io/jest/docs/getting-started.html). See [Unit Testing](unit.md) for more details.
+Run unit tests in JSDOM with [Jest](https://facebook.github.io/jest/docs/getting-started.html). See [Unit Testing](unit.md) for more details.
+
+> Sets process.env.NODE_ENV to `'test'`
 
 - Supports ES2015+ in test files.
 - Easy [mocking](https://facebook.github.io/jest/docs/mock-functions.html).
 
 ### `npm run e2e`
 
-> Run end-to-end tests with [Nightwatch](http://nightwatchjs.org/). See [End-to-end Testing](e2e.md) for more details.
+Run end-to-end tests with [Nightwatch](http://nightwatchjs.org/). See [End-to-end Testing](e2e.md) for more details.
+
+> Sets process.env.NODE_ENV to `'test'`
+> Sets process.env.VUE_E2E to `'test'`
 
 - Run tests in multiple browsers in parallel.
 - Works with one command out of the box:
@@ -39,4 +48,4 @@ All build commands are executed via [NPM Scripts](https://docs.npmjs.com/misc/sc
 
 ### `npm run lint`
 
-> Runs eslint and reports any linting errors in your code. See [Linter Configuration](linter.md)
+Runs eslint and reports any linting errors in your code. See [Linter Configuration](linter.md)
