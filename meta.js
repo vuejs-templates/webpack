@@ -19,10 +19,11 @@ module.exports = {
 
       return options.inverse(this)
     },
+    template_version() {
+      return templateVersion
+    },
   },
-  template_version() {
-    return templateVersion
-  },
+  
   prompts: {
     name: {
       type: 'string',
