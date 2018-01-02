@@ -11,15 +11,15 @@ module.exports = {
   },
   {{#if_eq lintConfig "standard"}}
   // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-  extends: ['plugin:vue/recommended', 'standard'],
+  extends: ['plugin:vue/essential', 'standard'],
   {{/if_eq}}
   {{#if_eq lintConfig "airbnb"}}
   // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-  extends: ['plugin:vue/recommended', 'airbnb-base'],
+  extends: ['plugin:vue/essential', 'airbnb-base'],
   {{/if_eq}}
   {{#if_eq lintConfig "none"}}
   // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-  extends: ['plugin:vue/recommended'],
+  extends: ['plugin:vue/essential'],
   {{/if_eq}}
   // required to lint *.vue files
   plugins: [
