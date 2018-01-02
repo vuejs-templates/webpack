@@ -10,15 +10,22 @@ module.exports = {
     browser: true,
   },
   {{#if_eq lintConfig "standard"}}
-  // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-  extends: ['plugin:vue/essential', 'standard'],
+  extends: [
+    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
+    'plugin:vue/essential', 
+    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
+    'standard'
+  ],
   {{/if_eq}}
   {{#if_eq lintConfig "airbnb"}}
   // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+  // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
   extends: ['plugin:vue/essential', 'airbnb-base'],
   {{/if_eq}}
   {{#if_eq lintConfig "none"}}
   // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+  // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
   extends: ['plugin:vue/essential'],
   {{/if_eq}}
   // required to lint *.vue files
