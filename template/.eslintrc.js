@@ -2,8 +2,8 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
+    parser: 'babel-eslint',
     sourceType: 'module'
   },
   env: {
@@ -11,14 +11,19 @@ module.exports = {
   },
   {{#if_eq lintConfig "standard"}}
   // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-  extends: 'standard',
+  extends: ['plugin:vue/recommended', 'standard'],
   {{/if_eq}}
   {{#if_eq lintConfig "airbnb"}}
-  extends: 'airbnb-base',
+  // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+  extends: ['plugin:vue/recommended', 'airbnb-base'],
+  {{/if_eq}}
+  {{#if_eq lintConfig "none"}}
+  // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+  extends: ['plugin:vue/recommended'],
   {{/if_eq}}
   // required to lint *.vue files
   plugins: [
-    'html'
+    'vue'
   ],
   {{#if_eq lintConfig "airbnb"}}
   // check if imports actually resolve
