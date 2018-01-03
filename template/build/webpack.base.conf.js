@@ -1,15 +1,3 @@
-/**
- * @Author: vxhly
- * @Date:   2018-01-03 01:57:50 pm
- * @Email:  pengchengou@gmail.com
- * @Project: BIGBIGADS TECHNOLOGY LIMITED
- * @Filename: webpack.base.conf.js
- * @Last modified by:   vxhly
- * @Last modified time: 2018-01-03 02:58:25 pm
- * @License: MIT
- * @Copyright: BIGBIGADS TECHNOLOGY LIMITED
- */
-
 'use strict'
 const path = require('path')
 const utils = require('./utils')

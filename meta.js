@@ -77,6 +77,10 @@ module.exports = {
       type: 'confirm',
       message: 'Install vuex?'
     },
+    axios: {
+      type: 'confirm',
+      message: 'Install axios?'
+    },
     sass: {
       type: 'confirm',
       message: 'Use sass(scss)?'
@@ -177,7 +181,10 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
-    'src/store/**/*': 'vuex'
+    'src/store/**/*': 'vuex',
+    'src/api/*': 'axios',
+    'src/lib/fetch.js': 'axios',
+    'src/config.js': 'axios'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green

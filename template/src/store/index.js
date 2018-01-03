@@ -1,17 +1,7 @@
-/**
- * @Author: vxhly
- * @Date:   2018-01-03 02:13:39 pm
- * @Email:  pengchengou@gmail.com
- * @Project: BIGBIGADS TECHNOLOGY LIMITED
- * @Filename: index.js
- * @Last modified by:   vxhly
- * @Last modified time: 2018-01-03 02:15:03 pm
- * @License: MIT
- * @Copyright: BIGBIGADS TECHNOLOGY LIMITED
- */
-
 import Vue from 'vue'
 import Vuex from 'vuex'
+
+import auth from './modules/auth'
 
 Vue.use(Vuex)
 
@@ -22,6 +12,8 @@ export default new Vuex.Store({
  mutations: {},
  actions: {},
  getters: {},
- modules: {},
+ modules: {
+   auth
+ },
  strict: debug
 })

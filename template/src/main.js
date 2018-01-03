@@ -1,15 +1,3 @@
-/**
- * @Author: vxhly
- * @Date:   2018-01-03 01:57:50 pm
- * @Email:  pengchengou@gmail.com
- * @Project: BIGBIGADS TECHNOLOGY LIMITED
- * @Filename: main.js
- * @Last modified by:   vxhly
- * @Last modified time: 2018-01-03 02:18:06 pm
- * @License: MIT
- * @Copyright: BIGBIGADS TECHNOLOGY LIMITED
- */
-
 {{#if_eq build "standalone"}}
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
@@ -39,6 +27,9 @@ new Vue({
   {{/if_eq}}
   {{#if_eq build "standalone"}}
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  data: {
+    Bus: new Vue()
+  }
   {{/if_eq}}
 })
