@@ -184,7 +184,8 @@ module.exports = {
     'src/store/**/*': 'vuex',
     'src/api/*': 'axios',
     'src/lib/fetch.js': 'axios',
-    'src/config.js': 'axios'
+    'src/config.js': 'axios',
+    'src/assets/scss/**/*': 'sass'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green

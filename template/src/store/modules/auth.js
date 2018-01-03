@@ -16,8 +16,8 @@ export default {
   },
   actions: {
     {{#axios}}
-    async loginByPassword ({ commit, dispatch, state }, { email, password }) {
-      const { token } = await authAPI.getTokenByPassword({ email, password })
+    async loginByPassword ({ commit, dispatch, state }, { username, password }) {
+      const { token } = await authAPI.getTokenByPassword({ username, password })
       commit('SET_TOKEN', token)
     }
     {{/axios}}

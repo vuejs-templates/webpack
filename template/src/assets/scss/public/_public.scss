@@ -1,0 +1,28 @@
+
+html {
+  height   : 100%;
+  margin   : 0;
+  font-size: $browser-default-font-size;
+}
+
+body {
+  font-size             : $browser-default-font-size;
+  padding               : 0;
+  margin                : 0;
+  font-family           : Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+  font-weight           : 400;
+  -webkit-font-smoothing: antialiased;
+  height                : 100%;
+}
+
+* {
+  margin : 0;
+  padding: 0;
+}
+
+#app {
+  -webkit-font-smoothing : antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height                 : 100%;
+  width                  : 100%;
+}
