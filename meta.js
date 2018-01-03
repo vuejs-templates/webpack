@@ -100,7 +100,7 @@ module.exports = {
     EULConfig: {
       when: 'ElementUI',
       type: 'list',
-      message: 'Configure the import mode',
+      message: 'Configure the import ElementUI mode',
       choices: [
         {
           name: 'Demand (http://element-cn.eleme.io/#/en-US/component/quickstart#on-demand)',

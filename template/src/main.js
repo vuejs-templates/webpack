@@ -14,13 +14,11 @@ import store from './store'
 {{#flexbox}}
 import 'scss-flex/dist/scss-flex.min.css' // flexbox
 {{/flexbox}}
-
 {{#if_eq EULConfig "standard"}}
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 {{/if_eq}}
-
 {{#if_eq EULConfig "demand"}}
 import './lib/ElementUI'
 {{/if_eq}}
@@ -36,15 +34,16 @@ new Vue({
   {{#vuex}}
   store, // vuex
   {{/vuex}}
+  {{#Bus}}
+  data: {
+    Bus: new Vue() // brother component communication
+  },
+  {{/Bus}}
   {{#if_eq build "runtime"}}
   render: h => h(App)
   {{/if_eq}}
   {{#if_eq build "standalone"}}
   components: { App },
   template: '<App/>'
-  {{/if_eq}}{{#Bus}},
-  data: {
-    Bus: new Vue() // brother component communication
-  }
-  {{/Bus}}
+  {{/if_eq}}
 })
