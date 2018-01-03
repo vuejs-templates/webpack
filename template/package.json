@@ -88,6 +88,7 @@
     "nightwatch": "^0.9.12",
     "selenium-server": "^3.0.1",
     {{/e2e}}
+    "text-loader": "0.0.1",
     "autoprefixer": "^7.2.4",
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",

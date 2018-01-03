@@ -5,7 +5,7 @@
  * @Project: BIGBIGADS TECHNOLOGY LIMITED
  * @Filename: meta.js
  * @Last modified by:   vxhly
- * @Last modified time: 2018-01-03 02:19:09 pm
+ * @Last modified time: 2018-01-03 03:05:36 pm
  * @License: MIT
  * @Copyright: BIGBIGADS TECHNOLOGY LIMITED
  */
@@ -80,6 +80,10 @@ module.exports = {
     sass: {
       type: 'confirm',
       message: 'Use sass(scss)?'
+    },
+    autoOpenBrowser: {
+      type: 'confirm',
+      message: 'Would you auto open browser?'
     },
     lint: {
       type: 'confirm',

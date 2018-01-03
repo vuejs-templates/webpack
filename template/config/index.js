@@ -1,3 +1,15 @@
+/**
+ * @Author: vxhly
+ * @Date:   2018-01-03 01:57:50 pm
+ * @Email:  pengchengou@gmail.com
+ * @Project: BIGBIGADS TECHNOLOGY LIMITED
+ * @Filename: index.js
+ * @Last modified by:   vxhly
+ * @Last modified time: 2018-01-03 03:03:34 pm
+ * @License: MIT
+ * @Copyright: BIGBIGADS TECHNOLOGY LIMITED
+ */
+
 'use strict'
 // Template version: {{ template_version }}
 // see http://vuejs-templates.github.io/webpack for documentation.
@@ -15,7 +27,7 @@ module.exports = {
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    autoOpenBrowser: {{#autoOpenBrowser}}{{/autoOpenBrowser}},
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
