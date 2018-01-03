@@ -89,9 +89,30 @@ module.exports = {
       type: 'confirm',
       message: 'Use flexbox(scss-flex)?'
     },
-    autoOpenBrowser: {
+    Bus: {
       type: 'confirm',
-      message: 'Would you auto open browser?'
+      message: 'Would you use brother component communication?'
+    },
+    ElementUI: {
+      type: 'confirm',
+      message: 'Would you use ElementUI@2.0?'
+    },
+    EULConfig: {
+      when: 'ElementUI',
+      type: 'list',
+      message: 'Configure the import mode',
+      choices: [
+        {
+          name: 'Demand (http://element-cn.eleme.io/#/en-US/component/quickstart#on-demand)',
+          value: 'demand',
+          short: 'Demand'
+        },
+        {
+          name: 'Standard (http://element-cn.eleme.io/#/en-US/component/quickstart#import-element)',
+          value: 'standard',
+          short: 'Standard'
+        }
+      ]
     },
     lint: {
       type: 'confirm',
@@ -189,7 +210,8 @@ module.exports = {
     'src/api/*': 'axios',
     'src/lib/fetch.js': 'axios',
     'src/config.js': 'axios',
-    'src/assets/scss/**/*': 'sass'
+    'src/assets/scss/**/*': 'sass',
+    'src/lib/ElementUI.js': "ElementUI && EULConfig === 'demand'"
   },
   complete: function(data, { chalk }) {
     const green = chalk.green

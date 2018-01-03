@@ -29,9 +29,14 @@
     "vue-router": "^3.0.1"{{/router}}{{#vuex}},
     "vuex": "^3.0.1"{{/vuex}}{{#axios}},
     "axios": "^0.17.1"{{/axios}}{{#flexbox}},
-    "scss-flex": "^1.5.0"{{/flexbox}}
+    "scss-flex": "^1.5.0"{{/flexbox}}{{#ElementUI}},
+    "element-ui": "^2.0.10"
+    {{/ElementUI}}
   },
   "devDependencies": {
+    {{#if_eq EULConfig "demand"}}
+    "babel-plugin-component": "^1.0.0",
+    {{/if_eq}}
     {{#sass}}
     "sass-loader": "^6.0.6",
     "node-sass": "^4.7.2",
