@@ -1,3 +1,15 @@
+/**
+ * @Author: vxhly
+ * @Date:   2018-01-03 01:57:50 pm
+ * @Email:  pengchengou@gmail.com
+ * @Project: BIGBIGADS TECHNOLOGY LIMITED
+ * @Filename: meta.js
+ * @Last modified by:   vxhly
+ * @Last modified time: 2018-01-03 02:19:09 pm
+ * @License: MIT
+ * @Copyright: BIGBIGADS TECHNOLOGY LIMITED
+ */
+
 const path = require('path')
 const fs = require('fs')
 const {
@@ -23,7 +35,7 @@ module.exports = {
       return templateVersion
     },
   },
-  
+
   prompts: {
     name: {
       type: 'string',
@@ -60,6 +72,14 @@ module.exports = {
     router: {
       type: 'confirm',
       message: 'Install vue-router?',
+    },
+    vuex: {
+      type: 'confirm',
+      message: 'Install vuex?'
+    },
+    sass: {
+      type: 'confirm',
+      message: 'Use sass(scss)?'
     },
     lint: {
       type: 'confirm',
@@ -153,6 +173,7 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
+    'src/store/**/*': 'vuex'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
