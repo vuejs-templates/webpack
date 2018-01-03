@@ -10,6 +10,9 @@ import router from './router'
 {{#vuex}}
 import store from './store'
 {{/vuex}}
+{{#flexbox}}
+import 'scss-flex/dist/scss-flex.min.css'
+{{/flexbox}}
 
 Vue.config.productionTip = false
 

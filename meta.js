@@ -85,6 +85,10 @@ module.exports = {
       type: 'confirm',
       message: 'Use sass(scss)?'
     },
+    flexbox: {
+      type: 'confirm',
+      message: 'Use flexbox(scss-flex)?'
+    },
     autoOpenBrowser: {
       type: 'confirm',
       message: 'Would you auto open browser?'
