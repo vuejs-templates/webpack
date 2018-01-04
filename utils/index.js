@@ -27,13 +27,21 @@ exports.sortDependencies = function sortDependencies(data) {
  */
 exports.installDependencies = function installDependencies(
   cwd,
-  executable = 'npm',
-  color
+  data,
+  chalk
 ) {
-  console.log(`\n\n# ${color('Installing project dependencies ...')}`)
+  const executable = data.autoInstall
+  console.log(`\n\n# ${chalk.green('Installing project dependencies ...')}`)
   console.log('# ========================\n')
   return runCommand(executable, ['install'], {
     cwd,
+  })
+  .catch(err => {
+
+    const msg = npmErrorMsg(data, chalk)
+    const error =  new Error(msg)
+    error.name = 'VueTemplateNpmInstallError'
+    throw error
   })
 }
 
@@ -42,10 +50,10 @@ exports.installDependencies = function installDependencies(
  * @param {string} cwd Path of the created project directory
  * @param {object} data Data from questionnaire
  */
-exports.runLintFix = function runLintFix(cwd, data, color) {
+exports.runLintFix = function runLintFix(cwd, data, chalk) {
   if (data.lint && lintStyles.indexOf(data.lintConfig) !== -1) {
     console.log(
-      `\n\n${color(
+      `\n\n${chalk.green(
         'Running eslint --fix to comply with chosen preset rules...'
       )}`
     )
@@ -73,7 +81,7 @@ exports.printMessage = function printMessage(data, { green, yellow }) {
 To get started:
 
   ${yellow(
-    `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${installMsg(
+    `${dirMsg(data)}${installMsg(
       data
     )}${lintMsg(data)}npm run dev`
   )}
@@ -81,6 +89,17 @@ To get started:
 Documentation can be found at https://vuejs-templates.github.io/webpack
 `
   console.log(message)
+}
+
+/**
+ * If the project was generated in a new subdirectory,
+ * this will print a instructions to navigate to that directory.
+ * @param {Object} data Data from questionnaire.
+ */
+function dirMsg(data) {
+  return data.inPlace
+    ? ''
+    : `cd ${data.destDirName}\n  `
 }
 
 /**
@@ -105,6 +124,19 @@ function installMsg(data) {
   return !data.autoInstall ? 'npm install (or if using yarn: yarn)\n  ' : ''
 }
 
+function npmErrorMsg(data, chalk) {
+  return `
+# ${chalk.red('Error installing dependencies')}
+# ========================
+
+Don't worry though, your project is still totally fine.
+We just had problems running \`npm install\` for you.
+
+So run these commands in your project directory and you will be fine:
+  ${dirMsg(data)}${chalk.yellow('npm install')} (or for yarn: ${chalk.yellow('yarn')})
+  ${data.lint ? `${chalk.yellow('npm run lint -- --fix')} (or for yarn: ${chalk.yellow('yarn lint --fix')})` : ''}`    
+}
+
 /**
  * Spawns a child process and runs the specified command
  * By default, runs in the CWD and inherits stdio
@@ -115,7 +147,7 @@ function installMsg(data) {
  */
 function runCommand(cmd, args, options) {
   return new Promise((resolve, reject) => {
-    const spwan = spawn(
+    const child = spawn(
       cmd,
       args,
       Object.assign(
@@ -128,8 +160,12 @@ function runCommand(cmd, args, options) {
       )
     )
 
-    spwan.on('exit', () => {
+    child.on('exit', () => {
       resolve()
+    })
+
+    child.on('error', error => {
+      reject(error)
     })
   })
 }
