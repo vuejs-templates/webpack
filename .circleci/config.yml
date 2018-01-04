@@ -75,9 +75,13 @@ jobs:
           name: Run Lint
           command: npm run lint -- --fix
       - run:
-          name: Run Unit and e2e tests
-          command: npm run unit  -- --runInBand
-          when: always # even if lint fails, we want to run tests to see if those pass in the result.
+          name: Run Unit tests
+          command: npm run unit
+          when: always
+      - run:
+          name: Run e2e tests
+          command: npm run e2e
+          when: always
       - run:
           name: Test build
           command: npm run build
@@ -104,8 +108,12 @@ jobs:
           name: Run Lint
           command: npm run lint -- --fix
       - run:
-          name: Run Unit and e2e tests
-          command: npm run test
+          name: Run Unit tests
+          command: npm run unit
+          when: always
+      - run:
+          name: Run e2e tests
+          command: npm run e2e
           when: always
       - run:
           name: Test build
