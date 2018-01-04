@@ -1,7 +1,7 @@
 version: 2
 vm_settings: &vm_settings
   docker:
-    - image: circleci/node:8.3-browsers
+    - image: circleci/node:8.9.4-browsers
 
 jobs:
   install_template_deps:
