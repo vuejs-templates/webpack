@@ -1,12 +1,12 @@
 version: 2
 vm_settings: &vm_settings
-  working_directory: ~/project/webpack-template
   docker:
     - image: circleci/node:8.3-browsers
 
 jobs:
   install_template_deps:
     <<: *vm_settings
+    working_directory: ~/project/webpack-template
     steps:
       - checkout
       - restore_cache:
@@ -37,27 +37,27 @@ jobs:
     <<: *vm_settings
     environment:
       - VUE_TEMPL_TEST: minimal
+    working_directory: ~/project/webpack-template/test-minimal
     steps:
       - checkout
       - attach_workspace:
           at: '~/project/webpack-template'
       - restore_cache:
-          key: template-cache-minimal-{{ checksum "test-minimal/package.json" }}
+          key: template-cache-minimal-{{ checksum "package.json" }}
       - run:
           name: Install npm dependencies
-          working_directory: ~/project/webpack-template/test-minimal
           command: npm install
       - save_cache:
-          key: template-cache-minimal-{{ checksum "test-minimal/package.json" }}
+          key: template-cache-minimal-{{ checksum "package.json" }}
           paths:
-            - test-minimal/node_modules
+            - node_modules
       - run:
           name: Test build
-          working_directory: ~/project/webpack-template/test-minimal
           command: npm run build
 
     scenario_full:
     <<: *vm_settings
+    working_directory: ~/project/webpack-template/test-full
     environment:
       - VUE_TEMPL_TEST: full
     steps:
@@ -68,12 +68,11 @@ jobs:
           key: template-cache-full-{{ checksum "test-full/package.json" }}
       - run:
           name: Install npm dependencies
-          working_directory: ~/project/webpack-template/test-full
           command: npm install
       - save_cache:
           key: template-cache-full-{{ checksum "test-full/package.json" }}
           paths:
-            - test-full/node_modules
+            - node_modules
       - run:
           name: Run Lint
           command: cd test-full && npm run lint -- --fix
@@ -83,29 +82,28 @@ jobs:
           when: always # even if lint fails, we want to run tests to see if those pass in the result.
       - run:
           name: Test build
-          working_directory: ~/project/webpack-template/test-full
           command: npm run build
           when: always
 
     scenario_full-karma-airbnb:
     <<: *vm_settings
+    working_directory: ~/project/webpack-template/test-full-karma-airbnb
     environment:
-      - VUE_TEMPL_TEST: full
+      - VUE_TEMPL_TEST: full-karma-airbnb
     steps:
       - checkout
       - attach_workspace:
           at: '~/project/webpack-template'
       - restore_cache:
-          key: template-cache-full-karma-airbnb-{{ checksum "test-full-karma-airbnb/package.json" }}
+          key: template-cache-full-karma-airbnb-{{ checksum "package.json" }}
       - run:
           name: Install npm dependencies
-          working_directory: ~/project/webpack-template/test-full-karma-airbnb
           command: npm install
       - save_cache:
-          key: template-cache-full-karma-airbnb-{{ checksum "test-full-karma-airbnb/package.json" }}
+          key: template-cache-full-karma-airbnb-{{ checksum "package.json" }}
           paths:
-            - test-full/node_modules
-            - run:
+            - node_modules
+      - run:
           name: Run Lint
           command: cd test-full-karma-airbnb && npm run lint -- --fix
       - run:
@@ -114,7 +112,6 @@ jobs:
           when: always
       - run:
           name: Test build
-          working_directory: ~/project/webpack-template/test-full-karma-airbnb
           command: npm run build
           when: always
 
