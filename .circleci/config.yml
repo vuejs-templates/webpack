@@ -55,7 +55,7 @@ jobs:
           name: Test build
           command: npm run build
 
-    scenario_full:
+  scenario_full:
     <<: *vm_settings
     working_directory: ~/project/webpack-template/test-full
     environment:
@@ -65,27 +65,27 @@ jobs:
       - attach_workspace:
           at: '~/project/webpack-template'
       - restore_cache:
-          key: template-cache-full-{{ checksum "test-full/package.json" }}
+          key: template-cache-full-{{ checksum "package.json" }}
       - run:
           name: Install npm dependencies
           command: npm install
       - save_cache:
-          key: template-cache-full-{{ checksum "test-full/package.json" }}
+          key: template-cache-full-{{ checksum "package.json" }}
           paths:
             - node_modules
       - run:
           name: Run Lint
-          command: cd test-full && npm run lint -- --fix
+          command: npm run lint -- --fix
       - run:
           name: Run Unit and e2e tests
-          command: cd test-full && npm run test
+          command: npm run test
           when: always # even if lint fails, we want to run tests to see if those pass in the result.
       - run:
           name: Test build
           command: npm run build
           when: always
 
-    scenario_full-karma-airbnb:
+  scenario_full-karma-airbnb:
     <<: *vm_settings
     working_directory: ~/project/webpack-template/test-full-karma-airbnb
     environment:
@@ -105,10 +105,10 @@ jobs:
             - node_modules
       - run:
           name: Run Lint
-          command: cd test-full-karma-airbnb && npm run lint -- --fix
+          command: npm run lint -- --fix
       - run:
           name: Run Unit and e2e tests
-          command: cd test-full-karma-airbnb && npm run test
+          command: npm run test
           when: always
       - run:
           name: Test build
