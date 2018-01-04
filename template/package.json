@@ -52,7 +52,7 @@
     "babel-jest": "^21.0.2",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "jest": "^21.2.0",
+    "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
     "vue-jest": "^1.0.2",
     {{/if_eq}}
