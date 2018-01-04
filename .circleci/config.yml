@@ -39,7 +39,6 @@ jobs:
       - VUE_TEMPL_TEST: minimal
     working_directory: ~/project/webpack-template/test-minimal
     steps:
-      - checkout
       - attach_workspace:
           at: '~/project/webpack-template'
       - restore_cache:
@@ -61,7 +60,6 @@ jobs:
     environment:
       - VUE_TEMPL_TEST: full
     steps:
-      - checkout
       - attach_workspace:
           at: '~/project/webpack-template'
       - restore_cache:
@@ -91,7 +89,6 @@ jobs:
     environment:
       - VUE_TEMPL_TEST: full-karma-airbnb
     steps:
-      - checkout
       - attach_workspace:
           at: '~/project/webpack-template'
       - restore_cache:
