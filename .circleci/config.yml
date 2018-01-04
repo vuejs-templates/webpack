@@ -124,9 +124,9 @@ workflows:
       - scenario_minimal:
           requires:
             - install_template_deps
-      # - scenario_full:
-      #     requires:
-      #       - install_template_deps
+      - scenario_full:
+          requires:
+            - install_template_deps
       # - scenario_full-karma-airbnb:
       #     requires:
       #       - install_template_deps
