@@ -1,3 +1,15 @@
+/**
+ * @Author: vxhly
+ * @Date:   2018-01-03 01:57:50 pm
+ * @Email:  pengchengou@gmail.com
+ * @Project: BIGBIGADS TECHNOLOGY LIMITED
+ * @Filename: meta.js
+ * @Last modified by:   vxhly
+ * @Last modified time: 2018-01-03 03:05:36 pm
+ * @License: MIT
+ * @Copyright: BIGBIGADS TECHNOLOGY LIMITED
+ */
+
 const path = require('path')
 const fs = require('fs')
 const {
@@ -23,7 +35,7 @@ module.exports = {
       return templateVersion
     },
   },
-  
+
   prompts: {
     name: {
       type: 'string',
@@ -60,6 +72,47 @@ module.exports = {
     router: {
       type: 'confirm',
       message: 'Install vue-router?',
+    },
+    vuex: {
+      type: 'confirm',
+      message: 'Install vuex?'
+    },
+    axios: {
+      type: 'confirm',
+      message: 'Install axios?'
+    },
+    sass: {
+      type: 'confirm',
+      message: 'Use sass(scss)?'
+    },
+    flexbox: {
+      type: 'confirm',
+      message: 'Use flexbox(scss-flex)?'
+    },
+    Bus: {
+      type: 'confirm',
+      message: 'Would you use brother component communication?'
+    },
+    ElementUI: {
+      type: 'confirm',
+      message: 'Would you use ElementUI@2.0?'
+    },
+    EULConfig: {
+      when: 'ElementUI',
+      type: 'list',
+      message: 'Configure the import ElementUI mode',
+      choices: [
+        {
+          name: 'Demand (http://element-cn.eleme.io/#/en-US/component/quickstart#on-demand)',
+          value: 'demand',
+          short: 'Demand'
+        },
+        {
+          name: 'Standard (http://element-cn.eleme.io/#/en-US/component/quickstart#import-element)',
+          value: 'standard',
+          short: 'Standard'
+        }
+      ]
     },
     lint: {
       type: 'confirm',
@@ -153,6 +206,12 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
+    'src/store/**/*': 'vuex',
+    'src/api/*': 'axios',
+    'src/lib/fetch.js': 'axios',
+    'src/config.js': 'axios',
+    'src/assets/scss/**/*': 'sass',
+    'src/lib/ElementUI.js': "ElementUI && EULConfig === 'demand'"
   },
   complete: function(data, { chalk }) {
     const green = chalk.green

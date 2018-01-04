@@ -46,6 +46,10 @@ module.exports = {
       ...(config.dev.useEslint ? [createLintingRule()] : []),
       {{/lint}}
       {
+        test: /.md$/,
+        loader: 'text-loader'
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig

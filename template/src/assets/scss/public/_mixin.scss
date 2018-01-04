@@ -1,0 +1,45 @@
+/**
+ * 定义单位i转换函数
+ * @type [$browser-default-font-size] => 定义页面字体大小
+ */
+ $browser-default-font-size: 16px !default;
+ @function strip-units($val) {
+   // strip-units($val) -- 去除单位
+   @return $val / ($val * 0 + 1);
+ }
+ @function rem($val) {
+   // rem(val) -- 传入数值换算出rem
+   @return strip-units($val)/strip-units($browser-default-font-size) * 1rem;
+ }
+ @function checkRem($val) {
+   // check rem(val) -- 判断传入数值是正数、auto、0，如果是正数则换算出 rem 结果
+   @if $val == auto {
+     @return auto;
+   } @else 
+   if $val==0 {
+     @return 0;
+   } @else {
+     @return rem($val);
+   }
+ }
+ @function checkPx($val) {
+   // check px(val) -- 判断传入数值是正数、auto、0，如果是正数则在后面添加 px单位
+   @if $val == auto {
+     @return auto;
+   } @else 
+   if $val==0 {
+     @return 0;
+   } @else {
+     @return strip-units($val)+px;
+   }
+ }
+ @mixin box($box, $t, $r:$t, $b:$t, $l:$r) {
+   // @mixin box(val, top, right, botton, left) -- 根据盒子模型来，有四个方位值（仅写一个方法值也可）,同时输出带rem和px单位的结果
+   #{$box}: checkPx($t) checkPx($l) checkPx($b) checkPx($l);
+   #{$box}: checkRem($t) checkRem($r) checkRem($b) checkRem($l);
+ }
+ @mixin point($poi, $val) {
+   // @mixin point(val,val) -- 指定属性，同时输出带rem和px单位的结果
+   #{$poi}: checkPx($val);
+   #{$poi}: checkRem($val);
+ }

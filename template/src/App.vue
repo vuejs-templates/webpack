@@ -32,3 +32,9 @@ export default {
   margin-top: 60px;
 }
 </style>
+
+{{#sass}}
+<style lang="scss">
+@import './assets/scss/main';
+</style>
+{{/sass}}
