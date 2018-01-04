@@ -24,9 +24,9 @@ jobs:
       - run:
           name: Rollout full scenario
           command: VUE_TEMPL_TEST=full node_modules/.bin/vue init . test-full
-      # - run:
-      #     name: Rollout full-karma-airbnb scenario
-      #     command: VUE_TEMPL_TEST=full-karma-airbnb node_modules/.bin/vue init . test-full-karma-airbnb
+      - run:
+          name: Rollout full-karma-airbnb scenario
+          command: VUE_TEMPL_TEST=full-karma-airbnb node_modules/.bin/vue init . test-full-karma-airbnb
       - persist_to_workspace:
           root: ~/project/webpack-template
           paths:
@@ -127,6 +127,6 @@ workflows:
       - scenario_full:
           requires:
             - install_template_deps
-      # - scenario_full-karma-airbnb:
-      #     requires:
-      #       - install_template_deps
+      - scenario_full-karma-airbnb:
+          requires:
+            - install_template_deps
