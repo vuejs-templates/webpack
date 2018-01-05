@@ -37,7 +37,7 @@
     "eslint": "^3.19.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
-    "eslint-plugin-html": "^3.0.0",
+    "eslint-plugin-vue": "^4.0.1",
     {{#if_eq lintConfig "standard"}}
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-promise": "^3.4.0",

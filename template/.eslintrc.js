@@ -11,14 +11,14 @@ module.exports = {
   },
   {{#if_eq lintConfig "standard"}}
   // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-  extends: 'standard',
+  extends: ['standard', 'plugin:vue/essential']
   {{/if_eq}}
   {{#if_eq lintConfig "airbnb"}}
-  extends: 'airbnb-base',
+  extends: ['airbnb-base', 'plugin:vue/essential'],
   {{/if_eq}}
   // required to lint *.vue files
   plugins: [
-    'html'
+    'vue'
   ],
   {{#if_eq lintConfig "airbnb"}}
   // check if imports actually resolve
