@@ -65,6 +65,7 @@ module.exports = {
       message: 'Setup a deploy command for GitHub pages?',
     },
     deployBuild: {
+      when: 'deploy',
       type: 'confirm',
       message: 'Build project when deploying?',
     },
