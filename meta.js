@@ -64,6 +64,10 @@ module.exports = {
       type: 'confirm',
       message: 'Setup a deploy command for GitHub pages?',
     },
+    deployBuild: {
+      type: 'confirm',
+      message: 'Build project when deploying?',
+    },
     branch: {
       when: 'deploy',
       default: 'gh-pages',
