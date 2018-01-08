@@ -1,6 +1,7 @@
 // 1. start the dev server using production config
 process.env.NODE_ENV = 'testing'
 
+const chalk = require('chalk')
 const webpack = require('webpack')
 const DevServer = require('webpack-dev-server')
 
@@ -13,9 +14,7 @@ devConfigPromise.then(devConfig => {
   const devServerOptions = devConfig.devServer
   const compiler = webpack(webpackConfig)
   server = new DevServer(compiler, devServerOptions)
-  const port = devServerOptions.port
-  const host = devServerOptions.host
-  return server.listen(port, host)
+  return startServer(compiler, server, devServerOptions.port, devServerOptions.host)
 })
 .then(() => {
   // 2. run the nightwatch test suite against it
@@ -46,3 +45,21 @@ devConfigPromise.then(devConfig => {
     throw err
   })
 })
+.catch( (error) => {
+  console.log(chalk.red('Error running end to end tests:\n'), error);
+  process.exit(1);
+})
+
+function startServer(compiler, srv, port, host) {
+  const listenerStatus = new Promise( (resolve, reject) => {
+    srv.listen(port, host, (err) => (err) ? reject(err) : resolve())
+  })
+
+  const compilerStatus = new Promise( (resolve, reject) => {
+    console.log('Compiling dev server...')
+    compiler.plugin('done', (stats) => resolve())
+    compiler.plugin('failed', (err) => reject(err))
+  })
+
+  return Promise.all([listenerStatus, compilerStatus])
+}
