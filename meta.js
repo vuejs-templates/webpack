@@ -159,7 +159,8 @@ module.exports = {
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
     'tsconfig.json': 'typescript',
-    'vue-shims.d.ts': 'typescript',
+    'tslint.json': 'typescript',
+    'src/sfc.d.ts': 'typescript',
   },
   complete: function(data, { chalk }) {
     const green = chalk.green;
