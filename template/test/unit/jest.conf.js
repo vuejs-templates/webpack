@@ -3,15 +3,18 @@ const path = require('path')
 module.exports = {
   rootDir: path.resolve(__dirname, '../../'),
   moduleFileExtensions: [
-    'js',
+    'js',{{#typescript}}
+    'ts',{{/typescript}}
     'json',
     'vue'
-  ],
+  ],{{#typescript}}
+  testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",{{/typescript}}
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
   },
   transform: {
-    '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
+    '^.+\\.js$': '<rootDir>/node_modules/babel-jest',{{#typescript}}
+    '^.+\\.ts$': 'ts-jest',{{/typescript}}
     '.*\\.(vue)$': '<rootDir>/node_modules/vue-jest'
   },{{#e2e}}
   testPathIgnorePatterns: [
