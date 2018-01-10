@@ -152,8 +152,8 @@ module.exports = {
     },
   },
   filters: {
-    '.eslintrc.js': 'lint',
-    '.eslintignore': 'lint',
+    '.eslintrc.js': '!typescript && lint',
+    '.eslintignore': '!typescript && lint',
     'config/test.env.js': 'unit || e2e',
     'build/webpack.test.conf.js': "unit && runner === 'karma'",
     'test/unit/**/*': 'unit',
@@ -165,7 +165,7 @@ module.exports = {
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
     'tsconfig.json': 'typescript',
-    'tslint.json': 'typescript && lint',
+    'tslint.json': 'typescript && tslint',
     'src/sfc.d.ts': 'typescript',
   },
   complete: function(data, { chalk }) {
