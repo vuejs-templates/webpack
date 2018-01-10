@@ -25,7 +25,7 @@
 
 {{/typescript}}export default {{#typescript}}Vue.extend({{/typescript}}{
   name: 'HelloWorld',
-  data () {
+  data() {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
