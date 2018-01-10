@@ -10,7 +10,7 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
+/* {{#typescript}}tslint:disable-next-line{{else}}eslint-disable no-new{{/typescript}} */
 new Vue({
   el: '#app',
   {{#router}}

@@ -54,6 +54,7 @@ module.exports = {
           appendTsSuffixTo: [/\.vue$/],
         },
       },
+      {{#tslint}}
       {
         test: /\.ts$/,
         loader: 'tslint-loader',
@@ -65,7 +66,7 @@ module.exports = {
           typeCheck: true,
         },
       },
-      {{/typescript}}
+      {{/tslint}}{{/typescript}}
       {
         test: /\.vue$/,
         loader: 'vue-loader',
