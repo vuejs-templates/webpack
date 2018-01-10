@@ -9,17 +9,18 @@
   </div>
 </template>
 
-<script>
+<script{{#typescript}} lang="ts"{{/typescript}}>
+{{#typescript}}import Vue from 'vue'{{/typescript}}
 {{#unless router}}
-import HelloWorld from './components/HelloWorld'
+import HelloWorld from './components/HelloWorld{{#typescript}}.vue{{/typescript}}'
 
 {{/unless}}
-export default {
+export default {{#typescript}}Vue.extend({{/typescript}}{
   name: 'app'{{#router}}{{else}},
   components: {
     HelloWorld
   }{{/router}}
-}
+}{{#typescript}}){{/typescript}}
 </script>
 
 <style>

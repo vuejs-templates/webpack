@@ -22,7 +22,7 @@ function resolve (dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: './src/main.{{#typescript}}ts{{else}}js{{/typescript}}'
   },
   output: {
     path: config.build.assetsRoot,
@@ -32,7 +32,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', {{#typescript}}'.ts', {{/typescript}}'.vue', '.json'],
     alias: {
       {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
@@ -45,6 +45,28 @@ module.exports = {
       {{#lint}}
       ...(config.dev.useEslint ? [createLintingRule()] : []),
       {{/lint}}
+      {{#typescript}}
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        },
+      },
+      {{#tslint}}
+      {
+        test: /\.ts$/,
+        loader: 'tslint-loader',
+        enforce: 'pre',
+        include: [resolve('src'), resolve('test')],
+        options: {
+          configFile: 'tslint.json',
+          tsConfigFile: 'tsconfig.json',
+          typeCheck: true,
+        },
+      },
+      {{/tslint}}{{/typescript}}
       {
         test: /\.vue$/,
         loader: 'vue-loader',
