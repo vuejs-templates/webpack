@@ -45,6 +45,27 @@ module.exports = {
       {{#lint}}
       ...(config.dev.useEslint ? [createLintingRule()] : []),
       {{/lint}}
+      {{#typescript}}
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        },
+      },
+      {
+        test: /\.ts$/,
+        loader: 'tslint-loader',
+        enforce: 'pre',
+        include: [resolve('src'), resolve('test')],
+        options: {
+          configFile: 'tslint.json',
+          tsConfigFile: 'tsconfig.json',
+          typeCheck: true,
+        },
+      },
+      {{/typescript}}
       {
         test: /\.vue$/,
         loader: 'vue-loader',

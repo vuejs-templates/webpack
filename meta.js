@@ -1,29 +1,29 @@
-const path = require('path')
-const fs = require('fs')
+const path = require('path');
+const fs = require('fs');
 const {
   sortDependencies,
   installDependencies,
   runLintFix,
   printMessage,
-} = require('./utils')
-const pkg = require('./package.json')
+} = require('./utils');
+const pkg = require('./package.json');
 
-const templateVersion = pkg.version
+const templateVersion = pkg.version;
 
 module.exports = {
   helpers: {
     if_or(v1, v2, options) {
       if (v1 || v2) {
-        return options.fn(this)
+        return options.fn(this);
       }
 
-      return options.inverse(this)
+      return options.inverse(this);
     },
     template_version() {
-      return templateVersion
+      return templateVersion;
     },
   },
-  
+
   prompts: {
     name: {
       type: 'string',
@@ -56,6 +56,11 @@ module.exports = {
           short: 'runtime',
         },
       ],
+    },
+    typescript: {
+      type: 'confirm',
+      message: 'Use TypeScript as default language?',
+      default: false,
     },
     router: {
       type: 'confirm',
@@ -153,27 +158,45 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
+    'tsconfig.json': 'typescript',
+    'vue-shims.d.ts': 'typescript',
   },
   complete: function(data, { chalk }) {
-    const green = chalk.green
+    const green = chalk.green;
 
-    sortDependencies(data, green)
+    sortDependencies(data, green);
 
-    const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName)
+    const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName);
 
     if (data.autoInstall) {
       installDependencies(cwd, data.autoInstall, green)
         .then(() => {
-          return runLintFix(cwd, data, green)
+          return runLintFix(cwd, data, green);
         })
         .then(() => {
-          printMessage(data, green)
+          printMessage(data, green);
         })
         .catch(e => {
-          console.log(chalk.red('Error:'), e)
-        })
+          console.log(chalk.red('Error:'), e);
+        });
     } else {
-      printMessage(data, chalk)
+      printMessage(data, chalk);
     }
   },
-}
+  metalsmith: function(metalsmith, opts, helpers) {
+    function renameJsSourcesToTs(files, metalsmith, done) {
+      // If typescript is enabled rename any .js files in src/ folder to .ts extension
+      if (metalsmith.metadata().typescript) {
+        Object.keys(files).forEach(filename => {
+          if (/^(src|test\\unit\\specs).*\.js$/.test(filename)) {
+            const renamed = filename.replace(/\.js$/, '.ts');
+            files[renamed] = files[filename];
+            delete files[filename];
+          }
+        });
+      }
+      done(null, files);
+    }
+    metalsmith.use(renameJsSourcesToTs);
+  },
+};

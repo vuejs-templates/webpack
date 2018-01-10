@@ -1,0 +1,34 @@
+{
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    // this aligns with Vue's browser support
+    "target": "es5",
+    // this enables stricter inference for data properties on `this`
+    "strict": true,
+    // if using webpack 2+ or rollup, to leverage tree shaking:
+    "module": "es2015",
+    "moduleResolution": "node",
+    "lib": [
+      "es2016",
+      "dom"
+    ],
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedLocals": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  }
+}
