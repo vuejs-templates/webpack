@@ -15,8 +15,10 @@
     "object-literal-sort-keys": [true],
     "ordered-imports": false,
     "prefer-switch": true,
+    "semicolon": false,
     "space-within-parens": true,
     "quotemark": [true, "single"],
+    "trailing-comma": false,
     "variable-name": true
   },
   "rulesDirectory": []
