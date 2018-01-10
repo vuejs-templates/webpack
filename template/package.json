@@ -87,7 +87,7 @@
     "tslint": "^5.8.0",
     "tslint-loader": "^3.5.3",
     {{/tslint}}
-    "ts-loader": "^3.5.3",
+    "ts-loader": "^3.2.0",
     "typescript": "^2.6.2",
     {{/typescript}}
     "autoprefixer": "^7.1.2",
