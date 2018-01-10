@@ -67,8 +67,14 @@ module.exports = {
       message: 'Install vue-router?',
     },
     lint: {
+      when: '!typescript',
       type: 'confirm',
       message: 'Use ESLint to lint your code?',
+    },
+    tslint: {
+      when: 'typescript',
+      type: 'confirm',
+      message: 'Use TSLint to lint your code?',
     },
     lintConfig: {
       when: 'lint',
@@ -159,7 +165,7 @@ module.exports = {
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
     'tsconfig.json': 'typescript',
-    'tslint.json': 'typescript',
+    'tslint.json': 'typescript && lint',
     'src/sfc.d.ts': 'typescript',
   },
   complete: function(data, { chalk }) {

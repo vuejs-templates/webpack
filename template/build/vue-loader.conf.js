@@ -13,7 +13,7 @@ module.exports = {
       extract: isProduction
     }),
     {{#typescript}}
-    ts: 'ts-loader!tslint-loader',
+    ts: 'ts-loader{{#tslint}}!tslint-loader{{/tslint}}',
     {{/typescript}}
   },
   cssSourceMap: sourceMapEnabled,

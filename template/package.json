@@ -83,8 +83,10 @@
     "selenium-server": "^3.0.1",
     {{/e2e}}
     {{#typescript}}
+    {{#tslint}}
     "tslint": "^5.8.0",
     "tslint-loader": "^3.5.3",
+    {{/tslint}}
     "typescript": "^2.6.2",
     {{/typescript}}
     "autoprefixer": "^7.1.2",
