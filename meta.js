@@ -77,7 +77,7 @@ module.exports = {
       message: 'Use TSLint to lint your code?',
     },
     lintConfig: {
-      when: 'lint',
+      when: '!typescript && lint',
       type: 'list',
       message: 'Pick an ESLint preset',
       choices: [
