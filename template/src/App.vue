@@ -16,7 +16,7 @@ import HelloWorld from './components/HelloWorld{{#typescript}}.vue{{/typescript}
 
 {{/unless}}
 export default {{#typescript}}Vue.extend({{/typescript}}{
-  name: 'app'{{#router}}{{else}},
+  name: 'App'{{#router}}{{else}},
   components: {
     HelloWorld
   }{{/router}}
