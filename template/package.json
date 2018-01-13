@@ -25,6 +25,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "vuetify": "^0.17.6",
     "vue": "^2.5.2"{{#router}},
     "vue-router": "^3.0.1"{{/router}}
   },
@@ -87,6 +88,9 @@
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-syntax-jsx": "^6.18.0",
+    {{#alacarte}}
+    "babel-plugin-transform-imports": "^1.4.1",
+    {{/alacarte}}
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-plugin-transform-vue-jsx": "^3.5.0",
     "babel-preset-env": "^1.3.2",
@@ -105,6 +109,10 @@
     "postcss-url": "^7.2.1",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
+    {{#alacarte}}
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    {{/alacarte}}
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "rimraf": "^2.6.0",

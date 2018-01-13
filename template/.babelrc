@@ -8,7 +8,12 @@
     }],
     "stage-2"
   ],
-  "plugins": ["transform-vue-jsx", "transform-runtime"]{{#if_or unit e2e}},
+  "plugins": ["transform-vue-jsx", "transform-runtime"{{#alacarte}}, ["transform-imports", {
+    "vuetify": {
+      "transform": "vuetify/es5/components/${member}",
+      "preventFullImport": true
+    }
+  }]{{/alacarte}}]{{#if_or unit e2e}},
   "env": {
     "test": {
       "presets": ["env", "stage-2"]{{#if_eq runner "karma"}},
