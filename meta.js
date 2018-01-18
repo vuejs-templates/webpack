@@ -33,8 +33,20 @@ module.exports = {
     },
   },
   
-  // We don'T add prompts if this is running in a test
-  prompts: isTest ? undefined : {
+  // We don't add prompts if this is running in a test
+  prompts: isTest 
+    ? { // This dummy object is necessary to skpi vue-cli prompt defaults for name and author
+    name: {
+      type: 'string',
+      message: 'Name',
+      when: 'false'
+    },
+    author: {
+      type: 'string',
+      message: 'Author',
+      when: 'false'
+    }
+  } : {
     name: {
       type: 'string',
       required: true,
