@@ -46,7 +46,7 @@ module.exports = {
       message: 'Author',
       when: 'false'
     }
-  } : {
+  } : { // The "real" prompts begin here
     name: {
       type: 'string',
       required: true,
