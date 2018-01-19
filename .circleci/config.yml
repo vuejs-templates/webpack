@@ -21,12 +21,21 @@ jobs:
       - run:
           name: Rollout minimal scenario
           command: VUE_TEMPL_TEST=minimal node_modules/.bin/vue init . test-minimal
+      - store_artifacts:
+          path: test-minimal
+          destination: Rollout minimal scenario
       - run:
           name: Rollout full scenario
           command: VUE_TEMPL_TEST=full node_modules/.bin/vue init . test-full
+      - store_artifacts:
+          path: test-full
+          destination: Rollout full scenario
       - run:
           name: Rollout full-karma-airbnb scenario
           command: VUE_TEMPL_TEST=full-karma-airbnb node_modules/.bin/vue init . test-full-karma-airbnb
+      - store_artifacts:
+          path: test-full-karma-airbnb
+          destination: Rollout full-karma-airbnb scenario
       - persist_to_workspace:
           root: ~/project/webpack-template
           paths:
@@ -73,7 +82,7 @@ jobs:
             - node_modules
       - run:
           name: Run Lint
-          command: npm run lint -- --fix
+          command: npm run lint:fix
       - run:
           name: Run Unit tests
           command: npm run unit
@@ -106,7 +115,7 @@ jobs:
             - node_modules
       - run:
           name: Run Lint
-          command: npm run lint -- --fix
+          command: npm run lint:fix
       - run:
           name: Run Unit tests
           command: npm run unit

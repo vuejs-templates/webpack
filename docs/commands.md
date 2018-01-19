@@ -39,4 +39,4 @@ All build commands are executed via [NPM Scripts](https://docs.npmjs.com/misc/sc
 
 ### `npm run lint`
 
-> Runs eslint and reports any linting errors in your code. See [Linter Configuration](linter.md)
+> Runs eslint and stylelint, then reports any linting errors in your code. See [Linter Configuration](linter.md)

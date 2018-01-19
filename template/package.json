@@ -19,9 +19,16 @@
     {{#if_or unit e2e}}
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}",
     {{/if_or}}
-    {{#lint}}
-    "lint": "eslint --ext .js,.vue src{{#unit}} test/unit{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
-    {{/lint}}
+    {{#eslint}}
+    "lint:eslint": "eslint --ext .js,.vue src{{#unit}} test/unit{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
+    {{/eslint}}
+    {{#stylelint}}
+    "lint:stylelint": "stylelint \"src/**/*.{vue,htm,html,css,sss,less,scss}\"",
+    {{/stylelint}}
+    {{#if_or eslint stylelint}}
+    "lint": "{{#eslint}}npm run lint:eslint{{/eslint}}{{#eslint}}{{#stylelint}} && {{/stylelint}}{{/eslint}}{{#stylelint}}npm run lint:stylelint{{/stylelint}}",
+    "lint:fix": "{{#eslint}}npm run lint:eslint -- --fix{{/eslint}}{{#eslint}}{{#stylelint}} && {{/stylelint}}{{/eslint}}{{#stylelint}}npm run lint:stylelint -- --fix{{/stylelint}}",
+    {{/if_or}}
     "build": "node build/build.js"
   },
   "dependencies": {
@@ -29,25 +36,38 @@
     "vue-router": "^3.0.1"{{/router}}
   },
   "devDependencies": {
-    {{#lint}}
+    {{#eslint}}
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-vue": "^4.0.0",
-    {{#if_eq lintConfig "standard"}}
+    {{#if_eq eslintConfig "standard"}}
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.2.0",
     {{/if_eq}}
-    {{#if_eq lintConfig "airbnb"}}
+    {{#if_eq eslintConfig "airbnb"}}
     "eslint-config-airbnb-base": "^11.3.0",
     "eslint-import-resolver-webpack": "^0.8.3",
     "eslint-plugin-import": "^2.7.0",
     {{/if_eq}}
-    {{/lint}}
+    {{/eslint}}
+    {{#stylelint}}
+    "stylelint": "^8.4.0",
+    "stylelint-webpack-plugin": "^0.10.1",
+    {{#if_eq stylelintConfig "standard"}}
+    "stylelint-config-standard": "^18.0.0",
+    {{/if_eq}}
+    {{#if_eq stylelintConfig "recommended"}}
+    "stylelint-config-recommended": "^2.0.1",
+    {{/if_eq}}
+    {{#if_eq stylelintConfig "wikimedia"}}
+    "stylelint-config-wikimedia": "^0.4.2",
+    {{/if_eq}}
+    {{/stylelint}}
     {{#if_eq runner "jest"}}
     "babel-jest": "^21.0.2",
     "babel-plugin-dynamic-import-node": "^1.2.0",

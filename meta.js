@@ -74,13 +74,13 @@ module.exports = {
       type: 'confirm',
       message: 'Install vue-router?',
     },
-    lint: {
+    eslint: {
       when: 'isNotTest',
       type: 'confirm',
       message: 'Use ESLint to lint your code?',
     },
-    lintConfig: {
-      when: 'isNotTest && lint',
+    eslintConfig: {
+      when: 'isNotTest && eslint',
       type: 'list',
       message: 'Pick an ESLint preset',
       choices: [
@@ -93,6 +93,38 @@ module.exports = {
           name: 'Airbnb (https://github.com/airbnb/javascript)',
           value: 'airbnb',
           short: 'Airbnb',
+        },
+        {
+          name: 'none (configure it yourself)',
+          value: 'none',
+          short: 'none'
+        }
+      ]
+    },
+    stylelint: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use stylelint to lint your code?'
+    },
+    stylelintConfig: {
+      when: 'isNotTest && stylelint',
+      type: 'list',
+      message: 'Pick a stylelint preset',
+      choices: [
+        {
+          name: 'Standard (https://github.com/stylelint/stylelint-config-standard)',
+          value: 'standard',
+          short: 'Standard'
+        },
+        {
+          name: 'Recommended (https://github.com/stylelint/stylelint-config-recommended)',
+          value: 'recommended',
+          short: 'Recommended'
+        },
+        {
+          name: 'Wikimedia (https://github.com/wikimedia/stylelint-config-wikimedia)',
+          value: 'wikimedia',
+          short: 'Wikimedia'
         },
         {
           name: 'none (configure it yourself)',
@@ -158,8 +190,10 @@ module.exports = {
     },
   },
   filters: {
-    '.eslintrc.js': 'lint',
-    '.eslintignore': 'lint',
+    '.eslintrc.js': 'eslint',
+    '.eslintignore': 'eslint',
+    '.stylelintrc.js': 'stylelint',
+    '.stylelintignore': 'stylelint',
     'config/test.env.js': 'unit || e2e',
     'build/webpack.test.conf.js': "unit && runner === 'karma'",
     'test/unit/**/*': 'unit',

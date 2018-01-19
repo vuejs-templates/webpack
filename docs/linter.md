@@ -1,14 +1,15 @@
 # Linter Configuration
 
-This boilerplate uses [ESLint](https://eslint.org/) as the linter, and uses the [Standard](https://github.com/feross/standard/blob/master/RULES.md) preset with some small customizations.
+## ESLint
+This boilerplate uses [ESLint](https://eslint.org/) for JavaScript linting, and uses the [Standard](https://github.com/feross/standard/blob/master/RULES.md) preset with some small customizations.
 
-## eslint-plugin-vue
+### eslint-plugin-vue
 
 We always add [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue) as well, which comes with a whole bunch of helpful rules to write consistent Vue components - it can also lint templates!
 
 You can find an overview of all the available rules on [github](https://github.com/vuejs/eslint-plugin-vue#gear-configs). We chose to add the `essential` configs, but we recommend to switch to the bigger `strongly-recommended` or `recommended` rulesets once you are familiar with them.
 
-## Customizing
+### Customizing
 
 If you are not happy with the default linting rules, you have several options:
 
@@ -23,13 +24,24 @@ If you are not happy with the default linting rules, you have several options:
 
 3. Pick "none" for ESLint preset when generating the project and define your own rules. See [ESLint documentation](https://eslint.org/docs/rules/) for more details.
 
+## stylelint
+This boilerplate uses [stylelint](https://stylelint.io/) as for style linting, and uses the [Standard](https://github.com/stylelint/stylelint-config-standard) preset.
+
+If you are not happy with the default linting rules, you have several options:
+
+1. Overwrite individual rules in `.stylelintrc.js`. For example, you can add the following rule to enforce tabs.
+
+  ``` js
+  // .stylelintrc.js
+  "indentation": "tab",
+  ```
+
+2. Pick "none" for stylelint preset when generating the project and define your own rules. See [Stylelint documentation](http://stylelint.io/user-guide/rules/) for more details.
+
 ## Fixing Linting Errors
 
 You can run the following command to let eslint fix any errors it finds (if it can - not all errors are fixable like this):
 
 ```
-npm run lint -- --fix
+npm run lint:fix
 ```
-
-*(The `--` in the middle is necessary to ensure the `--fix` option is passdd to `eslint`, not to `npm`. It can be omitted whne using yarn)*
-

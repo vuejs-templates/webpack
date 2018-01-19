@@ -3,12 +3,15 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+{{#stylelint}}
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+{{/stylelint}}
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-{{#lint}}const createLintingRule = () => ({
+{{#eslint}}const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
   enforce: 'pre',
@@ -17,7 +20,7 @@ function resolve (dir) {
     formatter: require('eslint-friendly-formatter'),
     emitWarning: !config.dev.showEslintErrorsInOverlay
   }
-}){{/lint}}
+}){{/eslint}}
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -31,6 +34,15 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  {{#stylelint}}
+  plugins: [
+    // Stylelint for all imports
+    // https://github.com/vieron/stylelint-webpack-plugin
+    new StyleLintPlugin({
+      files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
+    })
+  ],
+  {{/stylelint}}
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
@@ -42,9 +54,9 @@ module.exports = {
   },
   module: {
     rules: [
-      {{#lint}}
+      {{#eslint}}
       ...(config.dev.useEslint ? [createLintingRule()] : []),
-      {{/lint}}
+      {{/eslint}}
       {
         test: /\.vue$/,
         loader: 'vue-loader',

@@ -8,7 +8,7 @@ module.exports = {
   env: {
     browser: true,
   },
-  {{#if_eq lintConfig "standard"}}
+  {{#if_eq eslintConfig "standard"}}
   extends: [
     // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
     // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
@@ -17,12 +17,12 @@ module.exports = {
     'standard'
   ],
   {{/if_eq}}
-  {{#if_eq lintConfig "airbnb"}}
+  {{#if_eq eslintConfig "airbnb"}}
   // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
   // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
   extends: ['plugin:vue/essential', 'airbnb-base'],
   {{/if_eq}}
-  {{#if_eq lintConfig "none"}}
+  {{#if_eq eslintConfig "none"}}
   // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
   // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
   extends: ['plugin:vue/essential'],
@@ -31,7 +31,7 @@ module.exports = {
   plugins: [
     'vue'
   ],
-  {{#if_eq lintConfig "airbnb"}}
+  {{#if_eq eslintConfig "airbnb"}}
   // check if imports actually resolve
   settings: {
     'import/resolver': {
@@ -43,11 +43,11 @@ module.exports = {
   {{/if_eq}}
   // add your custom rules here
   rules: {
-    {{#if_eq lintConfig "standard"}}
+    {{#if_eq eslintConfig "standard"}}
     // allow async-await
     'generator-star-spacing': 'off',
     {{/if_eq}}
-    {{#if_eq lintConfig "airbnb"}}
+    {{#if_eq eslintConfig "airbnb"}}
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       js: 'never',
