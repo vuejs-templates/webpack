@@ -15,7 +15,7 @@ import HelloWorld from './components/HelloWorld'
 
 {{/unless}}
 export default {
-  name: 'app'{{#router}}{{else}},
+  name: 'App'{{#router}}{{else}},
   components: {
     HelloWorld
   }{{/router}}
