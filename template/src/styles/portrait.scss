@@ -1,0 +1,158 @@
+
+$width-page: 100vw;
+
+#app {
+  width:$width-page ;
+  height: 100vh;
+  @include scroller();
+  margin: 0 auto;
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width: $width-page;
+    height: auto;
+    img {
+      width: inherit;
+      height: auto;
+    }
+  }
+  #frameHero {
+    width: $width-page ;
+    height: vws($height-heroFrame);
+    position: relative;
+    #bg {
+      width: $width-page;
+      height: auto;
+    }
+    #hero {
+      position: absolute;
+      width: $width-page;
+      height: auto;
+      bottom: 0;
+    }
+    #sign {
+      color: white;
+      background-image: url('../assets/bg-dialog.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      font-size: vws($fontSize-hero-sign);
+      padding: vws($pd-hero-sign);
+      position: absolute;
+      bottom: vws($bottom-hero-sign);
+    }
+  }
+  #infomation {
+    width: $width-page;
+    min-height: $width-page;
+    background-image: url('../assets/bg-info.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    position: relative;
+    margin-top: vws($top-information);
+    padding: vws($info-head-pd);
+    .info-head {
+      position: relative;
+      .label-sort {
+        position: absolute;
+        width: vws($size-label-sort);
+        height: vws($size-label-sort);
+        top: 0;
+        left:  0;
+      }
+      .name {
+        font-family: 'Perpetua Titling MT Light';
+        text-align: center;
+        color: white;
+        line-height: 1.3;
+        font-size: vws($fontSize-hero-name);
+        margin: 0;
+      }
+    }
+    .title {
+      font-size: vws($fontSize-hero-title);
+      font-family: 'Perpetua Titling MT';
+      font-weight: bold;
+      text-align: center;
+      margin-top: vws($mt-title);
+      color: rgb(255, 237, 75);
+      background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgb(255, 241, 214)), to(rgb(205, 173, 31)));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+
+    }
+    .promo-code {
+      border: 1px solid #FFA800;
+      border-radius: .1rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      margin-top: vws($mt-promo-code);
+      img {
+        user-select: none;
+        width:  vws($size-gift);
+        height:  vws($size-gift);
+      }
+      label {
+        user-select: none;
+        color:#d6c29b;
+        white-space: nowrap;
+        font-size: vws($fontSize-code-label);
+        margin-left: 1vw;
+      }
+      .code {
+        font-weight: bold;
+        font-size: vws($fontSize-code);
+        line-height: 2;
+        overflow-x: auto;
+        color:#ff5a00;
+      }
+    }
+    .content {
+      margin-top: vws($mt-content);
+      padding: 0 vws($mt-content);
+      color:#d4c099;
+      line-height: 1.5;
+      text-align: center;
+      font-size:  vws($fontSize-content);
+    }
+
+    button{
+
+      font-weight: bold;
+      margin: vws($mt-download) auto 0;
+      height: vws($height-download);
+      position: relative;
+      width: vws($width-download);
+      display: block;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      //transition: backgroundImage 0.2s ease;
+      z-index: 1;
+      user-select: none;
+      background-image: url('../assets/download-btn.png');
+      background-position: bottom;
+      &:hover {
+        background-position: top;
+      }
+      span {
+        text-transform:uppercase;
+        text-shadow:3px 2px 4px #000;
+        text-align: center;
+        font-size:vws($fontSize-download);
+        line-height: vws($height-download);
+        color: rgb(255, 237, 75);
+        background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgb(233, 219, 193)), to(rgb(255, 205, 111)));
+        -webkit-background-clip: text;
+      }
+      cursor: pointer;
+    }
+  }
+
+}
