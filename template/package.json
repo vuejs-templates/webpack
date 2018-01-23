@@ -27,7 +27,7 @@
   "dependencies": {
     "vue": "^2.5.13"{{#router}},
     "vue-router": "^3.0.1"{{/router}},
-    "scsseasy": "^1.0.2"
+    "scsseasy": "^1.0.3"
   },
   "devDependencies": {
     {{#lint}}
@@ -120,6 +120,8 @@
     "webpack-merge": "^4.1.0",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6"
+    "gulp": "^3.9.1",
+    "gulp-smushit": "^1.2.0"
   },
   "engines": {
     "node": ">= 6.0.0",
