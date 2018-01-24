@@ -1,0 +1,14 @@
+{ 
+  "noEscape": true,
+  "name": "test-minimal",
+  "description": "Testing the minimal template setup",
+  "author": "CircleCI",
+  "build": "standalone",
+  "router": false,
+  "lint": false,
+  "lintConfig": "standard",
+  "unit": false,
+  "runner": "jest",
+  "e2e": false,
+  "autoInstall": false
+}
