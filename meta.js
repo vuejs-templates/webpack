@@ -70,6 +70,7 @@ module.exports = {
       ],
     },
     typescript: {
+      when: 'isNotTest',
       type: 'confirm',
       message: 'Use TypeScript as default language?',
       default: false
