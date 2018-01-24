@@ -70,9 +70,12 @@ module.exports = {
       ],
     },
     router: {
-      when: 'isNotTest',
       type: 'confirm',
       message: 'Install vue-router?',
+    },
+    vuex: {
+      type: 'confirm',
+      message: 'Install vuex?',
     },
     lint: {
       when: 'isNotTest',
@@ -156,11 +159,6 @@ module.exports = {
         },
       ],
     },
-    vuex: {
-          when: 'isNotTest',
-          type: 'confirm',
-          message: 'Install vuex?',
-      },
   },
   filters: {
     '.eslintrc.js': 'lint',
