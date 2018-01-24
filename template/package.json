@@ -26,7 +26,8 @@
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    "vue-router": "^3.0.1"{{/router}}{{#vuex}},
+    "vuex":"^2.2.1"{{/vuex}}
   },
   "devDependencies": {
     {{#lint}}
@@ -125,6 +126,8 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 8"
+    "not ie <= 8",
+    "iOS >= 7",
+    "Android >= 4.1"
   ]
 }
