@@ -26,7 +26,10 @@
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    "vue-router": "^3.0.1",{{/router}}
+    "axios": "^0.17.1",
+    "vue-axios": "^2.0.2",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     {{#lint}}
