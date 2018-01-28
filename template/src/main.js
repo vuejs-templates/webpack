@@ -21,12 +21,7 @@ import {
   transitions
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
-{{else}}
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
-{{/alacarte}}
 
-{{#alacarte}}
 Vue.use(Vuetify, {
   components: {
     VApp,
@@ -50,6 +45,9 @@ Vue.use(Vuetify, {
   }{{/theme}}
 })
 {{else}}
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+
 Vue.use(Vuetify{{#theme}}, { theme: {
   primary: '#ee44aa',
   secondary: '#424242',
