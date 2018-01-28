@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/vuetifyjs/templates-common.git
+	branch = subrepo/webpack-src
+	commit = 43043cfb30ed2343b3acf04d90bbd28ff083057a
+	parent = bce835241829effe5174942bcc32e7d4b24548ca
+	method = merge
+	cmdver = 0.4.0
