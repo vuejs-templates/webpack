@@ -7,12 +7,19 @@ import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
+import '@/style/reset.css'
+import store from '@/store'
+import {api} from '@/api'
+import validator from '@/js/validator'
 
 Vue.config.productionTip = false
+Vue.use(api)  //用于网络接口
+Vue.use(validator) //用于表单验证
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   {{#router}}
   router,
   {{/router}}
