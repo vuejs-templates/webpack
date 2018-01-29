@@ -10,7 +10,7 @@ import router from './router'
 import '@/style/reset.css'
 import store from '@/store'
 import {api} from '@/api'
-import validator from '@/assets/js/validator'
+import validator from '@/js/validator'
 
 Vue.config.productionTip = false
 Vue.use(api)  //用于网络接口
