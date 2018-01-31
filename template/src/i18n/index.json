@@ -1,0 +1,75 @@
+{
+  "en": {
+    "download": "DOWNLOAD"
+  },
+  "ar": {
+
+    "download": "تحميل"
+  },
+  "de": {
+
+    "download": "HERUNTERLADEN"
+  },
+  "es": {
+
+    "download": "DESCARGAR"
+  },
+  "fr": {
+
+    "download": "TELECHARGER"
+  },
+  "id": {
+
+    "download": "UNDUH"
+  },
+  "it": {
+
+    "download": "DOWNLOAD"
+  },
+  "ja": {
+
+    "download": "ダウンロード"
+  },
+  "ko": {
+
+    "download": "다운로드"
+  },
+  "nl": {
+
+    "download": "DOWNLOAD"
+  },
+  "pl": {
+
+    "download": "POBIERZ"
+  },
+  "pt": {
+
+    "download": "BAIXAR"
+  },
+  "ro": {
+
+    "download": "DESCARCA"
+  },
+  "ru": {
+
+    "download": "ЗАГРУЗИТЬ"
+  },
+  "sv": {
+
+    "download": "LADDA NER"
+  },
+  "th": {
+
+  },
+  "tr": {
+
+    "download": "İNDİR"
+  },
+  "vi": {
+
+    "download": "DOWNLOAD"
+  },
+  "zh-tw": {
+    "download": "下載"
+  }
+}
