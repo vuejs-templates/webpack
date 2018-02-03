@@ -1,0 +1,5 @@
+$width-page: 100vw;
+[data-client='mobile'] #app {
+  @extend %base;
+}
+

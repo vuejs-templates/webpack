@@ -1,0 +1,4 @@
+$width-page: 50vw;
+[data-client='pc'] #app {
+  @extend %base;
+}

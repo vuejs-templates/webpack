@@ -1,0 +1,9 @@
+$color-bg: black;
+$base-screen: 640;
+
+
+@function vws($value) {
+  @return ($value / $base-screen) * $width-page;
+}
+
+
