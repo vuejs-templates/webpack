@@ -1,0 +1,30 @@
+$color-bg: black;
+$base-screen: 640;
+
+$height-heroFrame: 834 ;
+$fontSize-hero-sign: 34;
+$pd-hero-sign: 40;
+$bottom-hero-sign: 155;
+$top-information: -160;
+$fontSize-hero-name: 46;
+$size-label-sort: 60;
+$info-head-pd: 42;
+$left-label-sort: 50;
+$fontSize-hero-title: 62;
+$mt-title: 50;
+$fontSize-code: 38;
+$fontSize-code-label: 18;
+$size-gift: 75;
+$fontSize-content: 24;
+$mt-promo-code: 40;
+$mt-content: 20;
+$height-download: 110;
+$width-download: 3.1 * $height-download;
+$mt-download: 40;
+$fontSize-download: 38;
+
+@function vws($value) {
+  @return ($value / $base-screen) * $width-page;
+}
+
+

@@ -74,6 +74,21 @@ module.exports = {
       type: 'confirm',
       message: 'Install vue-router?',
     },
+    i18n: {
+        when: 'isNotTest',
+        type: 'confirm',
+        message: 'Install vue-i18n?',
+    },
+    vuex: {
+        when: 'isNotTest',
+        type: 'confirm',
+        message: 'Install vuex?',
+    },
+    axios: {
+        when: 'isNotTest',
+        type: 'confirm',
+        message: 'Install axios?',
+    },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
