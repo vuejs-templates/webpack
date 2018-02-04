@@ -25,9 +25,12 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.13"{{#router}},
-    "vue-router": "^3.0.1"{{/router}},
-    "scsseasy": "^1.0.2",
+    "vue": "^2.5.13",{{#router}}
+    "vue-router": "^3.0.1"{{/router}}, {#i18n}}
+    "vue-i18n": "^7.3.3",{{/i18n}}, {#vuex}}
+    "vuex": "^3.0.1",{{/vuex}},{#axios}}
+    "axios": "^0.17.1",{{/axios}}
+    "scsseasy": "^1.1.4",
   },
   "devDependencies": {
     {{#lint}}

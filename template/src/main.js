@@ -7,6 +7,12 @@ import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
+{{#vuex}}
+import store from './store'
+{{/vuex}}
+{{#i18n}}
+import i18n from './i18n'
+{{/i18n}}
 
 Vue.config.productionTip = false
 
@@ -16,6 +22,12 @@ new Vue({
   {{#router}}
   router,
   {{/router}}
+{{#i18n}}
+  i18n,
+  {{/i18n}}
+  {{#vuex}}
+  store,
+  {{/vuex}}
   {{#if_eq build "runtime"}}
   render: h => h(App)
   {{/if_eq}}
