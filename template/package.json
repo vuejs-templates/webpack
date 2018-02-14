@@ -25,7 +25,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vuetify": "^0.17.6",
+    "vuetify": "^1.0.0",
     "vue": "^2.5.2"{{#router}},
     "vue-router": "^3.0.1"{{/router}}
   },
