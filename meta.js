@@ -44,12 +44,13 @@ module.exports = {
       type: 'string',
       required: false,
       message: 'Project description',
-      default: 'A Vue.js project',
+      default: '一个项目',
     },
     author: {
       when: 'isNotTest',
       type: 'string',
       message: 'Author',
+      default:'Jerry Zhou'
     },
     build: {
       when: 'isNotTest',
@@ -68,6 +69,10 @@ module.exports = {
           short: 'runtime',
         },
       ],
+    },
+    axios:{
+      type:'confirm',
+      message:'Install axios'
     },
     router: {
       when: 'isNotTest',
