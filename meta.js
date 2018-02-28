@@ -89,11 +89,21 @@ module.exports = {
     router: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Install vue-router?',
+      message: 'Install vue-router?'
     },
     cookie:{
       type:'confirm',
       message:'Install vue-cookie'
+    },
+    scriptLoader:{
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Install script-loader?'
+    },
+    xlsx:{
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Install xlsx?'
     },
     lint: {
       when: 'isNotTest',

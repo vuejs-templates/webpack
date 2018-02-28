@@ -18,6 +18,7 @@ Vue.use(ElementUI)
 import store from './store'
 {{/vuex}}
 
+
 {{#axios}}
 import axios from 'axios'
 {{/axios}}
