@@ -44,12 +44,13 @@ module.exports = {
       type: 'string',
       required: false,
       message: 'Project description',
-      default: 'A Vue.js project',
+      default: '一个项目',
     },
     author: {
       when: 'isNotTest',
       type: 'string',
       message: 'Author',
+      default:'Jerry Zhou'
     },
     build: {
       when: 'isNotTest',
@@ -69,10 +70,45 @@ module.exports = {
         },
       ],
     },
+    elementUi:{
+      type:'confirm',
+      message:'Install Element-ui'
+    },
+    axios:{
+      type:'confirm',
+      message:'Install axios'
+    },
+    vueAxios:{
+    type:'confirm',
+      message:'Install vue-axios'
+  },
+  vuex:{
+    type: "confirm",
+    message: "Install vuex"
+  },
     router: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Install vue-router?',
+      message: 'Install vue-router?'
+    },
+    cookie:{
+      type:'confirm',
+      message:'Install vue-cookie'
+    },
+    scriptLoader:{
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Install script-loader?'
+    },
+    fileSaver:{
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Install file-saver?'
+    },
+    xlsx:{
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Install xlsx?'
     },
     lint: {
       when: 'isNotTest',
@@ -170,6 +206,7 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
+    'src/store/**/*': 'vuex',
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
