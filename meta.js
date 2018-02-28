@@ -95,33 +95,33 @@ module.exports = {
       type:'confirm',
       message:'Install vue-cookie'
     },
-    // lint: {
-    //   when: 'isNotTest',
-    //   type: 'confirm',
-    //   message: 'Use ESLint to lint your code?',
-    // },
-    // lintConfig: {
-    //   when: 'isNotTest && lint',
-    //   type: 'list',
-    //   message: 'Pick an ESLint preset',
-    //   choices: [
-    //     {
-    //       name: 'Standard (https://github.com/standard/standard)',
-    //       value: 'standard',
-    //       short: 'Standard',
-    //     },
-    //     {
-    //       name: 'Airbnb (https://github.com/airbnb/javascript)',
-    //       value: 'airbnb',
-    //       short: 'Airbnb',
-    //     },
-    //     {
-    //       name: 'none (configure it yourself)',
-    //       value: 'none',
-    //       short: 'none',
-    //     },
-    //   ],
-    // },
+    lint: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use ESLint to lint your code?',
+    },
+    lintConfig: {
+      when: 'isNotTest && lint',
+      type: 'list',
+      message: 'Pick an ESLint preset',
+      choices: [
+        {
+          name: 'Standard (https://github.com/standard/standard)',
+          value: 'standard',
+          short: 'Standard',
+        },
+        {
+          name: 'Airbnb (https://github.com/airbnb/javascript)',
+          value: 'airbnb',
+          short: 'Airbnb',
+        },
+        {
+          name: 'none (configure it yourself)',
+          value: 'none',
+          short: 'none',
+        },
+      ],
+    },
     unit: {
       when: 'isNotTest',
       type: 'confirm',

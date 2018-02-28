@@ -19,9 +19,9 @@
     {{#if_or unit e2e}}
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}",
     {{/if_or}}
-    // {{#lint}}
-    // "lint": "eslint --ext .js,.vue src{{#unit}} test/unit{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
-    // {{/lint}}
+    {{#lint}}
+    "lint": "eslint --ext .js,.vue src{{#unit}} test/unit{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
+    {{/lint}}
     "build": "node build/build.js"
   },
   "dependencies": {
@@ -34,25 +34,25 @@
     "vue-cookie":"1.1.4"{{/cookie}}
   },
   "devDependencies": {
-    // {{#lint}}
-    // "babel-eslint": "7.2.3",
-    // "eslint": "4.15.0",
-    // "eslint-friendly-formatter": "3.0.0",
-    // "eslint-loader": "1.7.1",
-    // "eslint-plugin-vue": "4.0.0",
-    // {{#if_eq lintConfig "standard"}}
-    // "eslint-config-standard": "10.2.1",
-    // "eslint-plugin-promise": "3.4.0",
-    // "eslint-plugin-standard": "3.0.1",
-    // "eslint-plugin-import": "2.7.0",
-    // "eslint-plugin-node": "5.2.0",
-    // {{/if_eq}}
-    // {{#if_eq lintConfig "airbnb"}}
-    // "eslint-config-airbnb-base": "11.3.0",
-    // "eslint-import-resolver-webpack": "0.8.3",
-    // "eslint-plugin-import": "2.7.0",
-    // {{/if_eq}}
-    // {{/lint}}
+    {{#lint}}
+    "babel-eslint": "7.2.3",
+    "eslint": "4.15.0",
+    "eslint-friendly-formatter": "3.0.0",
+    "eslint-loader": "1.7.1",
+    "eslint-plugin-vue": "4.0.0",
+    {{#if_eq lintConfig "standard"}}
+    "eslint-config-standard": "10.2.1",
+    "eslint-plugin-promise": "3.4.0",
+    "eslint-plugin-standard": "3.0.1",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-node": "5.2.0",
+    {{/if_eq}}
+    {{#if_eq lintConfig "airbnb"}}
+    "eslint-config-airbnb-base": "11.3.0",
+    "eslint-import-resolver-webpack": "0.8.3",
+    "eslint-plugin-import": "2.7.0",
+    {{/if_eq}}
+    {{/lint}}
     {{#if_eq runner "jest"}}
     "babel-jest": "21.0.2",
     "babel-plugin-dynamic-import-node": "1.2.0",
