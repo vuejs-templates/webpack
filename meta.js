@@ -95,11 +95,11 @@ module.exports = {
       type:'confirm',
       message:'Install vue-cookie'
     },
-    lint: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Use ESLint to lint your code?',
-    },
+    // lint: {
+    //   when: 'isNotTest',
+    //   type: 'confirm',
+    //   message: 'Use ESLint to lint your code?',
+    // },
     lintConfig: {
       when: 'isNotTest && lint',
       type: 'list',
