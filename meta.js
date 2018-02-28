@@ -100,6 +100,11 @@ module.exports = {
       type: 'confirm',
       message: 'Install script-loader?'
     },
+    fileSaver:{
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Install file-saver?'
+    },
     xlsx:{
       when: 'isNotTest',
       type: 'confirm',
