@@ -25,13 +25,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "@2.5.2"{{#router}},
-    "vue-router": "@2.8.1"{{/router}}{{#vuex}},
-    "vuex": "@2.5.0"{{/vuex}}{{#elementUi}},
-    "element-ui":"@2.0.11"{{/elementUi}}{{#vueAxios}},
-    "vue-axios":"@2.0.2"{{/vueAxios}}{{#axios}},
-    "axios":"@0.18.0"{{/axios}}{{#cookie}},
-    "vue-cookie":"@1.1.4"{{/cookie}}
+    "vue": "2.5.2"{{#router}},
+    "vue-router": "2.8.1"{{/router}}{{#vuex}},
+    "vuex": "2.5.0"{{/vuex}}{{#elementUi}},
+    "element-ui":"2.0.11"{{/elementUi}}{{#vueAxios}},
+    "vue-axios":"2.0.2"{{/vueAxios}}{{#axios}},
+    "axios":"0.18.0"{{/axios}}{{#cookie}},
+    "vue-cookie":"1.1.4"{{/cookie}}
   },
   "devDependencies": {
     {{#lint}}
