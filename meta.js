@@ -70,6 +70,10 @@ module.exports = {
         },
       ],
     },
+    elementUi:{
+      type:'confirm',
+      message:'Install Element-ui'
+    },
     axios:{
       type:'confirm',
       message:'Install axios'
@@ -86,6 +90,10 @@ module.exports = {
       when: 'isNotTest',
       type: 'confirm',
       message: 'Install vue-router?',
+    },
+    cookie:{
+      type:'confirm',
+      message:'Install vue-cookie'
     },
     lint: {
       when: 'isNotTest',

@@ -7,9 +7,30 @@ import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
+
+{{#elementUi}}
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+{{/elementUi}}
+
 {{#vuex}}
 import store from './store'
 {{/vuex}}
+
+{{#axios}}
+import axios from 'axios'
+{{/axios}}
+{{#vueAxios}}
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
+{{/vueAxios}}
+
+{{#cookie}}
+import VueCookie from 'vue-cookie'
+Vue.use(VueCookie);
+{{/cookie}}
+
 
 Vue.config.productionTip = false
 
