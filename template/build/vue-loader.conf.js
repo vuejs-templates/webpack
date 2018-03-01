@@ -18,5 +18,11 @@ module.exports = {
     source: 'src',
     img: 'src',
     image: 'xlink:href'
+  },
+  buble: {
+    objectAssign: 'Object.assign',
+    transforms: {  // turn off the `with` removal
+      stripWith: false
+    }
   }
 }
