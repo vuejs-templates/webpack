@@ -36,9 +36,10 @@ exports.cssLoaders = function (options) {
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
-        options: Object.assign({}, loaderOptions, {
+        options: {
+          ...loaderOptions,
           sourceMap: options.sourceMap
-        })
+        }
       })
     }
 
