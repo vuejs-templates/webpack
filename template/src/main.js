@@ -24,6 +24,11 @@ import router from './router'
       import Mint from 'mint-ui'
         Vue.use(Mint)
         {{/mint-ui}}
+
+          {{#vuex}}
+          import store from './store'
+          {{/vuex}}
+
           Vue.config.productionTip = false
 
           /* eslint-disable no-new */
@@ -32,6 +37,10 @@ import router from './router'
           {{#router}}
           router,
             {{/router}}
+              {{#vuex}}
+              store,
+              {{/vuex}}
+
             {{#if_eq build "runtime"}}
             render: h => h(App)
             {{/if_eq}}
