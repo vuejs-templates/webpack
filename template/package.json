@@ -26,9 +26,10 @@
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    "vue-router": "^3.0.1",
+{{/router}}
 {{#vuex}}
-"vuex":"^3.0.1"
+"vuex": "^3.0.1"
 {{/vuex}}
 
   },
@@ -43,14 +44,14 @@
 {{/element-ui}}
 //  mint-ui
 {{#mint-ui}}
-"ajv-keywords":"^3.1.0:,
+"ajv-keywords":"^3.1.0",
 "mint-ui": "^2.2.13",
 "sass-loader":"^6.0.7",
 {{/mint-ui}}
 
 {{#less}}
 "less":"^3.0.1",
-"less-loader":"^4.1.0 ",
+"less-loader":"^4.1.0",
 {{/less}}
 
 {{#sass}}
