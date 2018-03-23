@@ -77,7 +77,7 @@ module.exports = {
         //  less or sass
         css: {
             when: 'isNotTest',
-            type: 'confirm',
+            type: 'list',
             message: 'Use precompile css in your code?',
             choices: [
                 {
@@ -102,7 +102,7 @@ module.exports = {
         //add iview element
         frameworks: {
             when: 'isNotTest',
-            type: 'confirm',
+            type: 'list',
             message: 'Use framworks in your code?',
             choices: [
                 {
