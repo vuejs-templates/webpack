@@ -26,9 +26,41 @@
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    "vue-router": "^3.0.1",
+{{/router}}
+{{#vuex}}
+"vuex": "^3.0.1"
+{{/vuex}}
+
   },
   "devDependencies": {
+//    iview
+{{#if_eq frameworks "iview"}}
+"iview": "^2.11.0",
+{{/if_eq}}
+//  element-ui
+{{#if_eq frameworks "element-ui"}}
+"element-ui": "^2.2.2",
+{{/if_eq}}
+//  mint-ui
+{{#if_eq frameworks "mint-ui"}}
+"ajv-keywords":"^3.1.0",
+"mint-ui": "^2.2.13",
+"sass-loader":"^6.0.7",
+{{/if_eq}}
+
+{{#if_eq css "less"}}
+"less":"^3.0.1",
+"less-loader":"^4.1.0",
+{{#if_eq}}
+
+{{#if_eq css "sass"}}
+"sass":"^1.0.0-rc.1",
+"sass-loader":"^6.0.7",
+{{/if_eq}}
+
+
+
     {{#lint}}
     "babel-eslint": "^7.2.3",
     "eslint": "^4.15.0",
