@@ -51,19 +51,18 @@ function resolve (dir) {
         options: vueLoaderConfig
       },
 
-      {{#less}}
+      {{#if_eq css "less"}}
       {
         test: /\.less$/,
           loader:"style-loader!css-loader!less-loader",
       },
-      {{/less}}
-        {{#sass}}
+      {{/if_eq}}
+        {{#if_eq css "sass"}}
         {
           test: /\.sass$/,
             loader:['style', 'css', 'sass']
         },
-        {{/sass}}
-
+        {{/if_eq}}
 
           {
             test: /\.js$/,

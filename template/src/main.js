@@ -8,22 +8,22 @@ import App from './App'
 import router from './router'
   {{/router}}
 // ivew
-    {{#iview}}
+    {{#if_eq frameworks "iview"}}
   import iView from 'iview'
   import 'iview/dist/styles/iview.css'
     Vue.use(iView)
-    {{/iview}}
+    {{/if_eq}}
 //elment-ui
-      {{#element-ui}}
+      {{#if_qs frameworks "element-ui"}}
     import ElementUI from 'element-ui'
     import 'element-ui/lib/theme-chalk/index.css'
       Vue.use(ElementUI)
-      {{/element-ui}}
+      {{/if_eq}}
 // mint-ui
-        {{#mint-ui}}
+        {{#if_eq frameworks "mint-ui"}}
       import Mint from 'mint-ui'
         Vue.use(Mint)
-        {{/mint-ui}}
+        {{/if_eq}}
 
           {{#vuex}}
           import store from './store'
