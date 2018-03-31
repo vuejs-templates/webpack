@@ -5,6 +5,8 @@
   "author": "CircleCI",
   "build": "standalone",
   "router": false,
+  "vuex": false,
+  "axios": false,
   "lint": true,
   "lintConfig": "airbnb",
   "unit": true,

@@ -1,0 +1,152 @@
+//
+// Base styles
+// --------------------------------------------------
+
+// Use box sizing on all the things!
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout:none;
+}
+
+// We fix position the body and scroll `.content`.
+body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-family: @font-family-default;
+  font-size: @font-size-default;
+  line-height: 1.5;
+  color: @color-text;
+  background: @color-bg;
+  overflow: hidden;
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+a, input, textarea, select, button {
+    outline: 0;
+}
+
+p {
+    margin: 0;
+}
+
+// Universal link styling
+a {
+  color: @color-link;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0); // Removes the dark touch outlines on links in webkit browsers.
+
+  &:active {
+    color: @color-link-active;
+  }
+}
+li{
+  list-style: none;
+}
+.page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: @color-bg;
+  z-index: 2000;
+}
+.layer-page{
+  .fullpage();
+}
+// Wrapper to be used around all content not in .bar-title and .bar-tab
+.content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Hack to force all relatively and absolutely positioned elements still render while scrolling
+// Note: This is a bug for "-webkit-overflow-scrolling: touch"
+.content > * {
+  //transform: translateZ(0); //这一行会导致三星 S4 android 4.2 无法滚动
+}
+.bar {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  height: @bar-base-height;
+  padding-right: @bar-side-spacing;
+  padding-left: @bar-side-spacing;
+  background-color: white;
+  .hairline(bottom, @border-default-color);
+  -webkit-backface-visibility: hidden; // Make sure the bar is visible when a modal animates in.
+  backface-visibility: hidden;
+}
+// Modifier class for footer bars
+.bar-footer {
+  .hairline(top, @border-default-color);
+  .hairline-remove(bottom);
+  padding: .3rem .5rem;
+  bottom: 0;
+}
+// Pad top/bottom of content so it doesn't hide behind bars.
+// Note: For these to work, content must come after both bars in the markup
+.bar-nav ~ .content {
+  top: @bar-base-height;
+}
+.bar-header-secondary ~ .content {
+  top: (@bar-base-height*2);
+}
+
+// Footer bar margin
+.bar-footer ~ .content {
+  bottom: @bar-base-height;
+}
+.bar-footer-secondary ~ .content {
+  bottom: (@bar-base-height*2);
+}
+
+// Tab bar margin
+.bar-tab ~ .content {
+  bottom: @bar-tab-height;
+}
+.bar-footer-secondary-tab ~ .content {
+  bottom: (@bar-tab-height+@bar-base-height);
+}
+
+// Utility classes
+.content-padded {
+  margin: @bar-side-spacing;
+}
+.text-center {
+  text-align: center;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.clearfix {
+  .clearfix();
+}
+.center-vertical{
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto
+}
+
+#app{
+  height: 100%;
+  overflow-y: auto;
+}
