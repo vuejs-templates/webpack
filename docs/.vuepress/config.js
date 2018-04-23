@@ -1,6 +1,7 @@
 module.exports = {
     title: 'Webpack',
     description: "A full-featured Webpack + vue-loader setup with hot reload, linting, testing & css extraction.",
+    base: '/webpack/',
     themeConfig: {
       repo: 'vuejs-templates/webpack',
       editLinks: true,
