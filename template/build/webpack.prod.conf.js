@@ -104,6 +104,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         },
       },
     },
+    runtimeChunk: 'single',
   },
 })
 
