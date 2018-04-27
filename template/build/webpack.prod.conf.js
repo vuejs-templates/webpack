@@ -93,7 +93,6 @@ const webpackConfig = merge(baseWebpackConfig, {
         vendor: {
           name: 'vendor',
           test: /[\\/]node_modules[\\/].*\.js$/,
-          enforce: true,
           chunks: 'initial',
           priority: -10,
         },
