@@ -88,19 +88,20 @@ const webpackConfig = merge(baseWebpackConfig, {
   optimization: {
     concatenateModules: true,
     splitChunks: {
+      chunks: 'async',
       cacheGroups: {
         vendor: {
-          // split vendor js into its own file
           name: 'vendor',
           test: /[\\/]node_modules[\\/].*\.js$/,
           enforce: true,
           chunks: 'initial',
+          priority: -10,
         },
         app: {
-          // create chunks for the app itself
           name: 'app',
-          chunks: 'async',
-          minChunks: 3
+          minChunks: 3,
+          priority: -20,
+          reuseExistingChunk: true,
         },
       },
     },
