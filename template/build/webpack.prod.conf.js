@@ -92,7 +92,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         vendor: {
           // split vendor js into its own file
           name: 'vendor',
-          test: new RegExp(`${path.join(__dirname, '../node_modules')}.*\.js$`),
+          test: /[\\/]node_modules[\\/].*\.js$/,
           enforce: true,
           chunks: 'initial',
         },
