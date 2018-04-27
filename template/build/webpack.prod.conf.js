@@ -92,17 +92,12 @@ const webpackConfig = merge(baseWebpackConfig, {
         vendor: {
           // split vendor js into its own file
           name: 'vendor',
-        },
-        manifest: {
-          // extract webpack runtime and module manifest to its own file in order to
-          // prevent vendor hash from being updated whenever app bundle is updated
-          name: 'manifest',
-          minChunks: Infinity
+          test: new RegExp(`${path.join(__dirname, '../node_modules')}.*\.js$`),
+          enforce: true,
+          chunks: 'initial',
         },
         app: {
-          // This instance extracts shared chunks from code splitted chunks and bundles them
-          // in a separate chunk, similar to the vendor chunk
-          // see: https://webpack.js.org/plugins/commons-chunk-plugin/#extra-async-commons-chunk
+          // create chunks for the app itself
           name: 'app',
           chunks: 'async',
           minChunks: 3
