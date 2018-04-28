@@ -78,9 +78,10 @@
     {{#e2e}}
     "babel-register": "^6.22.0",
     "chromedriver": "^2.38.2",
+    "geckodriver": "^1.11.0",
     "cross-spawn": "^6.0.5",
-    "nightwatch": "^0.9.21",
-    "selenium-server": "^3.0.1",
+    "nightwatch": "^1.0.3",
+    "selenium-server": "^3.11.0",
     {{/e2e}}
     "autoprefixer": "^8.3.0",
     "babel-core": "^6.26.3",
