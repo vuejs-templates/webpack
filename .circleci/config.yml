@@ -2,7 +2,7 @@ version: 2
 vm_settings: &vm_settings
   docker:
 #    - image: circleci/node:6.12.3-browsers
-    - image: github.com/noamkfir/circleci-dockerfiles#:node/images/6.12.3/browsers
+    - image: github.com/noamkfir/circleci-dockerfiles#master:node/images/6.12.3/browsers
 
 jobs:
   install_template_deps:
