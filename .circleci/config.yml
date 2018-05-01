@@ -87,6 +87,10 @@ jobs:
           name: Test build
           command: npm run build
           when: always
+      - store_artifacts:
+          path: ~/project/webpack-template/test-full/*.log
+      - store_artifacts:
+          path: ~/project/webpack-template/test-full/tests_output
 
   scenario_full-karma-airbnb:
     <<: *vm_settings
@@ -120,6 +124,10 @@ jobs:
           name: Test build
           command: npm run build
           when: always
+      - store_artifacts:
+          path: ~/project/webpack-template/test-full-karma/*.log
+      - store_artifacts:
+          path: ~/project/webpack-template/test-full-karma-airbnb/tests_output
 
 
 workflows:
