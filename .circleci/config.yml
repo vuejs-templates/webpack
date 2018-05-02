@@ -125,7 +125,7 @@ jobs:
           command: npm run build
           when: always
       - store_artifacts:
-          path: ~/project/webpack-template/test-full-karma/logs
+          path: ~/project/webpack-template/test-full-karma-airbnb/logs
       - store_artifacts:
           path: ~/project/webpack-template/test-full-karma-airbnb/tests_output
 
