@@ -1,7 +1,8 @@
 version: 2
 vm_settings: &vm_settings
   docker:
-   - image: circleci/node:6.14.1-stretch-browsers
+    # - image: circleci/node:6.14.1-stretch-browsers
+    - image: boundlesscode/node:6.14.1-stretch-browsers-sans-drivers
 
 jobs:
   install_template_deps:
