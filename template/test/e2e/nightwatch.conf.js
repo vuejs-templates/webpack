@@ -63,7 +63,7 @@ module.exports = {
         acceptSslCerts: true,
         loggingPrefs: {
           driver: 'INFO',
-          server: 'OFF',
+          server: 'INFO',
           browser: 'INFO'
         }
       }
