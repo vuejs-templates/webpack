@@ -21,7 +21,6 @@ module.exports = {
   filter: '*.js',
 
   webdriver: {
-    start_process: true,
     server_path: paths.seleniumServer,
     log_path: paths.logPath,
     host: 'localhost',
