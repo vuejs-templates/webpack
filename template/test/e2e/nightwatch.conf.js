@@ -64,7 +64,12 @@ module.exports = {
         loggingPrefs: {
           driver: 'INFO',
           browser: 'INFO'
-        }
+        },
+        chromeOptions: {
+          args: [
+            '--headless',
+          ],
+        },
       }
     },
 
