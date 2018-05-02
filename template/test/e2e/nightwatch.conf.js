@@ -5,9 +5,11 @@ const paths = {
   chromedriver: require('chromedriver').path,
   geckodriver: require('geckodriver').path,
   seleniumServer: require('selenium-server').path,
-  launchUrl: 'http://localhost:' + (process.env.PORT || config.dev.port)
+  launchUrl: 'http://localhost:' + (process.env.PORT || config.dev.port),
+  logPath: 'logs',
 }
 console.log('paths:', paths)
+
 // http://nightwatchjs.org/gettingstarted#settings-file
 module.exports = {
   src_folders: ['test/e2e/specs'],
@@ -21,6 +23,7 @@ module.exports = {
   webdriver: {
     start_process: true,
     server_path: paths.seleniumServer,
+    log_path: paths.logPath,
     host: 'localhost',
     port: 4444
   },
