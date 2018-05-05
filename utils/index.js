@@ -66,6 +66,8 @@ exports.runLintFix = function runLintFix(cwd, data, color) {
  * @param {Object} data Data from questionnaire.
  */
 exports.printMessage = function printMessage(data, { green, yellow }) {
+  const packageManager = data.autoInstall ? data.autoInstall : 'npm (or if using yarn: yarn)'
+
   const message = `
 # ${green('Project initialization finished!')}
 # ========================
@@ -75,7 +77,7 @@ To get started:
   ${yellow(
     `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${installMsg(
       data
-    )}${lintMsg(data)}npm run dev`
+    )}${lintMsg(data)}${packageManager} run dev`
   )}
   
 Documentation can be found at https://vuejs-templates.github.io/webpack
