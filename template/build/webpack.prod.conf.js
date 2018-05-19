@@ -65,6 +65,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       chunksSortMode: 'dependency'
     }),
     // keep module.id stable when vendor modules does not change
+    new webpack.NamedChunksPlugin(),
     new webpack.HashedModuleIdsPlugin(),
     // copy custom static assets
     new CopyWebpackPlugin([
