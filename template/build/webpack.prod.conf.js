@@ -85,11 +85,6 @@ const webpackConfig = merge(baseWebpackConfig, {
           test: /[\\/]node_modules[\\/]/,
           enforce: true,
         },
-        app: {
-          name: 'app',
-          minChunks: 3,
-          reuseExistingChunk: true,
-        },
       },
     },
     runtimeChunk: 'single',
