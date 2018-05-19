@@ -82,7 +82,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       cacheGroups: {
         vendor: {
           name: 'vendor',
-          test: /[\\/]node_modules[\\/].*\.js$/,
+          test: /[\\/]node_modules[\\/]/,
           enforce: true,
         },
         app: {
