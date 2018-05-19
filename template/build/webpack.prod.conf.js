@@ -83,12 +83,11 @@ const webpackConfig = merge(baseWebpackConfig, {
         vendor: {
           name: 'vendor',
           test: /[\\/]node_modules[\\/].*\.js$/,
-          priority: -10,
+          enforce: true,
         },
         app: {
           name: 'app',
           minChunks: 3,
-          priority: -20,
           reuseExistingChunk: true,
         },
       },
