@@ -1,5 +1,5 @@
 require('babel-register')
-var config = require('../../config')
+const config = require('../../config')
 
 const paths = {
   chromedriver: require('chromedriver').path,
@@ -28,25 +28,6 @@ module.exports = {
   },
 
   test_settings: {
-    // selenium_server: {
-    //   start_session: true,
-    //   selenium: {
-    //     start_process: true,
-    //     host: 'localhost',
-    //     port: 4444,
-    //     server_path: paths.seleniumServer,
-    //     silent: true,
-    //     cli_args: {
-    //       'webdriver.chrome.driver': paths.chromedriver,
-    //       'webdriver.gecko.driver': paths.geckodriver,
-    //       'webdriver.firefox.profile': ''
-    //     },
-    //     desiredCapabilities: {
-    //       browserName: 'chrome'
-    //     }
-    //   }
-    // },
-
     chrome: {
       start_session: true,
       webdriver: {
@@ -72,7 +53,6 @@ module.exports = {
         },
       }
     },
-
     firefox: {
       start_session: true,
       webdriver: {
