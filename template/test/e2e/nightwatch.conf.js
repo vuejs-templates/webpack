@@ -8,7 +8,12 @@ const paths = {
   launchUrl: 'http://localhost:' + (process.env.PORT || config.dev.port),
   logPath: 'logs',
 }
-console.log('paths:', paths)
+
+const debugTests = false
+
+if (debugTests) {
+  console.log('paths:', paths)
+}
 
 // http://nightwatchjs.org/gettingstarted#settings-file
 module.exports = {
@@ -16,7 +21,7 @@ module.exports = {
   output_folder: 'test/e2e/reports',
   custom_assertions_path: ['test/e2e/custom-assertions'],
   detailed_output: true,
-  silent: false,
+  silent: !debugTests,
   launch_url: paths.launchUrl,
   filter: '*.js',
 
