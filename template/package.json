@@ -26,7 +26,13 @@
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    "vue-router": "^3.0.1"{{/router}},
+    "vuex": "^3.0.1",
+    "vuex-persist": "^1.2.2",
+    "tiny-cookie": "^2.1.2",
+    "moment": "^2.22.1",
+    "axios": "^0.18.0",
+    "iview": "^2.14.0"
   },
   "devDependencies": {
     {{#lint}}
@@ -109,6 +115,8 @@
     "ora": "^1.2.0",
     "rimraf": "^2.6.0",
     "uglifyjs-webpack-plugin": "^1.1.1",
+    "less-loader": "^4.1.0",
+    "less": "^3.0.4",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
