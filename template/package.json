@@ -32,7 +32,7 @@
     "tiny-cookie": "^2.1.2",
     "moment": "^2.22.1",
     "axios": "^0.18.0",
-    "iview": "^0.18.0",
+    "iview": "^2.14.0"
   },
   "devDependencies": {
     {{#lint}}
