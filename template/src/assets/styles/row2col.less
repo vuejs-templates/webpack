@@ -1,0 +1,43 @@
+@import './weui/widget/weui_cell/weui_access';
+@import './weui/widget/weui_cell/weui_cell_global';
+@import './weui/widget/weui_cell/weui_form/weui_form_common';
+@import './weui/base/mixin/setOnepx.less';
+
+.setLine(@c: #C7C7C7) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  border-top: 1px solid @c;
+  height:1px;
+  color: @c;
+  transform-origin: left top;
+  transform: scale(0.5);
+}
+
+.weui-cell.row2col .weui-input {
+  text-align:right;
+}
+.showsepline{
+  .weui-label{
+    margin-bottom:1.5em;
+    &:last-child{
+      margin-bottom:0;
+    }
+  }
+  .weui-value{
+    margin-bottom:1.5em;
+    &:last-child{
+      margin-bottom:0;
+    }
+  }
+  .sepline{
+    position:absolute;
+    top:50%;
+    width:200%;
+    &:before {
+      .setLine();
+    }
+  }
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "key": "app",
+    "entry": [
+      "babel-polyfill",
+      "./src/application/main/main.js"
+    ],
+    "filename": "index.html",
+    "template": "index.html",
+    "prdHtmlWebpackPlugin": "../dist/index.html",
+    "chunks": [
+      "manifest",
+      "vendor",
+      "app"
+    ]
+  }
+]

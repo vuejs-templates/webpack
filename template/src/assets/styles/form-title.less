@@ -1,0 +1,72 @@
+@import "./weui/base/variable/color";
+.form-title {
+  background-color: #f7f7f7;
+  overflow: hidden;
+  height: 42px;
+  line-height: 42px;
+  box-sizing: border-box;
+  padding: 0 15px;
+  display:flex;
+  .msg {
+    flex:1;
+    font-size: 15px;
+    color: @weuiTextColorGrayWeight;
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 3px;
+      height: 16px;
+      padding-left: 8px;
+      box-sizing: border-box;
+      border-left: 3px solid @weuiColorPrimaryLight;
+      vertical-align: middle;
+      margin-top: -2px;
+    }
+  }
+  .icon {
+    flex:1;
+    color: @weuiColorPrimaryLight;
+    font-size: 13px;
+    text-align:right;
+    span {
+      margin-left: 9px;
+      a {
+        text-decoration: none;
+        color: @weuiColorPrimaryActive;
+        font-size: 13px;
+      }
+      &:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -2px;
+      }
+    }
+    .export:before {
+      width: 17px;
+      height: 17px;
+      background: url("./images/addPerson.png");
+      background-size: 100%;
+    }
+    .scan:before {
+      width: 15px;
+      height: 16px;
+      background: url("./images/scan.png");
+      background-size: 100%;
+    }
+    .clean:before {
+      width: 17px;
+      height: 17px;
+      background: url("./images/customerclean.png");
+      background-size: 100%;
+    }
+    .edit {
+      color: @weuiTextColorGray;
+    }
+  }
+}
+.form-title+div.weui-cell{
+  &:before{
+    display: none
+  }
+}

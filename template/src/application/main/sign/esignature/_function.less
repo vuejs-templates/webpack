@@ -1,0 +1,126 @@
+// Foundation by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+// This is the default html and body font-size for the base rem value.
+@rem-base: 14px !default;
+@bgGray: #f7f7f7;
+
+// IMPORT ONCE
+// We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+@modules: () !default;
+
+//
+// @functions
+//
+
+
+// RANGES
+// We use these functions to define ranges for various things, like media queries.
+@function lower-bound(@range){
+  @if length(@range) <= 0 {
+    @return 0;
+  }
+  @return nth(@range,1);
+}
+
+@function upper-bound(@range) {
+  @if length(@range) < 2 {
+    @return 999999999999;
+  }
+  @return nth(@range, 2);
+}
+
+// STRIP UNIT
+// It strips the unit of measure and returns it
+@function strip-unit(@num) {
+  @return @num / (@num * 0 + 1);
+}
+
+// CONVERT TO REM
+
+// REM CALC
+
+// New Syntax, allows to optionally calculate on a different base value to counter compounding effect of rem's.
+// Call with 1, 2, 3 or 4 parameters, 'px' is not required but supported:
+//
+//   rem-calc(10 20 30px 40);
+//
+// Space delimited, if you want to delimit using comma's, wrap it in another pair of brackets
+//
+//   rem-calc((10, 20, 30, 40px));
+//
+// Optionally call with a different base (eg: 8px) to calculate rem.
+//
+//   rem-calc(16px 32px 48px, 8px);
+//
+// If you require to comma separate your list
+//
+//   rem-calc((16px, 32px, 48), 8px);
+
+//@function rem-calc(@values, @base-value: @rem-base) {
+//@max: length(@values);
+//
+//@if @max == 1 { @return convert-to-rem(nth(@values, 1), @base-value); }
+//
+//@remValues: ();
+//@for @i from 1 through @max {
+//  @remValues: append(@remValues, convert-to-rem(nth(@values, @i), @base-value));
+//}
+//@return @remValues;
+//}
+
+// OLD EM CALC
+// Deprecated: We'll drop support for this in 5.1.0, use rem-calc()
+//@function emCalc(@values){
+//@return rem-calc(@values);
+//}
+
+// OLD EM CALC
+// Deprecated: We'll drop support for this in 5.1.0, use rem-calc()
+//@function em-calc(@values){
+//@return rem-calc(@values);
+//}
+
+// line 0.5 border
+@mixin borderbottom{
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #D9D9D9;
+    color: #D9D9D9;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+
+//text-ellipsis
+@mixin ellipsis{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+
+@mixin trans3d{
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translate3d(0, 0, 0);
+}
+
+@mixin display-flex{
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+@mixin fullpage(@top:0,@bottom:0){
+  position: absolute;
+  top:0;left:0;right:0;bottom:0;
+}

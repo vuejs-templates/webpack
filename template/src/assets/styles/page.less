@@ -1,0 +1,83 @@
+// 按需引入weui样式
+// 按钮样式
+@import './variable.less';
+@import './weui/widget/weui-button/weui-button.less';
+
+.container{
+  .align-center{
+    text-align:center
+  }
+  .page__hd{
+    padding:40px 20px;
+  }
+  .page__desc{
+    color:@page_desc-color;
+  }
+}
+
+.space-between{
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btn_box {
+  background: @weuiBgColorPlain;
+  border-radius: 5px;
+  border: 0;
+  padding: 20px 100px;
+}
+
+.Premium {
+  color: @colorPremium;
+}
+
+.addPerson(@c: url('./images/addPerson.png')) {
+  // color: #00aeff;
+  // background: @c;
+  background-repeat: no-repeat;
+  background-size: 21px;
+  height: 16px;
+  font-size: 14px;
+  line-height: 16px;
+  // background-position: 8px 0;
+  // padding-left: 20px;
+  padding-left: 8px;
+  // padding-top: 2px;
+  // padding-bottom: 8px;
+  position: relative;
+  // display: inline-block;
+  // width: 24px;
+  // height: 24px;
+  // background: @c;
+  // background-size: 100%; 
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 5/2px;
+    height: 100%;
+    background: @commonBlue;
+  }
+}
+
+.icon-addPerson {
+  .addPerson();
+}
+//下一步按鈕样式
+.btn-next{
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width:100%;
+  height:45px;
+  line-height: 45px;
+  color: @white;
+  text-align: center;
+  font-size: 17px;
+  background: -webkit-linear-gradient(left, #67a4ff, #0062e8); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #67a4ff, #0062e8); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #67a4ff, #0062e8); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right,#67a4ff, #0062e8); /* 标准的语法（必须放在最后） */
+}

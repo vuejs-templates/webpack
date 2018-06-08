@@ -1,0 +1,253 @@
+@import "./weui/base/reset.less";
+@import "./weui/base/variable/global";
+@import "./weui/base/variable/color";
+@import './weui/widget/weui_cell/weui_cell_global';
+@import "./weui/base/variable/weui-cell";
+@import './weui/widget/weui_cell/weui_check';
+@import "./variable";
+@import "./1px.less";
+// @import "./form-title";
+.weui-cells_unit {
+  font-size: 1em;
+  ::-webkit-input-placeholder {
+    color:@search-placeholder-font-color
+  }
+  .weui-cells {
+    margin-top:0;
+    font-size:1em;
+  }
+  .weui-cell__bd{
+    text-align:right;
+    font-size:1em;
+    .input-extra{
+      display:inline-block;
+      vertical-align: middle;
+      padding-left:5px;
+    }
+  }
+  .root-select-mask{
+    position: absolute;
+    right:0;
+    top:0;
+    z-index:2;
+    height:100%;
+    width:100%;
+  }
+}
+
+// checkbox checklist
+.weui-cells_checkbox .weui-check:checked + .vux-checklist-icon-checked:before {
+  color: @checklist-icon-active-color;
+}
+
+.weui-cells_checkbox > label > * {
+  pointer-events: none;
+}
+.weui-cells_checkbox{
+  .bd_link{
+    position:absolute;right:0;z-index:2;top:4px;
+    font-size:13px;
+    color:@checkbox-icon-color-checked;
+  }
+  .weui-cell__bd{
+    position:relative
+  }
+}
+.vux-checklist-disabled .vux-checklist-icon-checked:before {
+  opacity: 0.5;
+}
+.vux-checklist-label-left {
+  flex-direction: row-reverse;
+}
+// sex checker
+.za-sex {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  vertical-align: middle;
+  .za-sex-box{
+    overflow: hidden;
+    position: relative;
+    & > div {
+      color: @borderGray;
+      display: inline-block;
+      border-radius: 10px;
+      position: relative;
+      font-size: 14px;
+      line-height: 1;
+      box-sizing: border-box;
+      vertical-align: middle;
+      margin-left: 10px;
+      width:80px;
+      height:30px;
+      border:1px solid @borderGray;
+        color: transparent;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 32px;
+      &.male{
+        background-image: url('./images/common/male_font.png');
+      }
+      &.famale{
+        background-image: url('./images/common/female_font.png');
+      }
+      &.male.seled {
+        border:1px solid @blurBg;
+        background-image: url('./images/common/male_check_font.png');
+        background-color: @blurBg;
+      }
+      &.famale.seled {
+        border:1px solid @bgRed;
+        background-image: url('./images/common/female_check_font.png');
+        background-color: @bgRed;
+      }
+    }
+  }
+  .dis > div.male.seled,
+  .dis > div.famale.seled {
+    opacity: 0.5;
+  }
+}
+
+// yes or no checker
+.za-yesno{
+  text-align:right;
+  .za-yesno-box{
+    display:inline-block;
+    vertical-align: middle;
+    overflow:hidden;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size:0;
+    line-height: 0;
+    .za-yesno-item {
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+      padding: 4px 8px;
+    }
+    .za-yesno-item.active {
+      background: #5697ff;
+      color:#fff;
+    }
+    .za-yesno-item:first-child{
+      border-right:1px solid #ccc;
+    }
+  }
+}
+// button_group
+.za-button_group{
+  .za-button_group-box{
+    text-align:right;
+  }
+  .button-item {
+    display: inline-block;
+    margin:0 0 0 8px;
+    padding: 2px 8px;
+    border-radius: 5px;
+    color:@weuiTextColorLightGray;
+    background-color:@weuiBgColorActive;
+    &.active{
+      color: @weuiBgColorPlain;
+      background-color:@weuiColorPrimary;
+    }
+  }
+}
+
+// timeDate
+.time-item-box .weui-cell__ft {
+  color: @weuiTextColorGrayWeight;
+}
+.time-item-box.isempty .weui-cell__ft {
+  color: @weuiTextColorLightGray;
+}
+//*********************复星样式******************************
+#app{
+  background-color:@bgGray;
+}
+.weui-cells:before{
+  border-top-color:transparent!important;
+}
+.weui-cells:after{
+  border:none!important;;
+}
+.weui-cell:before{
+  border-top-color:@borderBottom!important;
+}
+.weui-label{
+  color: @titleColor;
+}
+.weui-input{
+  color:@inputColor;
+}
+input::-webkit-input-placeholder{
+  color:@placeholderColor;
+}
+.weui-cell_warn {
+  color: @inpurtWarn;
+}
+.time-item-box .weui-cell__ft{
+  color:@inputColor;
+}
+.weui-cell_access{
+  color:@inputColor;
+}
+.weui-cell_access .weui-cell__ft:after{
+  color:@sexGray;
+  border-width: 1px 1px 0 0;
+  border-color: @sexGray;
+  height: 8px;
+  width: 8px;
+}
+.icon_clear{
+  background:url('./images/common/delete.png') no-repeat center center;
+  width:22px;
+  height:22px;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+.icon-clear-font{
+  background:url('./images/common/delete_font.png') no-repeat center center;
+  width:40px;
+  height:22px;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+.icon-delete-font{
+  background:url('./images/common/del_font.png') no-repeat center center;
+  width:40px;
+  height:22px;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+.icon-add-blue{
+  background:url('./images/common/add.png') no-repeat center center;
+  width:15px;
+  height:15px;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+.icon-import-blue-font{
+  background:url('./images/common/import_font.png') no-repeat center center;
+  width:40px;
+  height:22px;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+.icon-scan-blue-font{
+  background:url('./images/common/scan_font.png') no-repeat center center;
+  width:40px;
+  height:22px;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
