@@ -6,6 +6,14 @@
   main.vue。具体请参考demo
 - 路由名称和文件夹保持一致(重要)
 
+# 子模块
+> /src/utils /src/widget 是两个git子模块 要更新这两个模块，需要进入到目录下，然后运行：
+
+``` bash
+# git submodule init // 如果目录是空的，则运行该条
+git submodule update
+```
+
 ## Build Setup
 
 ``` bash
@@ -72,5 +80,3 @@ Entry url: http://localhost:9100/share.html#/
   }
 }
 ```
-
-
