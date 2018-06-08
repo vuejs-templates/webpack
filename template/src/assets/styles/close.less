@@ -1,0 +1,22 @@
+.vux-close {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  color: #999;
+  width: 24px;
+  height: 24px;
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 24px;
+    height: 1px;
+    background-color: currentColor;
+    transform: rotate(-45deg);
+  }
+  &:after {
+    transform: rotate(45deg);
+  }
+}

@@ -1,0 +1,6 @@
+[submodule "template/src/utils"]
+	path = template/src/utils
+	url = git://github.com/za-Ins/utils.git
+[submodule "template/src/widget"]
+	path = template/src/widget
+	url = git://github.com/za-Ins/widget.git

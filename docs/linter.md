@@ -31,5 +31,6 @@ You can run the following command to let eslint fix any errors it finds (if it c
 npm run lint -- --fix
 ```
 
-*(The `--` in the middle is necessary to ensure the `--fix` option is passdd to `eslint`, not to `npm`. It can be omitted whne using yarn)*
+*(The `--` in the middle is necessary to ensure the `--fix` option is passed to `eslint`, not to `npm`. It can be omitted when using yarn)*
+
 
