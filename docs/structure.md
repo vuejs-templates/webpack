@@ -28,7 +28,7 @@
 │   │   ├── custom-assertions/  # custom assertions for e2e tests
 │   │   ├── runner.js           # test runner script
 │   │   └── nightwatch.conf.js  # test runner config file
-├── .babelrc                    # babel config
+├── babel.config.js             # babel config
 ├── .editorconfig               # indentation, spaces/tabs and similar settings for your editor
 ├── .eslintrc.js                # eslint config
 ├── .eslintignore               # eslint ignore rules
