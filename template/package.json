@@ -53,10 +53,9 @@
     "babel-jest": "^23.0.1",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.49",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "jest": "^22.0.4",
-    "jest-serializer-vue": "^0.3.0",
-    "vue-jest": "^1.0.2",
+    "jest": "^23.1.0",
+    "jest-serializer-vue": "^2.0.2",
+    "vue-jest": "^2.6.0",
     {{/if_eq}}
     {{#if_eq runner "karma"}}
     "cross-env": "^5.0.1",
@@ -118,7 +117,7 @@
     "vue-template-compiler": "^2.5.2",
     "portfinder": "^1.0.13",
     "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.15",
+    "webpack-cli": "^3.0.3",
     "webpack-dev-server": "^3.1.3",
     "webpack-merge": "^4.1.0"
   },
