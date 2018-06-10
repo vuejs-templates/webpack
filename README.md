@@ -11,10 +11,10 @@
 
 ## Usage
 
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It is recommended to use npm 3+ for a more efficient dependency tree.**
+This is a project template for [@vue/cli](https://github.com/vuejs/vue-cli). **@vue/cli require Node.js 8 or above (8.10.0+ recommended)**
 
 ``` bash
-$ npm install -g vue-cli
+$ npm install -g @vue/cli @vue/cli-init
 $ vue init webpack my-project
 $ cd my-project
 $ npm install
