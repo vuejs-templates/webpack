@@ -1,6 +1,6 @@
 # Babel Configuration
 
-This boilerplate uses [`babel-preset-env`](https://www.npmjs.com/package/babel-preset-env) for configuring babel. You can read more about it here - http://2ality.com/2017/02/babel-preset-env.html.
+This boilerplate uses [`@babel/preset-env`](https://www.npmjs.com/package/@babel/preset-env) for configuring babel. You can read more about it here - http://2ality.com/2017/02/babel-preset-env.html.
 
 > A Babel preset that compiles ES2015+ down to ES5 by automatically determining the Babel plugins and polyfills you need based on your targeted browser or runtime environments.
 
@@ -19,4 +19,4 @@ However there is a caveat. `browserslist` recommends defining the target in a co
 }
 ```
 
-But the latest stable release of `babel-preset-env`, `v1.6.1` does not support loading the config from `package.json`. So the target environment is repeated in `.babelrc`. If you wish to change your target environment, please be sure to update both `package.json` and `.babelrc`. Note that this has been fixed in the beta version([`@babel/preset-env@7.0.0-beta.34`](https://github.com/babel/babel/tree/master/packages/babel-preset-env)) and the template will be updated once it is out of beta.
+[`@babel/preset-env`](https://www.npmjs.com/package/@babel/preset-env) also support `browserslist` config in `package.json`.
