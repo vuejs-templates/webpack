@@ -6,7 +6,7 @@ module.exports = {
     ["@babel/preset-stage-2", {
       decoratorsLegacy: true
     }]
-],
+  ],
   plugins: ["transform-vue-jsx", "@babel/plugin-transform-runtime"]{{#if_or unit e2e}},
   env: {
     test: {
