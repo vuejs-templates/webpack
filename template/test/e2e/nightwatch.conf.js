@@ -1,4 +1,4 @@
-require('babel-register')
+require('@babel/register')
 var config = require('../../config')
 
 const paths = {
