@@ -77,7 +77,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     ])
   ],
   optimization: {
-    concatenateModules: true,
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
