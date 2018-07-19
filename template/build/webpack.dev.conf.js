@@ -66,7 +66,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     ])
   ],
   optimization: {
-    namedModules: true,
     noEmitOnErrors: true,
   },
 })
