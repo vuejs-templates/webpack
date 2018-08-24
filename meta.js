@@ -74,6 +74,10 @@ module.exports = {
       type: 'confirm',
       message: 'Install vue-router?',
     },
+    vuex:{
+      type: "confirm",
+      message: "Install vuex?"
+    },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
@@ -170,6 +174,7 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
+    'src/store/**/*': 'vuex',
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
