@@ -79,6 +79,11 @@ module.exports = {
       type: "confirm",
       message: "Install vuex?"
     },
+    axios:{
+      when: 'isNotTest',
+      type: "confirm",
+      message: "Install axios?"
+    },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
@@ -175,6 +180,7 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/store/**/*': 'vuex',
+    'src/api/**/*':'axios',
     'src/router/**/*': 'router'
   },
   complete: function(data, { chalk }) {
