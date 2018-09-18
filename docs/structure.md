@@ -21,8 +21,8 @@
 │   │   ├── eslintrc            # config file for eslint with extra settings only for unit tests
 │   │   ├── index.js            # test build entry file
 │   │   ├── jest.conf.js        # Config file when using Jest for unit tests
-│   │   └── karma.conf.js       # test runner config file when using Karma for unit tests
-│   │   ├── setup.js            # file that runs before Jest runs your unit tests
+│   │   ├── karma.conf.js       # test runner config file when using Karma for unit tests
+│   │   └── setup.js            # file that runs before Jest runs your unit tests
 │   └── e2e/                    # e2e tests
 │   │   ├── specs/              # test spec files
 │   │   ├── custom-assertions/  # custom assertions for e2e tests
