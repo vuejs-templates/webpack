@@ -12,7 +12,7 @@ module.exports = {
   extends: [
     // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
     // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    'plugin:vue/essential', 
+    'plugin:vue/essential',
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard'
   ],
@@ -69,6 +69,15 @@ module.exports = {
     }],
     {{/if_eq}}
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // 禁用行尾空格
+    'no-trailing-spaces': 'off',
+    // 强制在注释中 // 或 /* 使用一致的空格
+    'spaced-comment': 'off',
+    //强制在 function的左括号之前使用一致的空格
+    'space-before-function-paren': 'off',
+    //强制在关键字前后使用一致的空格
+    'keyword-spacing': 'off',
+    "semi": [0]
   }
 }
