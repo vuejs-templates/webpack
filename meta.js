@@ -156,6 +156,10 @@ module.exports = {
         },
       ],
     },
+    elementUI:{
+      type: 'confirm',
+      confirm: "install element-ui?"
+    },
   },
   filters: {
     '.eslintrc.js': 'lint',
