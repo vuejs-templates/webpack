@@ -31,7 +31,6 @@ module.exports = {
       return templateVersion
     },
   },
-  
   prompts: {
     name: {
       when: 'isNotTest',
@@ -73,6 +72,26 @@ module.exports = {
       when: 'isNotTest',
       type: 'confirm',
       message: 'Install vue-router?',
+    },
+    deploy: {
+      type: 'confirm',
+      message: 'Setup a deploy command for GitHub pages?',
+    },
+    deployBuild: {
+      when: 'deploy',
+      type: 'confirm',
+      message: 'Build project when deploying?',
+    },
+    branch: {
+      when: 'deploy',
+      default: 'gh-pages',
+      type: 'string',
+      message: 'What branch should the built site be deployed to?',
+    },
+    baseUrl: {
+      when: 'deploy',
+      type: 'string',
+      message: 'What is the GitHub project? (Leave blank for User & Organization pages)',
     },
     lint: {
       when: 'isNotTest',

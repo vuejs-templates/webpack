@@ -51,8 +51,11 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
+    {{#deploy}}
+    assetsPublicPath: '/{{ baseUrl }}/',
+    {{else}}
     assetsPublicPath: '/',
-
+    {{/deploy}}
     /**
      * Source Maps
      */
