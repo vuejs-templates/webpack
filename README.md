@@ -5,7 +5,7 @@
 > This template is Vue 2.0 compatible. For Vue 1.x use this command: `vue init webpack#1.0 my-project`
 
 
-# Vue-cli 3 is here, so this template is not considered deprecated.
+# Vue-cli 3 is here, so this template is now considered deprecated.
 
 This template was the main template for vue-cli verison 2.*.
 
