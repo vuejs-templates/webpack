@@ -18,5 +18,6 @@ module.exports = {
     source: 'src',
     img: 'src',
     image: 'xlink:href'
-  }
+  }{{#typescript}},
+  esModule: true{{/typescript}}
 }

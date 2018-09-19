@@ -69,6 +69,12 @@ module.exports = {
         },
       ],
     },
+    typescript: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use TypeScript as default language?',
+      default: false
+    },
     router: {
       when: 'isNotTest',
       type: 'confirm',
@@ -170,6 +176,8 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
+    'tsconfig.json': 'typescript',
+    'vue-shims.d.ts': 'typescript'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
@@ -193,4 +201,20 @@ module.exports = {
       printMessage(data, chalk)
     }
   },
+  metalsmith: function (metalsmith, opts, helpers) {
+    function renameJsSourcesToTs(files, metalsmith, done) {
+      // If typescript is enabled rename any .js files in src/ folder to .ts extension
+      if (metalsmith.metadata().typescript) {
+        Object.keys(files).forEach(filename => {
+          if (/^(src|test\\unit\\specs).*\.js$/.test(filename)) {
+          const renamed = filename.replace(/\.js$/, '.ts');
+          files[renamed] = files[filename]
+          delete files[filename]
+        }
+      })
+      }
+      done(null, files)
+    }
+    metalsmith.use(renameJsSourcesToTs)
+  }
 }

@@ -4,6 +4,7 @@
   "description": "A Vue.js project",
   "author": "CircleCI",
   "build": "standalone",
+  "typescript": false,
   "router": false,
   "lint": true,
   "lintConfig": "airbnb",

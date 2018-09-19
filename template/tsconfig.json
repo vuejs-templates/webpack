@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,{{#if_eq runner "jest"}}
+    "sourceMap": true,{{/if_eq}}
+    "lib": [
+      "dom",
+      "es5",
+      "es6",
+      "es2015.promise"
+    ]
+  },
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "files" : [
+    "vue-shims.d.ts"
+  ]
+}

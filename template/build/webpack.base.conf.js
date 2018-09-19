@@ -22,7 +22,7 @@ function resolve (dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: './src/main.{{#typescript}}ts{{else}}js{{/typescript}}'
   },
   output: {
     path: config.build.assetsRoot,
@@ -32,7 +32,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: [{{#typescript}}'.ts', {{/typescript}}'.js', '.vue', '.json'],
     alias: {
       {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
@@ -50,6 +50,15 @@ module.exports = {
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
+      {{#typescript}}
+      {
+        test: /\.ts$/,
+          loader: "ts-loader",
+          options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
+      },
+      {{/typescript}}
       {
         test: /\.js$/,
         loader: 'babel-loader',

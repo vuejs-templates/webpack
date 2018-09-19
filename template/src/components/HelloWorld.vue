@@ -83,15 +83,17 @@
   </div>
 </template>
 
-<script>
-export default {
+<script{{#typescript}} lang="ts"{{/typescript}}>
+{{#typescript}}import Vue from 'vue'
+
+{{/typescript}}export default {{#typescript}}Vue.extend({{/typescript}}{
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
   }
-}
+}{{#typescript}}){{/typescript}}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

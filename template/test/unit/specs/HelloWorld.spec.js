@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import HelloWorld from '@/components/HelloWorld'
+{{#typescript}}{{#if_eq runner "karma"}}import {expect} from 'chai'
 
-describe('HelloWorld.vue', () => {
+{{/if_eq}}{{/typescript}}describe('HelloWorld.vue', () => {
   it('should render correct contents', () => {
     const Constructor = Vue.extend(HelloWorld)
     const vm = new Constructor().$mount()
