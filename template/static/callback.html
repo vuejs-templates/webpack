@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Waiting...</title>
+</head>
+
+<body>
+  <script src="oidc-client.min.js"></script>
+  <script>
+    var mgr = new Oidc.UserManager();//{userStore: new Oidc.WebStorageStateStore()}
+    mgr.signinRedirectCallback().then(function (user) {
+      window.location.href = '../index.html';
+    }).catch(function (err) {
+      console.log(err);
+    });
+  </script>
+</body>
+
+</html>

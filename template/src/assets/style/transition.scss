@@ -1,0 +1,47 @@
+//globl transition css
+
+/*fade*/
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.28s;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
+/*fade-transform*/
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all .5s;
+}
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/*breadtab transition*/
+.breadtab-enter-active,
+.breadtab-leave-active {
+  transition: all .5s;
+}
+
+.breadtab-enter,
+.breadtab-leave-active {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.breadtab-move {
+  transition: all .5s;
+}
+
+.breadtab-leave-active {
+  position: absolute;
+}
+

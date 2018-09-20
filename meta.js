@@ -44,7 +44,7 @@ module.exports = {
       type: 'string',
       required: false,
       message: 'Project description',
-      default: 'A Vue.js project',
+      default: 'tuhu-yewu-vue-cli',
     },
     author: {
       when: 'isNotTest',
@@ -115,11 +115,6 @@ module.exports = {
           name: 'Jest',
           value: 'jest',
           short: 'jest',
-        },
-        {
-          name: 'Karma and Mocha',
-          value: 'karma',
-          short: 'karma',
         },
         {
           name: 'none (configure it yourself)',
