@@ -5,7 +5,7 @@ let lay = ''
 {{#if_eq Layout "yes"}}
 lay = require('@/page/Base/layout.vue')
 {{/if_eq}}
-{{#if_eq Layout "none"}}
+{{#if_eq Layout "no"}}
 lay = require('@/page/Base/index.vue')
 {{/if_eq}}
 export default new Router({
