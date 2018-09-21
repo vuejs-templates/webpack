@@ -58,7 +58,7 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.2.1",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.3",
     "nprogress": "^0.2.0",
     "sass-loader": "^7.0.3",
     "element": "^0.1.4",
