@@ -10,7 +10,7 @@
             :key="index"
         >
           <img class="img" :src="item.icon" @error="defaultImg" />
-          <span>{{item.linkName}}</span>
+          <span v-text="item.linkName"></span>
         </li>
       </template>
     </ul>
@@ -23,7 +23,7 @@
           pkid="subItem.pkid"
           parentID="subItem.parentID"
         >
-          <span>{{subItem.linkName}}</span>
+          <span v-text="subItem.linkName"></span>
         </li>
       </template>
     </ul>

@@ -5,7 +5,7 @@
       <ul id="left1" :style="translateData">
         <template v-for="(item, index) in TabsList" >
           <li :class="menuActiveArr[menuActiveArr.length - 1] === item.pkid ? 'active' : null" :key="index">
-            <a @click="switchTab(item.link)" :title="item.linkName">{{item.linkName}}</a>
+            <a @click="switchTab(item.link)" :title="item.linkName" v-text="item.linkName"></a>
             <img @click="deleteTab(item, index)" src="@/assets/img/close.png" class="closeTag" v-if="item.pkid!==-1" />
           </li>
         </template>
@@ -16,7 +16,7 @@
         <img src="@/assets/img/other.png" class="allTag">
         <ul v-if="showMore" class="allTagText">
           <template v-for="(item, index) in TabsList" >
-            <li :key="index" class="everyTagText" @click="switchTab(item.link)" :title="item.linkName">{{item.linkName}}</li>
+            <li :key="index" class="everyTagText" @click="switchTab(item.link)" :title="item.linkName" v-text="item.linkName"></li>
           </template>
         </ul>
       </div>

@@ -51,6 +51,45 @@ module.exports = {
       type: 'string',
       message: 'Author',
     },
+    TabORCrumb: {
+      when: 'isNotTest',
+      type: 'list',
+      message: 'select tab or crumb or none',
+      choices: [
+        {
+          name: 'tab: use tab page',
+          value: 'tab',
+          short: 'tab'
+        },
+        {
+          name: 'crumb: use Breadcrumbs',
+          value: 'crumb',
+          short: 'crumb'
+        },
+        {
+          name: 'none: Bread crumbs and tab tabs are not used',
+          value: 'none',
+          short: 'none'
+        }
+      ]
+    },
+    Layout: {
+      when: 'isNotTest',
+      type: 'list',
+      message: 'Whether layout is used',
+      choices: [
+        {
+          name: 'yes',
+          value: 'yes',
+          short: 'yes'
+        },
+        {
+          name: 'no',
+          value: 'no',
+          short: 'no'
+        }
+      ]
+    },
     build: {
       when: 'isNotTest',
       type: 'list',
@@ -68,65 +107,6 @@ module.exports = {
           short: 'runtime',
         },
       ],
-    },
-    router: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Install vue-router?',
-    },
-    lint: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Use ESLint to lint your code?',
-    },
-    lintConfig: {
-      when: 'isNotTest && lint',
-      type: 'list',
-      message: 'Pick an ESLint preset',
-      choices: [
-        {
-          name: 'Standard (https://github.com/standard/standard)',
-          value: 'standard',
-          short: 'Standard',
-        },
-        {
-          name: 'Airbnb (https://github.com/airbnb/javascript)',
-          value: 'airbnb',
-          short: 'Airbnb',
-        },
-        {
-          name: 'none (configure it yourself)',
-          value: 'none',
-          short: 'none',
-        },
-      ],
-    },
-    unit: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Set up unit tests',
-    },
-    runner: {
-      when: 'isNotTest && unit',
-      type: 'list',
-      message: 'Pick a test runner',
-      choices: [
-        {
-          name: 'Jest',
-          value: 'jest',
-          short: 'jest',
-        },
-        {
-          name: 'none (configure it yourself)',
-          value: 'noTest',
-          short: 'noTest',
-        },
-      ],
-    },
-    e2e: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Setup e2e tests with Nightwatch?',
     },
     autoInstall: {
       when: 'isNotTest',
@@ -151,20 +131,6 @@ module.exports = {
         },
       ],
     },
-  },
-  filters: {
-    '.eslintrc.js': 'lint',
-    '.eslintignore': 'lint',
-    'config/test.env.js': 'unit || e2e',
-    'build/webpack.test.conf.js': "unit && runner === 'karma'",
-    'test/unit/**/*': 'unit',
-    'test/unit/index.js': "unit && runner === 'karma'",
-    'test/unit/jest.conf.js': "unit && runner === 'jest'",
-    'test/unit/karma.conf.js': "unit && runner === 'karma'",
-    'test/unit/specs/index.js': "unit && runner === 'karma'",
-    'test/unit/setup.js': "unit && runner === 'jest'",
-    'test/e2e/**/*': 'e2e',
-    'src/router/**/*': 'router',
   },
   complete: function(data, { chalk }) {
     const green = chalk.green

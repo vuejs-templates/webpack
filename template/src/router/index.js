@@ -1,11 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
+let lay = ''
+{{#if_eq Layout "yes"}}
+lay = require('@/page/Base/layout.vue')
+{{/if_eq}}
+{{#if_eq Layout "none"}}
+lay = require('@/page/Base/index.vue')
+{{/if_eq}}
 export default new Router({
   routes: [
     { path: '/',
       redirect: 'home',
-      component: r => require.ensure([], () => r(require('@/page/Base/layout.vue')), 'layout'),
+      component: r => require.ensure([], () => r(lay), 'layout'),
       children: [
         {
           path: '/home',
