@@ -1,7 +1,7 @@
 <template>
   <div class="hei">
     <el-breadcrumb separator-class="el-icon-arrow-right" class="pad">
-      <el-breadcrumb-item v-for="(item, index) in CrumbArr" :key="index">{{item}}</el-breadcrumb-item>
+      <el-breadcrumb-item v-for="(item, index) in CrumbArr" :key="index"><span v-text="item"></span></el-breadcrumb-item>
     </el-breadcrumb>
   </div>
 </template>
