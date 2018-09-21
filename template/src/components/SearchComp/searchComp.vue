@@ -48,8 +48,8 @@
             :suffix-icon="item['suffixIcon'] ? item['suffixIcon'] : null"
             :prefix-icon="item['prefixIcon'] ? item['prefixIcon'] : null"
           >
-            <template v-if="item.slotText" :slot="item.slotText.positionType">{{item.slotText.text}}</template>
-            <el-button v-if="item.slotButton" :slot="item.slotButton.positionType">{{item.slotButton.text}}</el-button>
+            <template v-if="item.slotText" :slot="item.slotText.positionType"><span v-text="item.slotText.text"></span></template>
+            <el-button v-if="item.slotButton" :slot="item.slotButton.positionType"><span v-text="item.slotButton.text"></span></el-button>
           </el-input>
         </el-form-item>
         <el-form-item :label='item.label' v-if="item.type === 'select'" :prop="item.modelname">
@@ -106,7 +106,7 @@
               :disabled="j.disabled ? true : false"
               v-if="item.radioButton"
             >
-              {{j.label}}
+              <span v-text="j.label"></span>
             </el-radio-button>
             <el-radio v-for="(j, index) in item.options" :key="index"
               :label="j.value"
@@ -114,7 +114,7 @@
               :disabled="j.disabled ? true : false"
               v-if="!item.radioButton"
             >
-              {{j.label}}
+              <span v-text="j.label"></span>
             </el-radio>
           </el-radio-group>
         </el-form-item>
@@ -124,7 +124,7 @@
             :disabled="item.disabled ? true : false"
             v-model="formData[item.modelname]"
           >
-            {{item.CheckboxText}}
+            <span v-text="item.CheckboxText"></span>
           </el-checkbox>
         </el-form-item>
         <el-form-item :label='item.label' v-if="item.type === 'checkboxGroup'" :prop="item.modelname">
@@ -135,7 +135,7 @@
               :disabled="j.disabled ? true : false"
               v-if="!item.checkboxButton"
             >
-              {{j.label}}
+              <span v-text="j.label"></span>
             </el-checkbox>
             <el-checkbox-button v-for="(j, index) in item.options" :key="index"
               :label="j.value"
@@ -143,7 +143,7 @@
               :disabled="j.disabled ? true : false"
               v-if="item.checkboxButton"
             >
-              {{j.label}}
+              <span v-text="j.label"></span>
             </el-checkbox-button>
           </el-checkbox-group>
         </el-form-item>

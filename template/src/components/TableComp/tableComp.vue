@@ -14,7 +14,7 @@
 
   <div class="pagin" v-if="page && page.totalRecords > 0">
     <div class="leftShowInfo" v-if="page.showPageInfo">
-      共 {{page.totalRecords}} 条记录 第 {{page.pageNum}} / {{page.totalPages}} 页
+      共 <span v-text="page.totalRecords"></span> 条记录 第 <span v-text="page.pageNum"></span> / <span v-text="page.totalPages"></span> 页
     </div>
     <div class="rightPaging">
     <el-pagination
