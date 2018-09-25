@@ -17,16 +17,16 @@ export default new Router({
         {
           path: '/home',
           name: 'home',
-          component: r => require.ensure([], () => r(require('@/page/demo/index.vue')), 'home'),
+          component: r => require.ensure([], () => r(require('@/page/home/index.vue')), 'home'),
           meta: { title: 'home', icon: '', keepAlive: true }
-        },
-        {
-          path: '*',
-          name: '404',
-          component: r => require.ensure([], () => r(require('@/page/Base/404.vue')), 'notFound'),
-          meta: { title: 'notFound', icon: '', keepAlive: false }
         }
       ]
+    },
+    {
+      path: '*',
+      name: '404',
+      component: r => require.ensure([], () => r(require('@/page/Base/404.vue')), 'notFound'),
+      meta: { title: 'notFound', icon: '', keepAlive: false }
     }
   ]
 })
