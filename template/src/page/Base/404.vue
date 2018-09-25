@@ -3,7 +3,7 @@
     <img src="@/assets/img/404.png"/>
     <div style="display: inline-block; color: rgb(125,121,121); text-align: center; margin-left: 20px;">
       <span style="font-size: 60px">404</span><br />你要找的页面不存在<br />
-      <router-link to="/home">返回首页</router-link>
+      <router-link to="/home" style="color: #66b1ff;">返回首页</router-link>
     </div>
   </div>
 </template>
