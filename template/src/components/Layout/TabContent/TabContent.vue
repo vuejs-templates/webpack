@@ -11,7 +11,7 @@
       <keep-alive v-if="flasgArr['a'+index] && item.keepAlive" :key="item.link">
         <router-view v-if="$route.path===item.link"></router-view>
       </keep-alive>
-      <router-view v-if="flasgArr['a'+index] && item.keepAlive === false && $route.path===item.link" :key="item.link"></router-view>
+      <router-view v-if="flasgArr['a'+index] && !item.keepAlive && $route.path===item.link" :key="item.link"></router-view>
     </template>
   </div>
 </template>
