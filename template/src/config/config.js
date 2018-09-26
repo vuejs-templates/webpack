@@ -19,3 +19,4 @@ export const homeMenu = {
   parentID: 0,
   pkid: -1
 }
+export const description = '{{ description }}'

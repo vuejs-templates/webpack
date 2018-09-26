@@ -4,7 +4,7 @@
       <div class="logo">
         <img src="https://res.tuhu.org/managementUI/navigationUI/mnimg/logo.png">
       </div>
-      <span class="title">途虎采购系统</span>
+      <span class="title" v-text="description"></span>
     </div>
     <div class="userIns">
       <div class="name">
@@ -16,9 +16,13 @@
 </template>
 
 <script>
+import { description } from '@/config/config'
 export default {
   name: 'Header',
-  computed: {
+  data () {
+    return {
+      description
+    }
   }
 }
 </script>

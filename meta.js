@@ -44,7 +44,7 @@ module.exports = {
       type: 'string',
       required: false,
       message: 'Project description',
-      default: 'tuhu-yewu-vue-cli',
+      default: '途虎系统',
     },
     author: {
       when: 'isNotTest',
