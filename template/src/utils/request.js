@@ -41,7 +41,7 @@ const fetch = (url, options) => {
   const { method = 'get', data, contentType = 'application/json;charset=UTF-8', headers = {} } = options
   switch (method.toLowerCase()) {
     case 'get':
-      return axios.get(url, {params: data}, { headers: Object.assign({'Content-Type': contentType}, headers) })
+      return axios.get(url, { params: data, headers: Object.assign({'Content-Type': contentType}, headers) })
     case 'delete':
       return axios.delete(url, { data }, { headers: Object.assign({'Content-Type': contentType}, headers) })
     case 'head':
