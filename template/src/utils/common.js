@@ -21,22 +21,7 @@ export default {
   },
   // 数组深拷贝
   deepCopy (o) {
-    let _this = this
-    if (o instanceof Array) {
-      let n = []
-      for (var i = 0; i < o.length; ++i) {
-        n[i] = _this.deepCopy(o[i])
-      }
-      return n
-    } else if (o instanceof Object) {
-      let n = {}
-      for (let i in o) {
-        n[i] = _this.deepCopy(o[i])
-      }
-      return n
-    } else {
-      return o
-    }
+    return JSON.parse(JSON.stringify(o))
   },
   // 从数组Arra取出最小的数，并且不再Arrb中
   getMinRandomFromArray (Arra, Arrb) {
