@@ -66,12 +66,14 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
         ? 'index.html'
         : {{/if_or}}config.build.index,
-      template: 'index.html',
+      template: './dist/index.html',
       inject: true,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
-        removeAttributeQuotes: true
+        removeAttributeQuotes: true,
+        minifyCSS: true,
+        minifyJS: true
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
