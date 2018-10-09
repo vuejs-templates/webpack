@@ -120,8 +120,7 @@
     "webpack-merge": "^4.1.0",
     "viewport-units-buggyfill": "^0.6.2",
     "postcss-px-to-viewport": "^0.0.3",
-    "postcss-url": "^7.2.1",
-    "postcss-viewport-units": "^0.1.4",
+    "postcss-viewport-units": "^0.1.4"
   },
   "engines": {
     "node": ">= 6.0.0",
