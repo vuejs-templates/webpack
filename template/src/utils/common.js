@@ -72,5 +72,16 @@ export default {
       let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie
       document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT'
     }
+  },
+  // 将对象转为字符串key=value&key=value形式
+  /*
+   * @param obj 要处理的对象
+   */
+  obejectToStr (obj) {
+    let str = '&'
+    for (let key in obj) {
+      str += 'key=' + obj[key]
+    }
+    return str.substr(1)
   }
 }
