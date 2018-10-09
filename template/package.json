@@ -5,6 +5,7 @@
   "author": "{{ author }}",
   "private": true,
   "scripts": {
+    "skeleton": "cross-env NODE_ENV=development webpack --config ./build/webpack.ssr.conf.js",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     {{#if_eq runner "jest"}}
@@ -22,7 +23,7 @@
     {{#lint}}
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
     {{/lint}}
-    "build": "node build/build.js"
+    "build": "npm run skeleton && node skeleton.js && node build/build.js"
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
@@ -30,7 +31,7 @@
   },
   "devDependencies": {
     {{#lint}}
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "^7.2.3",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
@@ -116,15 +117,17 @@
     "portfinder": "^1.0.13",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "viewport-units-buggyfill": "^0.6.2",
+    "postcss-px-to-viewport": "^0.0.3",
+    "postcss-viewport-units": "^0.1.4"
   },
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
+    "iOS >= 8",
+    "Android > 4.0"
   ]
 }

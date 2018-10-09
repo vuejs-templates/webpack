@@ -1,7 +1,7 @@
 # {{ name }}
 
 > {{ description }}
-
+skeleton
 ## Build Setup
 
 ``` bash
