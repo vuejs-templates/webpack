@@ -1,6 +1,6 @@
 import axios from 'axios'
 import store from '@/store'
-import { Message } from 'element-ui'
+const { Message } = Element
 // axios.defaults.baseURL = newband.app.admin.API_HOST
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
 // axios.defaults.headers.common['UserName'] = 'fanjuan@tuhu.cn'

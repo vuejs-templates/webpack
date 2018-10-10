@@ -16,7 +16,6 @@
   </div>
 </template>
 <script>
-import { mapState, mapGetters } from 'vuex'
 export default {
   name: 'TabContent',
   data () {
@@ -35,10 +34,10 @@ export default {
     }
   },
   computed: {
-    ...mapState('layout', [
+    ...Vuex.mapState('layout', [
       'TabsList'
     ]),
-    ...mapGetters([
+    ...Vuex.mapGetters([
       'TabORCrumb',
       'pageLoading'
     ])

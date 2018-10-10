@@ -1,6 +1,3 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-Vue.use(Router)
 let lay = ''
 {{#if_eq Layout "yes"}}
 lay = require('@/page/Base/layout.vue')
@@ -8,7 +5,7 @@ lay = require('@/page/Base/layout.vue')
 {{#if_eq Layout "no"}}
 lay = require('@/page/Base/index.vue')
 {{/if_eq}}
-export default new Router({
+export default new VueRouter({
   routes: [
     { path: '/',
       redirect: 'home',

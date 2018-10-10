@@ -39,7 +39,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
   name: 'Tabs',
   data () {
@@ -51,7 +50,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('layout', [
+    ...Vuex.mapState('layout', [
       'TabsList',
       'menuActiveArr'
     ]),

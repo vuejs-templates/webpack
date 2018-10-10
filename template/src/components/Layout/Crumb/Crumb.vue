@@ -7,11 +7,10 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
   name: 'Crumb',
   computed: {
-    ...mapState('app', [
+    ...Vuex.mapState('app', [
       'CrumbArr'
     ])
   }

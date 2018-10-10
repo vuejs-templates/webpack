@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
   name: 'Menu',
   data () {
@@ -41,7 +40,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('layout', [
+    ...Vuex.mapState('layout', [
       'menuData',
       'menuActiveArr',
       'opened',

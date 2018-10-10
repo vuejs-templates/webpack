@@ -13,11 +13,10 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 export default {
   name: 'layout',
   computed: {
-    ...mapGetters([
+    ...Vuex.mapGetters([
       'TabORCrumb'
     ])
   }

@@ -1,14 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
 import App from './App'
 import router from './router'
-import Element from 'element-ui'
 import store from './store'
 import './directives'
 import components from './components'
 import Mixin from './mixin'
 
-import 'element-ui/lib/theme-chalk/index.css'
 import './assets/style/index.scss'
 
 import NProgress from 'nprogress'
@@ -38,11 +34,8 @@ router.afterEach(() => {
   NProgress.done() // finish progress bar
 })
 
-Vue.use(Vuex)
 Vue.config.productionTip = false
-Vue.use(Element, {
-  size: 'medium' // set element-ui default size，
-})
+Vue.prototype.$ELEMENT = { size: 'medium' }
 // 全局混入
 Vue.mixin(Mixin)
 
