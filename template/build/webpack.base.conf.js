@@ -42,7 +42,7 @@ module.exports = {
     'vue': 'Vue',
     'vuex': 'Vuex',
     'vue-router': 'VueRouter',
-    'element-ui': 'Element'
+    'element-ui': 'ELEMENT'
   },
   module: {
     rules: [
