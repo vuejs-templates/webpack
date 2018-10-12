@@ -4,7 +4,7 @@ import store from './store'
 import './directives'
 import components from './components'
 import Mixin from './mixin'
-
+import 'element-ui/lib/theme-chalk/index.css'
 import './assets/style/index.scss'
 
 import NProgress from 'nprogress'
