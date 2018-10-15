@@ -1,5 +1,5 @@
 <template>
-  <div class="tabContent" :class="TabORCrumb!=='crumb' && TabORCrumb!=='tab' ? 'notop' : 'hastop'" v-loading="pageLoading" element-loading-text="页面加载中...">
+  <div class="tabContent" :class="TabORCrumb!=='crumb' && TabORCrumb!=='tab' ? 'notop' : 'hastop'" v-loading.fullscreen.lock="pageLoading" element-loading-text="页面加载中...">
     <!--<template v-for="(item, index) in TabsList">-->
       <!--<transition name="fade-transform" mode="out-in" :key="index">-->
         <!--<keep-alive v-if="flasgArr['a'+index]">-->

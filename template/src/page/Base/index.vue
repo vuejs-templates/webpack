@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="pageLoading" element-loading-text="页面加载中...">
+  <div v-loading.fullscreen.lock="pageLoading" element-loading-text="页面加载中...">
     <Crumb v-if="TabORCrumb==='crumb'" />
     <router-view></router-view>
   </div>
