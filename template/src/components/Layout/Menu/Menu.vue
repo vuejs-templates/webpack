@@ -75,7 +75,6 @@ export default {
     },
     // 路由变化
     routerUpdata () {
-      if (this.allRouterLink.length === 0) return false
       let menuActiveArr = []
       let TabsList = [].concat(this.TabsList)
       let path = this.$route.path
