@@ -5,7 +5,7 @@
   "author": "{{ author }}",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     {{#if_eq runner "jest"}}
     "unit": "jest --config test/unit/jest.conf.js --coverage",
@@ -115,7 +115,7 @@
     "vue-template-compiler": "^2.5.2",
     "portfinder": "^1.0.13",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1",
+    "webpack-dev-server": "^2.10.0",
     "webpack-merge": "^4.1.0"
   },
   "engines": {
