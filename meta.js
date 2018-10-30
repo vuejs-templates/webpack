@@ -31,7 +31,7 @@ module.exports = {
       return templateVersion
     },
   },
-  
+
   prompts: {
     name: {
       when: 'isNotTest',
@@ -84,15 +84,15 @@ module.exports = {
       type: 'list',
       message: 'Pick an ESLint preset',
       choices: [
+		{
+          name: 'Airbnb (https://github.com/airbnb/javascript)',
+          value: 'airbnb',
+          short: 'Airbnb',
+        },
         {
           name: 'Standard (https://github.com/standard/standard)',
           value: 'standard',
           short: 'Standard',
-        },
-        {
-          name: 'Airbnb (https://github.com/airbnb/javascript)',
-          value: 'airbnb',
-          short: 'Airbnb',
         },
         {
           name: 'none (configure it yourself)',
@@ -148,6 +148,12 @@ module.exports = {
           name: 'Yes, use Yarn',
           value: 'yarn',
           short: 'yarn',
+        },
+
+        {
+          name: 'Yes, use CNPM',
+          value: 'cnpm',
+          short: 'cnpm',
         },
         {
           name: 'No, I will handle that myself',
