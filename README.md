@@ -1,3 +1,6 @@
+# DEPRECATED
+Please use the Vuetify [CLI 3.x plugin](https://github.com/vuetifyjs/vue-cli-plugin-vuetify).
+
 # vue-webpack-boilerplate
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
