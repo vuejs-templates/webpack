@@ -1,0 +1,149 @@
+// 过渡动画 横向渐变
+.fade-transverse-leave-active,
+.fade-transverse-enter-active {
+  transition: all .5s;
+}
+.fade-transverse-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+.fade-transverse-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+// 过渡动画 缩放渐变
+.fade-scale-leave-active,
+.fade-scale-enter-active {
+  transition: all .5s;
+}
+.fade-scale-enter {
+  opacity: 0;
+  transform: scale(1.2);
+}
+.fade-scale-leave-to {
+  opacity: 0;
+  transform: scale(0.8);
+}
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY,
+.animated.bounceIn,
+.animated.bounceOut {
+  animation-duration: .75s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+/* shake */
+@keyframes shake {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.shake {
+  animation-name: shake;
+}
+@keyframes rollIn {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.rollIn {
+  animation-name: rollIn;
+}
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+}
+.animated.rollIn
+  animation-duration: .75s
+/* slideIn and slideOut */
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInRight {
+  animation-name: slideInRight;
+}
+@keyframes slideOutRight {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.slideOutRight {
+  animation-name: slideOutRight;
+}

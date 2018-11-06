@@ -1,0 +1,106 @@
+// 背景图片地址和大小
+bis($url) {
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+borderRadius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+//定位全屏
+allcover(){
+	position:absolute;
+	top:0;
+	right:0;
+}
+
+//定位上下左右居中
+center() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+//定位上下居中
+ct() {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+//定位左右居中
+cl() {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+//宽高
+wh($width, $height){
+	width: $width;
+	height: $height;
+}
+
+//字体大小，颜色
+sc($size, $color){
+	font-size: $size;
+	color: $color;
+}
+
+//flex 布局和 子元素 对其方式
+fj($type = space-between){
+	display: flex;
+	justify-content: $type;
+}
+// 给border设置颜色 配合类名使用
+bt-1($color)
+	&:after
+		border-top: 1px solid $color
+br-1($color)
+	&:after
+		border-right: 1px solid $color
+
+bb-1($color)
+	&:after
+		border-bottom: 1px solid $color
+
+bl-1($color)
+	&:after
+		border-left: 1px solid $color
+
+b-1($color = #ccc, $radius = 0px, $style = solid)
+	position: relative
+	&:after
+		content: ""
+		pointer-events: none // 解决iphone上的点击无效Bug
+		display: block
+		position: absolute
+		left: 0
+		top: 0
+		transform-origin: 0 0
+		border-radius: $radius
+		box-sizing border-box
+		width 100%
+		height 100%
+		@media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2)
+			width: 200%
+			height: 200%
+			border-radius: $radius * 2
+			transform: scale(.5) translateZ(0)
+		@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3)
+			width: 300%
+			height: 300%
+			border-radius: $radius * 3
+			transform: scale(.33) translateZ(0)
+
+border-none()
+	&:before
+		display: none
+	&:after
+		display: none
