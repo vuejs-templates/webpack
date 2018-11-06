@@ -1,0 +1,137 @@
+[
+  {
+    "label": "存货管理",
+    "subMenu": [
+      {
+        "key": "EXPENSE_MANAGEMENT_APPLY",
+        "label": "存货主数据设置",
+        "url": "/inventory-management/master-data"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_EXAMINE",
+        "label": "报表查询",
+        "url": "/expense-management/examine"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "期末调价",
+        "url": "/expense-management/logistics-cost"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "结转",
+        "url": "/expense-management/logistics-cost"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "打开上一核算期",
+        "url": "/expense-management/logistics-cost"
+      }
+    ]
+  },
+  {
+    "label": "财务基础数据定义",
+    "subMenu": [
+      {
+        "key": "EXPENSE_MANAGEMENT_APPLY",
+        "label": "支付方式定义",
+        "url": "/expense-management/apply"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_EXAMINE",
+        "label": "费用新增类型定义",
+        "url": "/expense-management/examine"
+      }
+    ]
+  },
+  {
+    "label": "应付管理",
+    "subMenu": [
+      {
+        "key": "EXPENSE_MANAGEMENT_APPLY",
+        "label": "应付系统初始化设置",
+        "url": "/cope-with-management/system-init"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_EXAMINE",
+        "label": "账户余额初始化",
+        "url": "/cope-with-management/account-balance-init"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "对账单管理",
+        "url": "/cope-with-management/account-statement"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "结算单管理",
+        "url": "/cope-with-management/settlement-sheet"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "应付账款管理",
+        "url": "/cope-with-management/accounts-payable"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "付款结算管理",
+        "url": "/cope-with-management/payment-settlement"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "付款审核",
+        "url": "/cope-with-management/payment-audit"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "现款结算管理",
+        "url": "/cope-with-management/cash-settlement"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "退货冲减",
+        "url": "/cope-with-management/return-reduction"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "预付款管理",
+        "url": "/cope-with-management/advance-charge"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "预付款审核",
+        "url": "/cope-with-management/advance-charge-audit"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "期末结转和反结转",
+        "url": "/cope-with-management/reverse-junction"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "应收账款月账查询",
+        "url": "/cope-with-management/monthly-account"
+      }
+    ]
+  },
+  {
+    "label": "费用管理",
+    "subMenu": [
+      {
+        "key": "EXPENSE_MANAGEMENT_APPLY",
+        "label": "客户费用申请",
+        "url": "/expense-management/apply"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_EXAMINE",
+        "label": "客户费用审核",
+        "url": "/expense-management/examine"
+      },
+      {
+        "key": "EXPENSE_MANAGEMENT_LOGISTICS_COST",
+        "label": "调拨物流费用管理",
+        "url": "/expense-management/logistics-cost"
+      }
+    ]
+  }
+]

@@ -1,57 +1,74 @@
-import Vue from "vue";
-import store from "../store";
-import Router from "vue-router";
-import {deepCopy} from "@/utils/utils";
-import Home from "@/views/home";
-// import { Message } from 'element-ui'
-import expenses from "./views/expenses";
-import businese from "./views/businese";
+import Vue from 'vue'
+import Router from 'vue-router'
+import index from '../views/index'
 
-Vue.use(Router);
+import {
+  Message
+} from 'element-ui'
 
-const home = [
-	{
-		path: "/",
-		name: "/",
-		component: Home
-	},
-	{
-		name: "404",
-		path: "*",
-		redirect: "/"
-	}
-];
+import {
+  getPermission
+} from "../utils/get-application-permission";
 
-const router = new Router({
-	routes: home.concat(expenses, businese)
-});
-router.beforeResolve((to, from, next) => {
-	// 全局解析守卫
-	next();
-});
-router.afterEach((to, from) => {
-	// 全局后置钩子
-	// 设置面包屑
-	let $route = to;
-	let result;
-	try {
-		let path = $route.meta && $route.meta.path;
-		if (path) {
-			result =
-				typeof path === "string"
-					? path.split("/").map(label => {
-							return {label};
-					  })
-					: deepCopy(path);
+let nestedRoutes = {}
 
-			// 加入首页
-			result.unshift({label: "门店运营", name: "/"});
-		} else {
-			throw new Error();
-		}
-	} catch (e) {
-		result = [];
-	}
-	store.commit("setBreadcrumb", result); // 通过vuex设置
-});
-export default router;
+let routeOptions = (r => r.keys().map(sourcePath => {
+  const route = r(sourcePath).default
+  const routePath = sourcePath.replace('.', '').replace('index.vue', '').replace('.vue', '')
+
+  if(route.nestedRoute) {
+    nestedRoutes[routePath] = []
+  }
+
+  return {
+    name: route.name,
+    path: routePath,
+    component: route,
+    children: nestedRoutes[routePath] || []
+  }
+}))(require.context('../views', true, /\.vue$/))
+
+routeOptions = routeOptions.filter(option => {
+  for(const [nestedRoutesPath, nestedRoutesChildren] of Object.entries(nestedRoutes)) {
+    if(option.path.length > nestedRoutesPath.length && option.path.indexOf(nestedRoutesPath) === 0) {
+      nestedRoutesChildren.push({
+        name: option.name,
+        path: option.component.nestedRouteIndex ? '' : option.path.replace(nestedRoutesPath, ''),
+        component: option.component
+      })
+
+      return false
+    }
+
+    return true
+  }
+})
+
+console.log(routeOptions, nestedRoutes)
+
+Vue.use(Router)
+
+let router = new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'INDEX',
+      component: index
+    },
+    ...routeOptions
+  ]
+})
+
+router.beforeEach(async (to, form, next) => {
+  const permission = await getPermission()
+
+  if(permission[to.name]){
+    to.meta.permission = permission[to.name]
+
+    next()
+  }else{
+    Message.error('没有访问权限')
+  }
+})
+
+export default router
