@@ -1,0 +1,165 @@
+@import "./variable"
+// 重置ui框架相关的样式
+.logo
+	background-color: #002140;
+	text-align: center;
+	color: #fff;
+	h3
+		margin: 0;
+.pagoda-layout__main
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+
+.el
+	// &-breadcrumb
+	// 	margin-bottom: 20px;	
+	&-tree-node__content
+		height: 40px;	
+	/* form 下面表单元素统一样式 */
+	&-form
+		.el-select
+			width: 220px;	
+		.el-form-item__content
+			width: 220px;
+			// reset 时间段选择的宽度
+			.el-range-editor
+				width 100%
+				.el-range-separator
+					width: auto
+	&-input.el-input--small
+		height: 32px;
+	/* 优化弹窗样式 */
+	&-dialog
+		box-shadow $box-shadow
+		border-radius 6px
+		border 1px solid rgba(0,0,0,.2)
+		.el-dialog__headerbtn .el-dialog__close
+				font-size 23px
+	&-dialog__body
+		padding 20px
+	/* 侧边栏 */
+	&-aside .el-menu
+		border-right 0
+	/* tooltip样式 */
+	&-tooltip__popper.is-light
+		border-color #d1d1d1
+		border-radius 10px
+		box-shadow $box-shadow-2
+		opacity .9
+		&[x-placement^=top] .popper__arrow
+			border-top-color #d1d1d1
+		&[x-placement^=left] .popper__arrow
+			border-left-color #d1d1d1
+		&[x-placement^=right] .popper__arrow
+			border-right-color #d1d1d1
+		&[x-placement^=bottom] .popper__arrow
+			border-bottom-color #d1d1d1
+	/* 表格行下面的按钮样式 */
+	&-table__row
+		.el-button
+			margin 0 5px 5px 0
+	
+.grid-btns-wrapper
+	display: flex;
+	display: -webkit-flex;
+	margin-top: 20px;
+
+.cascade-select
+	width: 49%;
+	.el-select
+		width: 100%;
+
+.erp
+	&-view
+		flex: 1;
+		-webkit-box-flex: 1;
+		overflow-y: auto;
+		.el-main.erp-view-main
+			background-color: #ffffff; 
+	&-dialog-wrapper
+		display: flex;
+		display: -webkit-flex;
+		justify-content: center;
+		margin-top: 10px;
+		margin-bottom: 40px;
+		&:last-of-type
+			margin-top: 0;
+			margin-bottom: 0;
+		
+		&>table
+			border: 1px solid #ccc;
+			border-collapse: collapse;
+			td
+				padding: 2px;
+				line-height: 32px;
+				text-align: center;
+				min-width: 100px;
+	/* table表格样式 */
+	&-table.pagoda-table .el-table
+		tr td
+			font-size 13px
+			
+/* 2018-6-7 10:11:43 表单元素占的宽度太小不好编辑和显示，移入时放大 */	
+scale($width, $offset)
+	position relative
+	z-index 2
+	width $width
+	transform translateX($offset)
+.erp-table.scale .el-table
+	/* 过滤icon始终在表头上层 */
+	.table-column-filter
+		z-index 3
+	/* 表头字段悬浮展示全部 */
+	.el-table__row .cell
+		overflow visible
+		&:hover
+			.pagoda-table-edit
+				scale(200px, -25%)
+			.table-edit-input
+				scale(180px, -25%)
+	/* 行中的表单悬浮时放大 */
+	.el-table__header
+		th:hover
+			overflow visible
+			text-overflow unset
+			.cell, .table-header-content
+				overflow visible
+				text-overflow unset
+			.table-header-content
+				scale(auto, 0%)
+				
+/* table表格表头的下拉菜单 */
+.drop-down.table-filter-list
+	z-index: 9999
+
+/* 基础数据下拉组件 */
+// .pagoda-bdc-select
+// 	.el-select
+// 		.el-select__tags
+// 			& > span
+// 				position absolute
+// 				top -24px
+// 				width 215px
+// 			.el-select__input
+// 				width 175px !important
+// 		.el-select__tags-text:first-of-type
+// 			display inline-block
+// 			max-width 130px
+// 			text-overflow ellipsis
+// 			white-space nowrap
+// 			overflow hidden!important
+// 		.el-tag__close
+// 			top -6px
+// 			margin-left: -10px
+
+::-webkit-scrollbar
+	width: 6px;
+	height: 6px;
+	border-radius: 3px;
+	&-thumb
+		width: 6px;
+		border-radius: 3px;
+		background-color: #ddd; 
+		&:hover
+			background-color: #999;

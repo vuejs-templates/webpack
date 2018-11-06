@@ -1,0 +1,144 @@
+@import "./variable"
+
+.clearfix:before, .clearfix:after
+	content ""
+	display block
+	clear both
+.clearfix
+	zoom 1
+
+.flex-block
+	display flex
+
+.flex
+	flex 1
+	flex-basis auto
+
+.flex-middle
+	align-items center
+
+.left
+	float left
+.right
+	float right
+.por
+	position relative
+.poa
+	position absolute
+.mask
+	left 0
+	top 0
+	right 0
+	bottom 0
+.block
+	display block
+.inline-block
+	display inline-block
+.vertical-middle
+	vertical-align middle
+.pointer
+	cursor: pointer
+
+.center-h, .center, .txt-center, .align-center
+	text-align center
+.txt-right, .align-right, .text-right
+	text-align right
+.txt-left, .align-left, .text-left
+	text-align left
+.text-center
+	text-align center
+.text-overflow
+	text-overflow ellipsis
+	white-space nowrap
+	overflow hidden!important
+.text-wrap
+	word-wrap break-word
+	word-break break-all
+.text-clip
+	text-overflow clip
+.margin-left-10, .ml-10
+	margin-left 10px
+.margin-right-10, .mr-10
+	margin-right 10px
+
+.margin-left-20, .ml-20
+	margin-left 20px
+.margin-right-20, .mr-20
+	margin-right 20px
+
+.margin-top-10, .mt-10
+	margin-top 10px
+.margin-bottom-10, .mb-10
+	margin-bottom 10px
+
+.margin-top-20, .mt-20
+	margin-top 20px
+.margin-bottom-20, .mb-20
+	margin-bottom 20px
+
+.p0
+	padding 0!important
+.plr-15
+	padding-left 15px
+	padding-right: 15px
+.padding-left-10, .pl-10
+	padding-left 10px
+.padding-right-10, .pr-10
+	padding-right 10px
+
+.padding-left-20, .pl-20
+	padding-left 20px
+.padding-right-20, .pr-20
+	padding-right 20px
+
+.padding-top-10, .pt-10
+	padding-top 10px
+.padding-bottom-10, .pb-10
+	padding-bottom 10px
+
+.padding-top-20, .pt-20
+	padding-top 20px
+.padding-bottom-20, .pb-20
+	padding-bottom 20px
+
+.fz12
+	font-size 12px
+.fz13
+	font-size 13px
+.fz14
+	font-size 14px
+.fz16
+	font-size 16px
+
+.no-margin
+	margin 0!important
+
+.no-padding
+	padding 0!important
+
+.no-border
+	border 0!important
+/* 圆润字体 */
+.ff-consolas
+	font-family consolas
+._table-cell
+	display table-cell
+	vertical-align middle
+	word-wrap break-word
+	word-break break-all
+.text-blue
+	color $blue-color
+.text-green
+	color $green-color
+.text-danger
+	color $danger-color
+.text-gray
+	color $gray-color
+.text-warn
+	color $warning-color
+/* 表格内的工具提示默认宽高限制 */
+.table-tooltip-box
+	width 175px
+	min-height 60px
+	word-wrap break-word
+	word-break break-all
