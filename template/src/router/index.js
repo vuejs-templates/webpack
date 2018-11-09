@@ -8,7 +8,7 @@ const path = [
   {
     path: '/',
     name: 'layout',
-    component layout
+    component: layout
   }
 ];
 Vue.use(Router);
