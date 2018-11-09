@@ -71,7 +71,9 @@ i{
   justify-content: center;
 }
 #layout{
+  {{#if_eq platform "webApp"}}
   max-width: 540px;
+  {{/if_eq}}
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
