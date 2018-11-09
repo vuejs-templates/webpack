@@ -74,6 +74,11 @@ module.exports = {
       type: 'confirm',
       message: 'Install vue-router?',
     },
+    vues: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use vues ?',
+    },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
@@ -169,6 +174,7 @@ module.exports = {
     'test/unit/specs/index.js': "unit && runner === 'karma'",
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
+    "src/store/**/*": "vuex",
     'src/router/**/*': 'router',
   },
   complete: function(data, { chalk }) {
