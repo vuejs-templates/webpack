@@ -69,10 +69,14 @@ i{
 #app {
   display: flex;
   justify-content: center;
+  {{#if_eq platform "webApp"}}
+  background-color: #000;
+  {{/if_eq}}
 }
 #layout{
   {{#if_eq platform "webApp"}}
   max-width: 540px;
+  background-color: #fff;
   {{/if_eq}}
   box-sizing: border-box;
   position: relative;
