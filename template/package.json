@@ -28,7 +28,7 @@
     "vue": "^2.5.2"{{#router}},
     "vue-router": "^3.0.1"{{/router}}{{#vuex}},
     "vuex": "^3.0.1"{{/vuex}}{{#mock}},
-    "mock": "^1.0.1"{{/mock}}
+    "mockjs": "^1.0.1"{{/mock}}
   },
   "devDependencies": {
     {{#lint}}
