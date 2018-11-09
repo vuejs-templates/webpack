@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-const layout = resolve => require(['@/views/layout'], resolve);
+const layout = resolve => require(['@/view/layout'], resolve);
 const component =  {
   template: '<router-view></router-view>'
 };
