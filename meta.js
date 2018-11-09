@@ -44,12 +44,29 @@ module.exports = {
       type: 'string',
       required: false,
       message: 'Project description',
-      default: 'A Vue.js project',
+      default: 'A metaTeam template project.',
     },
     author: {
       when: 'isNotTest',
       type: 'string',
       message: 'Author',
+    },
+    platform: {
+      when: 'isNotTest',
+      type: 'list',
+      message: '平台模板',
+      choices: [
+        {
+          name: 'admin-template',
+          value: 'adminTmp',
+          short: 'adminTmp'
+        },
+        {
+          name: 'web-app-template',
+          value: 'webApp',
+          short: 'webApp'
+        }
+      ]
     },
     build: {
       when: 'isNotTest',
@@ -74,10 +91,15 @@ module.exports = {
       type: 'confirm',
       message: 'Install vue-router?',
     },
-    vues: {
+    vuex: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Use vues ?',
+      message: 'Use vuex ?',
+    },
+    mock: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use mock.js ?',
     },
     lint: {
       when: 'isNotTest',

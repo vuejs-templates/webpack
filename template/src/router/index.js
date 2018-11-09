@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+const layout = resolve => require(['@/views/layout'], resolve);
 const component =  {
   template: '<router-view></router-view>'
 };
 const path = [
   {
     path: '/',
-    name: 'index',
-    component HelloWorld
+    name: 'layout',
+    component layout
   }
 ];
 Vue.use(Router);

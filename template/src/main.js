@@ -7,7 +7,7 @@ import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
-
+import '@/config/plugins';
 {{#vuex}}  //vuex init
 import Vuex from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import store from  './store/store'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
