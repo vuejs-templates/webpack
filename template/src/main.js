@@ -2,25 +2,19 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import pagodaComponents from 'pagoda-ui'
 import router from './router'
 
-import custom from './components/custom'
+// 引入element-ui 作为依赖
+import ElementUi from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
-pagodaComponents.formGroup.registerComponents({
-  'bdc-select': {
-    component: pagodaComponents.bdcSelect
-  }
-})
-Vue.use(ElementUI, { size: 'small' })
-pagodaComponents.erpTable.projectName = pagodaComponents.bdcSelect.projectName = pagodaComponents.erpForm.projectName = 'test'
-Vue.use(pagodaComponents)
+import pagodaBaseComponents from 'pagoda-ui/base-components'
 
-pagodaComponents.tableEditItem.registerComponents({
-  custom
-})
+import 'pagoda-ui/src/style/reset.styl'
+import 'pagoda-ui/src/theme/theme1.scss'
+
+Vue.use(pagodaBaseComponents)
+Vue.use(ElementUi, {size: 'mini'})
 
 Vue.config.productionTip = false
 

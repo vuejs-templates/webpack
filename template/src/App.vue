@@ -1,78 +1,84 @@
 <template>
-    <pagoda-layout
-      :side-menu="sideMenu"
-      :top-menu="topMenu"
-      :side-menu-props="{
-        'background-color': '#001529',
-        'text-color': '#fff',
-        'active-text-color': '#409eff'
-      }"
-      :side-menu-default-active="$route.path"
-      @tabs-change="handleTabsChange"
-    >
-      <div slot="header-left" class="logo"><h3>百果园ERP</h3></div>
-      <div slot="header-right">大佬</div>
-      <router-view/>
-    </pagoda-layout>
+  <pagoda-layout
+    collapse
+    :collapse-icon="['iconfont icon-shensuocaidan1', 'iconfont icon-shensuocaidan']"
+    :side-menu="sideMenu"
+    :top-menu="topMenu"
+    :header-props="{
+      height: '50px'
+    }"
+    :side-menu-default-active="$route.path"
+    @tabs-change="handleTabsChange"
+    @tabs-data-change="handleTabsDataChange"
+    @select-top-menu="handleSelectTopMenu"
+  >
+    <div slot="header-left" class="logo">百果园</div>
+    <div slot="header-right" class="user-info">user-info</div>
+    <keep-alive :include="include">
+      <router-view></router-view>
+    </keep-alive>
+  </pagoda-layout>
 </template>
 
 <script>
-  import allSideMenu from './allSideMenu.json'
-
-  import {
-    getApplicationMenu
-  } from "./utils/get-application-permission"
-
-  export default {
-    data () {
-      getApplicationMenu(allSideMenu).then(permissitionMenu => {
-        this.sideMenu = permissitionMenu
-      })
-
-      return {
-        sideMenu: allSideMenu,
-        topMenu: [
-          {
-            label: '财务管理',
-            url: location.href
-          }
-        ]
-      }
+export default {
+  name: 'App',
+  data () {
+    return {
+      include: [],
+      sideMenu: [{
+        icon: 'el-icon-location',
+        label: '采购价',
+        subMenu: [{
+          label: '调价单录入',
+          // 当菜单label有冲突的时候，使用tabName作为tab的label
+          tabName: '采购价-调价单录入',
+          name: 'demo1',
+          url: '/demo1'
+        }]
+      }, {
+        icon: 'el-icon-location',
+        label: '配送/退货价',
+        subMenu: [{
+          label: '调价单录入',
+          // 当菜单label有冲突的时候，使用tabName作为tab的label
+          tabName: '配送/退货价-调价单录入',
+          name: 'demo2',
+          url: '/demo2'
+        }]
+      }],
+      topMenu: [{
+        label: '处理中心',
+        url: 'http://localhost:8080/#/'
+      }, {
+        label: '我的工作台',
+        url: 'xxx'
+      }, {
+        label: '消息中心',
+        disabled: true,
+        url: 'xxx'
+      }]
+    }
+  },
+  methods: {
+    handleTabsDataChange (tabs) {
+      // 【keep-alive】缓存tab标签对应路由的组件实例
+      console.log(tabs.filter(el => el.name).map(el => el.name))
+      this.include = tabs.filter(el => el.name).map(el => el.name)
     },
-
-    methods: {
-      handleTabsChange ({url}) {
-        console.log(url)
-        this.$router.replace(url)
-      }
+    handleTabsChange ({ url }) {
+      this.$router.push(url)
+    },
+    handleSelectTopMenu (data) {
+      console.log(data)
     }
   }
+}
 </script>
 
-<style lang="less" type="text/less">
-  body {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    margin: 0;
-    padding: 0;
-  }
-  .logo{
-    background-color: #002140;
-    text-align: center;
-    color: #fff;
-  }
-  .logo h3 {
-    margin: 0;
-  }
-  .el-breadcrumb {
-    margin-bottom: 20px;
-  }
-  .main {
-    .pagoda-table{
-      padding-top: 20px;
-      border-top: 1px solid #e4e4e4;
-    }
-  }
+<style type="text/stylus" lang="stylus">
+  .logo, .user-info
+    font-size 20px
+    text-align center
+    color #fff
 </style>
