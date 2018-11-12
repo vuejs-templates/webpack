@@ -197,6 +197,7 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     "src/store/**/*": "vuex",
+    "src/mock/**/*": "mock",
     'src/router/**/*': 'router',
   },
   complete: function(data, { chalk }) {
