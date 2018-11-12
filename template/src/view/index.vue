@@ -30,7 +30,7 @@
         }
     }
 </script>
-<style lang=scss>
+<style lang="scss">
     #index {
     }
 </style>
