@@ -1,6 +1,6 @@
 <template>
     <div id='headerBox'>
-        headerBox
+        <div class="name">headerBox</div>
     </div>
 </template>
 <script>
