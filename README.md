@@ -7,7 +7,7 @@
 
 # Vue-cli 3 is here, so this template is now considered deprecated.
 
-This template was the main template for vue-cli verison 2.*.
+This template was the main template for vue-cli version 2.*.
 
 Now that we have released a [stable version of vue-cli 3](https://cli.vuejs.org), which incorporates all features that this template offers (and much more), we think that this template doesn't have any significant use for the future, so we won't put much resource in developing it further.
 
