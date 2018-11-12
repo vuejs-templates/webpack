@@ -1,4 +1,4 @@
-# erp_finance_frontend
+# pagoda-template-1
 
 > A Vue.js project
 

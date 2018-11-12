@@ -6,28 +6,16 @@ const path = require('path')
 
 module.exports = {
   dev: {
+
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      '/getPermission': {
-        target: 'http://localhost:3000/',
-        changeOrigin: true
-      },
-      '/test': {
-        target: 'http://localhost:3000/',
-        changeOrigin: true
-      },
-      '/order-web': {
-        target: 'http://bdcl.test.pagoda.com.cn',
-        changeOrigin: true
-      }
-    },
+    proxyTable: {},
 
     // Various Dev Server settings
     host: '0.0.0.0', // can be overwritten by process.env.HOST
-    port: 8081, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
