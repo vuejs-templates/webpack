@@ -1,1 +1,1 @@
-export const util = {};
+export default {};

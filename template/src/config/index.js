@@ -1,4 +1,4 @@
-export const conf = {
+export default {
     api: '/api/',
     baseUrl: ''
 }

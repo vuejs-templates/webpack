@@ -95,7 +95,7 @@
         },
         watch: {
             $route(to, from) {
-                if (from.name == "login" || from.path.indexOf("home") > -1) {
+                if (from.name === "login" || from.path.indexOf("home") > -1) {
                     this.direction = "slide-left";
                 } else if (to.path.indexOf("home") > -1) {
                     this.direction = "slide-right";
