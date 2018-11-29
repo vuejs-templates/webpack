@@ -25,8 +25,20 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    "vue": "^2.5.2",
+    {{#axios}}
+    "axios": "^0.17.1",
+    {{/axios}}
+    {{#router}}
+    "vue-router": "^3.0.1",
+    {{/router}}
+    {{#stylus}}
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    {{/stylus}}
+    {{#vuex}}
+    "vuex": "^3.0.1"
+    {{/vuex}}
   },
   "devDependencies": {
     {{#lint}}
