@@ -1,0 +1,84 @@
+// base reset
+*{
+    font-family: "Microsoft YaHei";
+    padding: 0;
+    margin:0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
+    backface-visibility: hidden;
+    user-select: none;
+  }
+  body, html{
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  ::-webkit-scrollbar-track  {
+      //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color:#a2a2a2;
+  }
+  /*定义滑块 内阴影+圆角*/
+  ::-webkit-scrollbar-thumb  {
+    display: none;
+      border-radius: 2px;
+      background-color: #a3a3a3;
+  }
+  textarea {
+    user-select: text !important;
+  }
+
+  input {
+    user-select: text !important;
+  }
+
+//   ::selection {
+//      background:$--color-warning;
+//      color:#fff;
+//   }
+
+  button {
+    outline: none;
+  }
+
+
+// ui 框架reset
+ 
+// 文字color
+i{
+  list-style: none;
+  font-size: none;
+  &.red{
+    color: red;
+  }
+}
+
+// transition 动画reset 默认添加 .3s 动画
+.animate{
+  transition: all .3s;
+}
+
+// 布局reset
+#app, #layout{
+  height: 100%;
+  overflow: hidden;
+}
+#app {
+  display: flex;
+  justify-content: center;
+  {{#if_eq platform "webApp"}}
+  background-color: #000;
+  {{/if_eq}}
+}
+#layout{
+  {{#if_eq platform "webApp"}}
+  max-width: 540px;
+  background-color: #fff;
+  {{/if_eq}}
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}

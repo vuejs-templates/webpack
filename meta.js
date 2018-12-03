@@ -44,12 +44,29 @@ module.exports = {
       type: 'string',
       required: false,
       message: 'Project description',
-      default: 'A Vue.js project',
+      default: 'A metaTeam template project.',
     },
     author: {
       when: 'isNotTest',
       type: 'string',
       message: 'Author',
+    },
+    platform: {
+      when: 'isNotTest',
+      type: 'list',
+      message: '平台模板',
+      choices: [
+        {
+          name: 'admin-template',
+          value: 'adminTmp',
+          short: 'adminTmp'
+        },
+        {
+          name: 'web-app-template',
+          value: 'webApp',
+          short: 'webApp'
+        }
+      ]
     },
     build: {
       when: 'isNotTest',
@@ -73,6 +90,16 @@ module.exports = {
       when: 'isNotTest',
       type: 'confirm',
       message: 'Install vue-router?',
+    },
+    vuex: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use vuex ?',
+    },
+    mock: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use mock.js ?',
     },
     lint: {
       when: 'isNotTest',
@@ -169,6 +196,8 @@ module.exports = {
     'test/unit/specs/index.js': "unit && runner === 'karma'",
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
+    "src/store/**/*": "vuex",
+    "src/mock/**/*": "mock",
     'src/router/**/*': 'router',
   },
   complete: function(data, { chalk }) {

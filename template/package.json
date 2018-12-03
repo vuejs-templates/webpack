@@ -26,9 +26,13 @@
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    "vue-router": "^3.0.1"{{/router}}{{#vuex}},
+    "vuex": "^3.0.1"{{/vuex}}{{#mock}},
+    "mockjs": "^1.0.0"{{/mock}}
   },
   "devDependencies": {
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
     {{#lint}}
     "babel-eslint": "^7.2.3",
     "eslint": "^4.15.0",
