@@ -31,6 +31,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     hot: true,
     contentBase: false, // since we use CopyWebpackPlugin.
     compress: true,
+    https: config.dev.https,
     host: HOST || config.dev.host,
     port: PORT || config.dev.port,
     open: config.dev.autoOpenBrowser,
@@ -78,11 +79,13 @@ module.exports = new Promise((resolve, reject) => {
       process.env.PORT = port
       // add port to devServer config
       devWebpackConfig.devServer.port = port
+      // which protocol to show in notifications
+      const protocol = devWebpackConfig.devServer.https ? 'https': 'http';
 
       // Add FriendlyErrorsPlugin
       devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
-          messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
+          messages: [`Your application is running here: ${protocol}://${devWebpackConfig.devServer.host}:${port}`],
         },
         onErrors: config.dev.notifyOnErrors
         ? utils.createNotifierCallback()
