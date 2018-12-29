@@ -1,0 +1,41 @@
+@import url('./index.less');
+.login-wrap {
+    .flexDisplay();
+    background-color: #f1f1f1;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    .login-main {
+        .flexDisplay();
+        width: 400px;
+        min-height: 250px;
+        background-color: #fff;
+        .box-shadow();
+        flex-direction: column;
+        border-radius: 6px;
+        position: relative;
+        .login-title {
+            color: #242424;
+            font-size: 32px;
+            width: 100%;
+            .flexDisplay();
+            height: 32px;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: -54px;
+        }
+        .login-content {
+            width: 100%;
+            justify-content: center;
+            .flexDisplay();
+            flex-direction: column;
+            padding: 30px;
+            box-sizing: border-box;
+            .el-form-item>.el-form-item__content>.el-button {
+                width: 100%;
+            }
+        }
+    }
+}

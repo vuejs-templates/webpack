@@ -1,0 +1,44 @@
+@import url('./index.less');
+@height: 80px;
+.header-wrap {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-left: 280px;
+    background-color: #fff;
+    height: @height;
+    z-index: 10;
+    .box-shadow();
+    .flexDisplay();
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    .content {
+        height: @height;
+        .flexDisplay();
+        align-items: center;
+        &.right-content {
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            img {
+                width: 40px;
+                height: 40px;
+                margin-right: 30px;
+                cursor: pointer;
+            }
+            i {
+                font-size: 24px;
+                color: #333;
+                margin-right: 30px;
+                cursor: pointer;
+            }
+        }
+        .el-input {
+            input {
+                border-radius: 40px;
+            }
+        }
+    }
+}
