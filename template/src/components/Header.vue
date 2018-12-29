@@ -7,8 +7,8 @@
     </div>
     <div class="content right-content">
         <img src='static/avatar.jpg'>
-        <i class="iconfont icon-setting"></i>
-        <i class="iconfont icon-notification"></i>
+        <i class="el-icon-setting"></i>
+        <i class="el-icon-bell"></i>
     </div>
   </div>
 </template>

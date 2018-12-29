@@ -5,7 +5,7 @@ export default {
                 title: '一级标题', titleDatas: [{
                     title: '二级标题', url: '/', actived: true, routeName: 'Main'
                 },{
-                    title: '二级标题', url: '/', actived: true, routeName: ''
+                    title: '二级标题', url: '/', actived: false, routeName: 'Other'
                 }]
             }]
         }
