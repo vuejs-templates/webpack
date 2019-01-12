@@ -1,8 +1,8 @@
 <template>
-  <div id="app" class="hec-wrap">
+  <div id="app">
     <div v-if="!isLoginPage">
-      <Menu></Menu>
-      <Header></Header>
+      <Menu @onPress="handlePressMenu"></Menu>
+      <Header :title="headerTitle" :subtitle="headerSubTitle"></Header>
     </div>
     <div :class="isLoginPage ? '' : 'page-content'">
       <router-view/>
@@ -10,6 +10,6 @@
   </div>
 </template>
 
-<script src='@/js/index.js'></script>
+<script src="./js/app.js"></script>
 
-<style lang="less" src='@/styles/index.less'></style>
+<style lang="less" src="./styles/app.less"></style>
