@@ -1,0 +1,67 @@
+@import "./config.less";
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #f8f8fb;
+}
+
+#app {
+    font-family: "Microsoft YaHei", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.page-wrap {
+    width: 100%;
+    .flexDisplay();
+    flex-direction: column;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.page-content {
+    width: 100%;
+    .flexDisplay();
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 75px 0 0 280px;
+    box-sizing: border-box;
+}
+
+.table-wrap {
+    width: 100%;
+    background-color: #fff;
+    .box-shadow(#ebebeb, 3px 0 4px);
+    .table-form-wrap {
+        width: 100%;
+        .border-bottom();
+        .el-form {
+            .flexDisplay();
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+            width: 100%;
+        }
+        .content-wrap {
+            height: 64px;
+            .flexDisplay();
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+            &.left {
+                padding-left: 15px;
+                input {
+                    width: 300px;
+                }
+            }
+            &.right {
+                padding-right: 15px;
+                .el-form-item {
+                    margin-left: 15px;
+                }
+            }
+            .el-form-item {
+                margin: 0;
+            }
+        }
+    }
+}

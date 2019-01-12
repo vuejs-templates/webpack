@@ -1,39 +1,39 @@
-import api from '@/api'
-import md5 from 'blueimp-md5'
-
 export default {
     components: {
 
     },
     data() {
         return {
-            form: {
-                name: '',
+            ruleForm: {
+                email: '',
                 password: ''
             },
             rules: {
-                name: [
-                    { required: true, message: '登录账号不能为空', trigger: 'blur' },
+                email: [
+                    { required: true, message: 'Email is required', trigger: 'blur' },
                 ],
                 password: [
-                    { required: true, message: '登录密码不能为空', trigger: 'blur' },
+                    { required: true, message: 'Password is required', trigger: 'blur' },
                 ],
             }
         }
     },
+    mounted() { },
     methods: {
         submitForm(formName) {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
-                    this.login()
+                    localStorage.setItem('USER_INFO', JSON.stringify({
+                        email: this.ruleForm.email, TOKEN: 123
+                    }))
+                    setTimeout(() => {
+                        location.href = '/home';
+                    }, 1000);
                 } else {
                     console.log('error submit!!');
                     return false;
                 }
             });
         },
-        login() {
-            
-        }
     },
 };

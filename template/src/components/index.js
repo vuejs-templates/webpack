@@ -1,16 +1,15 @@
-import Menu from './Menu'
-import Header from './Header'
-import Breadcrumb from './Breadcrumb'
-import Title from './Title'
-import Pagination from './Pagination'
-import BannerView from './BannerView'
+import Menu from './Menu/index.vue'
+import Header from './Header/index.vue'
+import Title from  './Title/index.vue'
+import GeneralRulesItem from './GeneralRulesItem/index.vue'
+import Divider from './Divider/index.vue'
+import Pagination from './Pagination/index.vue'
 
 export {
     Menu,
     Header,
-    Breadcrumb,
     Title,
-    Pagination,
-    BannerView,
-    Tabs
+    GeneralRulesItem,
+    Divider,
+    Pagination
 }

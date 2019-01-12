@@ -122,7 +122,8 @@
     "portfinder": "^1.0.13",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "element-theme-chalk": "^2.4.11"
   },
   "engines": {
     "node": ">= 6.0.0",

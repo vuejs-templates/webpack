@@ -1,0 +1,106 @@
+@import "../../styles/config.less";
+@cellHeight: 75px;
+@subCellHeight: 44px;
+.header-wrap {
+    width: 100%;
+    position: fixed;
+    z-index: 19;
+    top: 0;
+    height: @cellHeight;
+    background-color: #fff;
+    .box-shadow(#dddce0ab, -3px 2px 7px);
+    box-sizing: border-box;
+    padding-left: 280px;
+    .flexDisplay();
+    align-items: center;
+    justify-content: space-between;
+    .title-wrap {
+        .flexDisplay();
+        height: @subCellHeight;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        color: #ebebeb;
+        .title {
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+            padding-left: 30px;
+            cursor: pointer;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #999;
+        }
+    }
+    .content {
+        height: @subCellHeight;
+        padding: 0 30px 0 0;
+        .flexDisplay();
+        flex-direction: row;
+        .dropdown-wrap {
+            padding: 0 30px;
+            box-sizing: border-box;
+            .flexDisplay();
+            align-items: center;
+            justify-content: center;
+            height: @subCellHeight;
+            cursor: pointer;
+            .border-right();
+            .el-dropdown-link {
+                .flexDisplay();
+                color: #5d5d5d;
+            }
+            .el-dropdown {
+                .iconfont {
+                    color: #f84d6c;
+                    font-size: 16px;
+                    width: 16px;
+                    height: 19px;
+                    .flexDisplay();
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: 8px;
+                }
+            }
+            .el-badge {
+                .iconfont {
+                    font-size: 20px;
+                    width: 20px;
+                    height: 20px;
+                    .flexDisplay();
+                    align-items: center;
+                    justify-content: center;
+                    color: #333;
+                    &.icon-mail {}
+                    &.icon-notification {}
+                }
+                &.mail {
+                    .el-badge__content {
+                        background-color: #f33473;
+                    }
+                }
+                &.notification {
+                    .el-badge__content {
+                        background-color: #9a8cef;
+                    }
+                }
+            }
+        }
+        .avatar-wrap {
+            .flexDisplay();
+            height: @subCellHeight;
+            width: @subCellHeight;
+            justify-content: center;
+            align-items: center;
+            margin-left: 30px;
+            img {
+                cursor: pointer;
+                height: @subCellHeight;
+                width: @subCellHeight;
+                border-radius: @subCellHeight;
+                border: 2px solid #ccc;
+            }
+        }
+    }
+}

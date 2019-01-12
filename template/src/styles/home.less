@@ -1,17 +1,24 @@
-@import url('./index.less');
-@chartHeight: 200px;
-.home-main {
-    .flexDisplay();
-    flex: 1;
-    flex-direction: column;
-    .table-wrap {
+@import "./config.less";
+
+.home-wrap {
+    padding-top: 0;
+    .home-general-rules {
+        width: 100%;
         .flexDisplay();
-        .box-shadow();
-        background-color: #fff;
-        border-radius: 6px;
-        flex-direction: column;
-        .table-chart {
-            width: 100%;
+        flex-direction: row;
+        .general-rulesItem {
+            width: 25%;
+            .flexDisplay();
+            margin: 0 15px;
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
         }
+    }
+    .table-wrap {
+        margin-top: 30px;
     }
 }
