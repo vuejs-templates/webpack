@@ -7,9 +7,12 @@ import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import '../theme/index.css'
 
 Vue.config.productionTip = false
-
+Vue.use(ElementUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

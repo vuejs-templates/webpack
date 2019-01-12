@@ -1,0 +1,24 @@
+@import "./config.less";
+
+.home-wrap {
+    padding-top: 0;
+    .home-general-rules {
+        width: 100%;
+        .flexDisplay();
+        flex-direction: row;
+        .general-rulesItem {
+            width: 25%;
+            .flexDisplay();
+            margin: 0 15px;
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+    .table-wrap {
+        margin-top: 30px;
+    }
+}

@@ -1,0 +1,89 @@
+@import "../../styles/config.less";
+@cellHeight: 88px;
+@paddingLeft: 30px;
+@menuWidht: 280px;
+.menu-wrap {
+    width: @menuWidht;
+    background-color: #4e49b1;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    z-index: 20;
+    margin: auto;
+    .flexDisplay();
+    flex-direction: column;
+    .menu-logo-name {
+        .flexDisplay();
+        width: @menuWidht;
+        height: 110px;
+        background-color: #2d2a74;
+        color: #fff;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        // padding-left: @paddingLeft;
+        position: fixed;
+        top: 0;
+        z-index: 20;
+        margin: auto;
+        .box-shadow(#382ed0ab, -3px 2px 7px);
+        .iconfont {
+            .flexDisplay();
+            font-size: 26px;
+            margin-right: 8px;
+            margin-left: @paddingLeft;
+        }
+        .logo-name {
+            .flexDisplay();
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+    .menu-content {
+        width: 100%;
+        height: 100vh;
+        padding: 110px 0 0 0;
+        overflow: auto;
+        margin: auto;
+        .menu-item {
+            .flexDisplay();
+            width: 100%;
+            flex-direction: column;
+            min-height: @cellHeight * 2;
+            .title {
+                .flexDisplay();
+                width: 100%;
+                height: @cellHeight;
+                justify-content: flex-start;
+                align-items: center;
+                color: #fff;
+                font-size: 20px;
+                padding-left: @paddingLeft;
+                cursor: pointer;
+            }
+            .menu-sub-item {
+                .flexDisplay();
+                width: 100%;
+                height: @cellHeight;
+                color: #fff;
+                justify-content: flex-start;
+                align-items: center;
+                padding-left: @paddingLeft;
+                cursor: pointer;
+                &:hover {
+                    background-color: #6264c341;
+                }
+                .iconfont {
+                    font-size: 24px;
+                    margin-right: 20px;
+                }
+                .name {
+                    font-size: 16px;
+                }
+                &.actived {
+                    background-color: #6264c3;
+                }
+            }
+        }
+    }
+}

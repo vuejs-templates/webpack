@@ -1,0 +1,30 @@
+.flexDisplay() {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.box-shadow(@color: #cecece, @positon: 3px 0 4px) {
+    -moz-box-shadow: @positon @color;
+    /* 老的 Firefox */
+    box-shadow: @positon @color;
+}
+
+.border-bottom(@color: #ebebeb) {
+    border-bottom: 0.5px solid @color;
+}
+
+.border-left(@color: #ebebeb) {
+    border-left: 0.5px solid @color;
+}
+
+.border-right(@color: #ebebeb) {
+    border-right: 0.5px solid @color;
+}
+
+.border-top(@color: #ebebeb) {
+    border-top: 0.5px solid @color;
+}
+
+.border-all(@color: #ebebeb) {
+    border: 0.5px solid @color;
+}

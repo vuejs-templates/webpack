@@ -1,0 +1,103 @@
+@import "./config.less";
+@loginSize: 1200px;
+@Ratio: 0.625;
+@gradColor: #f1f1f1,
+#f1f1f1;
+.grad() {
+    background: -webkit-linear-gradient(left top, @gradColor);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(bottom right, @gradColor);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(bottom right, @gradColor);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to bottom right, @gradColor);
+    /* 标准的语法（必须放在最后） */
+}
+
+.login-wrap {
+    width: 100%;
+    height: 100vh; // background-color: #f1f1f1;
+    .grad();
+    .flexDisplay();
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    .login-content {
+        width: @loginSize;
+        height: @loginSize * @Ratio;
+        background-color: #fff;
+        .box-shadow(#e0e0dfc7, 13px 7px 20px 0px);
+        flex-direction: row;
+        .flexDisplay();
+        border-radius: 4px;
+        .content {
+            .flexDisplay();
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            &.left {
+                width: @loginSize / 2;
+                height: @loginSize * @Ratio;
+                background: url('/static/1_03.png') 0 0 no-repeat;
+                background-size: cover;
+                border-radius: 4px 0 0 4px;
+                .welcome-text {
+                    font-size: 30px;
+                    color: #fff;
+                    font-weight: bold;
+                    .name {
+                        font-size: 44px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+            &.right {
+                width: @loginSize / 2;
+                height: @loginSize * @Ratio;
+                .title-content {
+                    width: 100%;
+                    .flexDisplay();
+                    height: 64px;
+                    align-items: center;
+                    flex-direction: column;
+                    .welcome {
+                        color: #333;
+                        font-size: 30px;
+                        font-weight: bold;
+                    }
+                    .sub-welcome {
+                        color: #333;
+                        font-size: 14px;
+                        margin-top: 10px;
+                    }
+                }
+                .form-content {
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding: 0 120px;
+                    margin-top: 40px;
+                    .submit-button-content {
+                        .el-form-item__content {
+                            .flexDisplay();
+                            width: 100%;
+                            position: relative;
+                            padding: 0;
+                            box-sizing: border-box;
+                            .el-button {
+                                .flexDisplay();
+                            }
+                            .forgot-password {
+                                .flexDisplay();
+                                font-size: 14px;
+                                color: #333;
+                                position: absolute;
+                                right: 0;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

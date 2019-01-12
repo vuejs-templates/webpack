@@ -26,7 +26,13 @@
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    "vue-router": "^3.0.1"{{/router}},
+    "axios": "^0.18.0",
+    "blueimp-md5": "^2.10.0",
+    "element-ui": "^2.4.11",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "moment": "^2.23.0"
   },
   "devDependencies": {
     {{#lint}}
@@ -116,7 +122,8 @@
     "portfinder": "^1.0.13",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "element-theme-chalk": "^2.4.11"
   },
   "engines": {
     "node": ">= 6.0.0",

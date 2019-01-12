@@ -1,0 +1,42 @@
+@import "../../styles/config.less";
+@cellHeight: 120px;
+.GeneralRulesItem-wrap {
+    div {
+        .flexDisplay();
+    }
+    width: 100%;
+    .flexDisplay();
+    flex-direction: row;
+    background-color: #fff;
+    .icon-wrap {
+        height: @cellHeight;
+        width: @cellHeight + 30px;
+        justify-content: center;
+        align-items: center;
+        .iconfont {
+            color: #fff;
+            font-size: 40px;
+            width: 30px;
+            height: 30px;
+            .flexDisplay();
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .content {
+        height: @cellHeight;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 15px;
+        box-sizing: border-box;
+        .title {
+            color: #333;
+            font-size: 20px;
+        }
+        .label {
+            color: #999;
+            font-size: 14px;
+        }
+    }
+}
