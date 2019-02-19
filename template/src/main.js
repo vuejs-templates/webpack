@@ -7,8 +7,18 @@ import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
+{{#vuex}}
+import store from './store'
+{{/vuex}}
+{{#axios}}
+import axiosPlugin from './api'
+{{/axios}}
 
 Vue.config.productionTip = false
+
+{{#axios}}
+Vue.use(axiosPlugin)
+{{/axios}}
 
 /* eslint-disable no-new */
 new Vue({
@@ -16,6 +26,9 @@ new Vue({
   {{#router}}
   router,
   {{/router}}
+  {{#vuex}}
+  store,
+  {{/vuex}}
   {{#if_eq build "runtime"}}
   render: h => h(App)
   {{/if_eq}}
