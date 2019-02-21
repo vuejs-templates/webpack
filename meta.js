@@ -79,10 +79,20 @@ module.exports = {
       type: 'confirm',
       message: 'Install axios?',
     },
+    elementui: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Install element-ui?',
+    },
     vuex: {
       when: 'isNotTest',
       type: 'confirm',
       message: 'Install vuex?',
+    },
+    sass: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Install sass?',
     },
     lint: {
       when: 'isNotTest',
@@ -182,6 +192,7 @@ module.exports = {
     'src/router/**/*': 'router',
     'src/store/**/*': 'vuex',
     'src/api/**/*': 'axios',
+    'src/assets/style/*': 'axios',
   },
   complete: function(data, { chalk }) {
     const green = chalk.green

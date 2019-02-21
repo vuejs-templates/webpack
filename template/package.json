@@ -2,7 +2,7 @@
   "name": "{{ name }}",
   "version": "1.0.0",
   "description": "{{ description }}",
-  "author": "{{ author }}",
+  "author": "glodon-lo-{{ author }}",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -28,7 +28,8 @@
     "vue": "^2.5.2"{{#router}},
     "vue-router": "^3.0.1"{{/router}}{{#axios}},
     "axios": "^0.18.0"{{/axios}} {{#vuex}},
-    "vuex": "^2.4.1"{{/vuex}}
+    "vuex": "^2.4.1"{{/vuex}}{{#elementui}},
+    "element-ui": "^2.5.4"{{/elementui}}
   },
   "devDependencies": {
     {{#lint}}
@@ -84,6 +85,11 @@
     "nightwatch": "^0.9.12",
     "selenium-server": "^3.0.1",
     {{/e2e}}
+    {{#sass}}
+    "sass-loader": "^7.1.0",
+    "sass-resources-loader": "^2.0.0",
+    "node-sass": "^4.11.0",
+    {{/sass}}
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
