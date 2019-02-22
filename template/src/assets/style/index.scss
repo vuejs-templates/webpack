@@ -1,0 +1,20 @@
+/*
+ * @Author: luox-e 
+ * @Date: 2019-02-19 11:00:19 
+ * @Last Modified by: glodon
+ * @Last Modified time: 2019-02-19 14:11:20
+ */
+//是我们scss的总体引入文件，将我们所有的公共scss引入，这样一来我们只要全局引用index.scss文件就可以了
+//minxin
+@import './mixin.scss';
+ //全局设置的基本样式
+@import './base.scss';
+/* element UI 样式总控*/
+
+/* 改变主题色变量 */
+$--color-primary: #1D8CE0;
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";

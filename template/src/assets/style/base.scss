@@ -1,0 +1,20 @@
+/*
+ * @Author: luox-e 
+ * @Date: 2019-02-19 11:00:02 
+ * @Last Modified by: glodon
+ * @Last Modified time: 2019-02-19 14:26:21
+ */
+
+//写一些我们需要全局设置的一些基本样式，例如清除浮动
+
+ //清除浮动;
+ %clearfix {
+    *zoom: 1;
+    &:before, &:after {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+} 
