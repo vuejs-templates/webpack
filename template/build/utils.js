@@ -60,8 +60,7 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
-    stylus: generateLoaders('stylus'),{{#sass}}.concat(
+    scss: generateLoaders('sass'){{#sass}}.concat(
       {
         loader: 'sass-resources-loader',
         options: {
@@ -69,6 +68,7 @@ exports.cssLoaders = function (options) {
         }
       }
     ),{{/sass}}
+    stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }
 }

@@ -13,12 +13,20 @@ import store from './store'
 {{#axios}}
 import axiosPlugin from './api'
 {{/axios}}
+{{#elementui}}
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+{{/elementui}}
 
 Vue.config.productionTip = false
 
 {{#axios}}
 Vue.use(axiosPlugin)
 {{/axios}}
+
+{{#elementui}}
+Vue.use(ElementUI);
+{{/elementui}}
 
 /* eslint-disable no-new */
 new Vue({
