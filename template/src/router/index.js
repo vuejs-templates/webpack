@@ -9,27 +9,26 @@ const routes = [
     component: () => import('../views/home')
   },
   {
-    path: '/demo1',
-    component: () => import('../views/demo1')
+    path: '/main',
+    component: () => import('../views/main')
   },
   {
-    path: '/demo2',
-    component: () => import('../views/demo2')
+    path: '/main/detail1',
+    component: () => import('../views/detail1')
+  },
+  {
+    path: '/detail2',
+    name: 'detail2',
+    component: () => import('../views/detail2'),
+    meta: {
+      // 标志当前路由跳转需要打开新的标签页
+      tabConfig: {
+        tabName: '查看详情',
+        alwaysNewTab: true
+      }
+    }
   }
 ]
-
-// 在懒加载完成之后将【路由名】设置为当前路由对应组件的【组件名】，保持统一，方便管理维护
-routes.forEach(route => {
-  const routeLoader = route.component
-
-  route.component = function (resolve) {
-    routeLoader().then(module => {
-      route.name = module.default.name
-
-      resolve(module)
-    })
-  }
-})
 
 export default new Router({
   routes
