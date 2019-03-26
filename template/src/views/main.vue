@@ -151,25 +151,23 @@ export default {
       return new Promise(resolve => {
         // 此处模拟调用接口
         // 调用成功
-        if (Math.random()) {
-          resolve({
-            tableId: 'mokeId',
-            head,
-            data: Array.from({length: 30}, () => ({
-              date: '2016-05-02',
-              name: '王小虎',
-              address: '上海市普陀区金沙江路 1518 弄'
-            })),
-            // 此处为服务端返回的总数据条数
-            totalDataNum: 20
-          })
-        } else {
-          // 接口出错
-          resolve({
-            head,
-            data: []
-          })
-        }
+        resolve({
+          tableId: 'mokeId',
+          head,
+          data: Array.from({length: 30}, () => ({
+            date: '2016-05-02',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
+          })),
+          // 此处为服务端返回的总数据条数
+          totalDataNum: 20
+        })
+
+        // 接口出错
+        // resolve({
+        //   head,
+        //   data: []
+        // })
       })
     }
   }

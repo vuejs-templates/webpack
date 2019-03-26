@@ -7,13 +7,13 @@ import router from './router'
 // 引入element-ui 作为依赖
 import ElementUi from 'element-ui'
 
-import pagodaLayoutComponents from 'pagoda-ui-test/layout-components'
-import pagodaButtonComponents from 'pagoda-ui-test/button-components'
-import pagodaFormComponents from 'pagoda-ui-test/form-components'
-import pagodaDataComponents from 'pagoda-ui-test/data-components'
+import pagodaLayoutComponents from 'pagoda-ui/layout-components'
+import pagodaButtonComponents from 'pagoda-ui/button-components'
+import pagodaFormComponents from 'pagoda-ui/form-components'
+import pagodaDataComponents from 'pagoda-ui/data-components'
 
-import 'pagoda-ui-test/src/theme/theme1.scss'
-import 'pagoda-ui-test/src/theme/ui-reset.scss'
+import 'pagoda-ui/src/theme/theme1.scss'
+import 'pagoda-ui/src/theme/ui-reset.scss'
 
 pagodaFormComponents.formGroup.registerComponents({
   province: {
