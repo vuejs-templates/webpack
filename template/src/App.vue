@@ -5,12 +5,15 @@
     :side-menu-default-active="$route.fullPath"
     @tabs-change="handleTabsChange"
   >
-    <div slot="header-left" class="logo">百果园</div>
-    <div slot="header-right">
-      <el-dropdown>
+    <div slot="header-left" slot-scope="scope" style="font-size: 0">
+      <img src="http://erp2.hwdev.pagoda.com.cn/store/static/img/left_nav_logo.5da9ac7.png" class="logo"/>
+      <span class="logo-text" v-show="!scope.collapse">百果园</span>
+    </div>
+    <template slot="header-right">
+      <el-dropdown placement="bottom">
         <div class="user-info">
-          <img class="user-head" src="http://uploads.oh100.com/allimg/1709/117-1FZ5102542-52.jpg"/>
-          <span class="user-name">用户名称</span>
+          <img class="user-head" src="http://uploads.oh100.com/allimg/1709/117-1FZ5102542-52.jpg"
+          /><span class="user-name">用户名称</span>
         </div>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="a">菜单1</el-dropdown-item>
@@ -18,7 +21,7 @@
           <el-dropdown-item command="c" divided>退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-    </div>
+    </template>
     <router-view></router-view>
   </pagoda-layout>
 </template>
@@ -62,23 +65,27 @@ export default {
       padding-right: 0;
     }
 
-    .logo {
-      font-size: 20px;
-      text-align: center;
-      color: #fff;
-    }
-    .user-info {
-      cursor: pointer;
-    }
-    .user-name {
-      font-size: 12px;
-      color: #D9DEE4;
-    }
-    .user-head {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      vertical-align: middle;
+    & > .el-header {
+      .logo-text {
+        margin-left: 15px;
+        font-size: 14px;
+        vertical-align: middle;
+      }
+      .user-info {
+        cursor: pointer;
+      }
+      .user-name {
+        margin-left: 10px;
+        font-size: 12px;
+        color: #D9DEE4;
+        vertical-align: middle;
+      }
+      .user-head, .logo {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        vertical-align: middle;
+      }
     }
   }
 </style>

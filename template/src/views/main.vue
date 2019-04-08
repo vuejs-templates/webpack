@@ -14,6 +14,7 @@
     <template slot="table" slot-scope="scope">
       <!-- 实现一屏展示时 一定要配置表格高度 -->
       <pagoda-table
+        :head="tableHead"
         :request="request"
         :editColumnConfig="editColumnConfig"
         :height="scope.height"
@@ -27,6 +28,16 @@
 export default {
   data () {
     return {
+      tableHead: [{
+        prop: 'date',
+        label: '日期'
+      }, {
+        prop: 'name',
+        label: '姓名'
+      }, {
+        prop: 'address',
+        label: '地址'
+      }],
       rowBtns: {
         save: {
           text: '保存',
@@ -137,23 +148,11 @@ export default {
       console.log(this.formData)
     },
     request () {
-      const head = [{
-        prop: 'date',
-        label: '日期'
-      }, {
-        prop: 'name',
-        label: '姓名'
-      }, {
-        prop: 'address',
-        label: '地址'
-      }]
-
       return new Promise(resolve => {
         // 此处模拟调用接口
         // 调用成功
         resolve({
           tableId: 'mokeId',
-          head,
           data: Array.from({length: 30}, () => ({
             date: '2016-05-02',
             name: '王小虎',

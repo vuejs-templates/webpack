@@ -1,140 +1,70 @@
 <template>
-  <pagoda-detail-layout-v1 @back="backFunc" content-title="详情页标题" form-title="商品列表">
-    <!-- 右上角按钮插槽 -->
+  <pagoda-detail-layout-v1 class="requisition_detail" content-title="这里是页面标题" @back="handleBack">
     <div slot="content-btn">
-      <pagoda-row-btns
-        :btns="rowBtns"
-        :visibles="btnVisibles"
-      >
-      </pagoda-row-btns>
+      <pagoda-row-btns :btns="editBtns" :visibles="editBtnVisibles"></pagoda-row-btns>
     </div>
-    <!-- 中间表单插槽 -->
     <div class="clearfix" slot="content-form">
-      <pagoda-form-group
-        v-model="formData"
-        :form-options="formOptions"
-        inline
-      ></pagoda-form-group>
+      <el-form :inline="true" label-width="114px" class="el-form-reset">
+        <el-form-item label="标签文本1">
+          <el-input v-model="form.value1" v-show="editable"></el-input>
+          <p v-show="!editable">{{form.value1}}</p>
+        </el-form-item>
+        <el-form-item label="标签文本2">
+          <el-input v-model="form.value2" v-show="editable"></el-input>
+          <p v-show="!editable">{{form.value2}}</p>
+        </el-form-item>
+        <el-form-item label="标签文本3">
+          <el-input v-model="form.value3" v-show="editable"></el-input>
+          <p v-show="!editable">{{form.value3}}</p>
+        </el-form-item>
+        <el-form-item label="标签文本4">
+          <el-input v-model="form.value4" v-show="editable"></el-input>
+          <p v-show="!editable">{{form.value4}}</p>
+        </el-form-item>
+        <el-form-item label="标签文本5">
+          <el-input v-model="form.value5" v-show="editable"></el-input>
+          <p v-show="!editable">{{form.value5}}</p>
+        </el-form-item>
+        <el-form-item label="标签文本6">
+          <el-input v-model="form.value6" v-show="editable"></el-input>
+          <p v-show="!editable">{{form.value6}}</p>
+        </el-form-item>
+        <el-form-item label="标签文本7">
+          <el-input v-model="form.value7" v-show="editable"></el-input>
+          <p v-show="!editable">{{form.value7}}</p>
+        </el-form-item>
+        <el-form-item label="标签文本8">
+          <el-input v-model="form.value8" v-show="editable"></el-input>
+          <p v-show="!editable">{{form.value8}}</p>
+        </el-form-item>
+        <el-form-item label="标签文本9">
+          <el-input v-model="form.value9" v-show="editable"></el-input>
+          <p v-show="!editable">{{form.value9}}</p>
+        </el-form-item>
+        <el-form-item label="标签文本0">
+          <el-input v-model="form.value0" v-show="editable"></el-input>
+          <p v-show="!editable">{{form.value0}}</p>
+        </el-form-item>
+      </el-form>
     </div>
-    <!-- 下方主内容区 -->
     <template slot="content">
-      <!-- 副标题组件-->
-      <pagoda-sub-title>副标题</pagoda-sub-title>
+      <pagoda-sub-title>这里是栏目标题</pagoda-sub-title>
       <pagoda-table
-        :request="request"
-        ref="tableRef"
+              :head="head"
+              :request="paginationRequest"
+              layout="total, sizes, prev, pager, next, jumper"
+              :page-sizes="[15, 30]"
+              :page-size="15"
       ></pagoda-table>
     </template>
   </pagoda-detail-layout-v1>
 </template>
 
 <script>
-import { deepCopy } from 'pagoda-ui/src/utils'
-
 export default {
-  computed: {
-    formOptions () {
-      return [{
-        label: '表单label',
-        key: 'key1',
-        type: this.editable ? 'input' : 'text',
-        props: {
-          clearable: true
-        }
-      }, {
-        label: '表单label',
-        key: 'key2',
-        type: this.editable ? 'input' : 'text',
-        props: {
-          clearable: true
-        }
-      }, {
-        label: '表单label',
-        key: 'key3',
-        type: this.editable ? 'select' : 'text',
-        options: [{
-          label: 'select-option',
-          value: 'select-value1'
-        }, {
-          label: 'select-option',
-          value: 'select-value2'
-        }],
-        props: {
-          clearable: true,
-          disabled: true
-        }
-      }, {
-        label: '表单label',
-        key: 'key4',
-        type: this.editable ? 'select' : 'text',
-        options: [{
-          label: 'select-option',
-          value: 'select-value1'
-        }, {
-          label: 'select-option',
-          value: 'select-value2'
-        }],
-        props: {
-          clearable: true
-        }
-      }, {
-        label: '表单label',
-        key: 'key5',
-        type: this.editable ? 'select' : 'text',
-        options: [{
-          label: 'select-option',
-          value: 'select-value1'
-        }, {
-          label: 'select-option',
-          value: 'select-value2'
-        }],
-        props: {
-          clearable: true
-        }
-      }]
-    }
-  },
   data () {
     return {
-      editable: false,
-      formData: {
-        key1: '默认值',
-        key2: '默认值',
-        key3: 'select-value2',
-        key4: 'select-value1',
-        key5: 'select-value1'
-      },
-      rowBtns: {
-        edit: {
-          text: '编辑',
-          onClick: () => {
-            this.cacheFormData = deepCopy(this.formData)
-            this.editable = true
-            this.btnVisibles = ['save', 'cancel']
-          }
-        },
-        save: {
-          text: '保存',
-          onClick: () => {
-            this.editable = false
-            this.btnVisibles = ['edit']
-          }
-        },
-        cancel: {
-          text: '取消',
-          onClick: () => {
-            this.formData = this.cacheFormData
-            this.editable = false
-            this.btnVisibles = ['edit']
-          }
-        }
-      },
-      btnVisibles: ['edit']
-    }
-  },
-  methods: {
-    request (_, currentPage) {
-      const tableHead = [{
+      head: [{
         label: 'id',
         prop: 'id'
       }, {
@@ -148,14 +78,56 @@ export default {
         prop: 'sex'
       }, {
         label: '婚否',
-        prop: 'married'
+        prop: 'married',
+        fixed: true
       }, {
         label: '年龄',
         prop: 'age'
-      }]
-
+      }],
+      editBtns: {
+        edit: {
+          text: '编辑',
+          onClick: () => {
+            this.editable = !this.editable
+            this.editBtnVisibles = ['cancel', 'save']
+          }
+        },
+        cancel: {
+          text: '取消',
+          onClick: () => {
+            this.editBtnVisibles = ['edit']
+            this.editable = !this.editable
+          }
+        },
+        save: {
+          type: 'primary',
+          text: '保存',
+          onClick: () => {},
+          props: {
+            plain: false
+          }
+        }
+      },
+      editBtnVisibles: ['edit'],
+      editable: false,
+      form: {
+        value1: 'XXXXXXXXXX',
+        value2: 'XXXXXXXXXX',
+        value3: 'XXXXXXXXXX',
+        value4: 'XXXXXXXXXX',
+        value5: 'XXXXXXXXXX',
+        value6: 'XXXXXXXXXX',
+        value7: 'XXXXXXXXXX',
+        value8: 'XXXXXXXXXX',
+        value9: 'XXXXXXXXXX',
+        value0: 'XXXXXXXXXX'
+      }
+    }
+  },
+  methods: {
+    paginationRequest (_, currentPage, pageSize, sortable) {
       const mokeData = Array.from({
-        length: 10
+        length: pageSize
       }, item => (item = {
         id: 1232,
         name: 'adads',
@@ -169,16 +141,14 @@ export default {
         // 模拟请求接口
         setTimeout(() => {
           resolve({
-            head: tableHead,
-            data: mokeData
+            data: mokeData,
+            totalDataNum: 30
           })
-        }, 20)
+        }, 30)
       })
     },
-    backFunc () {
-      this.$router.replace({
-        path: '/main'
-      })
+    handleBack () {
+      this.$router.replace('/main')
     }
   }
 }
