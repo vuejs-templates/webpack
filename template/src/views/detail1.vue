@@ -50,11 +50,11 @@
     <template slot="content">
       <pagoda-sub-title>这里是栏目标题</pagoda-sub-title>
       <pagoda-table
-              :head="head"
-              :request="paginationRequest"
-              layout="total, sizes, prev, pager, next, jumper"
-              :page-sizes="[15, 30]"
-              :page-size="15"
+        :head="head"
+        :request="paginationRequest"
+        layout="total, sizes, prev, pager, next, jumper"
+        :page-sizes="[15, 30]"
+        :page-size="15"
       ></pagoda-table>
     </template>
   </pagoda-detail-layout-v1>
