@@ -7,43 +7,43 @@
       <el-form :inline="true" label-width="114px" class="el-form-reset">
         <el-form-item label="标签文本1">
           <el-input v-model="form.value1" v-show="editable"></el-input>
-          <p v-show="!editable">{{form.value1}}</p>
+          <p v-show="!editable">\{{form.value1}}</p>
         </el-form-item>
         <el-form-item label="标签文本2">
           <el-input v-model="form.value2" v-show="editable"></el-input>
-          <p v-show="!editable">{{form.value2}}</p>
+          <p v-show="!editable">\{{form.value2}}</p>
         </el-form-item>
         <el-form-item label="标签文本3">
           <el-input v-model="form.value3" v-show="editable"></el-input>
-          <p v-show="!editable">{{form.value3}}</p>
+          <p v-show="!editable">\{{form.value3}}</p>
         </el-form-item>
         <el-form-item label="标签文本4">
           <el-input v-model="form.value4" v-show="editable"></el-input>
-          <p v-show="!editable">{{form.value4}}</p>
+          <p v-show="!editable">\{{form.value4}}</p>
         </el-form-item>
         <el-form-item label="标签文本5">
           <el-input v-model="form.value5" v-show="editable"></el-input>
-          <p v-show="!editable">{{form.value5}}</p>
+          <p v-show="!editable">\{{form.value5}}</p>
         </el-form-item>
         <el-form-item label="标签文本6">
           <el-input v-model="form.value6" v-show="editable"></el-input>
-          <p v-show="!editable">{{form.value6}}</p>
+          <p v-show="!editable">\{{form.value6}}</p>
         </el-form-item>
         <el-form-item label="标签文本7">
           <el-input v-model="form.value7" v-show="editable"></el-input>
-          <p v-show="!editable">{{form.value7}}</p>
+          <p v-show="!editable">\{{form.value7}}</p>
         </el-form-item>
         <el-form-item label="标签文本8">
           <el-input v-model="form.value8" v-show="editable"></el-input>
-          <p v-show="!editable">{{form.value8}}</p>
+          <p v-show="!editable">\{{form.value8}}</p>
         </el-form-item>
         <el-form-item label="标签文本9">
           <el-input v-model="form.value9" v-show="editable"></el-input>
-          <p v-show="!editable">{{form.value9}}</p>
+          <p v-show="!editable">\{{form.value9}}</p>
         </el-form-item>
         <el-form-item label="标签文本0">
           <el-input v-model="form.value0" v-show="editable"></el-input>
-          <p v-show="!editable">{{form.value0}}</p>
+          <p v-show="!editable">\{{form.value0}}</p>
         </el-form-item>
       </el-form>
     </div>
