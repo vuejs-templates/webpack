@@ -7,27 +7,24 @@ import router from './router'
 // 引入element-ui 作为依赖
 import ElementUi from 'element-ui'
 
-import pagodaLayoutComponents from 'pagoda-ui/layout-components'
-import pagodaButtonComponents from 'pagoda-ui/button-components'
-import pagodaFormComponents from 'pagoda-ui/form-components'
-import pagodaDataComponents from 'pagoda-ui/data-components'
+import pagodaComponents from 'pagoda-ui'
 
 import 'pagoda-ui/src/theme/theme1.scss'
 import 'pagoda-ui/src/theme/ui-reset.scss'
 
-pagodaFormComponents.formGroup.registerComponents({
+pagodaComponents.formGroup.registerComponents({
   province: {
-    component: pagodaFormComponents.province
+    component: pagodaComponents.province
   },
   city: {
-    component: pagodaFormComponents.city
+    component: pagodaComponents.city
   },
   district: {
-    component: pagodaFormComponents.district
+    component: pagodaComponents.district
   }
 })
 
-pagodaButtonComponents.rowBtns.config = {
+pagodaComponents.rowBtns.config = {
   default: {
     type: 'info',
     props: {
@@ -48,10 +45,7 @@ pagodaButtonComponents.rowBtns.config = {
   }
 }
 
-Vue.use(pagodaLayoutComponents)
-Vue.use(pagodaFormComponents)
-Vue.use(pagodaDataComponents)
-Vue.use(pagodaButtonComponents)
+Vue.use(pagodaComponents)
 Vue.use(ElementUi, {size: 'small'})
 
 Vue.config.productionTip = false
