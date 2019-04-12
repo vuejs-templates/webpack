@@ -30,7 +30,7 @@
       </template>
       <div slot="content-form">
         <!-- 表单插槽 -->
-        <el-form :inline="true" label-width="114px" label-position="left" class="el-form-reset">
+        <el-form inline label-position="left" class="el-form-reset">
           <el-form-item label="标签文本1">
             <el-input v-model="form.value1" v-show="editable"></el-input>
             <p v-show="!editable">\{{form.value1}}</p>

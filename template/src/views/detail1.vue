@@ -4,7 +4,7 @@
       <pagoda-row-btns :btns="editBtns" :visibles="editBtnVisibles"></pagoda-row-btns>
     </div>
     <div class="clearfix" slot="content-form">
-      <el-form :inline="true" label-width="114px" class="el-form-reset">
+      <el-form inline class="el-form-reset">
         <el-form-item label="标签文本1">
           <el-input v-model="form.value1" v-show="editable"></el-input>
           <p v-show="!editable">\{{form.value1}}</p>
