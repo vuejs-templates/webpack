@@ -77,7 +77,7 @@ export default {
             text: '新增标签查看详情',
             onClick: () => {
               // 若当前路由需要打开新标签，则需在路由meta字段中配置tabConfig 详细配置请参考 router/index.js
-              this.$router.push({path: '/detail2', query: {index: row.index}})
+              this.$router.replace({path: '/detail2', query: {index: row.index}})
             }
           }
 
