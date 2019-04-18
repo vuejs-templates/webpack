@@ -69,7 +69,7 @@ export default {
             text: '当前标签查看详情',
             onClick: () => {
               // 在当前详情页查看详情 列表页与详情页的路由地址要保持有层级关系 例如这里的 /main 和 /main/layout
-              this.$router.push({path: '/main/detail1', query: {a: 1}})
+              this.$router.replace({path: '/main/detail1', query: {a: 1}})
             }
           }
 
