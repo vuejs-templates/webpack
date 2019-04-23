@@ -37,19 +37,19 @@ module.exports = {
       when: 'isNotTest',
       type: 'string',
       required: true,
-      message: 'Project name',
+      message: '滴答滴答滴答的 name',
     },
     description: {
       when: 'isNotTest',
       type: 'string',
       required: false,
-      message: 'Project description',
+      message: '滴答滴答滴答的description',
       default: 'A Vue.js project',
     },
     author: {
       when: 'isNotTest',
       type: 'string',
-      message: 'Author',
+      message: '滴答滴答滴答的Author',
     },
     build: {
       when: 'isNotTest',
@@ -82,7 +82,7 @@ module.exports = {
     lint: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Use ESLint to lint your code?',
+      message: 'Use ESLint规范代码?',
     },
     lintConfig: {
       when: 'isNotTest && lint',
