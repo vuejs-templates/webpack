@@ -37,19 +37,19 @@ module.exports = {
       when: 'isNotTest',
       type: 'string',
       required: true,
-      message: '滴答滴答滴答的 name',
+      message: 'Project name',
     },
     description: {
       when: 'isNotTest',
       type: 'string',
       required: false,
-      message: '滴答滴答滴答的description',
+      message: 'Project description',
       default: 'A Vue.js project',
     },
     author: {
       when: 'isNotTest',
       type: 'string',
-      message: '滴答滴答滴答的Author',
+      message: 'Author',
     },
     build: {
       when: 'isNotTest',
@@ -72,7 +72,7 @@ module.exports = {
     router: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Install 路由?',
+      message: 'Install vue-router?',
     },
    filter: {
           when: 'isNotTest',
@@ -82,7 +82,7 @@ module.exports = {
     lint: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Use ESLint规范代码?',
+      message: 'Use ESLint to lint your code?',
     },
     lintConfig: {
       when: 'isNotTest && lint',
