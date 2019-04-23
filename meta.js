@@ -74,11 +74,6 @@ module.exports = {
       type: 'confirm',
       message: 'Install vue-router?',
     },
-   filter: {
-          when: 'isNotTest',
-          type: 'confirm',
-          message: 'Install filters 全局的filter?',
-      },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
@@ -175,7 +170,6 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
-    'src/filter/**/*': 'filter',
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
