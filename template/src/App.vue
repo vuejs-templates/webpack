@@ -1,6 +1,5 @@
 <template>
   <pagoda-layout
-    :class="{'full-content': $route.name === 'detail2'}"
     :side-menu="sideMenu"
     :side-menu-default-active="$route.fullPath"
     @tabs-change="handleTabsChange"
@@ -41,14 +40,9 @@ export default {
       }]
     }
   },
-  watch: {
-    $route () {
-      console.log(this.$route)
-    }
-  },
   methods: {
     handleTabsChange ({ url, query = {}, params = {} }) {
-      this.$router.replace({
+      this.$router.push({
         path: url,
         query,
         params
@@ -60,11 +54,6 @@ export default {
 
 <style lang="scss" type="text/scss">
   .pagoda-layout{
-    &.full-content .el-main > .pagoda-layout__main {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
     & > .el-header {
       .logo-text {
         margin-left: 15px;

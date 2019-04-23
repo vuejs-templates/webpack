@@ -18,13 +18,13 @@ const routes = [
   },
   {
     path: '/detail2',
-    name: 'detail2',
     component: () => import('../views/detail2'),
     meta: {
       // 标志当前路由跳转需要打开新的标签页
       tabConfig: {
-        tabName: '查看详情',
-        alwaysNewTab: true
+        tabName (to, from) {
+          return `查看详情-${to.query.index}`
+        }
       }
     }
   }

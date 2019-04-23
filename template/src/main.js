@@ -12,36 +12,16 @@ import pagodaComponents from 'pagoda-ui'
 import 'pagoda-ui/src/theme/theme1.scss'
 import 'pagoda-ui/src/theme/ui-reset.scss'
 
-pagodaComponents.formGroup.registerComponents({
-  province: {
-    component: pagodaComponents.province
-  },
-  city: {
-    component: pagodaComponents.city
-  },
-  district: {
-    component: pagodaComponents.district
-  }
-})
-
-pagodaComponents.rowBtns.config = {
+ElementUi.Button.config = {
   default: {
     type: 'info',
-    props: {
-      plain: true
-    }
+    plain: true
   },
   '查询': {
-    type: 'primary',
-    props: {
-      plain: false
-    }
+    type: 'primary'
   },
   '保存': {
-    type: 'primary',
-    props: {
-      plain: false
-    }
+    type: 'primary'
   }
 }
 

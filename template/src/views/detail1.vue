@@ -1,9 +1,13 @@
 <template>
-  <pagoda-detail-layout-v1 class="requisition_detail" content-title="这里是页面标题" @back="handleBack">
-    <div slot="content-btn">
-      <pagoda-row-btns :btns="editBtns" :visibles="editBtnVisibles"></pagoda-row-btns>
-    </div>
-    <div class="clearfix" slot="content-form">
+  <pagoda-detail-layout-v1 content-title="这里是页面标题" @back="handleBack">
+    <template slot="content-btn">
+      <el-button v-show="!editable" @click="handleEdit">编辑</el-button>
+      <div class="pagoda-button-group" v-show="editable">
+        <el-button @click="handleCancel">取消</el-button>
+        <el-button @click="handleSave">保存</el-button>
+      </div>
+    </template>
+    <template slot="content-form">
       <el-form inline class="el-form-reset">
         <el-form-item label="标签文本1">
           <el-input v-model="form.value1" v-show="editable"></el-input>
@@ -19,7 +23,7 @@
         </el-form-item>
         <el-form-item label="标签文本4">
           <el-input v-model="form.value4" v-show="editable"></el-input>
-          <p v-show="!editable">\{{form.value4}}</p>
+          <p v-show="!editable">{{form.value4}}</p>
         </el-form-item>
         <el-form-item label="标签文本5">
           <el-input v-model="form.value5" v-show="editable"></el-input>
@@ -27,7 +31,7 @@
         </el-form-item>
         <el-form-item label="标签文本6">
           <el-input v-model="form.value6" v-show="editable"></el-input>
-          <p v-show="!editable">\{{form.value6}}</p>
+          <p v-show="!editable">{{form.value6}}</p>
         </el-form-item>
         <el-form-item label="标签文本7">
           <el-input v-model="form.value7" v-show="editable"></el-input>
@@ -46,7 +50,7 @@
           <p v-show="!editable">\{{form.value0}}</p>
         </el-form-item>
       </el-form>
-    </div>
+    </template>
     <template slot="content">
       <pagoda-sub-title>这里是栏目标题</pagoda-sub-title>
       <pagoda-table
@@ -84,31 +88,6 @@ export default {
         label: '年龄',
         prop: 'age'
       }],
-      editBtns: {
-        edit: {
-          text: '编辑',
-          onClick: () => {
-            this.editable = !this.editable
-            this.editBtnVisibles = ['cancel', 'save']
-          }
-        },
-        cancel: {
-          text: '取消',
-          onClick: () => {
-            this.editBtnVisibles = ['edit']
-            this.editable = !this.editable
-          }
-        },
-        save: {
-          type: 'primary',
-          text: '保存',
-          onClick: () => {},
-          props: {
-            plain: false
-          }
-        }
-      },
-      editBtnVisibles: ['edit'],
       editable: false,
       form: {
         value1: 'XXXXXXXXXX',
@@ -147,8 +126,17 @@ export default {
         }, 30)
       })
     },
+    handleEdit () {
+      this.editable = true
+    },
+    handleCancel () {
+      this.editable = false
+    },
+    handleSave () {
+      this.editable = false
+    },
     handleBack () {
-      this.$router.replace('/main')
+      this.$router.push('/main')
     }
   }
 }
