@@ -72,7 +72,7 @@ module.exports = {
     router: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Install vue-router?',
+      message: 'Install 路由?',
     },
    filter: {
           when: 'isNotTest',
