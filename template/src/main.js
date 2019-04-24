@@ -5,7 +5,7 @@
 import Vue from 'vue'
 import App from './App'
 {{#router}}
-import routes from './router'
+import routes from './router.js'
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 const router = new VueRouter({
