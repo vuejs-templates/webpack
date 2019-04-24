@@ -33,6 +33,11 @@ module.exports = {
   },
   
   prompts: {
+    special: {
+          when: 'isNotTest',
+          type: 'confirm',
+          message: '教学专属装逼脚手架',
+      },
     name: {
       when: 'isNotTest',
       type: 'string',
