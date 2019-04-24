@@ -14,6 +14,11 @@ const router = new VueRouter({
 });
 {{/router}}
 
+{{#elementUi}}
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+{{/elementUi}}
 {{#filter}}
 import filters from './filter/filter'
 {{/filter}}
