@@ -79,6 +79,11 @@ module.exports = {
           type: 'confirm',
           message: 'Install filters 全局的filter?',
       },
+   elementUi: {
+          when: 'isNotTest',
+          type: 'confirm',
+          message: 'Use  elementUi?',
+      },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
