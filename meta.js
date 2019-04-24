@@ -84,6 +84,11 @@ module.exports = {
           type: 'confirm',
           message: 'Use  elementUi?',
       },
+   vuex: {
+          when: 'isNotTest',
+          type: 'confirm',
+          message: 'Use  模块化管理 vuex?',
+      },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
@@ -181,6 +186,7 @@ module.exports = {
     'test/e2e/**/*': 'e2e',
     'router.js': 'router',
     'src/filter/**/*': 'filter',
+    'src/store/**/*': 'vuex'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
