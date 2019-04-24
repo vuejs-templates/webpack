@@ -174,7 +174,7 @@ module.exports = {
     'test/unit/specs/index.js': "unit && runner === 'karma'",
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
-    'src/router/**/*': 'router',
+    'router.js': 'router',
     'src/filter/**/*': 'filter',
   },
   complete: function(data, { chalk }) {
