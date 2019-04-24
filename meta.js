@@ -33,6 +33,11 @@ module.exports = {
   },
   
   prompts: {
+    special: {
+          when: 'isNotTest',
+          type: 'confirm',
+          message: '教学专属装逼脚手架',
+      },
     name: {
       when: 'isNotTest',
       type: 'string',
@@ -74,6 +79,21 @@ module.exports = {
       type: 'confirm',
       message: 'Install vue-router?',
     },
+   filter: {
+          when: 'isNotTest',
+          type: 'confirm',
+          message: 'Install filters 全局的filter?',
+      },
+   elementUi: {
+          when: 'isNotTest',
+          type: 'confirm',
+          message: 'Use  elementUi?',
+      },
+   vuex: {
+          when: 'isNotTest',
+          type: 'confirm',
+          message: 'Use  模块化管理 vuex?',
+      },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
@@ -169,7 +189,9 @@ module.exports = {
     'test/unit/specs/index.js': "unit && runner === 'karma'",
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
-    'src/router/**/*': 'router',
+    'router.js': 'router',
+    'src/filter/**/*': 'filter',
+    'src/store/**/*': 'vuex'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
