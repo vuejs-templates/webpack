@@ -10,21 +10,22 @@ import store from './store/modules'
 {{#router}}
 import routes from './router.js'
 import VueRouter from 'vue-router';
+{{#elementUi}}
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+{{/elementUi}}
+{{#filter}}
+import filters from './filter/filter'
+{{/filter}}
 Vue.use(VueRouter);
 const router = new VueRouter({
   mode: 'hash',
   routes: routes,
 });
 {{/router}}
-
 {{#elementUi}}
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 {{/elementUi}}
-{{#filter}}
-import filters from './filter/filter'
-{{/filter}}
 Vue.config.productionTip = false
 {{#filter}}
 Object.keys(filters).forEach(key => {
@@ -38,7 +39,7 @@ new Vue({
   router,
   {{/router}}
   {{#vuex}}
-     store,
+  store,
   {{/vuex}}
   {{#if_eq build "runtime"}}
   render: h => h(App)
