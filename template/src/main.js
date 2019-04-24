@@ -4,6 +4,9 @@
 {{/if_eq}}
 import Vue from 'vue'
 import App from './App'
+{{#vuex}}
+import store from './store/modules'
+{{/vuex}}
 {{#router}}
 import routes from './router.js'
 import VueRouter from 'vue-router';
@@ -34,6 +37,9 @@ new Vue({
   {{#router}}
   router,
   {{/router}}
+  {{#vuex}}
+     store,
+  {{/vuex}}
   {{#if_eq build "runtime"}}
   render: h => h(App)
   {{/if_eq}}
