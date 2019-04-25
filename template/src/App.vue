@@ -1,7 +1,6 @@
 <template>
   <pagoda-layout
     :side-menu="sideMenu"
-    :side-menu-default-active="$route.fullPath"
     @tabs-change="handleTabsChange"
   >
     <div slot="header-left" slot-scope="scope" style="font-size: 0">
@@ -9,7 +8,7 @@
       <span class="logo-text" v-show="!scope.collapse">百果园</span>
     </div>
     <template slot="header-right">
-      <el-dropdown placement="bottom">
+      <el-dropdown placement="bottom" trigger="click">
         <div class="user-info">
           <img class="user-head" src="http://uploads.oh100.com/allimg/1709/117-1FZ5102542-52.jpg"
           /><span class="user-name">用户名称</span>
