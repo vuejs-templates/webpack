@@ -55,8 +55,8 @@ export default {
   .pagoda-layout{
     & > .el-header {
       .logo-text {
-        margin-left: 15px;
-        font-size: 14px;
+        margin-left: 8px;
+        font-size: 16px;
         vertical-align: middle;
       }
       .user-info {
