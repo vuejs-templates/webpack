@@ -1,5 +1,5 @@
 'use strict'
-// Template version: {{ template_version }}
+// Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
@@ -8,9 +8,18 @@ module.exports = {
   dev: {
 
     // Paths
+    env: require('./dev.env'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      // '/api': {
+      //   target: 'http://120.86.119.129:38099/cloud/',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/api': ''
+      //   }
+      // }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -20,14 +29,13 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    {{#lint}}// Use Eslint Loader?
+    // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
     useEslint: true,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
-    {{/lint}}
 
     /**
      * Source Maps
@@ -41,10 +49,11 @@ module.exports = {
     // https://vue-loader.vuejs.org/en/options.html#cachebusting
     cacheBusting: true,
 
-    cssSourceMap: true
+    cssSourceMap: false
   },
 
   build: {
+    env: require('./prod.env'),
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
 

@@ -1,0 +1,119 @@
+/*系统自定义常用样式*/
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+
+.hide {
+    display: none;
+}
+
+
+/*给一个元素增加遮罩层*/
+
+.sys_mask::after {
+    background-color: #fff;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+}
+
+.sys_mask_hover:hover::after {
+    background-color: #fff;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+}
+
+
+/** 元素绝对定位 **/
+
+.sys_rel {
+    position: relative;
+}
+
+[class*=sys_abs] {
+    position: absolute;
+    z-index: 1;
+}
+
+.sys_abs_lt {
+    left: 0;
+    top: 0;
+}
+
+.sys_abs_rt {
+    right: 0;
+    top: 0;
+}
+
+.sys_abs_rb {
+    right: 0;
+    bottom: 0;
+}
+
+.sys_abs_lb {
+    left: 0;
+    bottom: 0;
+}
+
+
+/**文本类型样式**/
+
+
+/*单行字符截取*/
+
+.sys_text_substr {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/*三行文本截断*/
+
+.sys_mtext_subst {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+/*remote下拉框搜索图标*/
+
+.plat-remote-select {
+    z-index: 3;
+}
+
+.plat-remote-input .el-input__inner {
+    cursor: text;
+}
+
+.el-icon-my-xinzeng {
+    font-size: 14px;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/*节能技术表格下载*/
+
+.energyTechnologyDownload {
+    cursor: pointer;
+}
