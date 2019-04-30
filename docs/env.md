@@ -42,10 +42,10 @@ So, the environment variables are:
 
 As we can see, `test.env` inherits the `dev.env` and the `dev.env` inherits the `prod.env`.
 
-### Usage		
+### Usage
 
-It is simple to use the environment variables in your code. For example:		
+It is simple to use the environment variables in your code. For example:
 
-```js		
-Vue.config.productionTip = process.env.NODE_ENV === 'production'		
+```js
+Vue.config.productionTip = process.env.NODE_ENV === 'production'
 ```

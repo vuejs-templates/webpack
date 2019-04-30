@@ -1,6 +1,6 @@
 # Pre-Processors
 
-This boilerplate has pre-configured CSS extraction for most popular CSS pre-processors including LESS, SASS, Stylus, and PostCSS. To use a pre-processor, all you need to do is install the appropriate webpack loader for it. For example, to use SASS:
+This boilerplate has pre-configured CSS extraction for most popular CSS pre-processors including LESS, Sass, Stylus, and PostCSS. To use a pre-processor, all you need to do is install the appropriate webpack loader for it. For example, to use Sass:
 
 ``` bash
 npm install sass-loader node-sass --save-dev
@@ -14,11 +14,11 @@ Once installed, you can use the pre-processors inside your `*.vue` components us
 
 ``` html
 <style lang="scss">
-/* write SASS! */
+/* write Sass! */
 </style>
 ```
 
-### A note on SASS syntax
+### A note on Sass syntax
 
 - `lang="scss"` corresponds to the CSS-superset syntax (with curly braces and semicolons).
 - `lang="sass"` corresponds to the indentation-based syntax.
@@ -27,7 +27,7 @@ Once installed, you can use the pre-processors inside your `*.vue` components us
 
 Styles in `*.vue` files and style files (`*.css`, `*.scss` etc) are piped through PostCSS by default, so you don't need to use a specific loader for it.
 
-You can simply add PostCSS plugins you want to use to the `.postcssrc.js`file in your project's root directory:
+You can simply add PostCSS plugins you want to use to the `.postcssrc.js` file in your project's root directory:
 
 ``` js
 // https://github.com/michael-ciniawsky/postcss-load-config
