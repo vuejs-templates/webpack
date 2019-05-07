@@ -38,7 +38,7 @@
       <br>
       <li>
         <a
-          href="http://vuejs-templates.github.io/webpack/"
+          href="https://vuejs-templates.github.io/webpack/"
           target="_blank"
         >
           Docs for This Template
@@ -49,7 +49,7 @@
     <ul>
       <li>
         <a
-          href="http://router.vuejs.org/"
+          href="https://router.vuejs.org/"
           target="_blank"
         >
           vue-router
@@ -57,7 +57,7 @@
       </li>
       <li>
         <a
-          href="http://vuex.vuejs.org/"
+          href="https://vuex.vuejs.org/"
           target="_blank"
         >
           vuex
@@ -65,7 +65,7 @@
       </li>
       <li>
         <a
-          href="http://vue-loader.vuejs.org/"
+          href="https://vue-loader.vuejs.org/"
           target="_blank"
         >
           vue-loader

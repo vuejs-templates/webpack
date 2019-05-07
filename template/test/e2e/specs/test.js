@@ -1,5 +1,5 @@
 // For authoring Nightwatch tests, see
-// http://nightwatchjs.org/guide#usage
+// https://nightwatchjs.org/guide#usage
 
 module.exports = {
   'default e2e tests': function {{#if_eq lintConfig "airbnb"}}test{{/if_eq}}(browser) {

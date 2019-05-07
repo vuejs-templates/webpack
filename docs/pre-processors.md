@@ -41,7 +41,7 @@ module.exports = {
 }
 ```
 
-See [vue-loader's related documentation](http://vuejs.github.io/vue-loader/en/features/postcss.html) for more details.
+See [vue-loader's related documentation](https://vuejs.github.io/vue-loader/en/features/postcss.html) for more details.
 
 ### Standalone CSS Files
 

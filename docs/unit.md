@@ -25,8 +25,8 @@ The Jest boilerplate comes with the ability to mock dependencies. See the [mock 
 - [Karma](https://karma-runner.github.io/): the test runner that launches browsers, runs the tests and reports the results to us.
 - [karma-webpack](https://github.com/webpack/karma-webpack): the plugin for Karma that bundles our tests using Webpack.
 - [Mocha](https://mochajs.org/): the test framework that we write test specs with.
-- [Chai](http://chaijs.com/): test assertion library that provides better assertion syntax.
-- [Sinon](http://sinonjs.org/): test utility library that provides spies, stubs and mocks.
+- [Chai](https://chaijs.com/): test assertion library that provides better assertion syntax.
+- [Sinon](https://sinonjs.org/): test utility library that provides spies, stubs and mocks.
 
 Chai and Sinon are integrated using [karma-sinon-chai](https://github.com/kmees/karma-sinon-chai), so all Chai interfaces (`should`, `expect`, `assert`) and `sinon` are globally available in test files.
 
@@ -50,4 +50,4 @@ You can run the tests in multiple real browsers by installing more [karma launch
 
 ### Mocking Dependencies
 
-The Karma unit test boilerplate comes with [inject-loader](https://github.com/plasticine/inject-loader) installed by default. For usage with `*.vue` components, see [vue-loader docs on testing with mocks](http://vue-loader.vuejs.org/en/workflow/testing-with-mocks.html).
+The Karma unit test boilerplate comes with [inject-loader](https://github.com/plasticine/inject-loader) installed by default. For usage with `*.vue` components, see [vue-loader docs on testing with mocks](https://vue-loader.vuejs.org/en/workflow/testing-with-mocks.html).
