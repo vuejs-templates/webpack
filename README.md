@@ -17,8 +17,8 @@ Feel free to fork this template if you want to keep it alive.
 
 ## Documentation
 
-- [For this template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
-- [For Vue 2.0](http://vuejs.org/guide/): general information about how to work with Vue, not specific to this template
+- [For this template](https://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
+- [For Vue 2.0](https://vuejs.org/guide/): general information about how to work with Vue, not specific to this template
 
 ## Usage
 
@@ -62,7 +62,7 @@ The development server will run on port 8080 by default. If that port is already
   - Supports ES2015+ in test files.
   - Easy mocking.
 
-- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
+- `npm run e2e`: End-to-end tests with [Nightwatch](https://nightwatchjs.org/).
   - Run tests in multiple browsers in parallel.
   - Works with one command out of the box:
     - Selenium and chromedriver dependencies automatically handled.

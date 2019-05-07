@@ -30,7 +30,7 @@ All build commands are executed via [NPM Scripts](https://docs.npmjs.com/misc/sc
 
 ### `npm run e2e`
 
-> Run end-to-end tests with [Nightwatch](http://nightwatchjs.org/). See [End-to-end Testing](e2e.md) for more details.
+> Run end-to-end tests with [Nightwatch](https://nightwatchjs.org/). See [End-to-end Testing](e2e.md) for more details.
 
 - Run tests in multiple browsers in parallel.
 - Works with one command out of the box:

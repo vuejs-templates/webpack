@@ -12,7 +12,7 @@ module.exports = {
     proxyTable: {
       // proxy all requests starting with /api to jsonplaceholder
       '/api': {
-        target: 'http://jsonplaceholder.typicode.com',
+        target: 'https://jsonplaceholder.typicode.com',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
@@ -23,7 +23,7 @@ module.exports = {
 }
 ```
 
-The above example will proxy the request `/api/posts/1` to `http://jsonplaceholder.typicode.com/posts/1`.
+The above example will proxy the request `/api/posts/1` to `https://jsonplaceholder.typicode.com/posts/1`.
 
 ## URL Matching
 
@@ -32,7 +32,7 @@ In addition to static urls you can also use glob patterns to match URLs, e.g. `/
 ``` js
 proxyTable: {
   '**': {
-    target: 'http://jsonplaceholder.typicode.com',
+    target: 'https://jsonplaceholder.typicode.com',
     filter: function (pathname, req) {
       return pathname.match('^/api') && req.method === 'GET'
     }

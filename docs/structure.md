@@ -49,7 +49,7 @@ This is the main configuration file that exposes some of the most common configu
 
 ### `src/`
 
-This is where most of your application code will live in. How to structure everything inside this directory is largely up to you; if you are using Vuex, you can consult the [recommendations for Vuex applications](http://vuex.vuejs.org/en/structure.html).
+This is where most of your application code will live in. How to structure everything inside this directory is largely up to you; if you are using Vuex, you can consult the [recommendations for Vuex applications](https://vuex.vuejs.org/en/structure.html).
 
 ### `static/`
 
