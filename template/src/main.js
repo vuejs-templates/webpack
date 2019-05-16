@@ -12,7 +12,7 @@ import pagodaComponents from 'pagoda-ui'
 import 'pagoda-ui/src/theme/theme1.scss'
 import 'pagoda-ui/src/theme/ui-reset.scss'
 
-ElementUi.Button.config = {
+ElementUi.Button.setDefaults({
   default: {
     type: 'info',
     plain: true
@@ -23,7 +23,7 @@ ElementUi.Button.config = {
   '保存': {
     type: 'primary'
   }
-}
+})
 
 Vue.use(pagodaComponents)
 Vue.use(ElementUi, {size: 'small'})
