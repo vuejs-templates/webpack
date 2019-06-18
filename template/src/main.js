@@ -26,7 +26,7 @@ ElementUi.Button.setDefaults({
 })
 
 Vue.use(pagodaComponents)
-Vue.use(ElementUi, {size: 'small'})
+Vue.use(ElementUi, {size: 'mini'})
 
 Vue.config.productionTip = false
 

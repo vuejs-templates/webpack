@@ -4,8 +4,8 @@
       <!-- 操作按钮栏插槽 -->
       <!-- 此处最多只展示3个按钮 其他的操作按钮显示在更多按钮内 -->
       <pagoda-collapse-button>
-        <el-button type="primary">保存按钮</el-button>
-        <el-button type="primary">提交按钮</el-button>
+        <el-button>保存按钮</el-button>
+        <el-button>提交按钮</el-button>
         <el-button>计算</el-button>
         <el-button>确认</el-button>
       </pagoda-collapse-button>
@@ -89,44 +89,32 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        activeName: 'first',
-        fileList: [],
-        editable: false,
-        form: {
-          value1: 'XXXXXXXXXX',
-          value2: 'XXXXXXXXXX',
-          value3: 'XXXXXXXXXX',
-          value4: 'XXXXXXXXXX',
-          value5: 'XXXXXXXXXX',
-          value6: 'XXXXXXXXXX',
-          value7: 'XXXXXXXXXX',
-          value8: 'XXXXXXXXXX',
-          value9: 'XXXXXXXXXX',
-          value0: 'XXXXXXXXXX',
-          value11: 'XXXXXXXXXX'
-        }
-      }
-    },
-    methods: {
-      // 保存按钮触发事件
-      handleSave () {
-        this.$message.success('保存成功')
-      },
-      // 计算按钮触发事件
-      handleCalculate () {
-        this.$message.success('1+1=2')
-      },
-      // 提交按钮触发事件
-      handleSubmit () {
-        this.$message.success('提交成功')
-      },
-      // 编辑icon触发事件
-      handleEdit () {
-        this.editable = true
+export default {
+  data () {
+    return {
+      activeName: 'first',
+      fileList: [],
+      editable: false,
+      form: {
+        value1: 'XXXXXXXXXX',
+        value2: 'XXXXXXXXXX',
+        value3: 'XXXXXXXXXX',
+        value4: 'XXXXXXXXXX',
+        value5: 'XXXXXXXXXX',
+        value6: 'XXXXXXXXXX',
+        value7: 'XXXXXXXXXX',
+        value8: 'XXXXXXXXXX',
+        value9: 'XXXXXXXXXX',
+        value0: 'XXXXXXXXXX',
+        value11: 'XXXXXXXXXX'
       }
     }
+  },
+  methods: {
+    // 编辑icon触发事件
+    handleEdit () {
+      this.editable = true
+    }
   }
+}
 </script>

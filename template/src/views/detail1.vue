@@ -97,47 +97,47 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        editable: false,
-        form: {
-          value1: '输入框输入的文字输入框输入的文字输入框输入的文字输入框输入的文字输入框输入的文字',
-          value2: '1234567890',
-          value3: '0987654321',
-          value4: 'pagoda@pagoda.com',
-          value5: '123456789011',
-          value6: '4001811212',
-          value7: 'www.pagoda.com.cn',
-          value8: '百果园',
-          value9: '5',
-          value0: '100元'
-        },
-        editForm: {},
-        tableData: Array.from({length: 10}, () => ({
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }))
+export default {
+  data () {
+    return {
+      editable: false,
+      form: {
+        value1: '输入框输入的文字输入框输入的文字输入框输入的文字输入框输入的文字输入框输入的文字',
+        value2: '1234567890',
+        value3: '0987654321',
+        value4: 'pagoda@pagoda.com',
+        value5: '123456789011',
+        value6: '4001811212',
+        value7: 'www.pagoda.com.cn',
+        value8: '百果园',
+        value9: '5',
+        value0: '100元'
+      },
+      editForm: {},
+      tableData: Array.from({length: 10}, () => ({
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }))
     }
+  },
+  methods: {
+    handleEdit () {
+      this.editable = true
+      this.editForm = Object.assign({}, this.form)
+      this.$refs.formTableLayout.doLayout()
     },
-    methods: {
-      handleEdit () {
-        this.editable = true
-        this.editForm = Object.assign({}, this.form)
-        this.$refs.formTableLayout.doLayout()
-      },
-      handleCancel () {
-        this.form = Object.assign({}, this.editForm)
-        this.editable = false
-      },
-      handleSave () {
-        this.editable = false
-        this.$refs.formTableLayout.doLayout()
-      },
-      handleBack () {
-        this.$router.push('/main')
-      }
+    handleCancel () {
+      this.form = Object.assign({}, this.editForm)
+      this.editable = false
+    },
+    handleSave () {
+      this.editable = false
+      this.$refs.formTableLayout.doLayout()
+    },
+    handleBack () {
+      this.$router.push('/main')
     }
   }
+}
 </script>
