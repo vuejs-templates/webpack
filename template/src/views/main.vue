@@ -1,119 +1,91 @@
 <template>
-  <pagoda-form-table-layout
-    v-model="formData"
-    :form-options="formOptions"
-    @submit="handleSubmit"
-  >
+  <pagoda-form-table-layout>
+    <!-- 表单 -->
+    <template slot="form" slot-scope="scope">
+      <el-form class="el-form-reset" inline>
+        <el-form-item label="表单label">
+          <el-input></el-input>
+        </el-form-item>
+        <el-form-item label="表单label">
+          <el-input></el-input>
+        </el-form-item>
+        <el-form-item label="表单label">
+          <el-input></el-input>
+        </el-form-item>
+        <el-form-item label="表单label">
+          <el-input></el-input>
+        </el-form-item>
+        <el-form-item label="表单label">
+          <el-input></el-input>
+        </el-form-item>
+        <el-form-item label="表单label">
+          <el-input></el-input>
+        </el-form-item>
+        <el-form-item label="表单label" class="pagoda-form-table-layout__span2">
+          <el-input></el-input>
+        </el-form-item>
+        <!-- 表单操作按钮 -->
+        <div class="pagoda-button-group" v-bind="scope.btnPosition">
+          <el-button>查询</el-button>
+          <el-button>重置</el-button>
+        </div>
+      </el-form>
+    </template>
+    <!-- 表格上方操作按钮 -->
     <template slot="table-btns">
       <div class="pagoda-button-group">
-        <el-button>保存</el-button>
-        <el-button>计算</el-button>
-        <el-button>提交</el-button>
+        <el-button>操作按钮</el-button>
+        <el-button>操作按钮</el-button>
       </div>
     </template>
+    <!-- 实现一屏展示时 一定要配置表格高度 -->
     <template slot="table" slot-scope="scope">
-      <!-- 实现一屏展示时 一定要配置表格高度 -->
-      <pagoda-table
-        :head="tableHead"
-        :request="request"
-        :editColumnConfig="editColumnConfig"
+      <el-table
+        :data="tableData"
         :height="scope.height"
-        column-filter
-      ></pagoda-table>
+      >
+        <el-table-column
+          prop="date"
+          label="日期"
+        ></el-table-column>
+        <el-table-column
+          prop="name"
+          label="姓名"
+        ></el-table-column>
+        <el-table-column
+          prop="address"
+          label="地址"
+        ></el-table-column>
+        <el-table-column
+          prop="date"
+          label="日期"
+        ></el-table-column>
+      </el-table>
+    </template>
+    <!-- 分页 -->
+    <template slot="pagination">
+      <el-pagination
+        :page-sizes="[100, 200, 300, 400]"
+        :page-size="100"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="400"
+        background
+      >
+      </el-pagination>
     </template>
   </pagoda-form-table-layout>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      tableHead: [{
-        prop: 'date',
-        label: '日期'
-      }, {
-        prop: 'name',
-        label: '姓名'
-      }, {
-        prop: 'address',
-        label: '地址'
-      }],
-      editColumnConfig: {
-        label: '操作',
-        width: '240',
-        fixed: 'right',
-        collapse: true,
-        setBtnGroup: (row) => {
-          let detailBtn = {
-            text: '当前标签查看详情',
-            onClick: () => {
-              // 在当前详情页查看详情 列表页与详情页的路由地址要保持有层级关系 例如这里的 /main 和 /main/layout
-              this.$router.push({path: '/main/detail1', query: {a: 1}})
-            }
-          }
-
-          let detailBtn2 = {
-            text: '新增标签查看详情',
-            onClick: () => {
-              // 若当前路由需要打开新标签，则需在路由meta字段中配置tabConfig 详细配置请参考 router/index.js
-              this.$router.push({path: '/detail2', query: {index: row.index}})
-            }
-          }
-
-          return [detailBtn, detailBtn2]
-        }
-      },
-      formData: {},
-      formOptions: [{
-        label: '姓名',
-        type: 'input',
-        key: 'name'
-      }, {
-        label: '性别',
-        type: 'select',
-        key: 'sex',
-        options: [
-          {
-            label: '男'
-          },
-          {
-            label: '女'
-          }
-        ]
-      }],
-      tableData: Array.from({length: 30}, () => ({
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }))
-    }
-  },
-  methods: {
-    handleSubmit () {
-      console.log(this.formData)
-    },
-    request () {
-      return new Promise(resolve => {
-        // 此处模拟调用接口
-        // 调用成功
-        resolve({
-          tableId: 'mokeId',
-          data: Array.from({length: 30}, () => ({
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄'
-          })),
-          // 此处为服务端返回的总数据条数
-          totalDataNum: 20
-        })
-
-        // 接口出错
-        // resolve({
-        //   head,
-        //   data: []
-        // })
-      })
+  export default {
+    data () {
+      return {
+        tableData: Array.from({length: 30}, () => ({
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }))
+      }
     }
   }
-}
 </script>

@@ -2,8 +2,13 @@
   <pagoda-left-right-layout title="左右详情页布局" subTitle="基本信息">
     <template slot="operation">
       <!-- 操作按钮栏插槽 -->
-      <!-- 此处最多只展示3个按钮 其他的操作按钮显示在更多按钮内 所以此处使用row-btns组件的multi-switch功能 -->
-      <pagoda-row-btns :btns="rowBtns" :visibles="btnVisibles" multi-switch></pagoda-row-btns>
+      <!-- 此处最多只展示3个按钮 其他的操作按钮显示在更多按钮内 -->
+      <pagoda-collapse-button>
+        <el-button type="primary">保存按钮</el-button>
+        <el-button type="primary">提交按钮</el-button>
+        <el-button>计算</el-button>
+        <el-button>确认</el-button>
+      </pagoda-collapse-button>
     </template>
     <template slot="tabs">
       <!-- 顶部tab栏插槽 -->
@@ -52,7 +57,7 @@
         </el-form-item>
         <el-form-item label="标签文本5">
           <el-input v-model="form.value5" v-show="editable"></el-input>
-          <p v-show="!editable">{{form.value5}}</p>
+          <p v-show="!editable">\{{form.value5}}</p>
         </el-form-item>
         <el-form-item label="标签文本6">
           <el-input v-model="form.value6" v-show="editable"></el-input>
@@ -84,64 +89,44 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      activeName: 'first',
-      btnVisibles: ['save', 'submit', 'calculate', 'add'],
-      rowBtns: {
-        save: {
-          text: '保存按钮',
-          onClick: this.handleSave
-        },
-        submit: {
-          text: '提交按钮',
-          onClick: this.handleSubmit
-        },
-        calculate: {
-          text: '计算',
-          onClick: this.handleCalculate,
-          tooltip: '结合计算方式和采购系数自动计算请购数量'
-        },
-        add: {
-          text: '确认',
-          onClick: this.handleSubmit
+  export default {
+    data () {
+      return {
+        activeName: 'first',
+        fileList: [],
+        editable: false,
+        form: {
+          value1: 'XXXXXXXXXX',
+          value2: 'XXXXXXXXXX',
+          value3: 'XXXXXXXXXX',
+          value4: 'XXXXXXXXXX',
+          value5: 'XXXXXXXXXX',
+          value6: 'XXXXXXXXXX',
+          value7: 'XXXXXXXXXX',
+          value8: 'XXXXXXXXXX',
+          value9: 'XXXXXXXXXX',
+          value0: 'XXXXXXXXXX',
+          value11: 'XXXXXXXXXX'
         }
+      }
+    },
+    methods: {
+      // 保存按钮触发事件
+      handleSave () {
+        this.$message.success('保存成功')
       },
-      fileList: [],
-      editable: false,
-      form: {
-        value1: 'XXXXXXXXXX',
-        value2: 'XXXXXXXXXX',
-        value3: 'XXXXXXXXXX',
-        value4: 'XXXXXXXXXX',
-        value5: 'XXXXXXXXXX',
-        value6: 'XXXXXXXXXX',
-        value7: 'XXXXXXXXXX',
-        value8: 'XXXXXXXXXX',
-        value9: 'XXXXXXXXXX',
-        value0: 'XXXXXXXXXX',
-        value11: 'XXXXXXXXXX'
+      // 计算按钮触发事件
+      handleCalculate () {
+        this.$message.success('1+1=2')
+      },
+      // 提交按钮触发事件
+      handleSubmit () {
+        this.$message.success('提交成功')
+      },
+      // 编辑icon触发事件
+      handleEdit () {
+        this.editable = true
       }
     }
-  },
-  methods: {
-    // 保存按钮触发事件
-    handleSave () {
-      this.$message.success('保存成功')
-    },
-    // 计算按钮触发事件
-    handleCalculate () {
-      this.$message.success('1+1=2')
-    },
-    // 提交按钮触发事件
-    handleSubmit () {
-      this.$message.success('提交成功')
-    },
-    // 编辑icon触发事件
-    handleEdit () {
-      this.editable = true
-    }
   }
-}
 </script>
