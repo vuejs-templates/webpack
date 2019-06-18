@@ -1,26 +1,39 @@
-{{#if_eq build "standalone"}}
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-{{/if_eq}}
 import Vue from 'vue'
 import App from './App'
-{{#router}}
 import router from './router'
-{{/router}}
+
+// 引入element-ui 作为依赖
+import ElementUi from 'element-ui'
+
+import pagodaComponents from 'pagoda-ui'
+
+import 'pagoda-ui/src/theme/theme1.scss'
+import 'pagoda-ui/src/theme/ui-reset.scss'
+
+ElementUi.Button.setDefaults({
+  default: {
+    type: 'info',
+    plain: true
+  },
+  '查询': {
+    type: 'primary'
+  },
+  '保存': {
+    type: 'primary'
+  }
+})
+
+Vue.use(pagodaComponents)
+Vue.use(ElementUi, {size: 'mini'})
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  {{#router}}
   router,
-  {{/router}}
-  {{#if_eq build "runtime"}}
-  render: h => h(App)
-  {{/if_eq}}
-  {{#if_eq build "standalone"}}
   components: { App },
   template: '<App/>'
-  {{/if_eq}}
 })

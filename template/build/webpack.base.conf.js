@@ -3,12 +3,18 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+// 此处为添加的配置
+const fs = require('fs')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-{{#lint}}const createLintingRule = () => ({
+//此处为添加的配置
+let pagodaUiDirsName = fs.readdirSync(resolve('node_modules')).filter(dirName => /pagoda-ui/.test(dirName) || /pagoda-ui-test/.test(dirName))
+const includesDir = pagodaUiDirsName.map(dir => resolve(`node_modules/${dir}/src`))
+
+const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
   enforce: 'pre',
@@ -17,7 +23,7 @@ function resolve (dir) {
     formatter: require('eslint-friendly-formatter'),
     emitWarning: !config.dev.showEslintErrorsInOverlay
   }
-}){{/lint}}
+})
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -34,17 +40,13 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
-      {{/if_eq}}
       '@': resolve('src'),
     }
   },
   module: {
     rules: [
-      {{#lint}}
       ...(config.dev.useEslint ? [createLintingRule()] : []),
-      {{/lint}}
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -53,7 +55,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client'), ...includesDir]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
