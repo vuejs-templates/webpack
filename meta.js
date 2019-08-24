@@ -37,19 +37,19 @@ module.exports = {
       when: 'isNotTest',
       type: 'string',
       required: true,
-      message: 'Project name',
+      message: '项目名称',
     },
     description: {
       when: 'isNotTest',
       type: 'string',
       required: false,
-      message: 'Project description',
+      message: '项目描述',
       default: 'A Vue.js project',
     },
     author: {
       when: 'isNotTest',
       type: 'string',
-      message: 'Author',
+      message: '作者',
     },
     build: {
       when: 'isNotTest',
@@ -72,17 +72,17 @@ module.exports = {
     router: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Install vue-router?',
+      message: '下载vue-router吗?',
     },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Use ESLint to lint your code?',
+      message: '使用ESLint规范你的代码吗?',
     },
     lintConfig: {
       when: 'isNotTest && lint',
       type: 'list',
-      message: 'Pick an ESLint preset',
+      message: '选择一个ESLint preset',
       choices: [
         {
           name: 'Standard (https://github.com/standard/standard)',
@@ -104,7 +104,7 @@ module.exports = {
     unit: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Set up unit tests',
+      message: '设置unit tests',
     },
     runner: {
       when: 'isNotTest && unit',
