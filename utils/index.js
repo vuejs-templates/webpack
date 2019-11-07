@@ -14,7 +14,20 @@ exports.sortDependencies = function sortDependencies(data) {
     data.inPlace ? '' : data.destDirName,
     'package.json'
   )
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonFile))
+  const packageJson = {
+    "name": "vue-cli-template-webpack",
+    "version": "1.3.1",
+    "license": "MIT",
+    "description": "A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.",
+    "scripts": {
+      "docs": "cd docs && gitbook serve",
+      "docs:deploy": "bash ./deploy-docs.sh"
+    },
+    "devDependencies": {
+      "vue-cli": "^2.8.1"
+    }
+  }
+  
   packageJson.devDependencies = sortObject(packageJson.devDependencies)
   packageJson.dependencies = sortObject(packageJson.dependencies)
   fs.writeFileSync(packageJsonFile, JSON.stringify(packageJson, null, 2) + '\n')
