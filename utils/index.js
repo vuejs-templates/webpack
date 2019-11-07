@@ -69,9 +69,7 @@ exports.printMessage = function printMessage(data, { green, yellow }) {
   const message = `
 # ${green('Project initialization finished!')}
 # ========================
-
 To get started:
-
   ${yellow(
     `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${installMsg(
       data
