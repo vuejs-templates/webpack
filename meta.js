@@ -44,7 +44,7 @@ module.exports = {
       type: 'string',
       required: false,
       message: 'Project description',
-      default: 'A Vue.js project',
+      default: 'Projeto padrão Huddle',
     },
     author: {
       when: 'isNotTest',
