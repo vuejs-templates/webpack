@@ -11,9 +11,8 @@
   "plugins": ["transform-vue-jsx", "transform-runtime"]{{#if_or unit e2e}},
   "env": {
     "test": {
-      "presets": ["env", "stage-2"]{{#if_eq runner "karma"}},
-      "plugins": ["transform-vue-jsx", "istanbul"]{{/if_eq}}{{#if_eq runner "jest"}},
-      "plugins": ["transform-vue-jsx", "transform-es2015-modules-commonjs", "dynamic-import-node"]{{/if_eq}}
+      "presets": ["env", "stage-2"]{{#unit}},
+      "plugins": ["transform-vue-jsx", "transform-es2015-modules-commonjs", "dynamic-import-node"]{{/unit}}
     }
   }{{/if_or}}
 }
