@@ -56,6 +56,21 @@ module.exports = {
       type: 'confirm',
       message: 'Install vue-router?',
     },
+    vuex: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Install vuex?',
+    },
+    elementui: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Install Element-UI?',
+    },
+    validate:{
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Install Vee-validate?',
+    },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
@@ -99,11 +114,13 @@ module.exports = {
     '.eslintrc.js': 'lint',
     '.eslintignore': 'lint',
     'config/test.env.js': 'unit || e2e',
+    'src/public/zh_CN.js':'validate',
     'test/unit/**/*': 'unit',
     'test/unit/jest.conf.js': "unit ",
     'test/unit/setup.js': "unit",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
+    'src/store/**/*': 'vuex',
   },
   complete: function(data, { chalk }) {
     const green = chalk.green

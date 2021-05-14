@@ -27,8 +27,22 @@ exports.cssLoaders = function (options) {
     options: {
       sourceMap: options.sourceMap
     }
-  }
-
+  };
+  const lessLoader={
+    loader:"less-loader",
+    options: {
+      sourceMap: options.sourceMap
+    }
+  };
+  const sassResourceLoader={
+    loader: 'sass-resources-loader',
+    options: {
+      resources:  [
+        /*'../src/assets/sprites/!*.scss',*/ // ÐèÒª¿ªÆôsprites
+        path.resolve(__dirname,'../src/assets/css/global-variables.scss')
+      ]
+    }
+  };
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
@@ -39,7 +53,10 @@ exports.cssLoaders = function (options) {
         options: Object.assign({}, loaderOptions, {
           sourceMap: options.sourceMap
         })
-      })
+      });
+      if(loader==='sass'){
+        loaders.push(sassResourceLoader)
+      }
     }
 
     // Extract CSS when that option is specified
